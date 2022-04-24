@@ -1,4 +1,4 @@
-Rem scr& = _NewImage(800, 600, 256)
+Rem Let scr& = _NewImage(800, 600, 256)
 Rem Screen scr&
 Screen 12
 DefInt A-Z
@@ -2457,7 +2457,7 @@ Rem Chess board
 Dim board(8, 8) As Integer
 Let cell = 800
 For row = 1 To 8: For col = 1 To 8
-    board(row, col) = cell + 1
+    Let board(row, col) = cell + 1
     Let cell = cell + 1
 Next col: Next row
 
@@ -2514,7 +2514,7 @@ Line (420, 60)-(420, 460), c3
 Line (470, 60)-(470, 460), c3
 Line (520, 60)-(520, 460), c3
 
-Rem Coordinates
+Rem Printing coordinates
 
 Restore number1
 Let xz = 105: Let yz = 430
@@ -2701,30 +2701,26 @@ Rem Shapes background
 
 Let cw = 3: Let cb = 3
 
-If dice1 = 1 And dice2 = 1 Or dice1 = 1 And dice2 = 3 Or dice1 = 1 And dice2 = 5 Or dice1 = 1 And dice2 = 7 Then cw = 6
-If dice1 = 3 And dice2 = 1 Or dice1 = 3 And dice2 = 3 Or dice1 = 3 And dice2 = 5 Or dice1 = 3 And dice2 = 7 Then cw = 6
-If dice1 = 5 And dice2 = 1 Or dice1 = 5 And dice2 = 3 Or dice1 = 5 And dice2 = 5 Or dice1 = 5 And dice2 = 7 Then cw = 6
-If dice1 = 7 And dice2 = 1 Or dice1 = 7 And dice2 = 3 Or dice1 = 7 And dice2 = 5 Or dice1 = 7 And dice2 = 7 Then cw = 6
-If dice1 = 2 And dice2 = 2 Or dice1 = 2 And dice2 = 4 Or dice1 = 2 And dice2 = 6 Or dice1 = 2 And dice2 = 8 Then cw = 6
-If dice1 = 4 And dice2 = 2 Or dice1 = 4 And dice2 = 4 Or dice1 = 4 And dice2 = 6 Or dice1 = 4 And dice2 = 8 Then cw = 6
-If dice1 = 6 And dice2 = 2 Or dice1 = 6 And dice2 = 4 Or dice1 = 6 And dice2 = 6 Or dice1 = 6 And dice2 = 8 Then cw = 6
-If dice1 = 8 And dice2 = 2 Or dice1 = 8 And dice2 = 4 Or dice1 = 8 And dice2 = 6 Or dice1 = 8 And dice2 = 8 Then cw = 6
+If dice1 = 1 And dice2 = 1 Or dice1 = 1 And dice2 = 3 Or dice1 = 1 And dice2 = 5 Or dice1 = 1 And dice2 = 7 Then Let cw = 6
+If dice1 = 3 And dice2 = 1 Or dice1 = 3 And dice2 = 3 Or dice1 = 3 And dice2 = 5 Or dice1 = 3 And dice2 = 7 Then Let cw = 6
+If dice1 = 5 And dice2 = 1 Or dice1 = 5 And dice2 = 3 Or dice1 = 5 And dice2 = 5 Or dice1 = 5 And dice2 = 7 Then Let cw = 6
+If dice1 = 7 And dice2 = 1 Or dice1 = 7 And dice2 = 3 Or dice1 = 7 And dice2 = 5 Or dice1 = 7 And dice2 = 7 Then Let cw = 6
+If dice1 = 2 And dice2 = 2 Or dice1 = 2 And dice2 = 4 Or dice1 = 2 And dice2 = 6 Or dice1 = 2 And dice2 = 8 Then Let cw = 6
+If dice1 = 4 And dice2 = 2 Or dice1 = 4 And dice2 = 4 Or dice1 = 4 And dice2 = 6 Or dice1 = 4 And dice2 = 8 Then Let cw = 6
+If dice1 = 6 And dice2 = 2 Or dice1 = 6 And dice2 = 4 Or dice1 = 6 And dice2 = 6 Or dice1 = 6 And dice2 = 8 Then Let cw = 6
+If dice1 = 8 And dice2 = 2 Or dice1 = 8 And dice2 = 4 Or dice1 = 8 And dice2 = 6 Or dice1 = 8 And dice2 = 8 Then Let cw = 6
 
-If dice4 = 1 And dice5 = 1 Or dice4 = 1 And dice5 = 3 Or dice4 = 1 And dice5 = 5 Or dice4 = 1 And dice5 = 7 Then cb = 6
-If dice4 = 3 And dice5 = 1 Or dice4 = 3 And dice5 = 3 Or dice4 = 3 And dice5 = 5 Or dice4 = 3 And dice5 = 7 Then cb = 6
-If dice4 = 5 And dice5 = 1 Or dice4 = 5 And dice5 = 3 Or dice4 = 5 And dice5 = 5 Or dice4 = 5 And dice5 = 7 Then cb = 6
-If dice4 = 7 And dice5 = 1 Or dice4 = 7 And dice5 = 3 Or dice4 = 7 And dice5 = 5 Or dice4 = 7 And dice5 = 7 Then cb = 6
-If dice4 = 2 And dice5 = 2 Or dice4 = 2 And dice5 = 4 Or dice4 = 2 And dice5 = 6 Or dice4 = 2 And dice5 = 8 Then cb = 6
-If dice4 = 4 And dice5 = 2 Or dice4 = 4 And dice5 = 4 Or dice4 = 4 And dice5 = 6 Or dice4 = 4 And dice5 = 8 Then cb = 6
-If dice4 = 6 And dice5 = 2 Or dice4 = 6 And dice5 = 4 Or dice4 = 6 And dice5 = 6 Or dice4 = 6 And dice5 = 8 Then cb = 6
-If dice4 = 8 And dice5 = 2 Or dice4 = 8 And dice5 = 4 Or dice4 = 8 And dice5 = 6 Or dice4 = 8 And dice5 = 8 Then cb = 6
+If dice4 = 1 And dice5 = 1 Or dice4 = 1 And dice5 = 3 Or dice4 = 1 And dice5 = 5 Or dice4 = 1 And dice5 = 7 Then Let cb = 6
+If dice4 = 3 And dice5 = 1 Or dice4 = 3 And dice5 = 3 Or dice4 = 3 And dice5 = 5 Or dice4 = 3 And dice5 = 7 Then Let cb = 6
+If dice4 = 5 And dice5 = 1 Or dice4 = 5 And dice5 = 3 Or dice4 = 5 And dice5 = 5 Or dice4 = 5 And dice5 = 7 Then Let cb = 6
+If dice4 = 7 And dice5 = 1 Or dice4 = 7 And dice5 = 3 Or dice4 = 7 And dice5 = 5 Or dice4 = 7 And dice5 = 7 Then Let cb = 6
+If dice4 = 2 And dice5 = 2 Or dice4 = 2 And dice5 = 4 Or dice4 = 2 And dice5 = 6 Or dice4 = 2 And dice5 = 8 Then Let cb = 6
+If dice4 = 4 And dice5 = 2 Or dice4 = 4 And dice5 = 4 Or dice4 = 4 And dice5 = 6 Or dice4 = 4 And dice5 = 8 Then Let cb = 6
+If dice4 = 6 And dice5 = 2 Or dice4 = 6 And dice5 = 4 Or dice4 = 6 And dice5 = 6 Or dice4 = 6 And dice5 = 8 Then Let cb = 6
+If dice4 = 8 And dice5 = 2 Or dice4 = 8 And dice5 = 4 Or dice4 = 8 And dice5 = 6 Or dice4 = 8 And dice5 = 8 Then Let cb = 6
 
-Let x1 = 21: Let y1 = 136
-Let x2 = 21: Let y2 = 236
-Let x3 = 21: Let y3 = 336
-Let x4 = 571: Let y4 = 136
-Let x5 = 571: Let y5 = 236
-Let x6 = 571: Let y6 = 336
+Let x1 = 21: Let y1 = 136: Let x2 = 21: Let y2 = 236: Let x3 = 21: Let y3 = 336
+Let x4 = 571: Let y4 = 136: Let x5 = 571: Let y5 = 236: Let x6 = 571: Let y6 = 336
 
 Rem Drawing dices
 
@@ -2742,7 +2738,7 @@ If dice1 = 10 Then Restore dice0
 For y = 0 To 47
     For x = 0 To 47
         Read c
-        If c = 7 Then c = c * 2
+        If c = 7 Then Let c = c * 2
         PSet (x + x1, y + y1), c
     Next x
 Next y
@@ -2761,12 +2757,11 @@ If dice2 = 10 Then Restore dice0
 For y = 0 To 47
     For x = 0 To 47
         Read c
-        If c = 7 Then c = c * 2
+        If c = 7 Then Let c = c * 2
         PSet (x + x2, y + y2), c
     Next x
 Next y
 
-If count = 1 Then dice3 = 1
 If dice3 = 1 Then Restore dice1
 If dice3 = 2 Then Restore dice2
 If dice3 = 3 Then Restore dice3
@@ -2781,7 +2776,7 @@ If dice3 = 10 Then Restore dice0
 For y = 0 To 47
     For x = 0 To 47
         Read c
-        If c = 7 Then c = c * 2
+        If c = 7 Then Let c = c * 2
         PSet (x + x3, y + y3), c
     Next x
 Next y
@@ -2800,7 +2795,7 @@ If dice4 = 10 Then Restore dice0
 For y = 0 To 47
     For x = 0 To 47
         Read c
-        If c = 7 Then c = c * 2
+        If c = 7 Then Let c = c * 2
         PSet (x + x4, y + y4), c
     Next x
 Next y
@@ -2819,12 +2814,11 @@ If dice5 = 10 Then Restore dice0
 For y = 0 To 47
     For x = 0 To 47
         Read c
-        If c = 7 Then c = c * 2
+        If c = 7 Then Let c = c * 2
         PSet (x + x5, y + y5), c
     Next x
 Next y
 
-If count = 1 Then dice6 = 1
 If dice6 = 1 Then Restore dice1
 If dice6 = 2 Then Restore dice2
 If dice6 = 3 Then Restore dice3
@@ -2839,7 +2833,7 @@ If dice6 = 10 Then Restore dice0
 For y = 0 To 47
     For x = 0 To 47
         Read c
-        If c = 7 Then c = c * 2
+        If c = 7 Then Let c = c * 2
         PSet (x + x6, y + y6), c
     Next x
 Next y
@@ -2866,7 +2860,7 @@ If dice1 = 10 Then Restore letterJ
 For y = 0 To 47
     For x = 0 To 47
         Read c
-        If c = 7 Then c = c * 2
+        If c = 7 Then Let c = c * 2
         PSet (x + x1, y + y1), c
     Next x
 Next y
@@ -2885,12 +2879,11 @@ If dice2 = 10 Then Restore letter0
 For y = 0 To 47
     For x = 0 To 47
         Read c
-        If c = 7 Then c = c * 2
+        If c = 7 Then Let c = c * 2
         PSet (x + x2, y + y2), c
     Next x
 Next y
 
-If count = 1 Then dice3 = 1
 If dice3 = 1 Then Restore kingwhite
 If dice3 = 2 Then Restore queenwhite
 If dice3 = 3 Then Restore bishopwhite
@@ -2904,7 +2897,9 @@ If dice3 = 10 Then Restore cannonwhite
 
 For y = 0 To 47
     For x = 0 To 47
-        Read c: PSet (x + x3, y + y3), c
+        Read c
+        If c = 7 Then Let c = c * 2
+        PSet (x + x3, y + y3), c
     Next x
 Next y
 
@@ -2922,7 +2917,7 @@ If dice4 = 10 Then Restore letterJ
 For y = 0 To 47
     For x = 0 To 47
         Read c
-        If c = 7 Then c = c * 2
+        If c = 7 Then Let c = c * 2
         PSet (x + x4, y + y4), c
     Next x
 Next y
@@ -2941,12 +2936,11 @@ If dice5 = 10 Then Restore letter0
 For y = 0 To 47
     For x = 0 To 47
         Read c
-        If c = 7 Then c = c * 2
+        If c = 7 Then Let c = c * 2
         PSet (x + x5, y + y5), c
     Next x
 Next y
 
-If count = 1 Then dice6 = 1
 If dice6 = 1 Then Restore kingblack
 If dice6 = 2 Then Restore queenblack
 If dice6 = 3 Then Restore bishopblack
@@ -2960,7 +2954,9 @@ If dice6 = 10 Then Restore cannonblack
 
 For y = 0 To 47
     For x = 0 To 47
-        Read c: PSet (x + x6, y + y6), c
+        Read c
+        If c = 7 Then Let c = c * 2
+        PSet (x + x6, y + y6), c
     Next x
 Next y
 
@@ -2981,7 +2977,7 @@ Let xz = 250: Let yz = 18
 For y = 0 To 9
     For x = 0 To 9
         Read c
-        If c = 7 Then c = 13
+        If c = 7 Then Let c = 13
         PSet (x + xz, y + yz), c
     Next x
 Next y
@@ -3001,20 +2997,18 @@ Let xz = 265: Let yz = 18
 For y = 0 To 9
     For x = 0 To 9
         Read c
-        If c = 7 Then c = 13
+        If c = 7 Then Let c = 13
         PSet (x + xz, y + yz), c
     Next x
 Next y
 
-If count = 1 Then dice3 = 1
-If count = 2 And dice3 = 1 Or count = 3 And dice3 = 1 Then dice3 = 6
-If dice3 = 1 Then wf$ = "White king"
-If dice3 = 2 Then wf$ = "White queen"
-If dice3 = 3 Then wf$ = "White bishop"
-If dice3 = 4 Then wf$ = "White knight"
-If dice3 = 5 Then wf$ = "White rook"
-If dice3 = 6 Then wf$ = "White pawn"
-If dice3 = 7 Then wf$ = "White cannon"
+If dice3 = 1 Then Let wf$ = "White king"
+If dice3 = 2 Then Let wf$ = "White queen"
+If dice3 = 3 Then Let wf$ = "White bishop"
+If dice3 = 4 Then Let wf$ = "White knight"
+If dice3 = 5 Then Let wf$ = "White rook"
+If dice3 = 6 Then Let wf$ = "White pawn"
+If dice3 = 7 Then Let wf$ = "White cannon"
 
 Color 5: Locate 2, 17: Print wf$; Spc(1); Chr$(16)
 
@@ -3031,7 +3025,7 @@ Let xz = 365: Let yz = 18
 For y = 0 To 9
     For x = 0 To 9
         Read c
-        If c = 7 Then c = 13
+        If c = 7 Then Let c = 13
         PSet (x + xz, y + yz), c
     Next x
 Next y
@@ -3051,24 +3045,22 @@ Let xz = 380: Let yz = 18
 For y = 0 To 9
     For x = 0 To 9
         Read c
-        If c = 7 Then c = 13
+        If c = 7 Then Let c = 13
         PSet (x + xz, y + yz), c
     Next x
 Next y
 
-If count = 1 Then dice6 = 1
-If count = 2 And dice6 = 1 Or count = 3 And dice6 = 1 Then dice6 = 6
-If dice6 = 1 Then bf$ = "Black king"
-If dice6 = 2 Then bf$ = "Black queen"
-If dice6 = 3 Then bf$ = "Black bishop"
-If dice6 = 4 Then bf$ = "Black knight"
-If dice6 = 5 Then bf$ = "Black rook"
-If dice6 = 6 Then bf$ = "Black pawn"
-If dice6 = 7 Then bf$ = "Black cannon"
+If dice6 = 1 Then Let bf$ = "Black king"
+If dice6 = 2 Then Let bf$ = "Black queen"
+If dice6 = 3 Then Let bf$ = "Black bishop"
+If dice6 = 4 Then Let bf$ = "Black knight"
+If dice6 = 5 Then Let bf$ = "Black rook"
+If dice6 = 6 Then Let bf$ = "Black pawn"
+If dice6 = 7 Then Let bf$ = "Black cannon"
 
-If dice6 = 1 Or dice6 = 5 Or dice6 = 6 Then y = 53
-If dice6 = 2 Then y = 52
-If dice6 = 3 Or dice6 = 4 Or dice6 = 7 Then y = 51
+If dice6 = 1 Or dice6 = 5 Or dice6 = 6 Then Let y = 53
+If dice6 = 2 Then Let y = 52
+If dice6 = 3 Or dice6 = 4 Or dice6 = 7 Then Let y = 51
 Color 5: Locate 2, y: Print Chr$(17); Spc(1); bf$
 
 Rem Printing figures
@@ -3081,30 +3073,27 @@ If dice3 = 5 Then Restore rookwhite
 If dice3 = 6 Then Restore pawnwhite
 If dice3 = 7 Then Restore cannonwhite
 
-If dice1 = 1 Then xz = 121
-If dice1 = 2 Then xz = 171
-If dice1 = 3 Then xz = 221
-If dice1 = 4 Then xz = 271
-If dice1 = 5 Then xz = 321
-If dice1 = 6 Then xz = 371
-If dice1 = 7 Then xz = 421
-If dice1 = 8 Then xz = 471
-If dice2 = 1 Then yz = 411
-If dice2 = 2 Then yz = 361
-If dice2 = 3 Then yz = 311
-If dice2 = 4 Then yz = 261
-If dice2 = 5 Then yz = 211
-If dice2 = 6 Then yz = 161
-If dice2 = 7 Then yz = 111
-If dice2 = 8 Then yz = 61
-
-If count = 1 Then Restore kingwhite
-If count = 2 And dice3 = 1 Or count = 3 And dice3 = 1 Then Restore pawnwhite
+If dice1 = 1 Then Let xz = 121
+If dice1 = 2 Then Let xz = 171
+If dice1 = 3 Then Let xz = 221
+If dice1 = 4 Then Let xz = 271
+If dice1 = 5 Then Let xz = 321
+If dice1 = 6 Then Let xz = 371
+If dice1 = 7 Then Let xz = 421
+If dice1 = 8 Then Let xz = 471
+If dice2 = 1 Then Let yz = 411
+If dice2 = 2 Then Let yz = 361
+If dice2 = 3 Then Let yz = 311
+If dice2 = 4 Then Let yz = 261
+If dice2 = 5 Then Let yz = 211
+If dice2 = 6 Then Let yz = 161
+If dice2 = 7 Then Let yz = 111
+If dice2 = 8 Then Let yz = 61
 
 For y = 0 To 47
     For x = 0 To 47
         Read c
-        If c = 2 Then c = cw
+        If c = 2 Then Let c = cw
         PSet (x + xz, y + yz), c
     Next x
 Next y
@@ -3117,30 +3106,27 @@ If dice6 = 5 Then Restore rookblack
 If dice6 = 6 Then Restore pawnblack
 If dice6 = 7 Then Restore cannonblack
 
-If dice4 = 1 Then xz = 121
-If dice4 = 2 Then xz = 171
-If dice4 = 3 Then xz = 221
-If dice4 = 4 Then xz = 271
-If dice4 = 5 Then xz = 321
-If dice4 = 6 Then xz = 371
-If dice4 = 7 Then xz = 421
-If dice4 = 8 Then xz = 471
-If dice5 = 1 Then yz = 411
-If dice5 = 2 Then yz = 361
-If dice5 = 3 Then yz = 311
-If dice5 = 4 Then yz = 261
-If dice5 = 5 Then yz = 211
-If dice5 = 6 Then yz = 161
-If dice5 = 7 Then yz = 111
-If dice5 = 8 Then yz = 61
-
-If count = 1 Then Restore kingblack
-If count = 2 And dice6 = 1 Or count = 3 And dice6 = 1 Then Restore pawnblack
+If dice4 = 1 Then Let xz = 121
+If dice4 = 2 Then Let xz = 171
+If dice4 = 3 Then Let xz = 221
+If dice4 = 4 Then Let xz = 271
+If dice4 = 5 Then Let xz = 321
+If dice4 = 6 Then Let xz = 371
+If dice4 = 7 Then Let xz = 421
+If dice4 = 8 Then Let xz = 471
+If dice5 = 1 Then Let yz = 411
+If dice5 = 2 Then Let yz = 361
+If dice5 = 3 Then Let yz = 311
+If dice5 = 4 Then Let yz = 261
+If dice5 = 5 Then Let yz = 211
+If dice5 = 6 Then Let yz = 161
+If dice5 = 7 Then Let yz = 111
+If dice5 = 8 Then Let yz = 61
 
 For y = 0 To 47
     For x = 0 To 47
         Read c
-        If c = 2 Then c = cb
+        If c = 2 Then Let c = cb
         PSet (x + xz, y + yz), c
     Next x
 Next y
@@ -3156,58 +3142,90 @@ End
 
 count1:
 
+If count = 1 Then Let dice3 = 1
+If count = 1 Then Let dice6 = 1
 Let w1 = board(dice2, dice1): Let b1 = board(dice5, dice4)
-
-move1:
-
-If w1 = b1 Or w1 = b1 - 8 Or w1 = b1 - 7 Or w1 = b1 - 1 Or w1 = b1 + 1 Or w1 = b1 + 7 Or w1 = b1 + 8 Then GoTo roll1
+If w1 = b1 Or w1 = b1 - 9 Or w1 = b1 - 8 Or w1 = b1 - 7 Or w1 = b1 - 1 Or w1 = b1 + 1 Or w1 = b1 + 7 Or w1 = b1 + 8 Or w1 = b1 + 9 Then Let dice1 = Int(Rnd * 8 + 1)
+If w1 = b1 Or w1 = b1 - 9 Or w1 = b1 - 8 Or w1 = b1 - 7 Or w1 = b1 - 1 Or w1 = b1 + 1 Or w1 = b1 + 7 Or w1 = b1 + 8 Or w1 = b1 + 9 Then Let dice2 = Int(Rnd * 8 + 1)
+If w1 = b1 Or w1 = b1 - 9 Or w1 = b1 - 8 Or w1 = b1 - 7 Or w1 = b1 - 1 Or w1 = b1 + 1 Or w1 = b1 + 7 Or w1 = b1 + 8 Or w1 = b1 + 9 Then Let dice4 = Int(Rnd * 8 + 1)
+If w1 = b1 Or w1 = b1 - 9 Or w1 = b1 - 8 Or w1 = b1 - 7 Or w1 = b1 - 1 Or w1 = b1 + 1 Or w1 = b1 + 7 Or w1 = b1 + 8 Or w1 = b1 + 9 Then Let dice5 = Int(Rnd * 8 + 1)
+If w1 = b1 Or w1 = b1 - 9 Or w1 = b1 - 8 Or w1 = b1 - 7 Or w1 = b1 - 1 Or w1 = b1 + 1 Or w1 = b1 + 7 Or w1 = b1 + 8 Or w1 = b1 + 9 Then GoTo count1
+Let w1 = board(dice2, dice1): Let b1 = board(dice5, dice4)
+Let fw1 = dice1: Let fw2 = dice2: Let fb1 = dice4: Let fb2 = dice5
 
 Return
 
 count2:
 
-If dice3 = 6 And dice1 = 1 Or dice3 = 6 And dice1 = 8 Then GoTo roll2
-If dice6 = 6 And dice4 = 1 Or dice6 = 6 And dice4 = 8 Then GoTo roll3
+If count = 2 And dice3 = 1 Or count = 3 And dice3 = 1 Then Let dice3 = 6
+If count = 2 And dice6 = 1 Or count = 3 And dice6 = 1 Then Let dice6 = 6
 Let w2 = board(dice2, dice1): Let b2 = board(dice5, dice4)
 
-move2:
+pawn2:
 
-If w2 = w1 Or w2 = b1 Or w2 = b2 Then GoTo roll4
-If b2 = w1 Or b2 = b1 Or b2 = w2 Then GoTo roll5
+If dice3 = 6 And dice2 = 1 Or dice3 = 6 And dice2 = 8 Then dice2 = Int(Rnd * 8 + 1)
+If dice6 = 6 And dice5 = 1 Or dice6 = 6 And dice5 = 8 Then dice5 = Int(Rnd * 8 + 1)
+If dice3 = 6 And dice2 = 1 Or dice3 = 6 And dice2 = 8 Then GoTo pawn2
+If dice6 = 6 And dice5 = 1 Or dice6 = 6 And dice5 = 8 Then GoTo pawn2
+If dice3 = 6 And b1 = w2 + 9 Or dice3 = 6 And b1 = w2 + 7 Then dice4 = Int(Rnd * 8 + 1)
+If dice3 = 6 And b1 = w2 + 9 Or dice3 = 6 And b1 = w2 + 7 Then dice5 = Int(Rnd * 8 + 1)
+If dice6 = 6 And w1 = b2 - 9 Or dice6 = 6 And w1 = b2 - 7 Then dice1 = Int(Rnd * 8 + 1)
+If dice6 = 6 And w1 = b2 - 9 Or dice6 = 6 And w1 = b2 - 7 Then dice2 = Int(Rnd * 8 + 1)
+If dice3 = 6 And dice2 = 1 Or dice3 = 6 And dice2 = 8 Then GoTo pawn2
+If dice6 = 6 And dice5 = 1 Or dice6 = 6 And dice5 = 8 Then GoTo pawn2
+
+rook2:
+
+If dice3 = 5 And dice1 = fb1 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 5 And dice2 = fb2 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice6 = 5 And dice4 = fw1 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 5 And dice5 = fw2 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice3 = 5 And dice1 = fw1 Or dice3 = 5 And dice2 = fw2 Or dice6 = 5 And dice4 = fb1 Or dice6 = 5 And dice5 = fb2 Then GoTo rook2
+
+knight2:
+
+If dice3 = 4 And w2 = b1 - 17 Or dice3 = 4 And w2 = b1 - 15 Or dice3 = 4 And w2 = b1 - 10 Or dice3 = 4 And w2 = b1 - 6 Then dice1 = Int(Rnd * 8 + 1)
+If dice3 = 4 And w2 = b1 - 17 Or dice3 = 4 And w2 = b1 - 15 Or dice3 = 4 And w2 = b1 - 10 Or dice3 = 4 And w2 = b1 - 6 Then dice2 = Int(Rnd * 8 + 1)
+If dice3 = 4 And w2 = b1 + 17 Or dice3 = 4 And w2 = b1 + 15 Or dice3 = 4 And w2 = b1 + 10 Or dice3 = 4 And w2 = b1 + 6 Then dice1 = Int(Rnd * 8 + 1)
+If dice3 = 4 And w2 = b1 + 17 Or dice3 = 4 And w2 = b1 + 15 Or dice3 = 4 And w2 = b1 + 10 Or dice3 = 4 And w2 = b1 + 6 Then dice2 = Int(Rnd * 8 + 1)
+If dice6 = 4 And b2 = w1 - 17 Or dice6 = 4 And b2 = w1 - 15 Or dice6 = 4 And b2 = w1 - 10 Or dice6 = 4 And b2 = w1 - 6 Then dice4 = Int(Rnd * 8 + 1)
+If dice6 = 4 And b2 = w1 - 17 Or dice6 = 4 And b2 = w1 - 15 Or dice6 = 4 And b2 = w1 - 10 Or dice6 = 4 And b2 = w1 - 6 Then dice5 = Int(Rnd * 8 + 1)
+If dice6 = 4 And b2 = w1 + 17 Or dice6 = 4 And b2 = w1 + 15 Or dice6 = 4 And b2 = w1 + 10 Or dice6 = 4 And b2 = w1 + 6 Then dice4 = Int(Rnd * 8 + 1)
+If dice6 = 4 And b2 = w1 + 17 Or dice6 = 4 And b2 = w1 + 15 Or dice6 = 4 And b2 = w1 + 10 Or dice6 = 4 And b2 = w1 + 6 Then dice5 = Int(Rnd * 8 + 1)
+If dice3 = 4 And w2 = b1 - 17 Or dice3 = 4 And w2 = b1 - 15 Or dice3 = 4 And w2 = b1 - 10 Or dice3 = 4 And w2 = b1 - 6 Then GoTo knight2
+If dice3 = 4 And w2 = b1 - 17 Or dice3 = 4 And w2 = b1 - 15 Or dice3 = 4 And w2 = b1 - 10 Or dice3 = 4 And w2 = b1 - 6 Then GoTo knight2
+If dice3 = 4 And w2 = b1 + 17 Or dice3 = 4 And w2 = b1 + 15 Or dice3 = 4 And w2 = b1 + 10 Or dice3 = 4 And w2 = b1 + 6 Then GoTo knight2
+If dice3 = 4 And w2 = b1 + 17 Or dice3 = 4 And w2 = b1 + 15 Or dice3 = 4 And w2 = b1 + 10 Or dice3 = 4 And w2 = b1 + 6 Then GoTo knight2
+If dice6 = 4 And b2 = w1 - 17 Or dice6 = 4 And b2 = w1 - 15 Or dice6 = 4 And b2 = w1 - 10 Or dice6 = 4 And b2 = w1 - 6 Then GoTo knight2
+If dice6 = 4 And b2 = w1 - 17 Or dice6 = 4 And b2 = w1 - 15 Or dice6 = 4 And b2 = w1 - 10 Or dice6 = 4 And b2 = w1 - 6 Then GoTo knight2
+If dice6 = 4 And b2 = w1 + 17 Or dice6 = 4 And b2 = w1 + 15 Or dice6 = 4 And b2 = w1 + 10 Or dice6 = 4 And b2 = w1 + 6 Then GoTo knight2
+If dice6 = 4 And b2 = w1 + 17 Or dice6 = 4 And b2 = w1 + 15 Or dice6 = 4 And b2 = w1 + 10 Or dice6 = 4 And b2 = w1 + 6 Then GoTo knight2
+
+bishop2:
+
+If dice3 = 3 And w2 = b1 - 63 Or dice3 = 3 And w2 = b1 - 54 Or dice3 = 3 And w2 = b1 - 45 Or dice3 = 3 And w2 = b1 - 36 Then dice1 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 - 27 Or dice3 = 3 And w2 = b1 - 18 Or dice3 = 3 And w2 = b1 - 9 Then dice1 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 + 27 Or dice3 = 3 And w2 = b1 + 18 Or dice3 = 3 And w2 = b1 + 9 Then dice1 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 + 63 Or dice3 = 3 And w2 = b1 + 54 Or dice3 = 3 And w2 = b1 + 45 Or dice3 = 3 And w2 = b1 + 36 Then GoTo roll4
+If dice6 = 3 And b2 = w1 - 63 Or dice6 = 3 And b2 = w1 - 54 Or dice6 = 3 And b2 = w1 - 45 Or dice6 = 3 And b2 = w1 - 36 Then GoTo roll5
+If dice6 = 3 And b2 = w1 - 27 Or dice6 = 3 And b2 = w1 - 18 Or dice6 = 3 And b2 = w1 - 9 Then GoTo roll5
+If dice6 = 3 And b2 = w1 + 27 Or dice6 = 3 And b2 = w1 + 18 Or dice6 = 3 And b2 = w1 + 9 Then GoTo roll5
+If dice6 = 3 And b2 = w1 + 63 Or dice6 = 3 And b2 = w1 + 54 Or dice6 = 3 And b2 = w1 + 45 Or dice6 = 3 And b2 = w1 + 36 Then GoTo roll5
+
+
+If w2 = b2 Or w2 = b1 Or w2 = w1 Then GoTo count2
+Let fw3 = dice1: Let fw4 = dice2: Let fb3 = dice4: Let fb4 = dice5
 
 Return
+
+'Print dice1; " "; dice2; " "; dice4; " "; dice5
+
+
+
 
 count3:
 
+If count = 2 And dice6 = 1 Or count = 3 And dice6 = 1 Then dice6 = 6
+If count = 2 And dice3 = 1 Or count = 3 And dice3 = 1 Then dice3 = 6
+
 Return
-
-roll1:
-
-Let dice4 = Int(Rnd * 8 + 1)
-Let dice5 = Int(Rnd * 8 + 1)
-GoTo move1
-
-roll2:
-
-Let dice1 = Int(Rnd * 8 + 1)
-Let dice2 = Int(Rnd * 8 + 1)
-GoTo count2
-
-roll3:
-
-Let dice4 = Int(Rnd * 8 + 1)
-Let dice5 = Int(Rnd * 8 + 1)
-GoTo count2
-
-roll4:
-
-Let dice1 = Int(Rnd * 8 + 1)
-Let dice2 = Int(Rnd * 8 + 1)
-GoTo move2
-
-roll5:
-
-Let dice4 = Int(Rnd * 8 + 1)
-Let dice5 = Int(Rnd * 8 + 1)
-GoTo move2
-
