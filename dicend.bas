@@ -3163,16 +3163,20 @@ Let w2 = board(dice2, dice1): Let b2 = board(dice5, dice4)
 
 pawn2:
 
-If dice3 = 6 And dice2 = 1 Or dice3 = 6 And dice2 = 8 Then dice2 = Int(Rnd * 8 + 1)
-If dice6 = 6 And dice5 = 1 Or dice6 = 6 And dice5 = 8 Then dice5 = Int(Rnd * 8 + 1)
+If dice3 = 6 And dice2 = 1 Or dice3 = 6 And dice2 = 8 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice6 = 6 And dice5 = 1 Or dice6 = 6 And dice5 = 8 Then Let dice5 = Int(Rnd * 8 + 1)
 If dice3 = 6 And dice2 = 1 Or dice3 = 6 And dice2 = 8 Then GoTo pawn2
 If dice6 = 6 And dice5 = 1 Or dice6 = 6 And dice5 = 8 Then GoTo pawn2
-If dice3 = 6 And b1 = w2 + 9 Or dice3 = 6 And b1 = w2 + 7 Then dice4 = Int(Rnd * 8 + 1)
-If dice3 = 6 And b1 = w2 + 9 Or dice3 = 6 And b1 = w2 + 7 Then dice5 = Int(Rnd * 8 + 1)
-If dice6 = 6 And w1 = b2 - 9 Or dice6 = 6 And w1 = b2 - 7 Then dice1 = Int(Rnd * 8 + 1)
-If dice6 = 6 And w1 = b2 - 9 Or dice6 = 6 And w1 = b2 - 7 Then dice2 = Int(Rnd * 8 + 1)
+If dice3 = 6 And b1 = w2 + 9 Or dice3 = 6 And b1 = w2 + 7 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice3 = 6 And b1 = w2 + 9 Or dice3 = 6 And b1 = w2 + 7 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice6 = 6 And w1 = b2 - 9 Or dice6 = 6 And w1 = b2 - 7 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice6 = 6 And w1 = b2 - 9 Or dice6 = 6 And w1 = b2 - 7 Then Let dice2 = Int(Rnd * 8 + 1)
 If dice3 = 6 And dice2 = 1 Or dice3 = 6 And dice2 = 8 Then GoTo pawn2
 If dice6 = 6 And dice5 = 1 Or dice6 = 6 And dice5 = 8 Then GoTo pawn2
+If dice3 = 6 And b1 = w2 + 9 Or dice3 = 6 And b1 = w2 + 7 Then GoTo pawn2
+If dice3 = 6 And b1 = w2 + 9 Or dice3 = 6 And b1 = w2 + 7 Then GoTo pawn2
+If dice6 = 6 And w1 = b2 - 9 Or dice6 = 6 And w1 = b2 - 7 Then GoTo pawn2
+If dice6 = 6 And w1 = b2 - 9 Or dice6 = 6 And w1 = b2 - 7 Then GoTo pawn2
 
 rook2:
 
@@ -3180,18 +3184,18 @@ If dice3 = 5 And dice1 = fb1 Then Let dice1 = Int(Rnd * 8 + 1)
 If dice3 = 5 And dice2 = fb2 Then Let dice2 = Int(Rnd * 8 + 1)
 If dice6 = 5 And dice4 = fw1 Then Let dice4 = Int(Rnd * 8 + 1)
 If dice6 = 5 And dice5 = fw2 Then Let dice5 = Int(Rnd * 8 + 1)
-If dice3 = 5 And dice1 = fw1 Or dice3 = 5 And dice2 = fw2 Or dice6 = 5 And dice4 = fb1 Or dice6 = 5 And dice5 = fb2 Then GoTo rook2
+If dice3 = 5 And dice1 = fb1 Or dice3 = 5 And dice2 = fb2 Or dice6 = 5 And dice4 = fw1 Or dice6 = 5 And dice5 = fw2 Then GoTo rook2
 
 knight2:
 
-If dice3 = 4 And w2 = b1 - 17 Or dice3 = 4 And w2 = b1 - 15 Or dice3 = 4 And w2 = b1 - 10 Or dice3 = 4 And w2 = b1 - 6 Then dice1 = Int(Rnd * 8 + 1)
-If dice3 = 4 And w2 = b1 - 17 Or dice3 = 4 And w2 = b1 - 15 Or dice3 = 4 And w2 = b1 - 10 Or dice3 = 4 And w2 = b1 - 6 Then dice2 = Int(Rnd * 8 + 1)
-If dice3 = 4 And w2 = b1 + 17 Or dice3 = 4 And w2 = b1 + 15 Or dice3 = 4 And w2 = b1 + 10 Or dice3 = 4 And w2 = b1 + 6 Then dice1 = Int(Rnd * 8 + 1)
-If dice3 = 4 And w2 = b1 + 17 Or dice3 = 4 And w2 = b1 + 15 Or dice3 = 4 And w2 = b1 + 10 Or dice3 = 4 And w2 = b1 + 6 Then dice2 = Int(Rnd * 8 + 1)
-If dice6 = 4 And b2 = w1 - 17 Or dice6 = 4 And b2 = w1 - 15 Or dice6 = 4 And b2 = w1 - 10 Or dice6 = 4 And b2 = w1 - 6 Then dice4 = Int(Rnd * 8 + 1)
-If dice6 = 4 And b2 = w1 - 17 Or dice6 = 4 And b2 = w1 - 15 Or dice6 = 4 And b2 = w1 - 10 Or dice6 = 4 And b2 = w1 - 6 Then dice5 = Int(Rnd * 8 + 1)
-If dice6 = 4 And b2 = w1 + 17 Or dice6 = 4 And b2 = w1 + 15 Or dice6 = 4 And b2 = w1 + 10 Or dice6 = 4 And b2 = w1 + 6 Then dice4 = Int(Rnd * 8 + 1)
-If dice6 = 4 And b2 = w1 + 17 Or dice6 = 4 And b2 = w1 + 15 Or dice6 = 4 And b2 = w1 + 10 Or dice6 = 4 And b2 = w1 + 6 Then dice5 = Int(Rnd * 8 + 1)
+If dice3 = 4 And w2 = b1 - 17 Or dice3 = 4 And w2 = b1 - 15 Or dice3 = 4 And w2 = b1 - 10 Or dice3 = 4 And w2 = b1 - 6 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 4 And w2 = b1 - 17 Or dice3 = 4 And w2 = b1 - 15 Or dice3 = 4 And w2 = b1 - 10 Or dice3 = 4 And w2 = b1 - 6 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice3 = 4 And w2 = b1 + 17 Or dice3 = 4 And w2 = b1 + 15 Or dice3 = 4 And w2 = b1 + 10 Or dice3 = 4 And w2 = b1 + 6 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 4 And w2 = b1 + 17 Or dice3 = 4 And w2 = b1 + 15 Or dice3 = 4 And w2 = b1 + 10 Or dice3 = 4 And w2 = b1 + 6 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice6 = 4 And b2 = w1 - 17 Or dice6 = 4 And b2 = w1 - 15 Or dice6 = 4 And b2 = w1 - 10 Or dice6 = 4 And b2 = w1 - 6 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 4 And b2 = w1 - 17 Or dice6 = 4 And b2 = w1 - 15 Or dice6 = 4 And b2 = w1 - 10 Or dice6 = 4 And b2 = w1 - 6 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice6 = 4 And b2 = w1 + 17 Or dice6 = 4 And b2 = w1 + 15 Or dice6 = 4 And b2 = w1 + 10 Or dice6 = 4 And b2 = w1 + 6 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 4 And b2 = w1 + 17 Or dice6 = 4 And b2 = w1 + 15 Or dice6 = 4 And b2 = w1 + 10 Or dice6 = 4 And b2 = w1 + 6 Then Let dice5 = Int(Rnd * 8 + 1)
 If dice3 = 4 And w2 = b1 - 17 Or dice3 = 4 And w2 = b1 - 15 Or dice3 = 4 And w2 = b1 - 10 Or dice3 = 4 And w2 = b1 - 6 Then GoTo knight2
 If dice3 = 4 And w2 = b1 - 17 Or dice3 = 4 And w2 = b1 - 15 Or dice3 = 4 And w2 = b1 - 10 Or dice3 = 4 And w2 = b1 - 6 Then GoTo knight2
 If dice3 = 4 And w2 = b1 + 17 Or dice3 = 4 And w2 = b1 + 15 Or dice3 = 4 And w2 = b1 + 10 Or dice3 = 4 And w2 = b1 + 6 Then GoTo knight2
@@ -3203,29 +3207,180 @@ If dice6 = 4 And b2 = w1 + 17 Or dice6 = 4 And b2 = w1 + 15 Or dice6 = 4 And b2 
 
 bishop2:
 
-If dice3 = 3 And w2 = b1 - 63 Or dice3 = 3 And w2 = b1 - 54 Or dice3 = 3 And w2 = b1 - 45 Or dice3 = 3 And w2 = b1 - 36 Then dice1 = Int(Rnd * 8 + 1)
-If dice3 = 3 And w2 = b1 - 27 Or dice3 = 3 And w2 = b1 - 18 Or dice3 = 3 And w2 = b1 - 9 Then dice1 = Int(Rnd * 8 + 1)
-If dice3 = 3 And w2 = b1 + 27 Or dice3 = 3 And w2 = b1 + 18 Or dice3 = 3 And w2 = b1 + 9 Then dice1 = Int(Rnd * 8 + 1)
-If dice3 = 3 And w2 = b1 + 63 Or dice3 = 3 And w2 = b1 + 54 Or dice3 = 3 And w2 = b1 + 45 Or dice3 = 3 And w2 = b1 + 36 Then GoTo roll4
-If dice6 = 3 And b2 = w1 - 63 Or dice6 = 3 And b2 = w1 - 54 Or dice6 = 3 And b2 = w1 - 45 Or dice6 = 3 And b2 = w1 - 36 Then GoTo roll5
-If dice6 = 3 And b2 = w1 - 27 Or dice6 = 3 And b2 = w1 - 18 Or dice6 = 3 And b2 = w1 - 9 Then GoTo roll5
-If dice6 = 3 And b2 = w1 + 27 Or dice6 = 3 And b2 = w1 + 18 Or dice6 = 3 And b2 = w1 + 9 Then GoTo roll5
-If dice6 = 3 And b2 = w1 + 63 Or dice6 = 3 And b2 = w1 + 54 Or dice6 = 3 And b2 = w1 + 45 Or dice6 = 3 And b2 = w1 + 36 Then GoTo roll5
+If dice3 = 3 And w2 = b1 - 63 Or dice3 = 3 And w2 = b1 - 54 Or dice3 = 3 And w2 = b1 - 45 Or dice3 = 3 And w2 = b1 - 36 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 - 27 Or dice3 = 3 And w2 = b1 - 18 Or dice3 = 3 And w2 = b1 - 9 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 + 27 Or dice3 = 3 And w2 = b1 + 18 Or dice3 = 3 And w2 = b1 + 9 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 + 63 Or dice3 = 3 And w2 = b1 + 54 Or dice3 = 3 And w2 = b1 + 45 Or dice3 = 3 And w2 = b1 + 36 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 - 63 Or dice3 = 3 And w2 = b1 - 54 Or dice3 = 3 And w2 = b1 - 45 Or dice3 = 3 And w2 = b1 - 36 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 - 27 Or dice3 = 3 And w2 = b1 - 18 Or dice3 = 3 And w2 = b1 - 9 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 + 27 Or dice3 = 3 And w2 = b1 + 18 Or dice3 = 3 And w2 = b1 + 9 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 + 63 Or dice3 = 3 And w2 = b1 + 54 Or dice3 = 3 And w2 = b1 + 45 Or dice3 = 3 And w2 = b1 + 36 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice6 = 3 And b2 = w1 - 63 Or dice6 = 3 And b2 = w1 - 54 Or dice6 = 3 And b2 = w1 - 45 Or dice6 = 3 And b2 = w1 - 36 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 3 And b2 = w1 - 27 Or dice6 = 3 And b2 = w1 - 18 Or dice6 = 3 And b2 = w1 - 9 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 3 And b2 = w1 + 27 Or dice6 = 3 And b2 = w1 + 18 Or dice6 = 3 And b2 = w1 + 9 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 3 And b2 = w1 + 63 Or dice6 = 3 And b2 = w1 + 54 Or dice6 = 3 And b2 = w1 + 45 Or dice6 = 3 And b2 = w1 + 36 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 3 And b2 = w1 - 63 Or dice6 = 3 And b2 = w1 - 54 Or dice6 = 3 And b2 = w1 - 45 Or dice6 = 3 And b2 = w1 - 36 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice6 = 3 And b2 = w1 - 27 Or dice6 = 3 And b2 = w1 - 18 Or dice6 = 3 And b2 = w1 - 9 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice6 = 3 And b2 = w1 + 27 Or dice6 = 3 And b2 = w1 + 18 Or dice6 = 3 And b2 = w1 + 9 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice6 = 3 And b2 = w1 + 63 Or dice6 = 3 And b2 = w1 + 54 Or dice6 = 3 And b2 = w1 + 45 Or dice6 = 3 And b2 = w1 + 36 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 - 63 Or dice3 = 3 And w2 = b1 - 54 Or dice3 = 3 And w2 = b1 - 45 Or dice3 = 3 And w2 = b1 - 36 Then GoTo bishop2
+If dice3 = 3 And w2 = b1 - 27 Or dice3 = 3 And w2 = b1 - 18 Or dice3 = 3 And w2 = b1 - 9 Then GoTo bishop2
+If dice3 = 3 And w2 = b1 + 27 Or dice3 = 3 And w2 = b1 + 18 Or dice3 = 3 And w2 = b1 + 9 Then GoTo bishop2
+If dice3 = 3 And w2 = b1 + 63 Or dice3 = 3 And w2 = b1 + 54 Or dice3 = 3 And w2 = b1 + 45 Or dice3 = 3 And w2 = b1 + 36 Then GoTo bishop2
+If dice6 = 3 And b2 = w1 - 63 Or dice6 = 3 And b2 = w1 - 54 Or dice6 = 3 And b2 = w1 - 45 Or dice6 = 3 And b2 = w1 - 36 Then GoTo bishop2
+If dice6 = 3 And b2 = w1 - 27 Or dice6 = 3 And b2 = w1 - 18 Or dice6 = 3 And b2 = w1 - 9 Then GoTo bishop2
+If dice6 = 3 And b2 = w1 + 27 Or dice6 = 3 And b2 = w1 + 18 Or dice6 = 3 And b2 = w1 + 9 Then GoTo bishop2
+If dice6 = 3 And b2 = w1 + 63 Or dice6 = 3 And b2 = w1 + 54 Or dice6 = 3 And b2 = w1 + 45 Or dice6 = 3 And b2 = w1 + 36 Then GoTo bishop2
 
+queen2:
 
+If dice3 = 2 And dice1 = fb1 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 2 And dice2 = fb2 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice6 = 2 And dice4 = fw1 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 2 And dice5 = fw2 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 - 63 Or dice3 = 2 And w2 = b1 - 54 Or dice3 = 2 And w2 = b1 - 45 Or dice3 = 2 And w2 = b1 - 36 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 - 27 Or dice3 = 2 And w2 = b1 - 18 Or dice3 = 2 And w2 = b1 - 9 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 + 27 Or dice3 = 2 And w2 = b1 + 18 Or dice3 = 2 And w2 = b1 + 9 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 + 63 Or dice3 = 2 And w2 = b1 + 54 Or dice3 = 2 And w2 = b1 + 45 Or dice3 = 2 And w2 = b1 + 36 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 - 63 Or dice3 = 2 And w2 = b1 - 54 Or dice3 = 2 And w2 = b1 - 45 Or dice3 = 2 And w2 = b1 - 36 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 - 27 Or dice3 = 2 And w2 = b1 - 18 Or dice3 = 2 And w2 = b1 - 9 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 + 27 Or dice3 = 2 And w2 = b1 + 18 Or dice3 = 2 And w2 = b1 + 9 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 + 63 Or dice3 = 2 And w2 = b1 + 54 Or dice3 = 2 And w2 = b1 + 45 Or dice3 = 2 And w2 = b1 + 36 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice6 = 2 And b2 = w1 - 63 Or dice6 = 2 And b2 = w1 - 54 Or dice6 = 2 And b2 = w1 - 45 Or dice6 = 2 And b2 = w1 - 36 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 2 And b2 = w1 - 27 Or dice6 = 2 And b2 = w1 - 18 Or dice6 = 2 And b2 = w1 - 9 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 2 And b2 = w1 + 27 Or dice6 = 2 And b2 = w1 + 18 Or dice6 = 2 And b2 = w1 + 9 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 2 And b2 = w1 + 63 Or dice6 = 2 And b2 = w1 + 54 Or dice6 = 2 And b2 = w1 + 45 Or dice6 = 2 And b2 = w1 + 36 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 2 And b2 = w1 - 63 Or dice6 = 2 And b2 = w1 - 54 Or dice6 = 2 And b2 = w1 - 45 Or dice6 = 2 And b2 = w1 - 36 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice6 = 2 And b2 = w1 - 27 Or dice6 = 2 And b2 = w1 - 18 Or dice6 = 2 And b2 = w1 - 9 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice6 = 2 And b2 = w1 + 27 Or dice6 = 2 And b2 = w1 + 18 Or dice6 = 2 And b2 = w1 + 9 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice6 = 2 And b2 = w1 + 63 Or dice6 = 2 And b2 = w1 + 54 Or dice6 = 2 And b2 = w1 + 45 Or dice6 = 2 And b2 = w1 + 36 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 - 63 Or dice3 = 2 And w2 = b1 - 54 Or dice3 = 2 And w2 = b1 - 45 Or dice3 = 2 And w2 = b1 - 36 Then GoTo queen2
+If dice3 = 2 And w2 = b1 - 27 Or dice3 = 2 And w2 = b1 - 18 Or dice3 = 2 And w2 = b1 - 9 Then GoTo queen2
+If dice3 = 2 And w2 = b1 + 27 Or dice3 = 2 And w2 = b1 + 18 Or dice3 = 2 And w2 = b1 + 9 Then GoTo queen2
+If dice3 = 2 And w2 = b1 + 63 Or dice3 = 2 And w2 = b1 + 54 Or dice3 = 2 And w2 = b1 + 45 Or dice3 = 2 And w2 = b1 + 36 Then GoTo queen2
+If dice6 = 2 And b2 = w1 - 63 Or dice6 = 2 And b2 = w1 - 54 Or dice6 = 2 And b2 = w1 - 45 Or dice6 = 2 And b2 = w1 - 36 Then GoTo queen2
+If dice6 = 2 And b2 = w1 - 27 Or dice6 = 2 And b2 = w1 - 18 Or dice6 = 2 And b2 = w1 - 9 Then GoTo queen2
+If dice6 = 2 And b2 = w1 + 27 Or dice6 = 2 And b2 = w1 + 18 Or dice6 = 2 And b2 = w1 + 9 Then GoTo queen2
+If dice6 = 2 And b2 = w1 + 63 Or dice6 = 2 And b2 = w1 + 54 Or dice6 = 2 And b2 = w1 + 45 Or dice6 = 2 And b2 = w1 + 36 Then GoTo queen2
+If dice3 = 2 And dice1 = fb1 Or dice3 = 2 And dice2 = fb2 Or dice6 = 2 And dice4 = fw1 Or dice6 = 2 And dice5 = fw2 Then GoTo queen2
+
+Let w2 = board(dice2, dice1): Let b2 = board(dice5, dice4)
 If w2 = b2 Or w2 = b1 Or w2 = w1 Then GoTo count2
 Let fw3 = dice1: Let fw4 = dice2: Let fb3 = dice4: Let fb4 = dice5
 
 Return
 
-'Print dice1; " "; dice2; " "; dice4; " "; dice5
-
-
-
-
 count3:
 
 If count = 2 And dice6 = 1 Or count = 3 And dice6 = 1 Then dice6 = 6
 If count = 2 And dice3 = 1 Or count = 3 And dice3 = 1 Then dice3 = 6
+Let w3 = board(dice2, dice1): Let b3 = board(dice5, dice4)
+
+pawn3:
+
+If dice3 = 6 And dice2 = 1 Or dice3 = 6 And dice2 = 8 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice6 = 6 And dice5 = 1 Or dice6 = 6 And dice5 = 8 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice3 = 6 And dice2 = 1 Or dice3 = 6 And dice2 = 8 Then GoTo pawn3
+If dice6 = 6 And dice5 = 1 Or dice6 = 6 And dice5 = 8 Then GoTo pawn3
+If dice3 = 6 And b1 = w2 + 9 Or dice3 = 6 And b1 = w2 + 7 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice3 = 6 And b1 = w2 + 9 Or dice3 = 6 And b1 = w2 + 7 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice6 = 6 And w1 = b2 - 9 Or dice6 = 6 And w1 = b2 - 7 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice6 = 6 And w1 = b2 - 9 Or dice6 = 6 And w1 = b2 - 7 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice3 = 6 And dice2 = 1 Or dice3 = 6 And dice2 = 8 Then GoTo pawn3
+If dice6 = 6 And dice5 = 1 Or dice6 = 6 And dice5 = 8 Then GoTo pawn3
+If dice3 = 6 And b1 = w2 + 9 Or dice3 = 6 And b1 = w2 + 7 Then GoTo pawn3
+If dice3 = 6 And b1 = w2 + 9 Or dice3 = 6 And b1 = w2 + 7 Then GoTo pawn3
+If dice6 = 6 And w1 = b2 - 9 Or dice6 = 6 And w1 = b2 - 7 Then GoTo pawn3
+If dice6 = 6 And w1 = b2 - 9 Or dice6 = 6 And w1 = b2 - 7 Then GoTo pawn3
+
+rook3:
+
+If dice3 = 5 And dice1 = fb1 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 5 And dice2 = fb2 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice6 = 5 And dice4 = fw1 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 5 And dice5 = fw2 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice3 = 5 And dice1 = fb1 Or dice3 = 5 And dice2 = fb2 Or dice6 = 5 And dice4 = fw1 Or dice6 = 5 And dice5 = fw2 Then GoTo rook3
+
+knight3:
+
+If dice3 = 4 And w2 = b1 - 17 Or dice3 = 4 And w2 = b1 - 15 Or dice3 = 4 And w2 = b1 - 10 Or dice3 = 4 And w2 = b1 - 6 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 4 And w2 = b1 - 17 Or dice3 = 4 And w2 = b1 - 15 Or dice3 = 4 And w2 = b1 - 10 Or dice3 = 4 And w2 = b1 - 6 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice3 = 4 And w2 = b1 + 17 Or dice3 = 4 And w2 = b1 + 15 Or dice3 = 4 And w2 = b1 + 10 Or dice3 = 4 And w2 = b1 + 6 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 4 And w2 = b1 + 17 Or dice3 = 4 And w2 = b1 + 15 Or dice3 = 4 And w2 = b1 + 10 Or dice3 = 4 And w2 = b1 + 6 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice6 = 4 And b2 = w1 - 17 Or dice6 = 4 And b2 = w1 - 15 Or dice6 = 4 And b2 = w1 - 10 Or dice6 = 4 And b2 = w1 - 6 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 4 And b2 = w1 - 17 Or dice6 = 4 And b2 = w1 - 15 Or dice6 = 4 And b2 = w1 - 10 Or dice6 = 4 And b2 = w1 - 6 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice6 = 4 And b2 = w1 + 17 Or dice6 = 4 And b2 = w1 + 15 Or dice6 = 4 And b2 = w1 + 10 Or dice6 = 4 And b2 = w1 + 6 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 4 And b2 = w1 + 17 Or dice6 = 4 And b2 = w1 + 15 Or dice6 = 4 And b2 = w1 + 10 Or dice6 = 4 And b2 = w1 + 6 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice3 = 4 And w2 = b1 - 17 Or dice3 = 4 And w2 = b1 - 15 Or dice3 = 4 And w2 = b1 - 10 Or dice3 = 4 And w2 = b1 - 6 Then GoTo knight3
+If dice3 = 4 And w2 = b1 - 17 Or dice3 = 4 And w2 = b1 - 15 Or dice3 = 4 And w2 = b1 - 10 Or dice3 = 4 And w2 = b1 - 6 Then GoTo knight3
+If dice3 = 4 And w2 = b1 + 17 Or dice3 = 4 And w2 = b1 + 15 Or dice3 = 4 And w2 = b1 + 10 Or dice3 = 4 And w2 = b1 + 6 Then GoTo knight3
+If dice3 = 4 And w2 = b1 + 17 Or dice3 = 4 And w2 = b1 + 15 Or dice3 = 4 And w2 = b1 + 10 Or dice3 = 4 And w2 = b1 + 6 Then GoTo knight3
+If dice6 = 4 And b2 = w1 - 17 Or dice6 = 4 And b2 = w1 - 15 Or dice6 = 4 And b2 = w1 - 10 Or dice6 = 4 And b2 = w1 - 6 Then GoTo knight3
+If dice6 = 4 And b2 = w1 - 17 Or dice6 = 4 And b2 = w1 - 15 Or dice6 = 4 And b2 = w1 - 10 Or dice6 = 4 And b2 = w1 - 6 Then GoTo knight3
+If dice6 = 4 And b2 = w1 + 17 Or dice6 = 4 And b2 = w1 + 15 Or dice6 = 4 And b2 = w1 + 10 Or dice6 = 4 And b2 = w1 + 6 Then GoTo knight3
+If dice6 = 4 And b2 = w1 + 17 Or dice6 = 4 And b2 = w1 + 15 Or dice6 = 4 And b2 = w1 + 10 Or dice6 = 4 And b2 = w1 + 6 Then GoTo knight3
+
+bishop3:
+
+If dice3 = 3 And w2 = b1 - 63 Or dice3 = 3 And w2 = b1 - 54 Or dice3 = 3 And w2 = b1 - 45 Or dice3 = 3 And w2 = b1 - 36 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 - 27 Or dice3 = 3 And w2 = b1 - 18 Or dice3 = 3 And w2 = b1 - 9 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 + 27 Or dice3 = 3 And w2 = b1 + 18 Or dice3 = 3 And w2 = b1 + 9 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 + 63 Or dice3 = 3 And w2 = b1 + 54 Or dice3 = 3 And w2 = b1 + 45 Or dice3 = 3 And w2 = b1 + 36 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 - 63 Or dice3 = 3 And w2 = b1 - 54 Or dice3 = 3 And w2 = b1 - 45 Or dice3 = 3 And w2 = b1 - 36 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 - 27 Or dice3 = 3 And w2 = b1 - 18 Or dice3 = 3 And w2 = b1 - 9 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 + 27 Or dice3 = 3 And w2 = b1 + 18 Or dice3 = 3 And w2 = b1 + 9 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 + 63 Or dice3 = 3 And w2 = b1 + 54 Or dice3 = 3 And w2 = b1 + 45 Or dice3 = 3 And w2 = b1 + 36 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice6 = 3 And b2 = w1 - 63 Or dice6 = 3 And b2 = w1 - 54 Or dice6 = 3 And b2 = w1 - 45 Or dice6 = 3 And b2 = w1 - 36 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 3 And b2 = w1 - 27 Or dice6 = 3 And b2 = w1 - 18 Or dice6 = 3 And b2 = w1 - 9 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 3 And b2 = w1 + 27 Or dice6 = 3 And b2 = w1 + 18 Or dice6 = 3 And b2 = w1 + 9 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 3 And b2 = w1 + 63 Or dice6 = 3 And b2 = w1 + 54 Or dice6 = 3 And b2 = w1 + 45 Or dice6 = 3 And b2 = w1 + 36 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 3 And b2 = w1 - 63 Or dice6 = 3 And b2 = w1 - 54 Or dice6 = 3 And b2 = w1 - 45 Or dice6 = 3 And b2 = w1 - 36 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice6 = 3 And b2 = w1 - 27 Or dice6 = 3 And b2 = w1 - 18 Or dice6 = 3 And b2 = w1 - 9 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice6 = 3 And b2 = w1 + 27 Or dice6 = 3 And b2 = w1 + 18 Or dice6 = 3 And b2 = w1 + 9 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice6 = 3 And b2 = w1 + 63 Or dice6 = 3 And b2 = w1 + 54 Or dice6 = 3 And b2 = w1 + 45 Or dice6 = 3 And b2 = w1 + 36 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice3 = 3 And w2 = b1 - 63 Or dice3 = 3 And w2 = b1 - 54 Or dice3 = 3 And w2 = b1 - 45 Or dice3 = 3 And w2 = b1 - 36 Then GoTo bishop3
+If dice3 = 3 And w2 = b1 - 27 Or dice3 = 3 And w2 = b1 - 18 Or dice3 = 3 And w2 = b1 - 9 Then GoTo bishop3
+If dice3 = 3 And w2 = b1 + 27 Or dice3 = 3 And w2 = b1 + 18 Or dice3 = 3 And w2 = b1 + 9 Then GoTo bishop3
+If dice3 = 3 And w2 = b1 + 63 Or dice3 = 3 And w2 = b1 + 54 Or dice3 = 3 And w2 = b1 + 45 Or dice3 = 3 And w2 = b1 + 36 Then GoTo bishop3
+If dice6 = 3 And b2 = w1 - 63 Or dice6 = 3 And b2 = w1 - 54 Or dice6 = 3 And b2 = w1 - 45 Or dice6 = 3 And b2 = w1 - 36 Then GoTo bishop3
+If dice6 = 3 And b2 = w1 - 27 Or dice6 = 3 And b2 = w1 - 18 Or dice6 = 3 And b2 = w1 - 9 Then GoTo bishop3
+If dice6 = 3 And b2 = w1 + 27 Or dice6 = 3 And b2 = w1 + 18 Or dice6 = 3 And b2 = w1 + 9 Then GoTo bishop3
+If dice6 = 3 And b2 = w1 + 63 Or dice6 = 3 And b2 = w1 + 54 Or dice6 = 3 And b2 = w1 + 45 Or dice6 = 3 And b2 = w1 + 36 Then GoTo bishop3
+
+queen3:
+
+If dice3 = 2 And dice1 = fb1 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 2 And dice2 = fb2 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice6 = 2 And dice4 = fw1 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 2 And dice5 = fw2 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 - 63 Or dice3 = 2 And w2 = b1 - 54 Or dice3 = 2 And w2 = b1 - 45 Or dice3 = 2 And w2 = b1 - 36 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 - 27 Or dice3 = 2 And w2 = b1 - 18 Or dice3 = 2 And w2 = b1 - 9 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 + 27 Or dice3 = 2 And w2 = b1 + 18 Or dice3 = 2 And w2 = b1 + 9 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 + 63 Or dice3 = 2 And w2 = b1 + 54 Or dice3 = 2 And w2 = b1 + 45 Or dice3 = 2 And w2 = b1 + 36 Then Let dice1 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 - 63 Or dice3 = 2 And w2 = b1 - 54 Or dice3 = 2 And w2 = b1 - 45 Or dice3 = 2 And w2 = b1 - 36 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 - 27 Or dice3 = 2 And w2 = b1 - 18 Or dice3 = 2 And w2 = b1 - 9 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 + 27 Or dice3 = 2 And w2 = b1 + 18 Or dice3 = 2 And w2 = b1 + 9 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 + 63 Or dice3 = 2 And w2 = b1 + 54 Or dice3 = 2 And w2 = b1 + 45 Or dice3 = 2 And w2 = b1 + 36 Then Let dice2 = Int(Rnd * 8 + 1)
+If dice6 = 2 And b2 = w1 - 63 Or dice6 = 2 And b2 = w1 - 54 Or dice6 = 2 And b2 = w1 - 45 Or dice6 = 2 And b2 = w1 - 36 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 2 And b2 = w1 - 27 Or dice6 = 2 And b2 = w1 - 18 Or dice6 = 2 And b2 = w1 - 9 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 2 And b2 = w1 + 27 Or dice6 = 2 And b2 = w1 + 18 Or dice6 = 2 And b2 = w1 + 9 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 2 And b2 = w1 + 63 Or dice6 = 2 And b2 = w1 + 54 Or dice6 = 2 And b2 = w1 + 45 Or dice6 = 2 And b2 = w1 + 36 Then Let dice4 = Int(Rnd * 8 + 1)
+If dice6 = 2 And b2 = w1 - 63 Or dice6 = 2 And b2 = w1 - 54 Or dice6 = 2 And b2 = w1 - 45 Or dice6 = 2 And b2 = w1 - 36 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice6 = 2 And b2 = w1 - 27 Or dice6 = 2 And b2 = w1 - 18 Or dice6 = 2 And b2 = w1 - 9 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice6 = 2 And b2 = w1 + 27 Or dice6 = 2 And b2 = w1 + 18 Or dice6 = 2 And b2 = w1 + 9 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice6 = 2 And b2 = w1 + 63 Or dice6 = 2 And b2 = w1 + 54 Or dice6 = 2 And b2 = w1 + 45 Or dice6 = 2 And b2 = w1 + 36 Then Let dice5 = Int(Rnd * 8 + 1)
+If dice3 = 2 And w2 = b1 - 63 Or dice3 = 2 And w2 = b1 - 54 Or dice3 = 2 And w2 = b1 - 45 Or dice3 = 2 And w2 = b1 - 36 Then GoTo queen3
+If dice3 = 2 And w2 = b1 - 27 Or dice3 = 2 And w2 = b1 - 18 Or dice3 = 2 And w2 = b1 - 9 Then GoTo queen3
+If dice3 = 2 And w2 = b1 + 27 Or dice3 = 2 And w2 = b1 + 18 Or dice3 = 2 And w2 = b1 + 9 Then GoTo queen3
+If dice3 = 2 And w2 = b1 + 63 Or dice3 = 2 And w2 = b1 + 54 Or dice3 = 2 And w2 = b1 + 45 Or dice3 = 2 And w2 = b1 + 36 Then GoTo queen3
+If dice6 = 2 And b2 = w1 - 63 Or dice6 = 2 And b2 = w1 - 54 Or dice6 = 2 And b2 = w1 - 45 Or dice6 = 2 And b2 = w1 - 36 Then GoTo queen3
+If dice6 = 2 And b2 = w1 - 27 Or dice6 = 2 And b2 = w1 - 18 Or dice6 = 2 And b2 = w1 - 9 Then GoTo queen3
+If dice6 = 2 And b2 = w1 + 27 Or dice6 = 2 And b2 = w1 + 18 Or dice6 = 2 And b2 = w1 + 9 Then GoTo queen3
+If dice6 = 2 And b2 = w1 + 63 Or dice6 = 2 And b2 = w1 + 54 Or dice6 = 2 And b2 = w1 + 45 Or dice6 = 2 And b2 = w1 + 36 Then GoTo queen3
+If dice3 = 2 And dice1 = fb1 Or dice3 = 2 And dice2 = fb2 Or dice6 = 2 And dice4 = fw1 Or dice6 = 2 And dice5 = fw2 Then GoTo queen3
+
+Let w3 = board(dice2, dice1): Let b3 = board(dice5, dice4)
+If w3 = b3 Or w3 = b2 Or w3 = b1 Or b3 = w2 Or b3 = w1 Then GoTo count3
+Let fw5 = dice1: Let fw6 = dice2: Let fb5 = dice4: Let fb6 = dice5
 
 Return
