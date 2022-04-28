@@ -1,6 +1,7 @@
 Rem Let scr& = _NewImage(800, 600, 256)
 Rem Screen scr&
 Screen 12
+Rem _FullScreen
 DefInt A-Z
 Randomize Timer
 
@@ -3138,6 +3139,266 @@ GoTo start
 
 finish:
 
+Rem Forsyth-Edwards notation
+
+If f1 = 1 Then Let fig1w$ = "K"
+If f1 = 2 Then Let fig1w$ = "Q"
+If f1 = 3 Then Let fig1w$ = "B"
+If f1 = 4 Then Let fig1w$ = "N"
+If f1 = 5 Then Let fig1w$ = "R"
+If f1 = 6 Then Let fig1w$ = "P"
+If f1 = 7 Then Let fig1w$ = "C"
+
+If f2 = 1 Then Let fig1b$ = "k"
+If f2 = 2 Then Let fig1b$ = "q"
+If f2 = 3 Then Let fig1b$ = "b"
+If f2 = 4 Then Let fig1b$ = "n"
+If f2 = 5 Then Let fig1b$ = "r"
+If f2 = 6 Then Let fig1b$ = "p"
+If f2 = 7 Then Let fig1b$ = "c"
+
+If f3 = 1 Then Let fig2w$ = "K"
+If f3 = 2 Then Let fig2w$ = "Q"
+If f3 = 3 Then Let fig2w$ = "B"
+If f3 = 4 Then Let fig2w$ = "N"
+If f3 = 5 Then Let fig2w$ = "R"
+If f3 = 6 Then Let fig2w$ = "P"
+If f3 = 7 Then Let fig2w$ = "C"
+
+If f4 = 1 Then Let fig2b$ = "k"
+If f4 = 2 Then Let fig2b$ = "q"
+If f4 = 3 Then Let fig2b$ = "b"
+If f4 = 4 Then Let fig2b$ = "n"
+If f4 = 5 Then Let fig2b$ = "r"
+If f4 = 6 Then Let fig2b$ = "p"
+If f4 = 7 Then Let fig2b$ = "c"
+
+If f5 = 1 Then Let fig3w$ = "K"
+If f5 = 2 Then Let fig3w$ = "Q"
+If f5 = 3 Then Let fig3w$ = "B"
+If f5 = 4 Then Let fig3w$ = "N"
+If f5 = 5 Then Let fig3w$ = "R"
+If f5 = 6 Then Let fig3w$ = "P"
+If f5 = 7 Then Let fig3w$ = "C"
+
+If f6 = 1 Then Let fig3b$ = "k"
+If f6 = 2 Then Let fig3b$ = "q"
+If f6 = 3 Then Let fig3b$ = "b"
+If f6 = 4 Then Let fig3b$ = "n"
+If f6 = 5 Then Let fig3b$ = "r"
+If f6 = 6 Then Let fig3b$ = "p"
+If f6 = 7 Then Let fig3b$ = "c"
+
+Let fw1 = dice1: Let fw2 = dice2: Let fb1 = dice4: Let fb2 = dice5
+
+Let cor31w = dice1
+Let cor32w = Abs(dice2 - 9)
+Let cor31b = dice4
+Let cor32b = Abs(dice5 - 9)
+
+Dim table(8, 8) As String
+Let table(cor12w, cor11w) = fig1w$
+Let table(cor12b, cor11b) = fig1b$
+Let table(cor22w, cor21w) = fig2w$
+Let table(cor22b, cor21b) = fig2b$
+Let table(cor32w, cor31w) = fig3w$
+Let table(cor32b, cor31b) = fig3b$
+For row = 1 To 8: For col = 1 To 8
+    If table(row, col) = "" Then Let table(row, col) = "+"
+Next col: Next row
+
+Let mas1$ = table(1, 1) + table(1, 2) + table(1, 3) + table(1, 4) + table(1, 5) + table(1, 6) + table(1, 7) + table(1, 8)
+Let lin1$ = ""
+Let count = 0
+For index = 1 To 8
+    If index = 8 And Mid$(mas1$, index, 1) = "+" Then
+        count = count + 1
+        lin1$ = lin1$ + LTrim$(Str$(count))
+    End If
+    If index < 10 And Mid$(mas1$, index, 1) = "+" Then
+        count = count + 1
+    End If
+    If Mid$(mas1$, index, 1) <> "+" And count = 0 Then
+        lin1$ = lin1$ + Mid$(mas1$, index, 1)
+    End If
+    If Mid$(mas1$, index, 1) <> "+" And count > 0 Then
+        lin1$ = lin1$ + LTrim$(Str$(count))
+        lin1$ = lin1$ + Mid$(mas1$, index, 1)
+        count = 0
+    End If
+Next index
+
+Let mas2$ = table(2, 1) + table(2, 2) + table(2, 3) + table(2, 4) + table(2, 5) + table(2, 6) + table(2, 7) + table(2, 8)
+Let lin2$ = ""
+Let count = 0
+For index = 1 To 8
+    If index = 8 And Mid$(mas2$, index, 1) = "+" Then
+        count = count + 1
+        lin2$ = lin2$ + LTrim$(Str$(count))
+    End If
+    If index < 10 And Mid$(mas2$, index, 1) = "+" Then
+        count = count + 1
+    End If
+    If Mid$(mas2$, index, 1) <> "+" And count = 0 Then
+        lin2$ = lin2$ + Mid$(mas2$, index, 1)
+    End If
+    If Mid$(mas2$, index, 1) <> "+" And count > 0 Then
+        lin2$ = lin2$ + LTrim$(Str$(count))
+        lin2$ = lin2$ + Mid$(mas2$, index, 1)
+        count = 0
+    End If
+Next index
+
+Let mas3$ = table(3, 1) + table(3, 2) + table(3, 3) + table(3, 4) + table(3, 5) + table(3, 6) + table(3, 7) + table(3, 8)
+Let lin3$ = ""
+Let count = 0
+For index = 1 To 8
+    If index = 8 And Mid$(mas3$, index, 1) = "+" Then
+        count = count + 1
+        lin3$ = lin3$ + LTrim$(Str$(count))
+    End If
+    If index < 10 And Mid$(mas3$, index, 1) = "+" Then
+        count = count + 1
+    End If
+    If Mid$(mas3$, index, 1) <> "+" And count = 0 Then
+        lin3$ = lin3$ + Mid$(mas3$, index, 1)
+    End If
+    If Mid$(mas3$, index, 1) <> "+" And count > 0 Then
+        lin3$ = lin3$ + LTrim$(Str$(count))
+        lin3$ = lin3$ + Mid$(mas3$, index, 1)
+        count = 0
+    End If
+Next index
+
+Let mas4$ = table(4, 1) + table(4, 2) + table(4, 3) + table(4, 4) + table(4, 5) + table(4, 6) + table(4, 7) + table(4, 8)
+Let lin4$ = ""
+Let count = 0
+For index = 1 To 8
+    If index = 8 And Mid$(mas4$, index, 1) = "+" Then
+        count = count + 1
+        lin4$ = lin4$ + LTrim$(Str$(count))
+    End If
+    If index < 10 And Mid$(mas4$, index, 1) = "+" Then
+        count = count + 1
+    End If
+    If Mid$(mas4$, index, 1) <> "+" And count = 0 Then
+        lin4$ = lin4$ + Mid$(mas4$, index, 1)
+    End If
+    If Mid$(mas4$, index, 1) <> "+" And count > 0 Then
+        lin4$ = lin4$ + LTrim$(Str$(count))
+        lin4$ = lin4$ + Mid$(mas4$, index, 1)
+        count = 0
+    End If
+Next index
+
+Let mas5$ = table(5, 1) + table(5, 2) + table(5, 3) + table(5, 4) + table(5, 5) + table(5, 6) + table(5, 7) + table(5, 8)
+Let lin5$ = ""
+Let count = 0
+For index = 1 To 8
+    If index = 8 And Mid$(mas5$, index, 1) = "+" Then
+        count = count + 1
+        lin5$ = lin5$ + LTrim$(Str$(count))
+    End If
+    If index < 10 And Mid$(mas5$, index, 1) = "+" Then
+        count = count + 1
+    End If
+    If Mid$(mas5$, index, 1) <> "+" And count = 0 Then
+        lin5$ = lin5$ + Mid$(mas5$, index, 1)
+    End If
+    If Mid$(mas5$, index, 1) <> "+" And count > 0 Then
+        lin5$ = lin5$ + LTrim$(Str$(count))
+        lin5$ = lin5$ + Mid$(mas5$, index, 1)
+        count = 0
+    End If
+Next index
+
+Let mas6$ = table(6, 1) + table(6, 2) + table(6, 3) + table(6, 4) + table(6, 5) + table(6, 6) + table(6, 7) + table(6, 8)
+Let lin6$ = ""
+Let count = 0
+For index = 1 To 8
+    If index = 8 And Mid$(mas6$, index, 1) = "+" Then
+        count = count + 1
+        lin6$ = lin6$ + LTrim$(Str$(count))
+    End If
+    If index < 10 And Mid$(mas6$, index, 1) = "+" Then
+        count = count + 1
+    End If
+    If Mid$(mas6$, index, 1) <> "+" And count = 0 Then
+        lin6$ = lin6$ + Mid$(mas6$, index, 1)
+    End If
+    If Mid$(mas6$, index, 1) <> "+" And count > 0 Then
+        lin6$ = lin6$ + LTrim$(Str$(count))
+        lin6$ = lin6$ + Mid$(mas6$, index, 1)
+        count = 0
+    End If
+Next index
+
+Let mas7$ = table(7, 1) + table(7, 2) + table(7, 3) + table(7, 4) + table(7, 5) + table(7, 6) + table(7, 7) + table(7, 8)
+Let lin7$ = ""
+Let count = 0
+For index = 1 To 8
+    If index = 8 And Mid$(mas7$, index, 1) = "+" Then
+        count = count + 1
+        lin7$ = lin7$ + LTrim$(Str$(count))
+    End If
+    If index < 10 And Mid$(mas7$, index, 1) = "+" Then
+        count = count + 1
+    End If
+    If Mid$(mas7$, index, 1) <> "+" And count = 0 Then
+        lin7$ = lin7$ + Mid$(mas7$, index, 1)
+    End If
+    If Mid$(mas7$, index, 1) <> "+" And count > 0 Then
+        lin7$ = lin7$ + LTrim$(Str$(count))
+        lin7$ = lin7$ + Mid$(mas7$, index, 1)
+        count = 0
+    End If
+Next index
+
+Let mas8$ = table(8, 1) + table(8, 2) + table(8, 3) + table(8, 4) + table(8, 5) + table(8, 6) + table(8, 7) + table(8, 8)
+Let lin8$ = ""
+Let count = 0
+For index = 1 To 8
+    If index = 8 And Mid$(mas8$, index, 1) = "+" Then
+        count = count + 1
+        lin8$ = lin8$ + LTrim$(Str$(count))
+    End If
+    If index < 10 And Mid$(mas8$, index, 1) = "+" Then
+        count = count + 1
+    End If
+    If Mid$(mas8$, index, 1) <> "+" And count = 0 Then
+        lin8$ = lin8$ + Mid$(mas8$, index, 1)
+    End If
+    If Mid$(mas8$, index, 1) <> "+" And count > 0 Then
+        lin8$ = lin8$ + LTrim$(Str$(count))
+        lin8$ = lin8$ + Mid$(mas8$, index, 1)
+        count = 0
+    End If
+Next index
+
+Let fen$ = lin1$ + "/" + lin2$ + "/" + lin3$ + "/" + lin4$ + "/" + lin5$ + "/" + lin6$ + "/" + lin7$ + "/" + lin8$
+
+
+Color 10
+Locate 2, 15: Print "Press any key to display the Forsyth-Edwards notation"
+Do
+Loop Until InKey$ <> ""
+Locate 2, 15: Print "                                                     "
+Color 12
+Locate 2, 29: Print fen$
+
+_Clipboard$ = fen$
+
+url$ = "https://syzygy-tables.info/?fen=" + fen$
+If InStr(_OS$, "[WINDOWS]") Then
+    Shell url$
+End If
+If InStr(_OS$, "[LINUX]") Then
+    Shell "xdg-open " + url$
+End If
+If InStr(_OS$, "[MACOSX]") Then
+    Shell "open -a safari https://" + url$
+End If
+
 End
 
 count1:
@@ -3151,7 +3412,8 @@ If w1 = b1 Or w1 = b1 - 9 Or w1 = b1 - 8 Or w1 = b1 - 7 Or w1 = b1 - 1 Or w1 = b
 If w1 = b1 Or w1 = b1 - 9 Or w1 = b1 - 8 Or w1 = b1 - 7 Or w1 = b1 - 1 Or w1 = b1 + 1 Or w1 = b1 + 7 Or w1 = b1 + 8 Or w1 = b1 + 9 Then Let dice5 = Int(Rnd * 8 + 1)
 If w1 = b1 Or w1 = b1 - 9 Or w1 = b1 - 8 Or w1 = b1 - 7 Or w1 = b1 - 1 Or w1 = b1 + 1 Or w1 = b1 + 7 Or w1 = b1 + 8 Or w1 = b1 + 9 Then GoTo count1
 Let w1 = board(dice2, dice1): Let b1 = board(dice5, dice4)
-Let fw1 = dice1: Let fw2 = dice2: Let fb1 = dice4: Let fb2 = dice5
+Let cor11w = dice1: Let cor12w = Abs(dice2 - 9): Let cor11b = dice4: Let cor12b = Abs(dice5 - 9)
+Let f1 = dice3: Let f2 = dice6
 
 Return
 
@@ -3266,7 +3528,8 @@ If dice3 = 2 And dice1 = fb1 Or dice3 = 2 And dice2 = fb2 Or dice6 = 2 And dice4
 
 Let w2 = board(dice2, dice1): Let b2 = board(dice5, dice4)
 If w2 = b2 Or w2 = b1 Or w2 = w1 Then GoTo count2
-Let fw3 = dice1: Let fw4 = dice2: Let fb3 = dice4: Let fb4 = dice5
+Let cor21w = dice1: Let cor22w = Abs(dice2 - 9): Let cor21b = dice4: Let cor22b = Abs(dice5 - 9)
+Let f3 = dice3: Let f4 = dice6
 
 Return
 
@@ -3381,6 +3644,7 @@ If dice3 = 2 And dice1 = fb1 Or dice3 = 2 And dice2 = fb2 Or dice6 = 2 And dice4
 
 Let w3 = board(dice2, dice1): Let b3 = board(dice5, dice4)
 If w3 = b3 Or w3 = b2 Or w3 = b1 Or b3 = w2 Or b3 = w1 Then GoTo count3
-Let fw5 = dice1: Let fw6 = dice2: Let fb5 = dice4: Let fb6 = dice5
+Let cor31w = dice1: Let cor32w = asb(dice2 - 9): Let cor31b = dice4: Let cor32b = Abs(dice5 - 9)
+Let f5 = dice3: Let f6 = dice6
 
 Return
