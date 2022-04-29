@@ -1,7 +1,7 @@
 Rem Let scr& = _NewImage(800, 600, 256)
 Rem Screen scr&
-Screen 12
 Rem _FullScreen
+Screen 12
 DefInt A-Z
 Randomize Timer
 
