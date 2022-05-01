@@ -3444,11 +3444,11 @@ If dice6 = 6 And dice5 = 1 Or dice6 = 6 And dice5 = 8 Then Let dice5 = Int(Rnd *
 If dice6 = 6 And dice5 = 1 Or dice6 = 6 And dice5 = 8 Then GoTo pawn2
 If dice3 = 6 And b1 = w2 + 9 Or dice3 = 6 And b1 = w2 + 7 Then
     Let dice1 = Int(Rnd * 8 + 1)
-    Rem Let dice2 = Int(Rnd * 8 + 1)
+    Let dice2 = Int(Rnd * 8 + 1)
 End If
 If dice6 = 6 And w1 = b2 - 9 Or dice6 = 6 And w1 = b2 - 7 Then
     Let dice4 = Int(Rnd * 8 + 1)
-    Rem Let dice5 = Int(Rnd * 8 + 1)
+    Let dice5 = Int(Rnd * 8 + 1)
 End If
 If dice3 = 6 And dice2 = 1 Or dice3 = 6 And dice2 = 8 Then GoTo pawn2
 If dice6 = 6 And dice5 = 1 Or dice6 = 6 And dice5 = 8 Then GoTo pawn2
