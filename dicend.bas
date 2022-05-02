@@ -67,46 +67,32 @@ declare sub cannon as type integer
 declare sub arrow as type integer
 declare sub dragon as type integer
 declare sub horse as type integer
+declare sub chessboard           as type integer
+declare sub makrukboard           as type integer
+declare sub xiangqiboard           as type integer
+declare sub shogiboard           as type integer
+declare sub draughtsboard           as type integer
 
-Common Shared x, y, cd1, cd2, cn, cl, cf As Integer
+Common Shared x, y, cd1, cd2, cn, cl, cf, cb1, cb2, cb3, cb4, cb5 As Integer
 Dim Shared board(8, 8) As Integer
 Let cell = 100
 For row = 1 To 8: For col = 1 To 8
     Let board(row, col) = cell + 1
     Let cell = cell + 1
 Next col: Next row
+Let cd1 = 2: Let cd2 = 15: Let cn = 7: Let cl = 14: Let cf = 9: Let cb1 = 7: Let cb2 = 6: Let cb3 = 3: Let cb4 = 13: Let cb5 = 9
 
 
-Let x = 25: Let y = 25: Let cd1 = 2: Let cd2 = 15: Let cn = 7: Let cl = 14: Let cf = 9
+Let x = 25: Let y = 25
 
-Call letter2
-x = x + 50
 
 Call letter3
-x = x + 50
-
-Call letter4
-
-x = x + 50
-Call letter5
-
-x = x + 50
-Call letter6
-
-x = x + 50
-Call letter7
 
 x = x + 50
 Call letter8
 
 x = x + 50
-Call letter9
-
-x = x + 50
 Call letter0
-
-x = x + 50
-Call letterA
 
 x = x + 50
 Call letterB
@@ -118,23 +104,9 @@ x = x + 50
 Call letterD
 
 x = x + 50
-Call letterE
-
-x = x + 50
-Call letterF
-
-x = x + 50
-Call letterG
-
-x = x + 50
-Call letterH
-
-x = x + 50
-Call letterI
-
-x = x + 50
 Call letterJ
 
+Call chessboard
 
 Rem Do: Loop While InKey$ = ""
 
@@ -391,19 +363,45 @@ End Sub
 
 Sub letter2
     Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
+    Line (4 + x, 18 + y)-(36 + x, 22 + y), cl, BF
     Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
+    Line (32 + x, 9 + y)-(36 + x, 17 + y), cl, BF
+    Line (4 + x, 23 + y)-(8 + x, 31 + y), cl, BF
 End Sub
 
 Sub letter3
+    Line (4 + x, 4 + y)-(34 + x, 8 + y), cl, BF
+    Line (4 + x, 36 + y)-(34 + x, 32 + y), cl, BF
+
+    '    Line (4 + x, 18 + y)-(34 + x, 22 + y), cl, BF
+
+    '    Line (32 + x, 9 + y)-(36 + x, 17 + y), cl, BF
+    '    Line (32 + x, 23 + y)-(36 + x, 31 + y), cl, BF
+
+    PSet (32 + x, 15 + y), cl: PSet (32 + x, 23 + y), cl
+
 End Sub
 
 Sub letter4
+    Line (4 + x, 4 + y)-(8 + x, 17 + y), cl, BF
+    Line (32 + x, 4 + y)-(36 + x, 36 + y), cl, BF
+    Line (4 + x, 18 + y)-(34 + x, 22 + y), cl, BF
 End Sub
 
 Sub letter5
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
+    Line (4 + x, 18 + y)-(36 + x, 22 + y), cl, BF
+    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
+    Line (4 + x, 9 + y)-(8 + x, 17 + y), cl, BF
+    Line (32 + x, 23 + y)-(36 + x, 31 + y), cl, BF
 End Sub
 
 Sub letter6
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
+    Line (4 + x, 18 + y)-(36 + x, 22 + y), cl, BF
+    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
+    Line (4 + x, 9 + y)-(8 + x, 31 + y), cl, BF
+    Line (32 + x, 23 + y)-(36 + x, 31 + y), cl, BF
 End Sub
 
 Sub letter7
@@ -415,18 +413,42 @@ Sub letter7
 End Sub
 
 Sub letter8
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
+    Line (4 + x, 18 + y)-(36 + x, 22 + y), cl, BF
+    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
 End Sub
 
 Sub letter9
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
+    Line (4 + x, 18 + y)-(36 + x, 22 + y), cl, BF
+    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
+    Line (32 + x, 9 + y)-(36 + x, 31 + y), cl, BF
 End Sub
 
 Sub letter0
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
+    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
 End Sub
 
 Sub letterA
+    Line (4 + x, 6 + y)-(8 + x, 36 + y), cl, BF
+    Line (32 + x, 6 + y)-(36 + x, 36 + y), cl, BF
+    Line (4 + x, 18 + y)-(34 + x, 22 + y), cl, BF
+    Line (6 + x, 4 + y)-(34 + x, 8 + y), cl, BF
+    Line (30 + x, 9 + y)-(31 + x, 9 + y), cl
+    Line (9 + x, 9 + y)-(10 + x, 9 + y), cl
+    PSet (9 + x, 10 + y), cl: PSet (31 + x, 10 + y), cl
+    PSet (5 + x, 5 + y), cl: PSet (35 + x, 5 + y), cl
 End Sub
 
 Sub letterB
+    Line (4 + x, 4 + y)-(8 + x, 36 + y), cl, BF
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
+    Line (4 + x, 18 + y)-(36 + x, 22 + y), cl, BF
+    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
+    Line (9 + x, 9 + y)-(10 + x, 9 + y), cl
+    PSet (9 + x, 10 + y), cl: PSet (5 + x, 5 + y), cl
+
 End Sub
 
 Sub letterC
@@ -436,18 +458,35 @@ Sub letterC
 End Sub
 
 Sub letterD
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
+    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
 End Sub
 
 Sub letterE
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
+    Line (4 + x, 18 + y)-(36 + x, 22 + y), cl, BF
+    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
+    Line (4 + x, 4 + y)-(8 + x, 36 + y), cl, BF
 End Sub
 
 Sub letterF
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
+    Line (4 + x, 18 + y)-(36 + x, 22 + y), cl, BF
+    Line (4 + x, 4 + y)-(8 + x, 36 + y), cl, BF
 End Sub
 
 Sub letterG
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
+    Line (20 + x, 18 + y)-(36 + x, 22 + y), cl, BF
+    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
+    Line (4 + x, 9 + y)-(8 + x, 31 + y), cl, BF
+    Line (32 + x, 23 + y)-(36 + x, 31 + y), cl, BF
 End Sub
 
 Sub letterH
+    Line (4 + x, 4 + y)-(8 + x, 36 + y), cl, BF
+    Line (32 + x, 4 + y)-(36 + x, 36 + y), cl, BF
+    Line (4 + x, 18 + y)-(34 + x, 22 + y), cl, BF
 End Sub
 
 Sub letterI
@@ -487,4 +526,69 @@ Sub dragon
 End Sub
 
 Sub horse
+End Sub
+
+Sub chessboard
+    Line (160, 80)-(480, 400), cb2, BF
+    For x = 160 To 480 Step 40
+        Line (x, 80)-(x, 400), cb1
+    Next x
+    For y = 80 To 400 Step 40
+        Line (160, y)-(480, y), cb1
+    Next y
+    For y = 320 To 80 Step -80: For x = 400 To 160 Step -80
+        Line (x + 1, y + 1)-(x + 39, y + 39), cb3, BF
+        Line (x + 41, y + 41)-(x + 79, y + 79), cb3, BF
+    Next x: Next y
+End Sub
+
+Sub makrukboard
+    Line (160, 80)-(480, 400), cb2, BF
+    For x = 160 To 480 Step 40
+        Line (x, 80)-(x, 400), cb1
+    Next x
+    For y = 80 To 400 Step 40
+        Line (160, y)-(480, y), cb1
+    Next y
+End Sub
+
+Sub shogiboard
+    Line (140, 60)-(500, 420), cb2, BF
+    For x = 140 To 500 Step 40
+        Line (x, 60)-(x, 420), cb1
+    Next x
+    For y = 60 To 400 Step 40
+        Line (140, y)-(500, y), cb1
+    Next y
+End Sub
+
+Sub xiangqiboard
+    Line (140, 40)-(500, 440), cb2, BF
+    For x = 140 To 500 Step 40
+        Line (x, 40)-(x, 440), cb1
+    Next x
+    For y = 40 To 440 Step 40
+        Line (140, y)-(500, y), cb1
+    Next y
+    Line (259, 161)-(381, 159), cb4, BF
+    Line (259, 41)-(261, 159), cb4, BF
+    Line (379, 41)-(381, 159), cb4, BF
+    Line (259, 321)-(381, 319), cb4, BF
+    Line (259, 439)-(261, 319), cb4, BF
+    Line (379, 439)-(381, 319), cb4, BF
+    Line (141, 238)-(499, 242), cb5, BF
+End Sub
+
+Sub draughtsboard
+    Line (120, 40)-(520, 440), cb2, BF
+    For x = 120 To 520 Step 40
+        Line (x, 40)-(x, 440), cb1
+    Next x
+    For y = 40 To 440 Step 40
+        Line (120, y)-(520, y), cb1
+    Next y
+    For y = 360 To 40 Step -80: For x = 440 To 120 Step -80
+        Line (x + 1, y + 1)-(x + 39, y + 39), cb3, BF
+        Line (x + 41, y + 41)-(x + 79, y + 79), cb3, BF
+    Next x: Next y
 End Sub
