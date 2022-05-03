@@ -65,13 +65,17 @@ declare sub rook as type integer
 declare sub pawn as type integer
 declare sub cannon as type integer
 declare sub arrow as type integer
+declare sub general as type integer
+declare sub tokin as type integer
 declare sub dragon as type integer
 declare sub horse as type integer
-declare sub chessboard           as type integer
-declare sub makrukboard           as type integer
-declare sub xiangqiboard           as type integer
-declare sub shogiboard           as type integer
-declare sub draughtsboard           as type integer
+declare sub cells as type integer
+declare sub dices as type integer
+declare sub chessboard as type integer
+declare sub makrukboard as type integer
+declare sub xiangqiboard as type integer
+declare sub shogiboard as type integer
+declare sub draughtsboard as type integer
 
 Common Shared x, y, cd1, cd2, cn, cl, cf, cb1, cb2, cb3, cb4, cb5 As Integer
 Dim Shared board(8, 8) As Integer
@@ -82,31 +86,47 @@ For row = 1 To 8: For col = 1 To 8
 Next col: Next row
 Let cd1 = 2: Let cd2 = 15: Let cn = 7: Let cl = 14: Let cf = 9: Let cb1 = 7: Let cb2 = 6: Let cb3 = 3: Let cb4 = 13: Let cb5 = 9
 
+'Let x = 20: For y = 20 To 420 Step 50
+'Call cells
+'Next y
+'Let x = 20: Let y = 20: Call dice5
 
-Let x = 25: Let y = 25
+Let dc1 = Int(Rnd * 8 + 1)
+Let dc2 = Int(Rnd * 8 + 1)
+Let dc3 = Int(Rnd * 10 + 1)
+Let dc4 = Int(Rnd * 8 + 1)
+Let dc5 = Int(Rnd * 8 + 1)
+Let dc6 = Int(Rnd * 10 + 1)
+
+If dc3 = 1 Then Let fw$ = "White king"
+If dc3 = 2 Then Let fw$ = "White queen"
+If dc3 = 3 Then Let fw$ = "White bishop"
+If dc3 = 4 Then Let fw$ = "White knight"
+If dc3 = 5 Then Let fw$ = "White rook"
+If dc3 = 6 Then Let fw$ = "White pawn"
+If dc3 = 7 Then Let fw$ = "White cannon"
+If dc3 = 8 Then Let fw$ = "White arrow"
+If dc3 = 9 Then Let fw$ = "White horse"
+If dc3 = 10 Then Let fw$ = "White dragon"
+
+If dc6 = 1 Then Let fb$ = "Black king"
+If dc6 = 2 Then Let fb$ = "Black queen"
+If dc6 = 3 Then Let fb$ = "Black bishop"
+If dc6 = 4 Then Let fb$ = "Black knight"
+If dc6 = 5 Then Let fb$ = "Black rook"
+If dc6 = 6 Then Let fb$ = "Black pawn"
+If dc6 = 7 Then Let fb$ = "Black cannon"
+If dc6 = 8 Then Let fb$ = "Black arrow"
+If dc6 = 9 Then Let fb$ = "Black horse"
+If dc6 = 10 Then Let fb$ = "Black dragon"
 
 
-Call letter3
 
-x = x + 50
-Call letter8
 
-x = x + 50
-Call letter0
 
-x = x + 50
-Call letterB
 
-x = x + 50
-Call letterC
 
-x = x + 50
-Call letterD
 
-x = x + 50
-Call letterJ
-
-Call chessboard
 
 Rem Do: Loop While InKey$ = ""
 
@@ -372,14 +392,17 @@ End Sub
 Sub letter3
     Line (4 + x, 4 + y)-(34 + x, 8 + y), cl, BF
     Line (4 + x, 36 + y)-(34 + x, 32 + y), cl, BF
-
-    '    Line (4 + x, 18 + y)-(34 + x, 22 + y), cl, BF
-
-    '    Line (32 + x, 9 + y)-(36 + x, 17 + y), cl, BF
-    '    Line (32 + x, 23 + y)-(36 + x, 31 + y), cl, BF
-
-    PSet (32 + x, 15 + y), cl: PSet (32 + x, 23 + y), cl
-
+    Line (36 + x, 23 + y)-(32 + x, 34 + y), cl, BF
+    Line (32 + x, 6 + y)-(36 + x, 17 + y), cl, BF
+    Line (18 + x, 18 + y)-(34 + x, 22 + y), cl, BF
+    Line (30 + x, 17 + y)-(31 + x, 17 + y), cl
+    Line (30 + x, 23 + y)-(31 + x, 23 + y), cl
+    Line (30 + x, 9 + y)-(31 + x, 9 + y), cl
+    Line (30 + x, 31 + y)-(31 + x, 31 + y), cl
+    PSet (31 + x, 10 + y), cl: PSet (31 + x, 30 + y), cl
+    PSet (31 + x, 16 + y), cl: PSet (31 + x, 24 + y), cl
+    PSet (35 + x, 18 + y), cl: PSet (35 + x, 22 + y), cl
+    PSet (35 + x, 5 + y), cl: PSet (35 + x, 35 + y), cl
 End Sub
 
 Sub letter4
@@ -413,9 +436,29 @@ Sub letter7
 End Sub
 
 Sub letter8
-    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
-    Line (4 + x, 18 + y)-(36 + x, 22 + y), cl, BF
-    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
+    Line (8 + x, 23 + y)-(4 + x, 34 + y), cl, BF
+    Line (4 + x, 6 + y)-(8 + x, 17 + y), cl, BF
+    Line (6 + x, 4 + y)-(34 + x, 8 + y), cl, BF
+    Line (6 + x, 36 + y)-(34 + x, 32 + y), cl, BF
+    Line (36 + x, 23 + y)-(32 + x, 34 + y), cl, BF
+    Line (32 + x, 6 + y)-(36 + x, 17 + y), cl, BF
+    Line (6 + x, 18 + y)-(34 + x, 22 + y), cl, BF
+    Line (30 + x, 17 + y)-(31 + x, 17 + y), cl
+    Line (30 + x, 23 + y)-(31 + x, 23 + y), cl
+    Line (10 + x, 17 + y)-(9 + x, 17 + y), cl
+    Line (10 + x, 23 + y)-(9 + x, 23 + y), cl
+    Line (9 + x, 31 + y)-(10 + x, 31 + y), cl
+    Line (30 + x, 31 + y)-(31 + x, 31 + y), cl
+    Line (9 + x, 9 + y)-(10 + x, 9 + y), cl
+    Line (30 + x, 9 + y)-(31 + x, 9 + y), cl
+    PSet (35 + x, 5 + y), cl: PSet (35 + x, 35 + y), cl
+    PSet (5 + x, 5 + y), cl: PSet (5 + x, 35 + y), cl
+    PSet (9 + x, 30 + y), cl: PSet (31 + x, 30 + y), cl
+    PSet (9 + x, 10 + y), cl: PSet (31 + x, 10 + y), cl
+    PSet (5 + x, 18 + y), cl: PSet (5 + x, 22 + y), cl
+    PSet (9 + x, 16 + y), cl: PSet (9 + x, 24 + y), cl
+    PSet (31 + x, 16 + y), cl: PSet (31 + x, 24 + y), cl
+    PSet (35 + x, 18 + y), cl: PSet (35 + x, 22 + y), cl
 End Sub
 
 Sub letter9
@@ -426,8 +469,20 @@ Sub letter9
 End Sub
 
 Sub letter0
-    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
-    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
+    Line (6 + x, 4 + y)-(34 + x, 8 + y), cl, BF
+    Line (6 + x, 36 + y)-(34 + x, 32 + y), cl, BF
+    Line (4 + x, 6 + y)-(8 + x, 34 + y), cl, BF
+    Line (36 + x, 6 + y)-(32 + x, 34 + y), cl, BF
+    Line (9 + x, 9 + y)-(10 + x, 9 + y), cl
+    Line (30 + x, 9 + y)-(31 + x, 9 + y), cl
+    Line (9 + x, 31 + y)-(10 + x, 31 + y), cl
+    Line (30 + x, 31 + y)-(31 + x, 31 + y), cl
+    Line (9 + x, 9 + y)-(10 + x, 9 + y), cl
+    Line (30 + x, 9 + y)-(31 + x, 9 + y), cl
+    PSet (35 + x, 5 + y), cl: PSet (35 + x, 35 + y), cl
+    PSet (5 + x, 5 + y), cl: PSet (5 + x, 35 + y), cl
+    PSet (9 + x, 30 + y), cl: PSet (31 + x, 30 + y), cl
+    PSet (9 + x, 10 + y), cl: PSet (31 + x, 10 + y), cl
 End Sub
 
 Sub letterA
@@ -442,24 +497,41 @@ Sub letterA
 End Sub
 
 Sub letterB
-    Line (4 + x, 4 + y)-(8 + x, 36 + y), cl, BF
-    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
-    Line (4 + x, 18 + y)-(36 + x, 22 + y), cl, BF
-    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
-    Line (9 + x, 9 + y)-(10 + x, 9 + y), cl
-    PSet (9 + x, 10 + y), cl: PSet (5 + x, 5 + y), cl
-
+    Line (4 + x, 9 + y)-(8 + x, 31 + y), cl, BF
+    Line (4 + x, 4 + y)-(34 + x, 8 + y), cl, BF
+    Line (4 + x, 36 + y)-(34 + x, 32 + y), cl, BF
+    Line (36 + x, 23 + y)-(32 + x, 34 + y), cl, BF
+    Line (32 + x, 6 + y)-(36 + x, 17 + y), cl, BF
+    Line (9 + x, 18 + y)-(34 + x, 22 + y), cl, BF
+    Line (30 + x, 17 + y)-(31 + x, 17 + y), cl
+    Line (30 + x, 23 + y)-(31 + x, 23 + y), cl
+    Line (30 + x, 9 + y)-(31 + x, 9 + y), cl
+    Line (30 + x, 31 + y)-(31 + x, 31 + y), cl
+    PSet (31 + x, 10 + y), cl: PSet (31 + x, 30 + y), cl
+    PSet (31 + x, 16 + y), cl: PSet (31 + x, 24 + y), cl
+    PSet (35 + x, 18 + y), cl: PSet (35 + x, 22 + y), cl
+    PSet (35 + x, 5 + y), cl: PSet (35 + x, 35 + y), cl
 End Sub
 
 Sub letterC
-    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
-    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
-
+    Line (6 + x, 4 + y)-(36 + x, 8 + y), cl, BF
+    Line (6 + x, 36 + y)-(36 + x, 32 + y), cl, BF
+    Line (4 + x, 6 + y)-(8 + x, 34 + y), cl, BF
+    Line (9 + x, 9 + y)-(10 + x, 9 + y), cl
+    Line (9 + x, 31 + y)-(10 + x, 31 + y), cl
+    PSet (9 + x, 10 + y), cl: PSet (9 + x, 30 + y), cl
+    PSet (5 + x, 5 + y), cl: PSet (5 + x, 35 + y), cl
 End Sub
 
 Sub letterD
-    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
-    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
+    Line (4 + x, 4 + y)-(34 + x, 8 + y), cl, BF
+    Line (4 + x, 36 + y)-(34 + x, 32 + y), cl, BF
+    Line (4 + x, 4 + y)-(8 + x, 36 + y), cl, BF
+    Line (32 + x, 6 + y)-(36 + x, 34 + y), cl, BF
+    Line (30 + x, 9 + y)-(31 + x, 9 + y), cl
+    Line (30 + x, 31 + y)-(31 + x, 31 + y), cl
+    PSet (31 + x, 10 + y), cl: PSet (31 + x, 30 + y), cl
+    PSet (35 + x, 5 + y), cl: PSet (35 + x, 35 + y), cl
 End Sub
 
 Sub letterE
@@ -496,6 +568,13 @@ Sub letterI
 End Sub
 
 Sub letterJ
+    Line (6 + x, 36 + y)-(34 + x, 32 + y), cl, BF
+    Line (32 + x, 4 + y)-(36 + x, 34 + y), cl, BF
+    Line (4 + x, 18 + y)-(8 + x, 34 + y), cl, BF
+    Line (9 + x, 31 + y)-(10 + x, 31 + y), cl
+    Line (30 + x, 31 + y)-(31 + x, 31 + y), cl
+    PSet (9 + x, 30 + y), cl: PSet (31 + x, 30 + y), cl
+    PSet (5 + x, 35 + y), cl: PSet (35 + x, 35 + y), cl
 End Sub
 
 Sub king
@@ -519,6 +598,12 @@ End Sub
 Sub cannon
 End Sub
 
+Sub general
+End Sub
+
+Sub tokin
+End Sub
+
 Sub arrow
 End Sub
 
@@ -526,6 +611,26 @@ Sub dragon
 End Sub
 
 Sub horse
+End Sub
+
+Sub cells
+    Line (x, y)-(x + 40, y + 40), cd1, BF
+    Line (x - 1, y - 1)-(x + 41, y + 41), cb1, B
+End Sub
+
+Sub dices
+    Line (20, 160)-(60, 200), cd1, BF
+    Line (20, 220)-(60, 260), cd1, BF
+    Line (20, 280)-(60, 320), cd1, BF
+    Line (580, 160)-(620, 200), cd1, BF
+    Line (580, 220)-(620, 260), cd1, BF
+    Line (580, 280)-(620, 320), cd1, BF
+    Line (19, 159)-(61, 201), cb1, B
+    Line (19, 219)-(61, 261), cb1, B
+    Line (19, 279)-(61, 321), cb1, B
+    Line (579, 159)-(621, 201), cb1, B
+    Line (579, 219)-(621, 261), cb1, B
+    Line (579, 279)-(621, 321), cb1, B
 End Sub
 
 Sub chessboard
