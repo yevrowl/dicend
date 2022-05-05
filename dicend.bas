@@ -69,6 +69,8 @@ declare sub general as type integer
 declare sub tokin as type integer
 declare sub dragon as type integer
 declare sub horse as type integer
+declare sub checker as type integer
+declare sub draught as type integer
 declare sub cells as type integer
 declare sub dices as type integer
 declare sub chessboard as type integer
@@ -84,7 +86,7 @@ For row = 1 To 8: For col = 1 To 8
     Let board(row, col) = cell + 1
     Let cell = cell + 1
 Next col: Next row
-Let cd1 = 2: Let cd2 = 15: Let cn = 7: Let cl = 14: Let cf = 9: Let cb1 = 7: Let cb2 = 6: Let cb3 = 3: Let cb4 = 13: Let cb5 = 9
+Let cd1 = 2: Let cd2 = 15: Let cn = 7: Let cl = 14: Let cf = 15: Let cb1 = 7: Let cb2 = 6: Let cb3 = 3: Let cb4 = 13: Let cb5 = 9
 
 'Let x = 20: For y = 20 To 420 Step 50
 'Call cells
@@ -121,12 +123,48 @@ If dc6 = 9 Then Let fb$ = "Black horse"
 If dc6 = 10 Then Let fb$ = "Black dragon"
 
 
+x = 10: y = 10
 
+Call king
+x = x + 50
 
+Call queen
+x = x + 50
 
+Call bishop
+x = x + 50
 
+Call knight
+x = x + 50
 
+Call rook
+x = x + 50
 
+Call pawn
+x = x + 50
+
+Call cannon
+x = x + 50
+
+Call general
+x = x + 50
+
+Call tokin
+x = x + 50
+
+Call arrow
+x = x + 50
+
+Call dragon
+x = x + 50
+
+Call horse
+x = x + 50
+
+Call checker
+x = x + 50
+
+Call draught
 
 Rem Do: Loop While InKey$ = ""
 
@@ -578,21 +616,78 @@ Sub letterJ
 End Sub
 
 Sub king
+    Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
+
 End Sub
 
 Sub queen
+    Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
+
 End Sub
 
 Sub bishop
+    Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
+
 End Sub
 
 Sub knight
+    Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
+    Line (12 + x, 31 + y)-(28 + x, 31 + y), cf
+    Line (13 + x, 30 + y)-(29 + x, 30 + y), cf
+    Line (14 + x, 29 + y)-(30 + x, 29 + y), cf
+    Line (15 + x, 28 + y)-(31 + x, 28 + y), cf
+    Line (16 + x, 27 + y)-(32 + x, 27 + y), cf
+    Line (17 + x, 26 + y)-(33 + x, 26 + y), cf
+    Line (18 + x, 25 + y)-(34 + x, 25 + y), cf
+    Line (19 + x, 24 + y)-(35 + x, 24 + y), cf
+    Line (20 + x, 23 + y)-(36 + x, 18 + y), cf, BF
+
+
 End Sub
 
 Sub rook
+    Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
+    Line (4 + x, 4 + y)-(8 + x, 12 + y), cf, BF
+    Line (13 + x, 4 + y)-(17 + x, 12 + y), cf, BF
+    Line (23 + x, 4 + y)-(27 + x, 12 + y), cf, BF
+    Line (32 + x, 4 + y)-(36 + x, 12 + y), cf, BF
+    Line (4 + x, 12 + y)-(36 + x, 16 + y), cf, BF
+    Line (12 + x, 16 + y)-(28 + x, 32 + y), cf, BF
+    Line (9 + x, 16 + y)-(11 + x, 16 + y), cf
+    Line (29 + x, 16 + y)-(31 + x, 16 + y), cf
+    Line (10 + x, 17 + y)-(11 + x, 17 + y), cf
+    Line (29 + x, 17 + y)-(30 + x, 17 + y), cf
+    PSet (11 + x, 18 + y), cf: PSet (29 + x, 18 + y), cf
+    Line (9 + x, 31 + y)-(11 + x, 31 + y), cf
+    Line (29 + x, 31 + y)-(31 + x, 31 + y), cf
+    Line (10 + x, 30 + y)-(11 + x, 30 + y), cf
+    Line (29 + x, 30 + y)-(30 + x, 30 + y), cf
+    PSet (11 + x, 29 + y), cf: PSet (29 + x, 29 + y), cf
 End Sub
 
 Sub pawn
+    Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
+    Line (18 + x, 32 + y)-(22 + x, 4 + y), cf, BF
+    Line (12 + x, 9 + y)-(28 + x, 14 + y), cf, BF
+    Line (9 + x, 31 + y)-(31 + x, 31 + y), cf
+    Line (10 + x, 30 + y)-(30 + x, 30 + y), cf
+    Line (11 + x, 29 + y)-(29 + x, 29 + y), cf
+    Line (12 + x, 28 + y)-(28 + x, 28 + y), cf
+    Line (13 + x, 27 + y)-(27 + x, 27 + y), cf
+    Line (14 + x, 26 + y)-(26 + x, 26 + y), cf
+    Line (15 + x, 25 + y)-(25 + x, 25 + y), cf
+    Line (16 + x, 24 + y)-(24 + x, 24 + y), cf
+    Line (17 + x, 23 + y)-(23 + x, 23 + y), cf
+    Line (17 + x, 19 + y)-(23 + x, 19 + y), cf
+    Line (16 + x, 18 + y)-(24 + x, 18 + y), cf
+    Line (15 + x, 17 + y)-(25 + x, 17 + y), cf
+    Line (14 + x, 16 + y)-(26 + x, 16 + y), cf
+    Line (13 + x, 15 + y)-(27 + x, 15 + y), cf
+    Line (13 + x, 8 + y)-(27 + x, 8 + y), cf
+    Line (14 + x, 7 + y)-(26 + x, 7 + y), cf
+    Line (15 + x, 6 + y)-(25 + x, 6 + y), cf
+    Line (16 + x, 5 + y)-(24 + x, 5 + y), cf
+    Line (17 + x, 4 + y)-(23 + x, 4 + y), cf
 End Sub
 
 Sub cannon
@@ -611,6 +706,12 @@ Sub dragon
 End Sub
 
 Sub horse
+End Sub
+
+Sub checker
+End Sub
+
+Sub draught
 End Sub
 
 Sub cells
