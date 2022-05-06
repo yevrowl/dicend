@@ -125,24 +125,6 @@ If dc6 = 10 Then Let fb$ = "Black dragon"
 
 x = 10: y = 10
 
-Call king
-x = x + 50
-
-Call queen
-x = x + 50
-
-Call bishop
-x = x + 50
-
-Call knight
-x = x + 50
-
-Call rook
-x = x + 50
-
-Call pawn
-x = x + 50
-
 Call cannon
 x = x + 50
 
@@ -617,17 +599,79 @@ End Sub
 
 Sub king
     Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
-
+    Line (12 + x, 31 + y)-(28 + x, 31 + y), cf
+    Line (13 + x, 30 + y)-(27 + x, 30 + y), cf
+    Line (14 + x, 29 + y)-(26 + x, 29 + y), cf
+    Line (15 + x, 28 + y)-(25 + x, 28 + y), cf
+    Line (16 + x, 27 + y)-(24 + x, 10 + y), cf, BF
+    Line (15 + x, 24 + y)-(25 + x, 24 + y), cf
+    Line (14 + x, 23 + y)-(26 + x, 23 + y), cf
+    Line (13 + x, 22 + y)-(27 + x, 22 + y), cf
+    Line (12 + x, 21 + y)-(28 + x, 21 + y), cf
+    Line (11 + x, 20 + y)-(29 + x, 20 + y), cf
+    Line (10 + x, 19 + y)-(30 + x, 19 + y), cf
+    Line (9 + x, 18 + y)-(31 + x, 18 + y), cf
+    Line (8 + x, 17 + y)-(32 + x, 17 + y), cf
+    Line (7 + x, 16 + y)-(33 + x, 16 + y), cf
+    Line (6 + x, 15 + y)-(34 + x, 15 + y), cf
+    Line (5 + x, 14 + y)-(35 + x, 14 + y), cf
+    Line (4 + x, 13 + y)-(36 + x, 12 + y), cf, BF
+    Line (4 + x, 11 + y)-(14 + x, 10 + y), cf, BF
+    Line (5 + x, 9 + y)-(13 + x, 9 + y), cf
+    Line (6 + x, 8 + y)-(12 + x, 8 + y), cf
+    Line (7 + x, 7 + y)-(11 + x, 7 + y), cf
+    Line (26 + x, 11 + y)-(36 + x, 10 + y), cf, BF
+    Line (27 + x, 9 + y)-(35 + x, 9 + y), cf
+    Line (28 + x, 8 + y)-(34 + x, 8 + y), cf
+    Line (29 + x, 7 + y)-(33 + x, 7 + y), cf
+    Line (17 + x, 9 + y)-(23 + x, 8 + y), cf, BF
+    Line (18 + x, 7 + y)-(22 + x, 6 + y), cf, BF
+    Line (19 + x, 5 + y)-(21 + x, 4 + y), cf, BF
 End Sub
 
 Sub queen
     Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
-
+    Line (9 + x, 31 + y)-(31 + x, 31 + y), cf
+    Line (10 + x, 30 + y)-(30 + x, 30 + y), cf
+    Line (11 + x, 29 + y)-(29 + x, 29 + y), cf
+    Line (12 + x, 28 + y)-(28 + x, 14 + y), cf, BF
+    Line (11 + x, 24 + y)-(29 + x, 24 + y), cf
+    Line (10 + x, 23 + y)-(30 + x, 23 + y), cf
+    Line (9 + x, 22 + y)-(31 + x, 22 + y), cf
+    Line (8 + x, 21 + y)-(32 + x, 21 + y), cf
+    Line (7 + x, 20 + y)-(33 + x, 20 + y), cf
+    Line (6 + x, 19 + y)-(34 + x, 18 + y), cf, BF
+    Line (6 + x, 17 + y)-(7 + x, 10 + y), cf, BF
+    Line (5 + x, 11 + y)-(8 + x, 14 + y), cf, BF
+    Line (4 + x, 12 + y)-(9 + x, 13 + y), cf, BF
+    Line (34 + x, 17 + y)-(33 + x, 10 + y), cf, BF
+    Line (35 + x, 11 + y)-(32 + x, 14 + y), cf, BF
+    Line (36 + x, 12 + y)-(31 + x, 13 + y), cf, BF
+    Line (12 + x, 13 + y)-(13 + x, 6 + y), cf, BF
+    Line (11 + x, 7 + y)-(14 + x, 10 + y), cf, BF
+    Line (10 + x, 8 + y)-(15 + x, 9 + y), cf, BF
+    Line (27 + x, 13 + y)-(28 + x, 6 + y), cf, BF
+    Line (26 + x, 7 + y)-(29 + x, 10 + y), cf, BF
+    Line (25 + x, 8 + y)-(30 + x, 9 + y), cf, BF
+    Line (19 + x, 13 + y)-(21 + x, 4 + y), cf, BF
+    Line (18 + x, 5 + y)-(22 + x, 8 + y), cf, BF
+    Line (17 + x, 6 + y)-(23 + x, 7 + y), cf, BF
 End Sub
 
 Sub bishop
     Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
-
+    Line (18 + x, 31 + y)-(22 + x, 6 + y), cf, BF
+    Line (19 + x, 5 + y)-(21 + x, 4 + y), cf, BF
+    Line (12 + x, 31 + y)-(28 + x, 31 + y), cf
+    Line (13 + x, 30 + y)-(27 + x, 30 + y), cf
+    Line (14 + x, 29 + y)-(26 + x, 29 + y), cf
+    Line (15 + x, 28 + y)-(25 + x, 28 + y), cf
+    Line (16 + x, 27 + y)-(24 + x, 27 + y), cf
+    Line (17 + x, 26 + y)-(23 + x, 26 + y), cf
+    Line (17 + x, 21 + y)-(23 + x, 8 + y), cf, BF
+    Line (16 + x, 19 + y)-(24 + x, 10 + y), cf, BF
+    Line (15 + x, 17 + y)-(25 + x, 12 + y), cf, BF
+    Line (14 + x, 15 + y)-(26 + x, 14 + y), cf, BF
 End Sub
 
 Sub knight
@@ -641,8 +685,20 @@ Sub knight
     Line (18 + x, 25 + y)-(34 + x, 25 + y), cf
     Line (19 + x, 24 + y)-(35 + x, 24 + y), cf
     Line (20 + x, 23 + y)-(36 + x, 18 + y), cf, BF
-
-
+    Line (4 + x, 17 + y)-(35 + x, 17 + y), cf
+    Line (4 + x, 16 + y)-(34 + x, 16 + y), cf
+    Line (5 + x, 15 + y)-(33 + x, 15 + y), cf
+    Line (6 + x, 14 + y)-(32 + x, 14 + y), cf
+    Line (7 + x, 13 + y)-(31 + x, 13 + y), cf
+    Line (8 + x, 12 + y)-(30 + x, 12 + y), cf
+    Line (9 + x, 11 + y)-(29 + x, 11 + y), cf
+    Line (10 + x, 10 + y)-(28 + x, 10 + y), cf
+    Line (11 + x, 9 + y)-(27 + x, 9 + y), cf
+    Line (12 + x, 8 + y)-(26 + x, 8 + y), cf
+    Line (13 + x, 7 + y)-(25 + x, 7 + y), cf
+    Line (14 + x, 6 + y)-(24 + x, 6 + y), cf
+    Line (15 + x, 5 + y)-(23 + x, 5 + y), cf
+    Line (16 + x, 4 + y)-(22 + x, 4 + y), cf
 End Sub
 
 Sub rook
@@ -691,21 +747,31 @@ Sub pawn
 End Sub
 
 Sub cannon
+    Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
+
 End Sub
 
 Sub general
+    Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
+
 End Sub
 
 Sub tokin
 End Sub
 
 Sub arrow
+    Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
+
 End Sub
 
 Sub dragon
+    Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
+
 End Sub
 
 Sub horse
+    Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
+
 End Sub
 
 Sub checker
