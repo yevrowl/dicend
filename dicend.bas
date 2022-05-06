@@ -125,9 +125,6 @@ If dc6 = 10 Then Let fb$ = "Black dragon"
 
 x = 10: y = 10
 
-Call cannon
-x = x + 50
-
 Call general
 x = x + 50
 
@@ -748,7 +745,25 @@ End Sub
 
 Sub cannon
     Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
-
+    Line (9 + x, 31 + y)-(31 + x, 31 + y), cf
+    Line (10 + x, 30 + y)-(30 + x, 30 + y), cf
+    Line (11 + x, 29 + y)-(29 + x, 29 + y), cf
+    Line (12 + x, 28 + y)-(28 + x, 28 + y), cf
+    Line (13 + x, 27 + y)-(27 + x, 27 + y), cf
+    Line (14 + x, 26 + y)-(26 + x, 26 + y), cf
+    Line (15 + x, 25 + y)-(25 + x, 25 + y), cf
+    Line (16 + x, 24 + y)-(24 + x, 4 + y), cf, BF
+    Line (6 + x, 9 + y)-(36 + x, 12 + y), cf, BF
+    Line (4 + x, 10 + y)-(6 + x, 11 + y), cf, BF
+    Line (14 + x, 16 + y)-(25 + x, 16 + y), cf
+    Line (12 + x, 15 + y)-(26 + x, 15 + y), cf
+    Line (10 + x, 14 + y)-(27 + x, 14 + y), cf
+    Line (8 + x, 13 + y)-(28 + x, 13 + y), cf
+    Line (8 + x, 8 + y)-(28 + x, 8 + y), cf
+    Line (10 + x, 7 + y)-(27 + x, 7 + y), cf
+    Line (12 + x, 6 + y)-(26 + x, 6 + y), cf
+    Line (14 + x, 5 + y)-(25 + x, 5 + y), cf
+    Line (16 + x, 4 + y)-(24 + x, 4 + y), cf
 End Sub
 
 Sub general
@@ -757,6 +772,33 @@ Sub general
 End Sub
 
 Sub tokin
+    Line (10 + x, 10 + y)-(30 + x, 30 + y), cf, BF
+    Line (4 + x, 4 + y)-(5 + x, 5 + y), cf, BF
+    Line (5 + x, 5 + y)-(7 + x, 7 + y), cf, BF
+    Line (6 + x, 6 + y)-(9 + x, 9 + y), cf, BF
+    Line (7 + x, 7 + y)-(11 + x, 11 + y), cf, BF
+    Line (8 + x, 8 + y)-(12 + x, 12 + y), cf, BF
+    Line (36 + x, 4 + y)-(35 + x, 5 + y), cf, BF
+    Line (35 + x, 5 + y)-(33 + x, 7 + y), cf, BF
+    Line (34 + x, 6 + y)-(31 + x, 9 + y), cf, BF
+    Line (33 + x, 7 + y)-(29 + x, 11 + y), cf, BF
+    Line (32 + x, 8 + y)-(28 + x, 12 + y), cf, BF
+    Line (36 + x, 36 + y)-(35 + x, 35 + y), cf, BF
+    Line (35 + x, 35 + y)-(33 + x, 33 + y), cf, BF
+    Line (34 + x, 34 + y)-(31 + x, 31 + y), cf, BF
+    Line (33 + x, 33 + y)-(29 + x, 29 + y), cf, BF
+    Line (32 + x, 32 + y)-(28 + x, 28 + y), cf, BF
+    Line (4 + x, 36 + y)-(5 + x, 35 + y), cf, BF
+    Line (5 + x, 35 + y)-(7 + x, 33 + y), cf, BF
+    Line (6 + x, 34 + y)-(9 + x, 31 + y), cf, BF
+    Line (7 + x, 33 + y)-(11 + x, 29 + y), cf, BF
+    Line (8 + x, 32 + y)-(12 + x, 28 + y), cf, BF
+
+
+    Line (17 + x, 9 + y)-(23 + x, 8 + y), cf, BF
+    Line (18 + x, 7 + y)-(22 + x, 6 + y), cf, BF
+    Line (19 + x, 5 + y)-(21 + x, 4 + y), cf, BF
+
 End Sub
 
 Sub arrow
