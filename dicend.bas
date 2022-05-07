@@ -64,7 +64,7 @@ declare sub knight as type integer
 declare sub rook as type integer
 declare sub pawn as type integer
 declare sub cannon as type integer
-declare sub arrow as type integer
+declare sub lance as type integer
 declare sub general as type integer
 declare sub tokin as type integer
 declare sub dragon as type integer
@@ -88,10 +88,113 @@ For row = 1 To 8: For col = 1 To 8
 Next col: Next row
 Let cd1 = 2: Let cd2 = 15: Let cn = 7: Let cl = 14: Let cf = 15: Let cb1 = 7: Let cb2 = 6: Let cb3 = 3: Let cb4 = 13: Let cb5 = 9
 
-'Let x = 20: For y = 20 To 420 Step 50
-'Call cells
-'Next y
-'Let x = 20: Let y = 20: Call dice5
+Let cf = 1: Color 14
+Print "ษอออออออออออออป"; "ษอออออออออออออป"; "ษอออออออออออออออป"; "ษอออออออออออออออออออออออออออออออป"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
+Print "บ    CHESS    บ"; "บ    MAKRUK   บ"; "บ    XIANGQI    บ"; "บ             SHOGI             บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
+Print "ฬอออออออออออออน"; "ฬอออออออออออออน"; "ฬอออออออออออออออน"; "ฬอออออออออออออออออออออออออออออออน"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                    ษออออออออออน"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                   ษผ          บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                   บ  DRAUGHTS บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                   บ           บ"
+Print "ศอออออออออออออผ"; "ศอออออออออออออผ"; "บ               บ"; "ฬอออออออออออออออออออสอออออออออออน"
+Print "               "; "               "; "บ               บ"; "บ                               บ"
+Print "               "; "               "; "บ               บ"; "บ                               บ"
+Print "               "; "               "; "ศอออออออออออออออผ"; "บ                               บ"
+Print "               "; "               "; "                 "; "ศอออออออออออออออออออออออออออออออผ"
+
+Color 11
+Let x = 12: For y = 77 To 327 Step 50
+    Call cells
+Next y
+Let x = 12: Let y = 77: Call king
+Let x = 12: Let y = 127: Call queen
+Let x = 12: Let y = 177: Call bishop
+Let x = 12: Let y = 227: Call knight
+Let x = 12: Let y = 277: Call rook
+Let x = 12: Let y = 327: Call pawn
+Locate 7, 9: Print "King": Locate 10, 9: Print "Queen"
+Locate 13, 9: Print "Bishop": Locate 16, 9: Print "Knight"
+Locate 19, 9: Print "Rook": Locate 22, 9: Print "Pawn"
+
+Let x = 132: For y = 77 To 327 Step 50
+    Call cells
+Next y
+Let x = 132: Let y = 77: Call king
+Let x = 132: Let y = 127: Call queen
+Let x = 132: Let y = 177: Call bishop
+Let x = 132: Let y = 227: Call knight
+Let x = 132: Let y = 277: Call rook
+Let x = 132: Let y = 327: Call pawn
+Locate 7, 24: Print "Lord": Locate 10, 24: Print "Seed"
+Locate 13, 24: Print "Noble": Locate 16, 24: Print "Horse"
+Locate 19, 24: Print "Boat": Locate 22, 24: Print "Shell"
+
+Let x = 252: For y = 77 To 377 Step 50
+    Call cells
+Next y
+Let x = 252: Let y = 77: Call king
+Let x = 252: Let y = 127: Call queen
+Let x = 252: Let y = 177: Call bishop
+Let x = 252: Let y = 227: Call knight
+Let x = 252: Let y = 277: Call rook
+Let x = 252: Let y = 327: Call cannon
+Let x = 252: Let y = 377: Call pawn
+Locate 7, 39: Print "General": Locate 10, 39: Print "Advisor"
+Locate 13, 39: Print "Elephant": Locate 16, 39: Print "Horse"
+Locate 19, 39: Print "Chariot": Locate 22, 39: Print "Cannon"
+Locate 25, 39: Print "Soldier"
+
+Let x = 387: For y = 77 To 327 Step 50
+    Call cells
+Next y
+Let x = 497: For y = 77 To 277 Step 50
+    Call cells
+Next y
+Let x = 387: Let y = 77: Call king
+Let x = 387: Let y = 127: Call queen
+Let x = 387: Let y = 177: Call general
+Let x = 387: Let y = 227: Call bishop
+Let x = 387: Let y = 277: Call knight
+Let x = 387: Let y = 327: Call rook
+Let x = 497: Let y = 77: Call lance
+Let x = 497: Let y = 127: Call pawn
+Let x = 497: Let y = 177: Call tokin
+Let x = 497: Let y = 227: Call horse
+Let x = 497: Let y = 277: Call dragon
+Locate 7, 56: Print "King": Locate 10, 56: Print "Gold"
+Locate 13, 56: Print "Silver": Locate 16, 56: Print "Bishop"
+Locate 19, 56: Print "Knight": Locate 22, 56: Print "Rook"
+Locate 7, 70: Print "Lance": Locate 10, 70: Print "Pawn"
+Locate 13, 70: Print "Tokin": Locate 16, 70: Print "Horse"
+Locate 19, 70: Print "Dragon"
+
+Let x = 387: Let y = 387
+Call cells: Call draught
+Let x = 497: Let y = 387
+Call cells: Call checker
+Locate 26, 56: Print "King": Locate 26, 70: Print "Checker"
+
+Color 12: Locate 25, 1
+Print "ษอออออออออออออออออออออออออออป"
+Print "บ Press any key to continue บ"
+Print "ศอออออออออออออออออออออออออออผ"
+Do: Loop While InKey$ = ""
 
 Let dc1 = Int(Rnd * 8 + 1)
 Let dc2 = Int(Rnd * 8 + 1)
@@ -107,7 +210,7 @@ If dc3 = 4 Then Let fw$ = "White knight"
 If dc3 = 5 Then Let fw$ = "White rook"
 If dc3 = 6 Then Let fw$ = "White pawn"
 If dc3 = 7 Then Let fw$ = "White cannon"
-If dc3 = 8 Then Let fw$ = "White arrow"
+If dc3 = 8 Then Let fw$ = "White lance"
 If dc3 = 9 Then Let fw$ = "White horse"
 If dc3 = 10 Then Let fw$ = "White dragon"
 
@@ -118,32 +221,9 @@ If dc6 = 4 Then Let fb$ = "Black knight"
 If dc6 = 5 Then Let fb$ = "Black rook"
 If dc6 = 6 Then Let fb$ = "Black pawn"
 If dc6 = 7 Then Let fb$ = "Black cannon"
-If dc6 = 8 Then Let fb$ = "Black arrow"
+If dc6 = 8 Then Let fb$ = "Black lance"
 If dc6 = 9 Then Let fb$ = "Black horse"
 If dc6 = 10 Then Let fb$ = "Black dragon"
-
-
-x = 10: y = 10
-
-Call general
-x = x + 50
-
-Call tokin
-x = x + 50
-
-Call arrow
-x = x + 50
-
-Call dragon
-x = x + 50
-
-Call horse
-x = x + 50
-
-Call checker
-x = x + 50
-
-Call draught
 
 Rem Do: Loop While InKey$ = ""
 
@@ -793,17 +873,33 @@ Sub tokin
     Line (6 + x, 34 + y)-(9 + x, 31 + y), cf, BF
     Line (7 + x, 33 + y)-(11 + x, 29 + y), cf, BF
     Line (8 + x, 32 + y)-(12 + x, 28 + y), cf, BF
-
-
     Line (17 + x, 9 + y)-(23 + x, 8 + y), cf, BF
     Line (18 + x, 7 + y)-(22 + x, 6 + y), cf, BF
     Line (19 + x, 5 + y)-(21 + x, 4 + y), cf, BF
-
+    Line (17 + x, 31 + y)-(23 + x, 32 + y), cf, BF
+    Line (18 + x, 33 + y)-(22 + x, 34 + y), cf, BF
+    Line (19 + x, 35 + y)-(21 + x, 36 + y), cf, BF
+    Line (8 + x, 17 + y)-(9 + x, 23 + y), cf, BF
+    Line (6 + x, 18 + y)-(7 + x, 22 + y), cf, BF
+    Line (4 + x, 19 + y)-(5 + x, 21 + y), cf, BF
+    Line (32 + x, 17 + y)-(31 + x, 23 + y), cf, BF
+    Line (34 + x, 18 + y)-(33 + x, 22 + y), cf, BF
+    Line (36 + x, 19 + y)-(35 + x, 21 + y), cf, BF
 End Sub
 
-Sub arrow
+Sub lance
     Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
-
+    Line (9 + x, 31 + y)-(31 + x, 31 + y), cf
+    Line (10 + x, 30 + y)-(30 + x, 30 + y), cf
+    Line (11 + x, 29 + y)-(29 + x, 29 + y), cf
+    Line (12 + x, 28 + y)-(28 + x, 28 + y), cf
+    Line (13 + x, 27 + y)-(27 + x, 27 + y), cf
+    Line (14 + x, 26 + y)-(26 + x, 24 + y), cf, BF
+    Line (15 + x, 23 + y)-(25 + x, 20 + y), cf, BF
+    Line (16 + x, 19 + y)-(24 + x, 16 + y), cf, BF
+    Line (17 + x, 15 + y)-(23 + x, 12 + y), cf, BF
+    Line (18 + x, 11 + y)-(22 + x, 8 + y), cf, BF
+    Line (19 + x, 7 + y)-(21 + x, 4 + y), cf, BF
 End Sub
 
 Sub dragon
