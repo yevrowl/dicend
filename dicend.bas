@@ -91,7 +91,7 @@ Let cd1 = 2: Let cd2 = 15: Let cn = 7: Let cl = 14: Let cf = 15: Let cb1 = 7: Le
 Let cf = 1: Color 14
 Print "ษอออออออออออออป"; "ษอออออออออออออป"; "ษอออออออออออออออป"; "ษอออออออออออออออออออออออออออออออป"
 Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
-Print "บ    CHESS    บ"; "บ    MAKRUK   บ"; "บ    XIANGQI    บ"; "บ             SHOGI             บ"
+Print "บ  1 - CHESS  บ"; "บ 2 - MAKRUK  บ"; "บ  3 - XIANGQI  บ"; "บ           4 - SHOGI           บ"
 Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
 Print "ฬอออออออออออออน"; "ฬอออออออออออออน"; "ฬอออออออออออออออน"; "ฬอออออออออออออออออออออออออออออออน"
 Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
@@ -109,14 +109,18 @@ Print "บ             บ"; "บ             บ"; "บ               บ"; "บ             
 Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
 Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
 Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                    ษออออออออออน"
-Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                   ษผ          บ"
-Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                   บ  DRAUGHTS บ"
-Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                   บ           บ"
-Print "ศอออออออออออออผ"; "ศอออออออออออออผ"; "บ               บ"; "ฬอออออออออออออออออออสอออออออออออน"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ              ษอออออผ          บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ              บ  5 - DRAUGHTS  บ"
+Print "บ             บ"; "บ             บ"; "บ               บ"; "บ              บ                บ"
+Print "ศอออออออออออออผ"; "ศอออออออออออออผ"; "บ               บ"; "ฬออออออออออออออสออออออออออออออออน"
 Print "               "; "               "; "บ               บ"; "บ                               บ"
 Print "               "; "               "; "บ               บ"; "บ                               บ"
 Print "               "; "               "; "ศอออออออออออออออผ"; "บ                               บ"
 Print "               "; "               "; "                 "; "ศอออออออออออออออออออออออออออออออผ"
+Color 12: Locate 25, 1
+Print " ษออออออออออออออออออออออออออป"
+Print " บ Press key to select game บ"
+Print " ศออออออออออออออออออออออออออผ"
 
 Color 11
 Let x = 12: For y = 77 To 327 Step 50
@@ -131,7 +135,6 @@ Let x = 12: Let y = 327: Call pawn
 Locate 7, 9: Print "King": Locate 10, 9: Print "Queen"
 Locate 13, 9: Print "Bishop": Locate 16, 9: Print "Knight"
 Locate 19, 9: Print "Rook": Locate 22, 9: Print "Pawn"
-
 Let x = 132: For y = 77 To 327 Step 50
     Call cells
 Next y
@@ -144,7 +147,6 @@ Let x = 132: Let y = 327: Call pawn
 Locate 7, 24: Print "Lord": Locate 10, 24: Print "Seed"
 Locate 13, 24: Print "Noble": Locate 16, 24: Print "Horse"
 Locate 19, 24: Print "Boat": Locate 22, 24: Print "Shell"
-
 Let x = 252: For y = 77 To 377 Step 50
     Call cells
 Next y
@@ -159,7 +161,6 @@ Locate 7, 39: Print "General": Locate 10, 39: Print "Advisor"
 Locate 13, 39: Print "Elephant": Locate 16, 39: Print "Horse"
 Locate 19, 39: Print "Chariot": Locate 22, 39: Print "Cannon"
 Locate 25, 39: Print "Soldier"
-
 Let x = 387: For y = 77 To 327 Step 50
     Call cells
 Next y
@@ -175,26 +176,36 @@ Let x = 387: Let y = 327: Call rook
 Let x = 497: Let y = 77: Call lance
 Let x = 497: Let y = 127: Call pawn
 Let x = 497: Let y = 177: Call tokin
-Let x = 497: Let y = 227: Call horse
-Let x = 497: Let y = 277: Call dragon
+Let x = 497: Let y = 227: Call dragon
+Let x = 497: Let y = 277: Call horse
 Locate 7, 56: Print "King": Locate 10, 56: Print "Gold"
 Locate 13, 56: Print "Silver": Locate 16, 56: Print "Bishop"
 Locate 19, 56: Print "Knight": Locate 22, 56: Print "Rook"
 Locate 7, 70: Print "Lance": Locate 10, 70: Print "Pawn"
-Locate 13, 70: Print "Tokin": Locate 16, 70: Print "Horse"
-Locate 19, 70: Print "Dragon"
-
+Locate 13, 70: Print "Tokin": Locate 16, 70: Print "Dragon"
+Locate 19, 70: Print "Horse"
 Let x = 387: Let y = 387
 Call cells: Call draught
 Let x = 497: Let y = 387
 Call cells: Call checker
 Locate 26, 56: Print "King": Locate 26, 70: Print "Checker"
 
-Color 12: Locate 25, 1
-Print "ษอออออออออออออออออออออออออออป"
-Print "บ Press any key to continue บ"
-Print "ศอออออออออออออออออออออออออออผ"
-Do: Loop While InKey$ = ""
+Select Case InKey$
+    Case Chr$(49)
+        Print " S O B O L "
+        Call chessboard
+    Case Chr$(50)
+        Call makrukboard
+    Case Chr$(51)
+        Call xiangqiboard
+    Case Chr$(52)
+        Call shogiboard
+    Case Chr$(53)
+        Call draughtsboard
+        '    Case Chr$(27)
+        '       End
+        '      Rem Case Else
+End Select
 
 Let dc1 = Int(Rnd * 8 + 1)
 Let dc2 = Int(Rnd * 8 + 1)
@@ -211,8 +222,9 @@ If dc3 = 5 Then Let fw$ = "White rook"
 If dc3 = 6 Then Let fw$ = "White pawn"
 If dc3 = 7 Then Let fw$ = "White cannon"
 If dc3 = 8 Then Let fw$ = "White lance"
-If dc3 = 9 Then Let fw$ = "White horse"
-If dc3 = 10 Then Let fw$ = "White dragon"
+If dc3 = 9 Then Let fw$ = "White tokin"
+If dc3 = 10 Then Let fw$ = "White horse"
+If dc3 = 11 Then Let fw$ = "White dragon"
 
 If dc6 = 1 Then Let fb$ = "Black king"
 If dc6 = 2 Then Let fb$ = "Black queen"
@@ -222,10 +234,11 @@ If dc6 = 5 Then Let fb$ = "Black rook"
 If dc6 = 6 Then Let fb$ = "Black pawn"
 If dc6 = 7 Then Let fb$ = "Black cannon"
 If dc6 = 8 Then Let fb$ = "Black lance"
-If dc6 = 9 Then Let fb$ = "Black horse"
-If dc6 = 10 Then Let fb$ = "Black dragon"
+If dc6 = 9 Then Let fb$ = "Black tokin"
+If dc6 = 10 Then Let fb$ = "Black horse"
+If dc6 = 11 Then Let fb$ = "Black dragon"
 
-Rem Do: Loop While InKey$ = ""
+Do: Loop While InKey$ = ""
 
 End
 
@@ -848,7 +861,40 @@ End Sub
 
 Sub general
     Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
-
+    Line (9 + x, 31 + y)-(31 + x, 31 + y), cf
+    Line (10 + x, 30 + y)-(30 + x, 30 + y), cf
+    Line (11 + x, 29 + y)-(29 + x, 29 + y), cf
+    Line (12 + x, 28 + y)-(28 + x, 28 + y), cf
+    Line (13 + x, 27 + y)-(27 + x, 27 + y), cf
+    Line (14 + x, 26 + y)-(26 + x, 26 + y), cf
+    Line (13 + x, 25 + y)-(27 + x, 22 + y), cf, BF
+    Line (16 + x, 21 + y)-(24 + x, 20 + y), cf, BF
+    Line (18 + x, 19 + y)-(22 + x, 12 + y), cf, BF
+    Line (19 + x, 11 + y)-(21 + x, 4 + y), cf, BF
+    Line (18 + x, 10 + y)-(22 + x, 5 + y), cf, BF
+    Line (17 + x, 9 + y)-(23 + x, 6 + y), cf, BF
+    Line (16 + x, 8 + y)-(24 + x, 7 + y), cf, BF
+    Line (15 + x, 20 + y)-(16 + x, 19 + y), cf, BF
+    Line (14 + x, 19 + y)-(15 + x, 18 + y), cf, BF
+    Line (13 + x, 18 + y)-(14 + x, 17 + y), cf, BF
+    Line (24 + x, 20 + y)-(25 + x, 19 + y), cf, BF
+    Line (25 + x, 19 + y)-(26 + x, 18 + y), cf, BF
+    Line (26 + x, 18 + y)-(27 + x, 17 + y), cf, BF
+    Line (11 + x, 18 + y)-(12 + x, 11 + y), cf, BF
+    Line (10 + x, 17 + y)-(13 + x, 12 + y), cf, BF
+    Line (9 + x, 16 + y)-(14 + x, 13 + y), cf, BF
+    Line (8 + x, 15 + y)-(15 + x, 14 + y), cf, BF
+    Line (28 + x, 18 + y)-(29 + x, 11 + y), cf, BF
+    Line (27 + x, 17 + y)-(30 + x, 12 + y), cf, BF
+    Line (26 + x, 16 + y)-(31 + x, 13 + y), cf, BF
+    Line (25 + x, 15 + y)-(32 + x, 14 + y), cf, BF
+    Line (4 + x, 24 + y)-(36 + x, 23 + y), cf, BF
+    Line (29 + x, 25 + y)-(35 + x, 22 + y), cf, BF
+    Line (30 + x, 26 + y)-(34 + x, 21 + y), cf, BF
+    Line (31 + x, 27 + y)-(33 + x, 20 + y), cf, BF
+    Line (5 + x, 25 + y)-(11 + x, 22 + y), cf, BF
+    Line (6 + x, 26 + y)-(10 + x, 21 + y), cf, BF
+    Line (7 + x, 27 + y)-(9 + x, 20 + y), cf, BF
 End Sub
 
 Sub tokin
@@ -904,18 +950,171 @@ End Sub
 
 Sub dragon
     Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
-
+    Line (9 + x, 31 + y)-(31 + x, 31 + y), cf
+    Line (10 + x, 30 + y)-(30 + x, 30 + y), cf
+    Line (11 + x, 29 + y)-(29 + x, 29 + y), cf
+    Line (12 + x, 28 + y)-(28 + x, 28 + y), cf
+    Line (13 + x, 27 + y)-(27 + x, 27 + y), cf
+    Line (14 + x, 26 + y)-(26 + x, 26 + y), cf
+    Line (15 + x, 25 + y)-(25 + x, 25 + y), cf
+    Line (15 + x, 20 + y)-(25 + x, 20 + y), cf
+    Line (14 + x, 19 + y)-(26 + x, 19 + y), cf
+    Line (13 + x, 18 + y)-(27 + x, 18 + y), cf
+    Line (16 + x, 24 + y)-(24 + x, 8 + y), cf, BF
+    Line (17 + x, 7 + y)-(23 + x, 6 + y), cf, BF
+    Line (18 + x, 5 + y)-(22 + x, 5 + y), cf
+    Line (19 + x, 4 + y)-(21 + x, 4 + y), cf
+    Line (9 + x, 12 + y)-(31 + x, 17 + y), cf, BF
+    Line (10 + x, 11 + y)-(13 + x, 11 + y), cf
+    Line (11 + x, 10 + y)-(12 + x, 10 + y), cf
+    Line (27 + x, 11 + y)-(30 + x, 11 + y), cf
+    Line (28 + x, 10 + y)-(29 + x, 10 + y), cf
+    Line (10 + x, 11 + y)-(10 + x, 18 + y), cf
+    Line (9 + x, 12 + y)-(9 + x, 19 + y), cf
+    Line (8 + x, 13 + y)-(8 + x, 20 + y), cf
+    Line (7 + x, 14 + y)-(7 + x, 21 + y), cf
+    Line (6 + x, 15 + y)-(6 + x, 22 + y), cf
+    Line (5 + x, 16 + y)-(5 + x, 23 + y), cf
+    Line (4 + x, 17 + y)-(4 + x, 24 + y), cf
+    Line (30 + x, 11 + y)-(30 + x, 18 + y), cf
+    Line (31 + x, 12 + y)-(31 + x, 19 + y), cf
+    Line (32 + x, 13 + y)-(32 + x, 20 + y), cf
+    Line (33 + x, 14 + y)-(33 + x, 21 + y), cf
+    Line (34 + x, 15 + y)-(34 + x, 22 + y), cf
+    Line (35 + x, 16 + y)-(35 + x, 23 + y), cf
+    Line (36 + x, 17 + y)-(36 + x, 24 + y), cf
 End Sub
 
 Sub horse
     Line (8 + x, 36 + y)-(32 + x, 32 + y), cf, BF
-
+    Line (10 + x, 31 + y)-(11 + x, 26 + y), cf, BF
+    Line (16 + x, 31 + y)-(17 + x, 26 + y), cf, BF
+    Line (23 + x, 31 + y)-(24 + x, 26 + y), cf, BF
+    Line (29 + x, 31 + y)-(30 + x, 26 + y), cf, BF
+    Line (8 + x, 25 + y)-(32 + x, 14 + y), cf, BF
+    Line (7 + x, 24 + y)-(7 + x, 15 + y), cf
+    Line (6 + x, 23 + y)-(6 + x, 16 + y), cf
+    Line (5 + x, 22 + y)-(5 + x, 17 + y), cf
+    Line (4 + x, 21 + y)-(4 + x, 18 + y), cf
+    Line (33 + x, 24 + y)-(33 + x, 15 + y), cf
+    Line (34 + x, 23 + y)-(34 + x, 16 + y), cf
+    Line (35 + x, 22 + y)-(35 + x, 17 + y), cf
+    Line (36 + x, 21 + y)-(36 + x, 18 + y), cf
+    Line (14 + x, 13 + y)-(26 + x, 10 + y), cf, BF
+    Line (10 + x, 9 + y)-(30 + x, 7 + y), cf, BF
+    Line (10 + x, 6 + y)-(13 + x, 6 + y), cf
+    Line (10 + x, 5 + y)-(12 + x, 5 + y), cf
+    Line (10 + x, 4 + y)-(11 + x, 4 + y), cf
+    Line (30 + x, 6 + y)-(27 + x, 6 + y), cf
+    Line (30 + x, 5 + y)-(28 + x, 5 + y), cf
+    Line (30 + x, 4 + y)-(29 + x, 4 + y), cf
+    Line (16 + x, 6 + y)-(24 + x, 6 + y), cf
+    Line (17 + x, 5 + y)-(23 + x, 5 + y), cf
+    Line (18 + x, 4 + y)-(22 + x, 4 + y), cf
 End Sub
 
 Sub checker
+    Line (14 + x, 36 + y)-(26 + x, 32 + y), cf, BF
+    Line (14 + x, 4 + y)-(26 + x, 8 + y), cf, BF
+    Line (4 + x, 14 + y)-(8 + x, 26 + y), cf, BF
+    Line (32 + x, 14 + y)-(36 + x, 26 + y), cf, BF
+    Line (13 + x, 35 + y)-(13 + x, 31 + y), cf
+    Line (12 + x, 34 + y)-(12 + x, 30 + y), cf
+    Line (11 + x, 33 + y)-(11 + x, 29 + y), cf
+    Line (10 + x, 32 + y)-(10 + x, 28 + y), cf
+    Line (9 + x, 31 + y)-(9 + x, 27 + y), cf
+    Line (8 + x, 30 + y)-(8 + x, 26 + y), cf
+    Line (27 + x, 35 + y)-(27 + x, 31 + y), cf
+    Line (28 + x, 34 + y)-(28 + x, 30 + y), cf
+    Line (29 + x, 33 + y)-(29 + x, 29 + y), cf
+    Line (30 + x, 32 + y)-(30 + x, 28 + y), cf
+    Line (31 + x, 31 + y)-(31 + x, 27 + y), cf
+    Line (32 + x, 30 + y)-(32 + x, 26 + y), cf
+    Line (13 + x, 5 + y)-(13 + x, 9 + y), cf
+    Line (12 + x, 6 + y)-(12 + x, 10 + y), cf
+    Line (11 + x, 7 + y)-(11 + x, 11 + y), cf
+    Line (10 + x, 8 + y)-(10 + x, 12 + y), cf
+    Line (9 + x, 9 + y)-(9 + x, 13 + y), cf
+    Line (8 + x, 10 + y)-(8 + x, 14 + y), cf
+    Line (27 + x, 5 + y)-(27 + x, 9 + y), cf
+    Line (28 + x, 6 + y)-(28 + x, 10 + y), cf
+    Line (29 + x, 7 + y)-(29 + x, 11 + y), cf
+    Line (30 + x, 8 + y)-(30 + x, 12 + y), cf
+    Line (31 + x, 9 + y)-(31 + x, 13 + y), cf
+    Line (32 + x, 10 + y)-(32 + x, 14 + y), cf
+    Line (5 + x, 13 + y)-(5 + x, 27 + y), cf
+    Line (6 + x, 12 + y)-(6 + x, 28 + y), cf
+    Line (7 + x, 11 + y)-(7 + x, 29 + y), cf
+    Line (35 + x, 13 + y)-(35 + x, 27 + y), cf
+    Line (34 + x, 12 + y)-(34 + x, 28 + y), cf
+    Line (33 + x, 11 + y)-(33 + x, 29 + y), cf
+    Line (17 + x, 28 + y)-(23 + x, 24 + y), cf, BF
+    Line (17 + x, 12 + y)-(23 + x, 16 + y), cf, BF
+    Line (12 + x, 17 + y)-(16 + x, 23 + y), cf, BF
+    Line (24 + x, 17 + y)-(28 + x, 23 + y), cf, BF
+    Line (18 + x, 28 + y)-(18 + x, 23 + y), cf
+    Line (17 + x, 28 + y)-(17 + x, 22 + y), cf
+    Line (16 + x, 27 + y)-(16 + x, 21 + y), cf
+    Line (22 + x, 28 + y)-(22 + x, 23 + y), cf
+    Line (23 + x, 28 + y)-(23 + x, 22 + y), cf
+    Line (24 + x, 27 + y)-(24 + x, 21 + y), cf
+    Line (18 + x, 12 + y)-(18 + x, 17 + y), cf
+    Line (17 + x, 12 + y)-(17 + x, 18 + y), cf
+    Line (16 + x, 13 + y)-(16 + x, 19 + y), cf
+    Line (22 + x, 12 + y)-(22 + x, 17 + y), cf
+    Line (23 + x, 12 + y)-(23 + x, 18 + y), cf
+    Line (24 + x, 13 + y)-(24 + x, 19 + y), cf
+    Line (13 + x, 16 + y)-(13 + x, 24 + y), cf
+    Line (14 + x, 15 + y)-(14 + x, 25 + y), cf
+    Line (15 + x, 14 + y)-(15 + x, 26 + y), cf
+    Line (27 + x, 16 + y)-(27 + x, 24 + y), cf
+    Line (26 + x, 15 + y)-(26 + x, 25 + y), cf
+    Line (25 + x, 14 + y)-(25 + x, 26 + y), cf
 End Sub
 
 Sub draught
+    Line (14 + x, 36 + y)-(26 + x, 28 + y), cf, BF
+    Line (14 + x, 4 + y)-(26 + x, 12 + y), cf, BF
+    Line (4 + x, 14 + y)-(12 + x, 26 + y), cf, BF
+    Line (28 + x, 14 + y)-(36 + x, 26 + y), cf, BF
+    Line (17 + x, 36 + y)-(17 + x, 27 + y), cf
+    Line (16 + x, 36 + y)-(16 + x, 26 + y), cf
+    Line (15 + x, 36 + y)-(15 + x, 25 + y), cf
+    Line (14 + x, 36 + y)-(14 + x, 24 + y), cf
+    Line (13 + x, 35 + y)-(13 + x, 23 + y), cf
+    Line (12 + x, 34 + y)-(12 + x, 22 + y), cf
+    Line (23 + x, 36 + y)-(23 + x, 27 + y), cf
+    Line (24 + x, 36 + y)-(24 + x, 26 + y), cf
+    Line (25 + x, 36 + y)-(25 + x, 25 + y), cf
+    Line (26 + x, 36 + y)-(26 + x, 24 + y), cf
+    Line (27 + x, 35 + y)-(27 + x, 23 + y), cf
+    Line (28 + x, 34 + y)-(28 + x, 22 + y), cf
+    Line (17 + x, 4 + y)-(17 + x, 13 + y), cf
+    Line (16 + x, 4 + y)-(16 + x, 14 + y), cf
+    Line (15 + x, 4 + y)-(15 + x, 15 + y), cf
+    Line (14 + x, 4 + y)-(14 + x, 16 + y), cf
+    Line (13 + x, 5 + y)-(13 + x, 17 + y), cf
+    Line (12 + x, 6 + y)-(12 + x, 18 + y), cf
+    Line (23 + x, 4 + y)-(23 + x, 13 + y), cf
+    Line (24 + x, 4 + y)-(24 + x, 14 + y), cf
+    Line (25 + x, 4 + y)-(25 + x, 15 + y), cf
+    Line (26 + x, 4 + y)-(26 + x, 16 + y), cf
+    Line (27 + x, 5 + y)-(27 + x, 17 + y), cf
+    Line (28 + x, 6 + y)-(28 + x, 18 + y), cf
+    Line (5 + x, 13 + y)-(5 + x, 27 + y), cf
+    Line (6 + x, 12 + y)-(6 + x, 28 + y), cf
+    Line (7 + x, 11 + y)-(7 + x, 29 + y), cf
+    Line (8 + x, 10 + y)-(8 + x, 30 + y), cf
+    Line (9 + x, 9 + y)-(9 + x, 31 + y), cf
+    Line (10 + x, 8 + y)-(10 + x, 32 + y), cf
+    Line (11 + x, 7 + y)-(11 + x, 33 + y), cf
+    Line (35 + x, 13 + y)-(35 + x, 27 + y), cf
+    Line (34 + x, 12 + y)-(34 + x, 28 + y), cf
+    Line (33 + x, 11 + y)-(33 + x, 29 + y), cf
+    Line (32 + x, 10 + y)-(32 + x, 30 + y), cf
+    Line (31 + x, 9 + y)-(31 + x, 31 + y), cf
+    Line (30 + x, 8 + y)-(30 + x, 32 + y), cf
+    Line (29 + x, 7 + y)-(29 + x, 33 + y), cf
 End Sub
 
 Sub cells
