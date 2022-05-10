@@ -69,8 +69,8 @@ declare sub general as type integer
 declare sub tokin as type integer
 declare sub dragon as type integer
 declare sub horse as type integer
+declare sub dame as type integer
 declare sub checker as type integer
-declare sub draught as type integer
 declare sub cells as type integer
 declare sub dices as type integer
 declare sub chessboard as type integer
@@ -90,8 +90,9 @@ declare sub shogifen as type string
 declare sub draughtsfen as type string
 
 Common Shared x, y, cd1, cd2, cn, cl, cf, cb1, cb2, cb3, cb4, cb5 As Integer
-Common Shared w1, b1, w2, b2, w3, b3, w4, b4, fw1, fb1, fw2, fb2, fw3, fb3, fw4, fb4, fw1x, fw1b, fw2x, fw2b, fw3x, fw3b, fw4x, fw4b, row, col, index, count As Integer
-Common Shared fig1w, fig1b, fig2w, fig2b, fig3w, fig3b, fig4w, fig4b, mas1, mas2, mas3, mas4, mas5, mas6, mas7, mas8, lin1, lin2, lin3, lin4, lin5, lin6, lin7, lin8, fen As String
+Common Shared dc1, dc2, dc3, dc4, dc5, dc6, w1, b1, w2, b2, w3, b3, w4, b4, fw1, fb1, fw2, fb2, fw3, fb3, fw4, fb4, row, col, index, count As Integer
+Common Shared fw1x, fw1y, fb1x, fb1y, fw2x, fw2y, fb2x, fb2y, fw3x, fw3y, fb3x, fb3y, fw4x, fw4y, fb4x, fb4y As Integer
+Common Shared fig1w, fig1b, fig2w, fig2b, fig3w, fig3b, fig4w, fig4b, mas1, mas2, mas3, mas4, mas5, mas6, mas7, mas8, mas9, mas0, lin1, lin2, lin3, lin4, lin5, lin6, lin7, lin8, lin9, lin0, fen As String
 
 Dim Shared board(8, 8) As Integer
 Let index = 100
@@ -99,8 +100,29 @@ For row = 1 To 8: For col = 1 To 8
     Let board(row, col) = index + 1
     Let index = index + 1
 Next col: Next row
-Let cd1 = 2: Let cd2 = 15: Let cn = 7: Let cl = 14: Let cf = 15: Let cb1 = 7: Let cb2 = 6: Let cb3 = 3: Let cb4 = 13: Let cb5 = 9
 
+Dim Shared xiabo(10, 9) As Integer
+Let index = 100
+For row = 1 To 10: For col = 1 To 9
+    Let xiabo(row, col) = index + 1
+    Let index = index + 1
+Next col: Next row
+
+Dim Shared shobo(9, 9) As Integer
+Let index = 100
+For row = 1 To 9: For col = 1 To 9
+    Let shobo(row, col) = index + 1
+    Let index = index + 1
+Next col: Next row
+
+Dim Shared drabo(10, 10) As Integer
+Let index = 100
+For row = 1 To 10: For col = 1 To 10
+    Let drabo(row, col) = index + 1
+    Let index = index + 1
+Next col: Next row
+
+Let cd1 = 2: Let cd2 = 15: Let cn = 7: Let cl = 14: Let cf = 15: Let cb1 = 7: Let cb2 = 6: Let cb3 = 3: Let cb4 = 13: Let cb5 = 9
 Let cf = 1: Color 14
 Print "ษอออออออออออออป"; "ษอออออออออออออป"; "ษอออออออออออออออป"; "ษอออออออออออออออออออออออออออออออป"
 Print "บ             บ"; "บ             บ"; "บ               บ"; "บ                               บ"
@@ -198,10 +220,10 @@ Locate 7, 70: Print "Lance": Locate 10, 70: Print "Pawn"
 Locate 13, 70: Print "Tokin": Locate 16, 70: Print "Dragon"
 Locate 19, 70: Print "Horse"
 Let x = 387: Let y = 387
-Call cells: Call draught
+Call cells: Call dame
 Let x = 497: Let y = 387
 Call cells: Call checker
-Locate 26, 56: Print "King": Locate 26, 70: Print "Checker"
+Locate 26, 56: Print "Dame": Locate 26, 70: Print "Checker"
 
 Do
     Select Case InKey$
@@ -1013,6 +1035,51 @@ Sub horse
     Line (18 + x, 4 + y)-(22 + x, 4 + y), cf
 End Sub
 
+Sub dame
+    Line (14 + x, 36 + y)-(26 + x, 28 + y), cf, BF
+    Line (14 + x, 4 + y)-(26 + x, 12 + y), cf, BF
+    Line (4 + x, 14 + y)-(12 + x, 26 + y), cf, BF
+    Line (28 + x, 14 + y)-(36 + x, 26 + y), cf, BF
+    Line (17 + x, 36 + y)-(17 + x, 27 + y), cf
+    Line (16 + x, 36 + y)-(16 + x, 26 + y), cf
+    Line (15 + x, 36 + y)-(15 + x, 25 + y), cf
+    Line (14 + x, 36 + y)-(14 + x, 24 + y), cf
+    Line (13 + x, 35 + y)-(13 + x, 23 + y), cf
+    Line (12 + x, 34 + y)-(12 + x, 22 + y), cf
+    Line (23 + x, 36 + y)-(23 + x, 27 + y), cf
+    Line (24 + x, 36 + y)-(24 + x, 26 + y), cf
+    Line (25 + x, 36 + y)-(25 + x, 25 + y), cf
+    Line (26 + x, 36 + y)-(26 + x, 24 + y), cf
+    Line (27 + x, 35 + y)-(27 + x, 23 + y), cf
+    Line (28 + x, 34 + y)-(28 + x, 22 + y), cf
+    Line (17 + x, 4 + y)-(17 + x, 13 + y), cf
+    Line (16 + x, 4 + y)-(16 + x, 14 + y), cf
+    Line (15 + x, 4 + y)-(15 + x, 15 + y), cf
+    Line (14 + x, 4 + y)-(14 + x, 16 + y), cf
+    Line (13 + x, 5 + y)-(13 + x, 17 + y), cf
+    Line (12 + x, 6 + y)-(12 + x, 18 + y), cf
+    Line (23 + x, 4 + y)-(23 + x, 13 + y), cf
+    Line (24 + x, 4 + y)-(24 + x, 14 + y), cf
+    Line (25 + x, 4 + y)-(25 + x, 15 + y), cf
+    Line (26 + x, 4 + y)-(26 + x, 16 + y), cf
+    Line (27 + x, 5 + y)-(27 + x, 17 + y), cf
+    Line (28 + x, 6 + y)-(28 + x, 18 + y), cf
+    Line (5 + x, 13 + y)-(5 + x, 27 + y), cf
+    Line (6 + x, 12 + y)-(6 + x, 28 + y), cf
+    Line (7 + x, 11 + y)-(7 + x, 29 + y), cf
+    Line (8 + x, 10 + y)-(8 + x, 30 + y), cf
+    Line (9 + x, 9 + y)-(9 + x, 31 + y), cf
+    Line (10 + x, 8 + y)-(10 + x, 32 + y), cf
+    Line (11 + x, 7 + y)-(11 + x, 33 + y), cf
+    Line (35 + x, 13 + y)-(35 + x, 27 + y), cf
+    Line (34 + x, 12 + y)-(34 + x, 28 + y), cf
+    Line (33 + x, 11 + y)-(33 + x, 29 + y), cf
+    Line (32 + x, 10 + y)-(32 + x, 30 + y), cf
+    Line (31 + x, 9 + y)-(31 + x, 31 + y), cf
+    Line (30 + x, 8 + y)-(30 + x, 32 + y), cf
+    Line (29 + x, 7 + y)-(29 + x, 33 + y), cf
+End Sub
+
 Sub checker
     Line (14 + x, 36 + y)-(26 + x, 32 + y), cf, BF
     Line (14 + x, 4 + y)-(26 + x, 8 + y), cf, BF
@@ -1070,51 +1137,6 @@ Sub checker
     Line (27 + x, 16 + y)-(27 + x, 24 + y), cf
     Line (26 + x, 15 + y)-(26 + x, 25 + y), cf
     Line (25 + x, 14 + y)-(25 + x, 26 + y), cf
-End Sub
-
-Sub draught
-    Line (14 + x, 36 + y)-(26 + x, 28 + y), cf, BF
-    Line (14 + x, 4 + y)-(26 + x, 12 + y), cf, BF
-    Line (4 + x, 14 + y)-(12 + x, 26 + y), cf, BF
-    Line (28 + x, 14 + y)-(36 + x, 26 + y), cf, BF
-    Line (17 + x, 36 + y)-(17 + x, 27 + y), cf
-    Line (16 + x, 36 + y)-(16 + x, 26 + y), cf
-    Line (15 + x, 36 + y)-(15 + x, 25 + y), cf
-    Line (14 + x, 36 + y)-(14 + x, 24 + y), cf
-    Line (13 + x, 35 + y)-(13 + x, 23 + y), cf
-    Line (12 + x, 34 + y)-(12 + x, 22 + y), cf
-    Line (23 + x, 36 + y)-(23 + x, 27 + y), cf
-    Line (24 + x, 36 + y)-(24 + x, 26 + y), cf
-    Line (25 + x, 36 + y)-(25 + x, 25 + y), cf
-    Line (26 + x, 36 + y)-(26 + x, 24 + y), cf
-    Line (27 + x, 35 + y)-(27 + x, 23 + y), cf
-    Line (28 + x, 34 + y)-(28 + x, 22 + y), cf
-    Line (17 + x, 4 + y)-(17 + x, 13 + y), cf
-    Line (16 + x, 4 + y)-(16 + x, 14 + y), cf
-    Line (15 + x, 4 + y)-(15 + x, 15 + y), cf
-    Line (14 + x, 4 + y)-(14 + x, 16 + y), cf
-    Line (13 + x, 5 + y)-(13 + x, 17 + y), cf
-    Line (12 + x, 6 + y)-(12 + x, 18 + y), cf
-    Line (23 + x, 4 + y)-(23 + x, 13 + y), cf
-    Line (24 + x, 4 + y)-(24 + x, 14 + y), cf
-    Line (25 + x, 4 + y)-(25 + x, 15 + y), cf
-    Line (26 + x, 4 + y)-(26 + x, 16 + y), cf
-    Line (27 + x, 5 + y)-(27 + x, 17 + y), cf
-    Line (28 + x, 6 + y)-(28 + x, 18 + y), cf
-    Line (5 + x, 13 + y)-(5 + x, 27 + y), cf
-    Line (6 + x, 12 + y)-(6 + x, 28 + y), cf
-    Line (7 + x, 11 + y)-(7 + x, 29 + y), cf
-    Line (8 + x, 10 + y)-(8 + x, 30 + y), cf
-    Line (9 + x, 9 + y)-(9 + x, 31 + y), cf
-    Line (10 + x, 8 + y)-(10 + x, 32 + y), cf
-    Line (11 + x, 7 + y)-(11 + x, 33 + y), cf
-    Line (35 + x, 13 + y)-(35 + x, 27 + y), cf
-    Line (34 + x, 12 + y)-(34 + x, 28 + y), cf
-    Line (33 + x, 11 + y)-(33 + x, 29 + y), cf
-    Line (32 + x, 10 + y)-(32 + x, 30 + y), cf
-    Line (31 + x, 9 + y)-(31 + x, 31 + y), cf
-    Line (30 + x, 8 + y)-(30 + x, 32 + y), cf
-    Line (29 + x, 7 + y)-(29 + x, 33 + y), cf
 End Sub
 
 Sub cells
@@ -1303,24 +1325,24 @@ End Sub
 
 Sub chess
 
-    Rem 1st throw
+    Rem 1st roll
     Let dc1 = Int(Rnd * 8 + 1)
     Let dc2 = Int(Rnd * 8 + 1)
     Let dc3 = 1
     Let dc4 = Int(Rnd * 8 + 1)
     Let dc5 = Int(Rnd * 8 + 1)
     Let dc6 = 1
-    Let w1 = board(dc1, dc2): Let b1 = board(dc4, dc5)
+    Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
 
-    While Abs(w1 - b1) < 10 Or Abs(b1 - w1) < 10
+    While Abs(w1 - b1) < 10
         Let dc1 = Int(Rnd * 8 + 1)
         Let dc2 = Int(Rnd * 8 + 1)
         Let dc4 = Int(Rnd * 8 + 1)
         Let dc5 = Int(Rnd * 8 + 1)
-        Let w1 = board(dc1, dc2): Let b1 = board(dc4, dc5)
+        Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
     Wend
 
-    Let w1 = board(dc1, dc2): Let b1 = board(dc4, dc5)
+    Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
     Let fw1x = dc1: Let fw1y = dc2: Let fb1x = dc4: Let fb1y = dc5
     Let fw1 = dc3: Let fb1 = dc6
 
@@ -1380,29 +1402,26 @@ Sub chess
     Let cf = 0: Call king
 
     Do
-    Loop Until InKey$ <> ""
-
-    '    Do
-    '       Select Case InKey$
-    '          Case Is = Chr$(32)
-    '             Exit Case
-    '        Case Is = Chr$(13)
-    '           Call fen
-    '      Case Is = Chr$(27)
-    '                End
-    '       End Select
-    '  Loop
+        Select Case InKey$
+            Case Is = Chr$(32)
+                Exit Do
+            Case Is = Chr$(13)
+                Call chessfen
+            Case Is = Chr$(27)
+                End
+        End Select
+    Loop
 
     Call dices
 
-    Rem 2nd throw
+    Rem 2nd roll
     Let dc1 = Int(Rnd * 8 + 1)
     Let dc2 = Int(Rnd * 8 + 1)
     Let dc3 = Int(Rnd * 5 + 2)
     Let dc4 = Int(Rnd * 8 + 1)
     Let dc5 = Int(Rnd * 8 + 1)
     Let dc6 = Int(Rnd * 5 + 2)
-    Let w2 = board(dc1, dc2): Let b2 = board(dc4, dc5)
+    Let w2 = board(dc2, dc1): Let b2 = board(dc5, dc4)
 
     Select Case dc3
         Case Is = 1
@@ -1412,32 +1431,32 @@ Sub chess
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let fw2x = dc1: Let fw2y = dc2
-                Let w2 = board(dc1, dc2)
+                Let w2 = board(dc2, dc1)
             Wend
         Case Is = 3
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
-                Let w2 = board(dc1, dc2)
+                Let w2 = board(dc2, dc1)
             Wend
         Case Is = 4
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
-                Let w2 = board(dc1, dc2)
+                Let w2 = board(dc2, dc1)
             Wend
         Case Is = 5
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let fw2x = dc1: Let fw2y = dc2
-                Let w2 = board(dc1, dc2)
+                Let w2 = board(dc2, dc1)
             Wend
         Case Is = 6
-            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc2 = 1 Or dc2 = 8
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
-                Let w2 = board(dc1, dc2)
+                Let w2 = board(dc2, dc1)
             Wend
     End Select
     Select Case dc6
@@ -1448,32 +1467,32 @@ Sub chess
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let fb2x = dc4: Let fb2y = dc5
-                Let b2 = board(dc4, dc5)
+                Let b2 = board(dc5, dc4)
             Wend
         Case Is = 3
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
-                Let b2 = board(dc4, dc5)
+                Let b2 = board(dc5, dc4)
             Wend
         Case Is = 4
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
-                Let b2 = board(dc4, dc5)
+                Let b2 = board(dc5, dc4)
             Wend
         Case Is = 5
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let fb2x = dc4: Let fb2y = dc5
-                Let b2 = board(dc4, dc5)
+                Let b2 = board(dc5, dc4)
             Wend
         Case Is = 6
-            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc5 = 1 Or dc5 = 8
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
-                Let b2 = board(dc4, dc5)
+                Let b2 = board(dc5, dc4)
             Wend
     End Select
 
@@ -1547,29 +1566,26 @@ Sub chess
     If dc6 = 6 Then Call pawn
 
     Do
-    Loop Until InKey$ <> ""
-
-    '    Do
-    '       Select Case InKey$
-    '          Case Is = Chr$(32)
-    '             Exit Case
-    '        Case Is = Chr$(13)
-    '           Call fen
-    '      Case Is = Chr$(27)
-    '                End
-    '       End Select
-    '  Loop
+        Select Case InKey$
+            Case Is = Chr$(32)
+                Exit Do
+            Case Is = Chr$(13)
+                Call chessfen
+            Case Is = Chr$(27)
+                End
+        End Select
+    Loop
 
     Call dices
 
-    Rem 3rd throw
+    Rem 3rd roll
     Let dc1 = Int(Rnd * 8 + 1)
     Let dc2 = Int(Rnd * 8 + 1)
     Let dc3 = Int(Rnd * 5 + 2)
     Let dc4 = Int(Rnd * 8 + 1)
     Let dc5 = Int(Rnd * 8 + 1)
     Let dc6 = Int(Rnd * 5 + 2)
-    Let w3 = board(dc1, dc2): Let b3 = board(dc4, dc5)
+    Let w3 = board(dc2, dc1): Let b3 = board(dc5, dc4)
 
     Select Case dc3
         Case Is = 1
@@ -1579,32 +1595,32 @@ Sub chess
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let fw3x = dc1: Let fw3y = dc2
-                Let w3 = board(dc1, dc2)
+                Let w3 = board(dc2, dc1)
             Wend
         Case Is = 3
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
-                Let w3 = board(dc1, dc2)
+                Let w3 = board(dc2, dc1)
             Wend
         Case Is = 4
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
-                Let w3 = board(dc1, dc2)
+                Let w3 = board(dc2, dc1)
             Wend
         Case Is = 5
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let fw3x = dc1: Let fw3y = dc2
-                Let w3 = board(dc1, dc2)
+                Let w3 = board(dc2, dc1)
             Wend
         Case Is = 6
-            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc2 = 1 Or dc2 = 8
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
-                Let w3 = board(dc1, dc2)
+                Let w3 = board(dc2, dc1)
             Wend
     End Select
     Select Case dc6
@@ -1615,32 +1631,32 @@ Sub chess
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let fb3x = dc4: Let fb3y = dc5
-                Let b3 = board(dc4, dc5)
+                Let b3 = board(dc5, dc4)
             Wend
         Case Is = 3
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
-                Let b3 = board(dc4, dc5)
+                Let b3 = board(dc5, dc4)
             Wend
         Case Is = 4
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
-                Let b3 = board(dc4, dc5)
+                Let b3 = board(dc5, dc4)
             Wend
         Case Is = 5
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let fb3x = dc4: Let fb3y = dc5
-                Let b3 = board(dc4, dc5)
+                Let b3 = board(dc5, dc4)
             Wend
         Case Is = 6
-            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc5 = 1 Or dc5 = 8
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
-                Let b3 = board(dc4, dc5)
+                Let b3 = board(dc5, dc4)
             Wend
     End Select
 
@@ -1714,29 +1730,26 @@ Sub chess
     If dc6 = 6 Then Call pawn
 
     Do
-    Loop Until InKey$ <> ""
-
-    '    Do
-    '       Select Case InKey$
-    '          Case Is = Chr$(32)
-    '             Exit Case
-    '        Case Is = Chr$(13)
-    '           Call fen
-    '      Case Is = Chr$(27)
-    '                End
-    '       End Select
-    '  Loop
+        Select Case InKey$
+            Case Is = Chr$(32)
+                Exit Do
+            Case Is = Chr$(13)
+                Call chessfen
+            Case Is = Chr$(27)
+                End
+        End Select
+    Loop
 
     Call dices
 
-    Rem 4th throw
+    Rem 4th roll
     Let dc1 = Int(Rnd * 8 + 1)
     Let dc2 = Int(Rnd * 8 + 1)
     Let dc3 = Int(Rnd * 5 + 2)
     Let dc4 = Int(Rnd * 8 + 1)
     Let dc5 = Int(Rnd * 8 + 1)
     Let dc6 = Int(Rnd * 5 + 2)
-    Let w4 = board(dc1, dc2): Let b4 = board(dc4, dc5)
+    Let w4 = board(dc2, dc1): Let b4 = board(dc5, dc4)
 
     Select Case dc3
         Case Is = 1
@@ -1746,32 +1759,32 @@ Sub chess
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let fw4x = dc1: Let fw4y = dc2
-                Let w4 = board(dc1, dc2)
+                Let w4 = board(dc2, dc1)
             Wend
         Case Is = 3
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
-                Let w4 = board(dc1, dc2)
+                Let w4 = board(dc2, dc1)
             Wend
         Case Is = 4
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
-                Let w4 = board(dc1, dc2)
+                Let w4 = board(dc2, dc1)
             Wend
         Case Is = 5
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let fw4x = dc1: Let fw4y = dc2
-                Let w4 = board(dc1, dc2)
+                Let w4 = board(dc2, dc1)
             Wend
         Case Is = 6
-            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or dc2 = 1 Or dc2 = 8
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
-                Let w4 = board(dc1, dc2)
+                Let w4 = board(dc2, dc1)
             Wend
     End Select
     Select Case dc6
@@ -1782,32 +1795,32 @@ Sub chess
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let fb4x = dc4: Let fb4y = dc5
-                Let b4 = board(dc4, dc5)
+                Let b4 = board(dc5, dc4)
             Wend
         Case Is = 3
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
-                Let b4 = board(dc4, dc5)
+                Let b4 = board(dc5, dc4)
             Wend
         Case Is = 4
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
-                Let b4 = board(dc4, dc5)
+                Let b4 = board(dc5, dc4)
             Wend
         Case Is = 5
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let fb4x = dc4: Let fb4y = dc5
-                Let b4 = board(dc4, dc5)
+                Let b4 = board(dc5, dc4)
             Wend
         Case Is = 6
-            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or dc5 = 1 Or dc5 = 8
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
-                Let b4 = board(dc4, dc5)
+                Let b4 = board(dc5, dc4)
             Wend
     End Select
 
@@ -1896,9 +1909,1253 @@ Sub chess
 End Sub
 
 Sub makruk
+
+    Rem 1st roll
+    Let dc1 = Int(Rnd * 8 + 1)
+    Let dc2 = Int(Rnd * 8 + 1)
+    Let dc3 = 1
+    Let dc4 = Int(Rnd * 8 + 1)
+    Let dc5 = Int(Rnd * 8 + 1)
+    Let dc6 = 1
+    Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
+
+    While Abs(w1 - b1) < 10
+        Let dc1 = Int(Rnd * 8 + 1)
+        Let dc2 = Int(Rnd * 8 + 1)
+        Let dc4 = Int(Rnd * 8 + 1)
+        Let dc5 = Int(Rnd * 8 + 1)
+        Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
+    Wend
+
+    Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
+    Let fw1x = dc1: Let fw1y = dc2: Let fb1x = dc4: Let fb1y = dc5
+    Let fw1 = dc3: Let fb1 = dc6
+
+    Let x = 20: Let y = 160: Let cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call pawn
+    Let x = 580: Let y = 160: Let cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call pawn
+    Let x = 20: Let y = 220
+    If dc1 = 1 Then Call letterA
+    If dc1 = 2 Then Call letterB
+    If dc1 = 3 Then Call letterC
+    If dc1 = 4 Then Call letterD
+    If dc1 = 5 Then Call letterE
+    If dc1 = 6 Then Call letterF
+    If dc1 = 7 Then Call letterG
+    If dc1 = 8 Then Call letterH
+    Let x = 20: Let y = 280
+    If dc2 = 1 Then Call letter1
+    If dc2 = 2 Then Call letter2
+    If dc2 = 3 Then Call letter3
+    If dc2 = 4 Then Call letter4
+    If dc2 = 5 Then Call letter5
+    If dc2 = 6 Then Call letter6
+    If dc2 = 7 Then Call letter7
+    If dc2 = 8 Then Call letter8
+    Let x = 580: Let y = 220
+    If dc4 = 1 Then Call letterA
+    If dc4 = 2 Then Call letterB
+    If dc4 = 3 Then Call letterC
+    If dc4 = 4 Then Call letterD
+    If dc4 = 5 Then Call letterE
+    If dc4 = 6 Then Call letterF
+    If dc4 = 7 Then Call letterG
+    If dc4 = 8 Then Call letterH
+    Let x = 580: Let y = 280
+    If dc5 = 1 Then Call letter1
+    If dc5 = 2 Then Call letter2
+    If dc5 = 3 Then Call letter3
+    If dc5 = 4 Then Call letter4
+    If dc5 = 5 Then Call letter5
+    If dc5 = 6 Then Call letter6
+    If dc5 = 7 Then Call letter7
+    If dc5 = 8 Then Call letter8
+    Let x = (dc1 * 40) + 120: Let y = Abs((dc2 * 40) - 480) - 80
+    Let cf = 15: Call king
+    Let x = (dc4 * 40) + 120: Let y = Abs((dc5 * 40) - 480) - 80
+    Let cf = 0: Call king
+
+    Do
+        Select Case InKey$
+            Case Is = Chr$(32)
+                Exit Do
+            Case Is = Chr$(13)
+                Call makrukfen
+            Case Is = Chr$(27)
+                End
+        End Select
+    Loop
+
+    Call dices
+
+    Rem 2nd roll
+    Let dc1 = Int(Rnd * 8 + 1)
+    Let dc2 = Int(Rnd * 8 + 1)
+    Let dc3 = Int(Rnd * 5 + 2)
+    Let dc4 = Int(Rnd * 8 + 1)
+    Let dc5 = Int(Rnd * 8 + 1)
+    Let dc6 = Int(Rnd * 5 + 2)
+    Let w2 = board(dc2, dc1): Let b2 = board(dc5, dc4)
+
+    Select Case dc3
+        Case Is = 1
+            Exit Case
+        Case Is = 2
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or w2 Mod 2 = 0
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let fw2x = dc1: Let fw2y = dc2
+                Let w2 = board(dc2, dc1)
+            Wend
+        Case Is = 3
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w2 = board(dc2, dc1)
+            Wend
+        Case Is = 4
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w2 = board(dc2, dc1)
+            Wend
+        Case Is = 5
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let fw2x = dc1: Let fw2y = dc2
+                Let w2 = board(dc2, dc1)
+            Wend
+        Case Is = 6
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc2 <= 3 Or dc2 >= 6
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w2 = board(dc2, dc1)
+            Wend
+    End Select
+    Select Case dc6
+        Case Is = 1
+            Exit Case
+        Case Is = 2
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or b2 Mod 2 <> 0
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let fb2x = dc4: Let fb2y = dc5
+                Let b2 = board(dc5, dc4)
+            Wend
+        Case Is = 3
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b2 = board(dc5, dc4)
+            Wend
+        Case Is = 4
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b2 = board(dc5, dc4)
+            Wend
+        Case Is = 5
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let fb2x = dc4: Let fb2y = dc5
+                Let b2 = board(dc5, dc4)
+            Wend
+        Case Is = 6
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc5 <= 3 Or dc5 >= 6
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b2 = board(dc5, dc4)
+            Wend
+    End Select
+
+    Let w2 = board(dc2, dc1): Let b2 = board(dc5, dc4)
+    Let fw2x = dc1: Let fw2y = dc2: Let fb2x = dc4: Let fb2y = dc5
+    Let fw2 = dc3: Let fb2 = dc6
+
+    Let x = 20: Let y = 160: Let cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call pawn
+    Let x = 580: Let y = 160: Let cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call pawn
+    Let x = 20: Let y = 220
+    If dc1 = 1 Then Call letterA
+    If dc1 = 2 Then Call letterB
+    If dc1 = 3 Then Call letterC
+    If dc1 = 4 Then Call letterD
+    If dc1 = 5 Then Call letterE
+    If dc1 = 6 Then Call letterF
+    If dc1 = 7 Then Call letterG
+    If dc1 = 8 Then Call letterH
+    Let x = 20: Let y = 280
+    If dc2 = 1 Then Call letter1
+    If dc2 = 2 Then Call letter2
+    If dc2 = 3 Then Call letter3
+    If dc2 = 4 Then Call letter4
+    If dc2 = 5 Then Call letter5
+    If dc2 = 6 Then Call letter6
+    If dc2 = 7 Then Call letter7
+    If dc2 = 8 Then Call letter8
+    Let x = 580: Let y = 220
+    If dc4 = 1 Then Call letterA
+    If dc4 = 2 Then Call letterB
+    If dc4 = 3 Then Call letterC
+    If dc4 = 4 Then Call letterD
+    If dc4 = 5 Then Call letterE
+    If dc4 = 6 Then Call letterF
+    If dc4 = 7 Then Call letterG
+    If dc4 = 8 Then Call letterH
+    Let x = 580: Let y = 280
+    If dc5 = 1 Then Call letter1
+    If dc5 = 2 Then Call letter2
+    If dc5 = 3 Then Call letter3
+    If dc5 = 4 Then Call letter4
+    If dc5 = 5 Then Call letter5
+    If dc5 = 6 Then Call letter6
+    If dc5 = 7 Then Call letter7
+    If dc5 = 8 Then Call letter8
+    Let x = (dc1 * 40) + 120: Let y = Abs((dc2 * 40) - 480) - 80
+    Let cf = 15
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call pawn
+    Let x = (dc4 * 40) + 120: Let y = Abs((dc5 * 40) - 480) - 80
+    Let cf = 0
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call pawn
+
+    Do
+        Select Case InKey$
+            Case Is = Chr$(32)
+                Exit Do
+            Case Is = Chr$(13)
+                Call makrukfen
+            Case Is = Chr$(27)
+                End
+        End Select
+    Loop
+
+    Call dices
+
+    Rem 3rd roll
+    Let dc1 = Int(Rnd * 8 + 1)
+    Let dc2 = Int(Rnd * 8 + 1)
+    Let dc3 = Int(Rnd * 5 + 2)
+    Let dc4 = Int(Rnd * 8 + 1)
+    Let dc5 = Int(Rnd * 8 + 1)
+    Let dc6 = Int(Rnd * 5 + 2)
+    Let w3 = board(dc2, dc1): Let b3 = board(dc5, dc4)
+
+    Select Case dc3
+        Case Is = 1
+            Exit Case
+        Case Is = 2
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or w3 Mod 2 = 0
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let fw3x = dc1: Let fw3y = dc2
+                Let w3 = board(dc2, dc1)
+            Wend
+        Case Is = 3
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w3 = board(dc2, dc1)
+            Wend
+        Case Is = 4
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w3 = board(dc2, dc1)
+            Wend
+        Case Is = 5
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let fw3x = dc1: Let fw3y = dc2
+                Let w3 = board(dc2, dc1)
+            Wend
+        Case Is = 6
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc2 <= 3 Or dc2 >= 6
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w3 = board(dc2, dc1)
+            Wend
+    End Select
+    Select Case dc6
+        Case Is = 1
+            Exit Case
+        Case Is = 2
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or b3 Mod 2 <> 0
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let fb3x = dc4: Let fb3y = dc5
+                Let b3 = board(dc5, dc4)
+            Wend
+        Case Is = 3
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b3 = board(dc5, dc4)
+            Wend
+        Case Is = 4
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b3 = board(dc5, dc4)
+            Wend
+        Case Is = 5
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let fb3x = dc4: Let fb3y = dc5
+                Let b3 = board(dc5, dc4)
+            Wend
+        Case Is = 6
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc5 <= 3 Or dc5 >= 6
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b3 = board(dc5, dc4)
+            Wend
+    End Select
+
+    Let w3 = board(dc2, dc1): Let b3 = board(dc5, dc4)
+    Let fw3x = dc1: Let fw3y = dc2: Let fb3x = dc4: Let fb3y = dc5
+    Let fw3 = dc3: Let fb3 = dc6
+
+    Let x = 20: Let y = 160: Let cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call pawn
+    Let x = 580: Let y = 160: Let cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call pawn
+    Let x = 20: Let y = 220
+    If dc1 = 1 Then Call letterA
+    If dc1 = 2 Then Call letterB
+    If dc1 = 3 Then Call letterC
+    If dc1 = 4 Then Call letterD
+    If dc1 = 5 Then Call letterE
+    If dc1 = 6 Then Call letterF
+    If dc1 = 7 Then Call letterG
+    If dc1 = 8 Then Call letterH
+    Let x = 20: Let y = 280
+    If dc2 = 1 Then Call letter1
+    If dc2 = 2 Then Call letter2
+    If dc2 = 3 Then Call letter3
+    If dc2 = 4 Then Call letter4
+    If dc2 = 5 Then Call letter5
+    If dc2 = 6 Then Call letter6
+    If dc2 = 7 Then Call letter7
+    If dc2 = 8 Then Call letter8
+    Let x = 580: Let y = 220
+    If dc4 = 1 Then Call letterA
+    If dc4 = 2 Then Call letterB
+    If dc4 = 3 Then Call letterC
+    If dc4 = 4 Then Call letterD
+    If dc4 = 5 Then Call letterE
+    If dc4 = 6 Then Call letterF
+    If dc4 = 7 Then Call letterG
+    If dc4 = 8 Then Call letterH
+    Let x = 580: Let y = 280
+    If dc5 = 1 Then Call letter1
+    If dc5 = 2 Then Call letter2
+    If dc5 = 3 Then Call letter3
+    If dc5 = 4 Then Call letter4
+    If dc5 = 5 Then Call letter5
+    If dc5 = 6 Then Call letter6
+    If dc5 = 7 Then Call letter7
+    If dc5 = 8 Then Call letter8
+    Let x = (dc1 * 40) + 120: Let y = Abs((dc2 * 40) - 480) - 80
+    Let cf = 15
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call pawn
+    Let x = (dc4 * 40) + 120: Let y = Abs((dc5 * 40) - 480) - 80
+    Let cf = 0
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call pawn
+
+    Do
+        Select Case InKey$
+            Case Is = Chr$(32)
+                Exit Do
+            Case Is = Chr$(13)
+                Call makrukfen
+            Case Is = Chr$(27)
+                End
+        End Select
+    Loop
+
+    Call dices
+
+    Rem 4th roll
+    Let dc1 = Int(Rnd * 8 + 1)
+    Let dc2 = Int(Rnd * 8 + 1)
+    Let dc3 = Int(Rnd * 5 + 2)
+    Let dc4 = Int(Rnd * 8 + 1)
+    Let dc5 = Int(Rnd * 8 + 1)
+    Let dc6 = Int(Rnd * 5 + 2)
+    Let w4 = board(dc2, dc1): Let b4 = board(dc5, dc4)
+
+    Select Case dc3
+        Case Is = 1
+            Exit Case
+        Case Is = 2
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or w2 Mod 2 = 0
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let fw4x = dc1: Let fw4y = dc2
+                Let w4 = board(dc2, dc1)
+            Wend
+        Case Is = 3
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w4 = board(dc2, dc1)
+            Wend
+        Case Is = 4
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w4 = board(dc2, dc1)
+            Wend
+        Case Is = 5
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let fw4x = dc1: Let fw4y = dc2
+                Let w4 = board(dc2, dc1)
+            Wend
+        Case Is = 6
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or dc2 <= 3 Or dc2 >= 6
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w4 = board(dc2, dc1)
+            Wend
+    End Select
+    Select Case dc6
+        Case Is = 1
+            Exit Case
+        Case Is = 2
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 Mod 2 <> 0
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let fb4x = dc4: Let fb4y = dc5
+                Let b4 = board(dc5, dc4)
+            Wend
+        Case Is = 3
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b4 = board(dc5, dc4)
+            Wend
+        Case Is = 4
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b4 = board(dc5, dc4)
+            Wend
+        Case Is = 5
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let fb4x = dc4: Let fb4y = dc5
+                Let b4 = board(dc5, dc4)
+            Wend
+        Case Is = 6
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or dc5 <= 3 Or dc5 >= 6
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b4 = board(dc5, dc4)
+            Wend
+    End Select
+
+    Let w4 = board(dc2, dc1): Let b4 = board(dc5, dc4)
+    Let fw4x = dc1: Let fw4y = dc2: Let fb4x = dc4: Let fb4y = dc5
+    Let fw4 = dc3: Let fb4 = dc6
+
+    Let x = 20: Let y = 160: Let cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call pawn
+    Let x = 580: Let y = 160: Let cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call pawn
+    Let x = 20: Let y = 220
+    If dc1 = 1 Then Call letterA
+    If dc1 = 2 Then Call letterB
+    If dc1 = 3 Then Call letterC
+    If dc1 = 4 Then Call letterD
+    If dc1 = 5 Then Call letterE
+    If dc1 = 6 Then Call letterF
+    If dc1 = 7 Then Call letterG
+    If dc1 = 8 Then Call letterH
+    Let x = 20: Let y = 280
+    If dc2 = 1 Then Call letter1
+    If dc2 = 2 Then Call letter2
+    If dc2 = 3 Then Call letter3
+    If dc2 = 4 Then Call letter4
+    If dc2 = 5 Then Call letter5
+    If dc2 = 6 Then Call letter6
+    If dc2 = 7 Then Call letter7
+    If dc2 = 8 Then Call letter8
+    Let x = 580: Let y = 220
+    If dc4 = 1 Then Call letterA
+    If dc4 = 2 Then Call letterB
+    If dc4 = 3 Then Call letterC
+    If dc4 = 4 Then Call letterD
+    If dc4 = 5 Then Call letterE
+    If dc4 = 6 Then Call letterF
+    If dc4 = 7 Then Call letterG
+    If dc4 = 8 Then Call letterH
+    Let x = 580: Let y = 280
+    If dc5 = 1 Then Call letter1
+    If dc5 = 2 Then Call letter2
+    If dc5 = 3 Then Call letter3
+    If dc5 = 4 Then Call letter4
+    If dc5 = 5 Then Call letter5
+    If dc5 = 6 Then Call letter6
+    If dc5 = 7 Then Call letter7
+    If dc5 = 8 Then Call letter8
+    Let x = (dc1 * 40) + 120: Let y = Abs((dc2 * 40) - 480) - 80
+    Let cf = 15
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call pawn
+    Let x = (dc4 * 40) + 120: Let y = Abs((dc5 * 40) - 480) - 80
+    Let cf = 0
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call pawn
+
+    Do
+        Select Case InKey$
+            Case Is = Chr$(32)
+                Exit Case
+            Case Is = Chr$(13)
+                Call makrukfen
+            Case Is = Chr$(27)
+                End
+        End Select
+    Loop
+
+    End
+
 End Sub
 
 Sub xiangqi
+
+    Rem 1st roll
+    Let dc1 = Int(Rnd * 3 + 4)
+    Let dc2 = Int(Rnd * 3 + 1)
+    Let dc3 = 1
+    Let dc4 = Int(Rnd * 3 + 4)
+    Let dc5 = Int(Rnd * 3 + 8)
+    Let dc6 = 1
+    Let w1 = xiabo(dc2, dc1): Let b1 = xiabo(dc5, dc4)
+
+    While w1 = w2
+        Let dc1 = Int(Rnd * 3 + 4)
+        Let dc2 = Int(Rnd * 3 + 1)
+        Let dc4 = Int(Rnd * 3 + 4)
+        Let dc5 = Int(Rnd * 3 + 8)
+        Let w1 = xiabo(dc2, dc1): Let b1 = xiabo(dc5, dc4)
+    Wend
+
+    Let w1 = xiabo(dc2, dc1): Let b1 = xiabo(dc5, dc4)
+    Let fw1x = dc1: Let fw1y = dc2: Let fb1x = dc4: Let fb1y = dc5
+    Let fw1 = dc3: Let fb1 = dc6
+
+    Let x = 20: Let y = 160: Let cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call cannon
+    If dc3 = 7 Then Call pawn
+    Let x = 580: Let y = 160: Let cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call cannon
+    If dc6 = 7 Then Call pawn
+    Let x = 20: Let y = 220
+    If dc1 = 1 Then Call letterA
+    If dc1 = 2 Then Call letterB
+    If dc1 = 3 Then Call letterC
+    If dc1 = 4 Then Call letterD
+    If dc1 = 5 Then Call letterE
+    If dc1 = 6 Then Call letterF
+    If dc1 = 7 Then Call letterG
+    If dc1 = 8 Then Call letterH
+    If dc1 = 9 Then Call letterI
+    Let x = 20: Let y = 280
+    If dc2 = 1 Then Call letter1
+    If dc2 = 2 Then Call letter2
+    If dc2 = 3 Then Call letter3
+    If dc2 = 4 Then Call letter4
+    If dc2 = 5 Then Call letter5
+    If dc2 = 6 Then Call letter6
+    If dc2 = 7 Then Call letter7
+    If dc2 = 8 Then Call letter8
+    If dc2 = 9 Then Call letter9
+    If dc2 = 10 Then Call letter0
+    Let x = 580: Let y = 220
+    If dc4 = 1 Then Call letterA
+    If dc4 = 2 Then Call letterB
+    If dc4 = 3 Then Call letterC
+    If dc4 = 4 Then Call letterD
+    If dc4 = 5 Then Call letterE
+    If dc4 = 6 Then Call letterF
+    If dc4 = 7 Then Call letterG
+    If dc4 = 8 Then Call letterH
+    If dc4 = 9 Then Call letterI
+    Let x = 580: Let y = 280
+    If dc5 = 1 Then Call letter1
+    If dc5 = 2 Then Call letter2
+    If dc5 = 3 Then Call letter3
+    If dc5 = 4 Then Call letter4
+    If dc5 = 5 Then Call letter5
+    If dc5 = 6 Then Call letter6
+    If dc5 = 7 Then Call letter7
+    If dc5 = 8 Then Call letter8
+    If dc5 = 9 Then Call letter9
+    If dc5 = 10 Then Call letter0
+    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 40
+    Let cf = 15: Call king
+    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 40
+    Let cf = 0: Call king
+
+    Do
+        Select Case InKey$
+            Case Is = Chr$(32)
+                Exit Do
+            Case Is = Chr$(13)
+                Call xiangqifen
+            Case Is = Chr$(27)
+                End
+        End Select
+    Loop
+
+    Call dices
+
+    Rem 2nd roll
+    Let dc1 = Int(Rnd * 9 + 1)
+    Let dc2 = Int(Rnd * 10 + 1)
+    Let dc3 = Int(Rnd * 6 + 2)
+    Let dc4 = Int(Rnd * 9 + 1)
+    Let dc5 = Int(Rnd * 10 + 1)
+    Let dc6 = Int(Rnd * 6 + 2)
+    Let w2 = xiabo(dc2, dc1): Let b2 = xiabo(dc5, dc4)
+
+    Select Case dc3
+        Case Is = 1
+            Exit Case
+        Case Is = 2
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let fw2x = dc1: Let fw2y = dc2
+                Let w2 = xiabo(dc2, dc1)
+            Wend
+        Case Is = 3
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w2 = xiabo(dc2, dc1)
+            Wend
+        Case Is = 4
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w2 = xiabo(dc2, dc1)
+            Wend
+        Case Is = 5
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let fw2x = dc1: Let fw2y = dc2
+                Let w2 = xiabo(dc2, dc1)
+            Wend
+        Case Is = 6
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let fw2x = dc1: Let fw2y = dc2
+                Let w2 = xiabo(dc2, dc1)
+            Wend
+        Case Is = 7
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc2 < 3 Or dc2 > 6
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w2 = xiabo(dc2, dc1)
+            Wend
+    End Select
+    Select Case dc6
+        Case Is = 1
+            Exit Case
+        Case Is = 2
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let fb2x = dc4: Let fb2y = dc5
+                Let b2 = xiabo(dc5, dc4)
+            Wend
+        Case Is = 3
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b2 = xiabo(dc5, dc4)
+            Wend
+        Case Is = 4
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b2 = xiabo(dc5, dc4)
+            Wend
+        Case Is = 5
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let fb2x = dc4: Let fb2y = dc5
+                Let b2 = xiabo(dc5, dc4)
+            Wend
+        Case Is = 6
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let fb2x = dc4: Let fb2y = dc5
+                Let b2 = xiabo(dc5, dc4)
+            Wend
+        Case Is = 7
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc5 < 3 Or dc5 > 6
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b2 = xiabo(dc5, dc4)
+            Wend
+    End Select
+
+    Let w2 = xiabo(dc2, dc1): Let b2 = xiabo(dc5, dc4)
+    Let fw2x = dc1: Let fw2y = dc2: Let fb2x = dc4: Let fb2y = dc5
+    Let fw2 = dc3: Let fb2 = dc6
+
+    Let x = 20: Let y = 160: Let cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call cannon
+    If dc3 = 7 Then Call pawn
+    Let x = 580: Let y = 160: Let cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call cannon
+    If dc6 = 7 Then Call pawn
+    Let x = 20: Let y = 220
+    If dc1 = 1 Then Call letterA
+    If dc1 = 2 Then Call letterB
+    If dc1 = 3 Then Call letterC
+    If dc1 = 4 Then Call letterD
+    If dc1 = 5 Then Call letterE
+    If dc1 = 6 Then Call letterF
+    If dc1 = 7 Then Call letterG
+    If dc1 = 8 Then Call letterH
+    If dc1 = 9 Then Call letterI
+    Let x = 20: Let y = 280
+    If dc2 = 1 Then Call letter1
+    If dc2 = 2 Then Call letter2
+    If dc2 = 3 Then Call letter3
+    If dc2 = 4 Then Call letter4
+    If dc2 = 5 Then Call letter5
+    If dc2 = 6 Then Call letter6
+    If dc2 = 7 Then Call letter7
+    If dc2 = 8 Then Call letter8
+    If dc2 = 9 Then Call letter9
+    If dc2 = 10 Then Call letter0
+    Let x = 580: Let y = 220
+    If dc4 = 1 Then Call letterA
+    If dc4 = 2 Then Call letterB
+    If dc4 = 3 Then Call letterC
+    If dc4 = 4 Then Call letterD
+    If dc4 = 5 Then Call letterE
+    If dc4 = 6 Then Call letterF
+    If dc4 = 7 Then Call letterG
+    If dc4 = 8 Then Call letterH
+    If dc4 = 9 Then Call letterI
+    Let x = 580: Let y = 280
+    If dc5 = 1 Then Call letter1
+    If dc5 = 2 Then Call letter2
+    If dc5 = 3 Then Call letter3
+    If dc5 = 4 Then Call letter4
+    If dc5 = 5 Then Call letter5
+    If dc5 = 6 Then Call letter6
+    If dc5 = 7 Then Call letter7
+    If dc5 = 8 Then Call letter8
+    If dc5 = 9 Then Call letter9
+    If dc5 = 10 Then Call letter0
+    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 40
+    Let cf = 15
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call cannon
+    If dc3 = 7 Then Call pawn
+    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 40
+    Let cf = 0
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call cannon
+    If dc6 = 7 Then Call pawn
+
+    Do
+        Select Case InKey$
+            Case Is = Chr$(32)
+                Exit Do
+            Case Is = Chr$(13)
+                Call xiangqifen
+            Case Is = Chr$(27)
+                End
+        End Select
+    Loop
+
+    Call dices
+
+    Rem 3rd roll
+    Let dc1 = Int(Rnd * 9 + 1)
+    Let dc2 = Int(Rnd * 10 + 1)
+    Let dc3 = Int(Rnd * 6 + 2)
+    Let dc4 = Int(Rnd * 9 + 1)
+    Let dc5 = Int(Rnd * 10 + 1)
+    Let dc6 = Int(Rnd * 6 + 2)
+    Let w2 = xiabo(dc2, dc1): Let b2 = xiabo(dc5, dc4)
+
+    Select Case dc3
+        Case Is = 1
+            Exit Case
+        Case Is = 2
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let fw2x = dc1: Let fw2y = dc2
+                Let w2 = xiabo(dc2, dc1)
+            Wend
+        Case Is = 3
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w2 = xiabo(dc2, dc1)
+            Wend
+        Case Is = 4
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w2 = xiabo(dc2, dc1)
+            Wend
+        Case Is = 5
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let fw2x = dc1: Let fw2y = dc2
+                Let w2 = xiabo(dc2, dc1)
+            Wend
+        Case Is = 6
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let fw2x = dc1: Let fw2y = dc2
+                Let w2 = xiabo(dc2, dc1)
+            Wend
+        Case Is = 7
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc2 < 3 Or dc2 > 6
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w2 = xiabo(dc2, dc1)
+            Wend
+    End Select
+    Select Case dc6
+        Case Is = 1
+            Exit Case
+        Case Is = 2
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let fb2x = dc4: Let fb2y = dc5
+                Let b2 = xiabo(dc5, dc4)
+            Wend
+        Case Is = 3
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b2 = xiabo(dc5, dc4)
+            Wend
+        Case Is = 4
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b2 = xiabo(dc5, dc4)
+            Wend
+        Case Is = 5
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let fb2x = dc4: Let fb2y = dc5
+                Let b2 = xiabo(dc5, dc4)
+            Wend
+        Case Is = 6
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let fb2x = dc4: Let fb2y = dc5
+                Let b2 = xiabo(dc5, dc4)
+            Wend
+        Case Is = 7
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc5 < 3 Or dc5 > 6
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b2 = xiabo(dc5, dc4)
+            Wend
+    End Select
+
+    Let w2 = xiabo(dc2, dc1): Let b2 = xiabo(dc5, dc4)
+    Let fw2x = dc1: Let fw2y = dc2: Let fb2x = dc4: Let fb2y = dc5
+    Let fw2 = dc3: Let fb2 = dc6
+
+    Let x = 20: Let y = 160: Let cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call cannon
+    If dc3 = 7 Then Call pawn
+    Let x = 580: Let y = 160: Let cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call cannon
+    If dc6 = 7 Then Call pawn
+    Let x = 20: Let y = 220
+    If dc1 = 1 Then Call letterA
+    If dc1 = 2 Then Call letterB
+    If dc1 = 3 Then Call letterC
+    If dc1 = 4 Then Call letterD
+    If dc1 = 5 Then Call letterE
+    If dc1 = 6 Then Call letterF
+    If dc1 = 7 Then Call letterG
+    If dc1 = 8 Then Call letterH
+    If dc1 = 9 Then Call letterI
+    Let x = 20: Let y = 280
+    If dc2 = 1 Then Call letter1
+    If dc2 = 2 Then Call letter2
+    If dc2 = 3 Then Call letter3
+    If dc2 = 4 Then Call letter4
+    If dc2 = 5 Then Call letter5
+    If dc2 = 6 Then Call letter6
+    If dc2 = 7 Then Call letter7
+    If dc2 = 8 Then Call letter8
+    If dc2 = 9 Then Call letter9
+    If dc2 = 10 Then Call letter0
+    Let x = 580: Let y = 220
+    If dc4 = 1 Then Call letterA
+    If dc4 = 2 Then Call letterB
+    If dc4 = 3 Then Call letterC
+    If dc4 = 4 Then Call letterD
+    If dc4 = 5 Then Call letterE
+    If dc4 = 6 Then Call letterF
+    If dc4 = 7 Then Call letterG
+    If dc4 = 8 Then Call letterH
+    If dc4 = 9 Then Call letterI
+    Let x = 580: Let y = 280
+    If dc5 = 1 Then Call letter1
+    If dc5 = 2 Then Call letter2
+    If dc5 = 3 Then Call letter3
+    If dc5 = 4 Then Call letter4
+    If dc5 = 5 Then Call letter5
+    If dc5 = 6 Then Call letter6
+    If dc5 = 7 Then Call letter7
+    If dc5 = 8 Then Call letter8
+    If dc5 = 9 Then Call letter9
+    If dc5 = 10 Then Call letter0
+    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 40
+    Let cf = 15
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call cannon
+    If dc3 = 7 Then Call pawn
+    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 40
+    Let cf = 0
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call cannon
+    If dc6 = 7 Then Call pawn
+
+    Do
+        Select Case InKey$
+            Case Is = Chr$(32)
+                Exit Do
+            Case Is = Chr$(13)
+                Call xiangqifen
+            Case Is = Chr$(27)
+                End
+        End Select
+    Loop
+
+    Call dices
+
+    Rem 3rd roll
+    Let dc1 = Int(Rnd * 9 + 1)
+    Let dc2 = Int(Rnd * 10 + 1)
+    Let dc3 = Int(Rnd * 6 + 2)
+    Let dc4 = Int(Rnd * 9 + 1)
+    Let dc5 = Int(Rnd * 10 + 1)
+    Let dc6 = Int(Rnd * 6 + 2)
+    Let w2 = xiabo(dc2, dc1): Let b2 = xiabo(dc5, dc4)
+
+    Select Case dc3
+        Case Is = 1
+            Exit Case
+        Case Is = 2
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let fw2x = dc1: Let fw2y = dc2
+                Let w2 = xiabo(dc2, dc1)
+            Wend
+        Case Is = 3
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w2 = xiabo(dc2, dc1)
+            Wend
+        Case Is = 4
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w2 = xiabo(dc2, dc1)
+            Wend
+        Case Is = 5
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let fw4x = dc1: Let fw4y = dc2
+                Let w4 = xiabo(dc2, dc1)
+            Wend
+        Case Is = 6
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let fw4x = dc1: Let fw4y = dc2
+                Let w4 = xiabo(dc2, dc1)
+            Wend
+        Case Is = 7
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc2 < 3 Or dc2 > 6
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w4 = xiabo(dc2, dc1)
+            Wend
+    End Select
+    Select Case dc6
+        Case Is = 1
+            Exit Case
+        Case Is = 2
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let fb4x = dc4: Let fb4y = dc5
+                Let b4 = xiabo(dc5, dc4)
+            Wend
+        Case Is = 3
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b4 = xiabo(dc5, dc4)
+            Wend
+        Case Is = 4
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b4 = xiabo(dc5, dc4)
+            Wend
+        Case Is = 5
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let fb4x = dc4: Let fb4y = dc5
+                Let b4 = xiabo(dc5, dc4)
+            Wend
+        Case Is = 6
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let fb4x = dc4: Let fb4y = dc5
+                Let b4 = xiabo(dc5, dc4)
+            Wend
+        Case Is = 7
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc5 < 3 Or dc5 > 6
+                Let dc4 = Int(Rnd * 8 + 1)
+                Let dc5 = Int(Rnd * 8 + 1)
+                Let b4 = xiabo(dc5, dc4)
+            Wend
+    End Select
+
+    Let w4 = xiabo(dc2, dc1): Let b4 = xiabo(dc5, dc4)
+    Let fw4x = dc1: Let fw4y = dc2: Let fb4x = dc4: Let fb4y = dc5
+    Let fw4 = dc3: Let fb4 = dc6
+
+    Let x = 20: Let y = 160: Let cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call cannon
+    If dc3 = 7 Then Call pawn
+    Let x = 580: Let y = 160: Let cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call cannon
+    If dc6 = 7 Then Call pawn
+    Let x = 20: Let y = 220
+    If dc1 = 1 Then Call letterA
+    If dc1 = 2 Then Call letterB
+    If dc1 = 3 Then Call letterC
+    If dc1 = 4 Then Call letterD
+    If dc1 = 5 Then Call letterE
+    If dc1 = 6 Then Call letterF
+    If dc1 = 7 Then Call letterG
+    If dc1 = 8 Then Call letterH
+    If dc1 = 9 Then Call letterI
+    Let x = 20: Let y = 280
+    If dc2 = 1 Then Call letter1
+    If dc2 = 2 Then Call letter2
+    If dc2 = 3 Then Call letter3
+    If dc2 = 4 Then Call letter4
+    If dc2 = 5 Then Call letter5
+    If dc2 = 6 Then Call letter6
+    If dc2 = 7 Then Call letter7
+    If dc2 = 8 Then Call letter8
+    If dc2 = 9 Then Call letter9
+    If dc2 = 10 Then Call letter0
+    Let x = 580: Let y = 220
+    If dc4 = 1 Then Call letterA
+    If dc4 = 2 Then Call letterB
+    If dc4 = 3 Then Call letterC
+    If dc4 = 4 Then Call letterD
+    If dc4 = 5 Then Call letterE
+    If dc4 = 6 Then Call letterF
+    If dc4 = 7 Then Call letterG
+    If dc4 = 8 Then Call letterH
+    If dc4 = 9 Then Call letterI
+    Let x = 580: Let y = 280
+    If dc5 = 1 Then Call letter1
+    If dc5 = 2 Then Call letter2
+    If dc5 = 3 Then Call letter3
+    If dc5 = 4 Then Call letter4
+    If dc5 = 5 Then Call letter5
+    If dc5 = 6 Then Call letter6
+    If dc5 = 7 Then Call letter7
+    If dc5 = 8 Then Call letter8
+    If dc5 = 9 Then Call letter9
+    If dc5 = 10 Then Call letter0
+    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 40
+    Let cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call cannon
+    If dc3 = 7 Then Call pawn
+    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 40
+    Let cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call cannon
+    If dc6 = 7 Then Call pawn
+
+    Do
+        Select Case InKey$
+            Case Is = Chr$(32)
+                Exit Case
+            Case Is = Chr$(13)
+                Call xiangqifen
+            Case Is = Chr$(27)
+                End
+        End Select
+    Loop
+
 End Sub
 
 Sub shogi
@@ -1917,7 +3174,6 @@ Sub chessfen
     If fw1 = 4 Then Let fig1w$ = "N"
     If fw1 = 5 Then Let fig1w$ = "R"
     If fw1 = 6 Then Let fig1w$ = "P"
-    If fw1 = 7 Then Let fig1w$ = "C"
 
     If fb1 = 1 Then Let fig1b$ = "k"
     If fb1 = 2 Then Let fig1b$ = "q"
@@ -1925,7 +3181,6 @@ Sub chessfen
     If fb1 = 4 Then Let fig1b$ = "n"
     If fb1 = 5 Then Let fig1b$ = "r"
     If fb1 = 6 Then Let fig1b$ = "p"
-    If fb1 = 7 Then Let fig1b$ = "c"
 
     If fw2 = 1 Then Let fig2w$ = "K"
     If fw2 = 2 Then Let fig2w$ = "Q"
@@ -1933,7 +3188,6 @@ Sub chessfen
     If fw2 = 4 Then Let fig2w$ = "N"
     If fw2 = 5 Then Let fig2w$ = "R"
     If fw2 = 6 Then Let fig2w$ = "P"
-    If fw2 = 7 Then Let fig2w$ = "C"
 
     If fb2 = 1 Then Let fig2b$ = "k"
     If fb2 = 2 Then Let fig2b$ = "q"
@@ -1941,7 +3195,6 @@ Sub chessfen
     If fb2 = 4 Then Let fig2b$ = "n"
     If fb2 = 5 Then Let fig2b$ = "r"
     If fb2 = 6 Then Let fig2b$ = "p"
-    If fb2 = 7 Then Let fig2b$ = "c"
 
     If fw3 = 1 Then Let fig3w$ = "K"
     If fw3 = 2 Then Let fig3w$ = "Q"
@@ -1949,7 +3202,6 @@ Sub chessfen
     If fw3 = 4 Then Let fig3w$ = "N"
     If fw3 = 5 Then Let fig3w$ = "R"
     If fw3 = 6 Then Let fig3w$ = "P"
-    If fw3 = 7 Then Let fig3w$ = "C"
 
     If fb3 = 1 Then Let fig3b$ = "k"
     If fb3 = 2 Then Let fig3b$ = "q"
@@ -1957,7 +3209,6 @@ Sub chessfen
     If fb3 = 4 Then Let fig3b$ = "n"
     If fb3 = 5 Then Let fig3b$ = "r"
     If fb3 = 6 Then Let fig3b$ = "p"
-    If fb3 = 7 Then Let fig3b$ = "c"
 
     If fw4 = 1 Then Let fig4w$ = "K"
     If fw4 = 2 Then Let fig4w$ = "Q"
@@ -1965,7 +3216,6 @@ Sub chessfen
     If fw4 = 4 Then Let fig4w$ = "N"
     If fw4 = 5 Then Let fig4w$ = "R"
     If fw4 = 6 Then Let fig4w$ = "P"
-    If fw4 = 7 Then Let fig4w$ = "C"
 
     If fb4 = 1 Then Let fig4b$ = "k"
     If fb4 = 2 Then Let fig4b$ = "q"
@@ -1973,9 +3223,6 @@ Sub chessfen
     If fb4 = 4 Then Let fig4b$ = "n"
     If fb4 = 5 Then Let fig4b$ = "r"
     If fb4 = 6 Then Let fig4b$ = "p"
-    If fb4 = 7 Then Let fig4b$ = "c"
-
-    ' -----------------------------------------------------------------
 
     Dim table(8, 8) As String
     Let table(fw1y, fw1x) = fig1w$
@@ -1998,7 +3245,7 @@ Sub chessfen
             count = count + 1
             lin1$ = lin1$ + LTrim$(Str$(count))
         End If
-        If index < 10 And Mid$(mas1$, index, 1) = "+" Then
+        If index < 8 And Mid$(mas1$, index, 1) = "+" Then
             count = count + 1
         End If
         If Mid$(mas1$, index, 1) <> "+" And count = 0 Then
@@ -2007,7 +3254,7 @@ Sub chessfen
         If Mid$(mas1$, index, 1) <> "+" And count > 0 Then
             lin1$ = lin1$ + LTrim$(Str$(count))
             lin1$ = lin1$ + Mid$(mas1$, index, 1)
-            count = 0
+            Let count = 0
         End If
     Next index
 
@@ -2019,7 +3266,7 @@ Sub chessfen
             count = count + 1
             lin2$ = lin2$ + LTrim$(Str$(count))
         End If
-        If index < 10 And Mid$(mas2$, index, 1) = "+" Then
+        If index < 8 And Mid$(mas2$, index, 1) = "+" Then
             count = count + 1
         End If
         If Mid$(mas2$, index, 1) <> "+" And count = 0 Then
@@ -2028,7 +3275,7 @@ Sub chessfen
         If Mid$(mas2$, index, 1) <> "+" And count > 0 Then
             lin2$ = lin2$ + LTrim$(Str$(count))
             lin2$ = lin2$ + Mid$(mas2$, index, 1)
-            count = 0
+            Let count = 0
         End If
     Next index
 
@@ -2040,7 +3287,7 @@ Sub chessfen
             count = count + 1
             lin3$ = lin3$ + LTrim$(Str$(count))
         End If
-        If index < 10 And Mid$(mas3$, index, 1) = "+" Then
+        If index < 8 And Mid$(mas3$, index, 1) = "+" Then
             count = count + 1
         End If
         If Mid$(mas3$, index, 1) <> "+" And count = 0 Then
@@ -2049,7 +3296,7 @@ Sub chessfen
         If Mid$(mas3$, index, 1) <> "+" And count > 0 Then
             lin3$ = lin3$ + LTrim$(Str$(count))
             lin3$ = lin3$ + Mid$(mas3$, index, 1)
-            count = 0
+            Let count = 0
         End If
     Next index
 
@@ -2061,7 +3308,7 @@ Sub chessfen
             count = count + 1
             lin4$ = lin4$ + LTrim$(Str$(count))
         End If
-        If index < 10 And Mid$(mas4$, index, 1) = "+" Then
+        If index < 8 And Mid$(mas4$, index, 1) = "+" Then
             count = count + 1
         End If
         If Mid$(mas4$, index, 1) <> "+" And count = 0 Then
@@ -2070,7 +3317,7 @@ Sub chessfen
         If Mid$(mas4$, index, 1) <> "+" And count > 0 Then
             lin4$ = lin4$ + LTrim$(Str$(count))
             lin4$ = lin4$ + Mid$(mas4$, index, 1)
-            count = 0
+            Let count = 0
         End If
     Next index
 
@@ -2082,7 +3329,7 @@ Sub chessfen
             count = count + 1
             lin5$ = lin5$ + LTrim$(Str$(count))
         End If
-        If index < 10 And Mid$(mas5$, index, 1) = "+" Then
+        If index < 8 And Mid$(mas5$, index, 1) = "+" Then
             count = count + 1
         End If
         If Mid$(mas5$, index, 1) <> "+" And count = 0 Then
@@ -2091,7 +3338,7 @@ Sub chessfen
         If Mid$(mas5$, index, 1) <> "+" And count > 0 Then
             lin5$ = lin5$ + LTrim$(Str$(count))
             lin5$ = lin5$ + Mid$(mas5$, index, 1)
-            count = 0
+            Let count = 0
         End If
     Next index
 
@@ -2103,7 +3350,7 @@ Sub chessfen
             count = count + 1
             lin6$ = lin6$ + LTrim$(Str$(count))
         End If
-        If index < 10 And Mid$(mas6$, index, 1) = "+" Then
+        If index < 8 And Mid$(mas6$, index, 1) = "+" Then
             count = count + 1
         End If
         If Mid$(mas6$, index, 1) <> "+" And count = 0 Then
@@ -2112,7 +3359,7 @@ Sub chessfen
         If Mid$(mas6$, index, 1) <> "+" And count > 0 Then
             lin6$ = lin6$ + LTrim$(Str$(count))
             lin6$ = lin6$ + Mid$(mas6$, index, 1)
-            count = 0
+            Let count = 0
         End If
     Next index
 
@@ -2124,7 +3371,7 @@ Sub chessfen
             count = count + 1
             lin7$ = lin7$ + LTrim$(Str$(count))
         End If
-        If index < 10 And Mid$(mas7$, index, 1) = "+" Then
+        If index < 8 And Mid$(mas7$, index, 1) = "+" Then
             count = count + 1
         End If
         If Mid$(mas7$, index, 1) <> "+" And count = 0 Then
@@ -2133,7 +3380,7 @@ Sub chessfen
         If Mid$(mas7$, index, 1) <> "+" And count > 0 Then
             lin7$ = lin7$ + LTrim$(Str$(count))
             lin7$ = lin7$ + Mid$(mas7$, index, 1)
-            count = 0
+            Let count = 0
         End If
     Next index
 
@@ -2145,7 +3392,7 @@ Sub chessfen
             count = count + 1
             lin8$ = lin8$ + LTrim$(Str$(count))
         End If
-        If index < 10 And Mid$(mas8$, index, 1) = "+" Then
+        If index < 8 And Mid$(mas8$, index, 1) = "+" Then
             count = count + 1
         End If
         If Mid$(mas8$, index, 1) <> "+" And count = 0 Then
@@ -2154,44 +3401,608 @@ Sub chessfen
         If Mid$(mas8$, index, 1) <> "+" And count > 0 Then
             lin8$ = lin8$ + LTrim$(Str$(count))
             lin8$ = lin8$ + Mid$(mas8$, index, 1)
-            count = 0
+            Let count = 0
         End If
     Next index
 
-    Let fen$ = lin1$ + "/" + lin2$ + "/" + lin3$ + "/" + lin4$ + "/" + lin5$ + "/" + lin6$ + "/" + lin7$ + "/" + lin8$
+    Let fen$ = lin8$ + "/" + lin7$ + "/" + lin6$ + "/" + lin5$ + "/" + lin4$ + "/" + lin3$ + "/" + lin2$ + "/" + lin1$
 
     Color 10
-    Locate 2, 15: Print "          Press any key to display the Forsyth-Edwards notation          "
+    Locate 2, 1: Print "              Press any key to display the Forsyth-Edwards notation                    "
     Do
     Loop Until InKey$ <> ""
-    Locate 2, 15: Print "                                                                         "
+    Locate 2, 1: Print "                                                                                       "
     Color 12
     Locate 2, 29: Print fen$
 
     Do
     Loop Until InKey$ <> ""
 
-    Rem _Clipboard$ = fen$
+    _Clipboard$ = fen$
 
-    Rem url$ = "https://syzygy-tables.info/?fen=" + fen$
-    Rem If InStr(_OS$, "[WINDOWS]") Then
-    Rem     Shell url$
-    Rem End If
-    Rem If InStr(_OS$, "[LINUX]") Then
-    Rem     Shell "xdg-open " + url$
-    Rem End If
-    Rem If InStr(_OS$, "[MACOSX]") Then
-    Rem     Shell "open -a safari https://" + url$
-    Rem End If
+    url$ = "https://syzygy-tables.info/?fen=" + fen$
+    If InStr(_OS$, "[WINDOWS]") Then
+        Shell url$
+    End If
+    If InStr(_OS$, "[LINUX]") Then
+        Shell "xdg-open " + url$
+    End If
+    If InStr(_OS$, "[MACOSX]") Then
+        Shell "open -a safari https://" + url$
+    End If
 
     End
 
 End Sub
 
 Sub makrukfen
+
+    Rem Forsyth-Edwards notation
+
+    If fw1 = 1 Then Let fig1w$ = "L"
+    If fw1 = 2 Then Let fig1w$ = "S"
+    If fw1 = 3 Then Let fig1w$ = "N"
+    If fw1 = 4 Then Let fig1w$ = "H"
+    If fw1 = 5 Then Let fig1w$ = "B"
+    If fw1 = 6 Then Let fig1w$ = "C"
+
+    If fb1 = 1 Then Let fig1b$ = "l"
+    If fb1 = 2 Then Let fig1b$ = "s"
+    If fb1 = 3 Then Let fig1b$ = "n"
+    If fb1 = 4 Then Let fig1b$ = "h"
+    If fb1 = 5 Then Let fig1b$ = "b"
+    If fb1 = 6 Then Let fig1b$ = "c"
+
+    If fw2 = 1 Then Let fig2w$ = "L"
+    If fw2 = 2 Then Let fig2w$ = "S"
+    If fw2 = 3 Then Let fig2w$ = "N"
+    If fw2 = 4 Then Let fig2w$ = "H"
+    If fw2 = 5 Then Let fig2w$ = "B"
+    If fw2 = 6 Then Let fig2w$ = "C"
+
+    If fb2 = 1 Then Let fig2b$ = "l"
+    If fb2 = 2 Then Let fig2b$ = "s"
+    If fb2 = 3 Then Let fig2b$ = "n"
+    If fb2 = 4 Then Let fig2b$ = "h"
+    If fb2 = 5 Then Let fig2b$ = "b"
+    If fb2 = 6 Then Let fig2b$ = "c"
+
+    If fw3 = 1 Then Let fig3w$ = "L"
+    If fw3 = 2 Then Let fig3w$ = "S"
+    If fw3 = 3 Then Let fig3w$ = "N"
+    If fw3 = 4 Then Let fig3w$ = "H"
+    If fw3 = 5 Then Let fig3w$ = "B"
+    If fw3 = 6 Then Let fig3w$ = "C"
+
+    If fb3 = 1 Then Let fig3b$ = "l"
+    If fb3 = 2 Then Let fig3b$ = "s"
+    If fb3 = 3 Then Let fig3b$ = "n"
+    If fb3 = 4 Then Let fig3b$ = "h"
+    If fb3 = 5 Then Let fig3b$ = "b"
+    If fb3 = 6 Then Let fig3b$ = "c"
+
+    If fw4 = 1 Then Let fig4w$ = "L"
+    If fw4 = 2 Then Let fig4w$ = "S"
+    If fw4 = 3 Then Let fig4w$ = "N"
+    If fw4 = 4 Then Let fig4w$ = "H"
+    If fw4 = 5 Then Let fig4w$ = "B"
+    If fw4 = 6 Then Let fig4w$ = "C"
+
+    If fb4 = 1 Then Let fig4b$ = "l"
+    If fb4 = 2 Then Let fig4b$ = "s"
+    If fb4 = 3 Then Let fig4b$ = "n"
+    If fb4 = 4 Then Let fig4b$ = "h"
+    If fb4 = 5 Then Let fig4b$ = "b"
+    If fb4 = 6 Then Let fig4b$ = "c"
+
+    Dim table(8, 8) As String
+    Let table(fw1y, fw1x) = fig1w$
+    Let table(fb1y, fb1x) = fig1b$
+    Let table(fw2y, fw2x) = fig2w$
+    Let table(fb2y, fb2x) = fig2b$
+    Let table(fw3y, fw3x) = fig3w$
+    Let table(fb3y, fb3x) = fig3b$
+    Let table(fw4y, fw4x) = fig4w$
+    Let table(fb4y, fb4x) = fig4b$
+    For row = 1 To 8: For col = 1 To 8
+        If table(row, col) = "" Then Let table(row, col) = "+"
+    Next col: Next row
+
+    Let mas1$ = table(1, 1) + table(1, 2) + table(1, 3) + table(1, 4) + table(1, 5) + table(1, 6) + table(1, 7) + table(1, 8)
+    Let lin1$ = ""
+    Let count = 0
+    For index = 1 To 8
+        If index = 8 And Mid$(mas1$, index, 1) = "+" Then
+            count = count + 1
+            lin1$ = lin1$ + LTrim$(Str$(count))
+        End If
+        If index < 8 And Mid$(mas1$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas1$, index, 1) <> "+" And count = 0 Then
+            lin1$ = lin1$ + Mid$(mas1$, index, 1)
+        End If
+        If Mid$(mas1$, index, 1) <> "+" And count > 0 Then
+            lin1$ = lin1$ + LTrim$(Str$(count))
+            lin1$ = lin1$ + Mid$(mas1$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas2$ = table(2, 1) + table(2, 2) + table(2, 3) + table(2, 4) + table(2, 5) + table(2, 6) + table(2, 7) + table(2, 8)
+    Let lin2$ = ""
+    Let count = 0
+    For index = 1 To 8
+        If index = 8 And Mid$(mas2$, index, 1) = "+" Then
+            count = count + 1
+            lin2$ = lin2$ + LTrim$(Str$(count))
+        End If
+        If index < 8 And Mid$(mas2$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas2$, index, 1) <> "+" And count = 0 Then
+            lin2$ = lin2$ + Mid$(mas2$, index, 1)
+        End If
+        If Mid$(mas2$, index, 1) <> "+" And count > 0 Then
+            lin2$ = lin2$ + LTrim$(Str$(count))
+            lin2$ = lin2$ + Mid$(mas2$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas3$ = table(3, 1) + table(3, 2) + table(3, 3) + table(3, 4) + table(3, 5) + table(3, 6) + table(3, 7) + table(3, 8)
+    Let lin3$ = ""
+    Let count = 0
+    For index = 1 To 8
+        If index = 8 And Mid$(mas3$, index, 1) = "+" Then
+            count = count + 1
+            lin3$ = lin3$ + LTrim$(Str$(count))
+        End If
+        If index < 8 And Mid$(mas3$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas3$, index, 1) <> "+" And count = 0 Then
+            lin3$ = lin3$ + Mid$(mas3$, index, 1)
+        End If
+        If Mid$(mas3$, index, 1) <> "+" And count > 0 Then
+            lin3$ = lin3$ + LTrim$(Str$(count))
+            lin3$ = lin3$ + Mid$(mas3$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas4$ = table(4, 1) + table(4, 2) + table(4, 3) + table(4, 4) + table(4, 5) + table(4, 6) + table(4, 7) + table(4, 8)
+    Let lin4$ = ""
+    Let count = 0
+    For index = 1 To 8
+        If index = 8 And Mid$(mas4$, index, 1) = "+" Then
+            count = count + 1
+            lin4$ = lin4$ + LTrim$(Str$(count))
+        End If
+        If index < 8 And Mid$(mas4$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas4$, index, 1) <> "+" And count = 0 Then
+            lin4$ = lin4$ + Mid$(mas4$, index, 1)
+        End If
+        If Mid$(mas4$, index, 1) <> "+" And count > 0 Then
+            lin4$ = lin4$ + LTrim$(Str$(count))
+            lin4$ = lin4$ + Mid$(mas4$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas5$ = table(5, 1) + table(5, 2) + table(5, 3) + table(5, 4) + table(5, 5) + table(5, 6) + table(5, 7) + table(5, 8)
+    Let lin5$ = ""
+    Let count = 0
+    For index = 1 To 8
+        If index = 8 And Mid$(mas5$, index, 1) = "+" Then
+            count = count + 1
+            lin5$ = lin5$ + LTrim$(Str$(count))
+        End If
+        If index < 8 And Mid$(mas5$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas5$, index, 1) <> "+" And count = 0 Then
+            lin5$ = lin5$ + Mid$(mas5$, index, 1)
+        End If
+        If Mid$(mas5$, index, 1) <> "+" And count > 0 Then
+            lin5$ = lin5$ + LTrim$(Str$(count))
+            lin5$ = lin5$ + Mid$(mas5$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas6$ = table(6, 1) + table(6, 2) + table(6, 3) + table(6, 4) + table(6, 5) + table(6, 6) + table(6, 7) + table(6, 8)
+    Let lin6$ = ""
+    Let count = 0
+    For index = 1 To 8
+        If index = 8 And Mid$(mas6$, index, 1) = "+" Then
+            count = count + 1
+            lin6$ = lin6$ + LTrim$(Str$(count))
+        End If
+        If index < 8 And Mid$(mas6$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas6$, index, 1) <> "+" And count = 0 Then
+            lin6$ = lin6$ + Mid$(mas6$, index, 1)
+        End If
+        If Mid$(mas6$, index, 1) <> "+" And count > 0 Then
+            lin6$ = lin6$ + LTrim$(Str$(count))
+            lin6$ = lin6$ + Mid$(mas6$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas7$ = table(7, 1) + table(7, 2) + table(7, 3) + table(7, 4) + table(7, 5) + table(7, 6) + table(7, 7) + table(7, 8)
+    Let lin7$ = ""
+    Let count = 0
+    For index = 1 To 8
+        If index = 8 And Mid$(mas7$, index, 1) = "+" Then
+            count = count + 1
+            lin7$ = lin7$ + LTrim$(Str$(count))
+        End If
+        If index < 8 And Mid$(mas7$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas7$, index, 1) <> "+" And count = 0 Then
+            lin7$ = lin7$ + Mid$(mas7$, index, 1)
+        End If
+        If Mid$(mas7$, index, 1) <> "+" And count > 0 Then
+            lin7$ = lin7$ + LTrim$(Str$(count))
+            lin7$ = lin7$ + Mid$(mas7$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas8$ = table(8, 1) + table(8, 2) + table(8, 3) + table(8, 4) + table(8, 5) + table(8, 6) + table(8, 7) + table(8, 8)
+    Let lin8$ = ""
+    Let count = 0
+    For index = 1 To 8
+        If index = 8 And Mid$(mas8$, index, 1) = "+" Then
+            count = count + 1
+            lin8$ = lin8$ + LTrim$(Str$(count))
+        End If
+        If index < 8 And Mid$(mas8$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas8$, index, 1) <> "+" And count = 0 Then
+            lin8$ = lin8$ + Mid$(mas8$, index, 1)
+        End If
+        If Mid$(mas8$, index, 1) <> "+" And count > 0 Then
+            lin8$ = lin8$ + LTrim$(Str$(count))
+            lin8$ = lin8$ + Mid$(mas8$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let fen$ = lin8$ + "/" + lin7$ + "/" + lin6$ + "/" + lin5$ + "/" + lin4$ + "/" + lin3$ + "/" + lin2$ + "/" + lin1$
+
+    Color 10
+    Locate 2, 1: Print "              Press any key to display the Forsyth-Edwards notation                    "
+    Do
+    Loop Until InKey$ <> ""
+    Locate 2, 1: Print "                                                                                       "
+    Color 12
+    Locate 2, 29: Print fen$
+
+    Do
+    Loop Until InKey$ <> ""
+
+    _Clipboard$ = fen$
+
+    End
+
 End Sub
 
 Sub xiangqifen
+
+    Rem Forsyth-Edwards notation
+
+    If fw1 = 1 Then Let fig1w$ = "K"
+    If fw1 = 2 Then Let fig1w$ = "A"
+    If fw1 = 3 Then Let fig1w$ = "E"
+    If fw1 = 4 Then Let fig1w$ = "H"
+    If fw1 = 5 Then Let fig1w$ = "R"
+    If fw1 = 6 Then Let fig1w$ = "C"
+    If fw1 = 7 Then Let fig1w$ = "P"
+
+    If fb1 = 1 Then Let fig1b$ = "k"
+    If fb1 = 2 Then Let fig1b$ = "a"
+    If fb1 = 3 Then Let fig1b$ = "e"
+    If fb1 = 4 Then Let fig1b$ = "h"
+    If fb1 = 5 Then Let fig1b$ = "r"
+    If fb1 = 6 Then Let fig1b$ = "c"
+    If fb1 = 7 Then Let fig1w$ = "p"
+
+    If fw2 = 1 Then Let fig2w$ = "K"
+    If fw2 = 2 Then Let fig2w$ = "A"
+    If fw2 = 3 Then Let fig2w$ = "E"
+    If fw2 = 4 Then Let fig2w$ = "H"
+    If fw2 = 5 Then Let fig2w$ = "R"
+    If fw2 = 6 Then Let fig2w$ = "C"
+    If fw2 = 7 Then Let fig2w$ = "P"
+
+    If fb2 = 1 Then Let fig2b$ = "k"
+    If fb2 = 2 Then Let fig2b$ = "a"
+    If fb2 = 3 Then Let fig2b$ = "e"
+    If fb2 = 4 Then Let fig2b$ = "h"
+    If fb2 = 5 Then Let fig2b$ = "r"
+    If fb2 = 6 Then Let fig2b$ = "c"
+    If fb2 = 7 Then Let fig2w$ = "p"
+
+    If fw3 = 1 Then Let fig3w$ = "K"
+    If fw3 = 2 Then Let fig3w$ = "A"
+    If fw3 = 3 Then Let fig3w$ = "E"
+    If fw3 = 4 Then Let fig3w$ = "H"
+    If fw3 = 5 Then Let fig3w$ = "R"
+    If fw3 = 6 Then Let fig3w$ = "C"
+    If fw3 = 7 Then Let fig3w$ = "P"
+
+    If fb3 = 1 Then Let fig3b$ = "k"
+    If fb3 = 2 Then Let fig3b$ = "a"
+    If fb3 = 3 Then Let fig3b$ = "e"
+    If fb3 = 4 Then Let fig3b$ = "h"
+    If fb3 = 5 Then Let fig3b$ = "r"
+    If fb3 = 6 Then Let fig3b$ = "c"
+    If fb3 = 7 Then Let fig3w$ = "p"
+
+    If fw4 = 1 Then Let fig4w$ = "K"
+    If fw4 = 2 Then Let fig4w$ = "A"
+    If fw4 = 3 Then Let fig4w$ = "E"
+    If fw4 = 4 Then Let fig4w$ = "H"
+    If fw4 = 5 Then Let fig4w$ = "R"
+    If fw4 = 6 Then Let fig4w$ = "C"
+    If fw4 = 7 Then Let fig4w$ = "P"
+
+    If fb4 = 1 Then Let fig4b$ = "k"
+    If fb4 = 2 Then Let fig4b$ = "a"
+    If fb4 = 3 Then Let fig4b$ = "e"
+    If fb4 = 4 Then Let fig4b$ = "h"
+    If fb4 = 5 Then Let fig4b$ = "r"
+    If fb4 = 6 Then Let fig4b$ = "c"
+    If fb4 = 7 Then Let fig4w$ = "p"
+
+    Dim table(10, 9) As String
+    Let table(fw1y, fw1x) = fig1w$
+    Let table(fb1y, fb1x) = fig1b$
+    Let table(fw2y, fw2x) = fig2w$
+    Let table(fb2y, fb2x) = fig2b$
+    Let table(fw3y, fw3x) = fig3w$
+    Let table(fb3y, fb3x) = fig3b$
+    Let table(fw4y, fw4x) = fig4w$
+    Let table(fb4y, fb4x) = fig4b$
+    For row = 1 To 10: For col = 1 To 9
+        If table(row, col) = "" Then Let table(row, col) = "+"
+    Next col: Next row
+
+    Let mas1$ = table(1, 1) + table(1, 2) + table(1, 3) + table(1, 4) + table(1, 5) + table(1, 6) + table(1, 7) + table(1, 8) + table(1, 9)
+    Let lin1$ = ""
+    Let count = 0
+    For index = 1 To 9
+        If index = 9 And Mid$(mas1$, index, 1) = "+" Then
+            count = count + 1
+            lin1$ = lin1$ + LTrim$(Str$(count))
+        End If
+        If index < 9 And Mid$(mas1$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas1$, index, 1) <> "+" And count = 0 Then
+            lin1$ = lin1$ + Mid$(mas1$, index, 1)
+        End If
+        If Mid$(mas1$, index, 1) <> "+" And count > 0 Then
+            lin1$ = lin1$ + LTrim$(Str$(count))
+            lin1$ = lin1$ + Mid$(mas1$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas2$ = table(2, 1) + table(2, 2) + table(2, 3) + table(2, 4) + table(2, 5) + table(2, 6) + table(2, 7) + table(2, 8) + table(2, 9)
+    Let lin2$ = ""
+    Let count = 0
+    For index = 1 To 9
+        If index = 9 And Mid$(mas2$, index, 1) = "+" Then
+            count = count + 1
+            lin2$ = lin2$ + LTrim$(Str$(count))
+        End If
+        If index < 9 And Mid$(mas2$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas2$, index, 1) <> "+" And count = 0 Then
+            lin2$ = lin2$ + Mid$(mas2$, index, 1)
+        End If
+        If Mid$(mas2$, index, 1) <> "+" And count > 0 Then
+            lin2$ = lin2$ + LTrim$(Str$(count))
+            lin2$ = lin2$ + Mid$(mas2$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas3$ = table(3, 1) + table(3, 2) + table(3, 3) + table(3, 4) + table(3, 5) + table(3, 6) + table(3, 7) + table(3, 8) + table(3, 9)
+    Let lin3$ = ""
+    Let count = 0
+    For index = 1 To 9
+        If index = 9 And Mid$(mas3$, index, 1) = "+" Then
+            count = count + 1
+            lin3$ = lin3$ + LTrim$(Str$(count))
+        End If
+        If index < 9 And Mid$(mas3$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas3$, index, 1) <> "+" And count = 0 Then
+            lin3$ = lin3$ + Mid$(mas3$, index, 1)
+        End If
+        If Mid$(mas3$, index, 1) <> "+" And count > 0 Then
+            lin3$ = lin3$ + LTrim$(Str$(count))
+            lin3$ = lin3$ + Mid$(mas3$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas4$ = table(4, 1) + table(4, 2) + table(4, 3) + table(4, 4) + table(4, 5) + table(4, 6) + table(4, 7) + table(4, 8) + table(4, 9)
+    Let lin4$ = ""
+    Let count = 0
+    For index = 1 To 9
+        If index = 9 And Mid$(mas4$, index, 1) = "+" Then
+            count = count + 1
+            lin4$ = lin4$ + LTrim$(Str$(count))
+        End If
+        If index < 9 And Mid$(mas4$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas4$, index, 1) <> "+" And count = 0 Then
+            lin4$ = lin4$ + Mid$(mas4$, index, 1)
+        End If
+        If Mid$(mas4$, index, 1) <> "+" And count > 0 Then
+            lin4$ = lin4$ + LTrim$(Str$(count))
+            lin4$ = lin4$ + Mid$(mas4$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas5$ = table(5, 1) + table(5, 2) + table(5, 3) + table(5, 4) + table(5, 5) + table(5, 6) + table(5, 7) + table(5, 8) + table(5, 9)
+    Let lin5$ = ""
+    Let count = 0
+    For index = 1 To 9
+        If index = 9 And Mid$(mas5$, index, 1) = "+" Then
+            count = count + 1
+            lin5$ = lin5$ + LTrim$(Str$(count))
+        End If
+        If index < 9 And Mid$(mas5$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas5$, index, 1) <> "+" And count = 0 Then
+            lin5$ = lin5$ + Mid$(mas5$, index, 1)
+        End If
+        If Mid$(mas5$, index, 1) <> "+" And count > 0 Then
+            lin5$ = lin5$ + LTrim$(Str$(count))
+            lin5$ = lin5$ + Mid$(mas5$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas6$ = table(6, 1) + table(6, 2) + table(6, 3) + table(6, 4) + table(6, 5) + table(6, 6) + table(6, 7) + table(6, 8) + table(6, 9)
+    Let lin6$ = ""
+    Let count = 0
+    For index = 1 To 9
+        If index = 9 And Mid$(mas6$, index, 1) = "+" Then
+            count = count + 1
+            lin6$ = lin6$ + LTrim$(Str$(count))
+        End If
+        If index < 9 And Mid$(mas6$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas6$, index, 1) <> "+" And count = 0 Then
+            lin6$ = lin6$ + Mid$(mas6$, index, 1)
+        End If
+        If Mid$(mas6$, index, 1) <> "+" And count > 0 Then
+            lin6$ = lin6$ + LTrim$(Str$(count))
+            lin6$ = lin6$ + Mid$(mas6$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas7$ = table(7, 1) + table(7, 2) + table(7, 3) + table(7, 4) + table(7, 5) + table(7, 6) + table(7, 7) + table(7, 8) + table(7, 9)
+    Let lin7$ = ""
+    Let count = 0
+    For index = 1 To 9
+        If index = 9 And Mid$(mas7$, index, 1) = "+" Then
+            count = count + 1
+            lin7$ = lin7$ + LTrim$(Str$(count))
+        End If
+        If index < 9 And Mid$(mas7$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas7$, index, 1) <> "+" And count = 0 Then
+            lin7$ = lin7$ + Mid$(mas7$, index, 1)
+        End If
+        If Mid$(mas7$, index, 1) <> "+" And count > 0 Then
+            lin7$ = lin7$ + LTrim$(Str$(count))
+            lin7$ = lin7$ + Mid$(mas7$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas8$ = table(8, 1) + table(8, 2) + table(8, 3) + table(8, 4) + table(8, 5) + table(8, 6) + table(8, 7) + table(8, 8) + table(8, 9)
+    Let lin8$ = ""
+    Let count = 0
+    For index = 1 To 9
+        If index = 9 And Mid$(mas8$, index, 1) = "+" Then
+            count = count + 1
+            lin8$ = lin8$ + LTrim$(Str$(count))
+        End If
+        If index < 9 And Mid$(mas8$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas8$, index, 1) <> "+" And count = 0 Then
+            lin8$ = lin8$ + Mid$(mas8$, index, 1)
+        End If
+        If Mid$(mas8$, index, 1) <> "+" And count > 0 Then
+            lin8$ = lin8$ + LTrim$(Str$(count))
+            lin8$ = lin8$ + Mid$(mas8$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas9$ = table(9, 1) + table(9, 2) + table(9, 3) + table(9, 4) + table(9, 5) + table(9, 6) + table(9, 7) + table(9, 8) + table(9, 9)
+    Let lin9$ = ""
+    Let count = 0
+    For index = 1 To 9
+        If index = 9 And Mid$(mas9$, index, 1) = "+" Then
+            count = count + 1
+            lin9$ = lin9$ + LTrim$(Str$(count))
+        End If
+        If index < 9 And Mid$(mas9$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas9$, index, 1) <> "+" And count = 0 Then
+            lin9$ = lin9$ + Mid$(mas9$, index, 1)
+        End If
+        If Mid$(mas9$, index, 1) <> "+" And count > 0 Then
+            lin9$ = lin9$ + LTrim$(Str$(count))
+            lin9$ = lin9$ + Mid$(mas9$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas0$ = table(10, 1) + table(10, 2) + table(10, 3) + table(10, 4) + table(10, 5) + table(10, 6) + table(10, 7) + table(10, 8) + table(10, 9)
+    Let lin0$ = ""
+    Let count = 0
+    For index = 1 To 9
+        If index = 9 And Mid$(mas0$, index, 1) = "+" Then
+            count = count + 1
+            lin0$ = lin0$ + LTrim$(Str$(count))
+        End If
+        If index < 9 And Mid$(mas0$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas0$, index, 1) <> "+" And count = 0 Then
+            lin0$ = lin0$ + Mid$(mas0$, index, 1)
+        End If
+        If Mid$(mas0$, index, 1) <> "+" And count > 0 Then
+            lin0$ = lin0$ + LTrim$(Str$(count))
+            lin0$ = lin0$ + Mid$(mas0$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let fen$ = lin0$ + "/" + lin9$ + "/" + lin8$ + "/" + lin7$ + "/" + lin6$ + "/" + lin5$ + "/" + lin4$ + "/" + lin3$ + "/" + lin2$ + "/" + lin1$
+
+    Color 10
+    Locate 2, 1: Print "              Press any key to display the Forsyth-Edwards notation                    "
+    Do
+    Loop Until InKey$ <> ""
+    Locate 2, 1: Print "                                                                                       "
+    Color 12
+    Locate 2, 29: Print fen$
+
+    Do
+    Loop Until InKey$ <> ""
+
+    _Clipboard$ = fen$
+
+    End
+
 End Sub
 
 Sub shogifen
