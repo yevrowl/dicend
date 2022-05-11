@@ -3260,9 +3260,9 @@ Sub shogi
     If dc5 = 8 Then Call letter8
     If dc5 = 9 Then Call letter9
     If dc5 = 10 Then Call letter0
-    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 40
+    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 60
     Let cf = 15: Call king
-    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 20
+    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 60
     Let cf = 0: Call king
 
     Do
@@ -3291,7 +3291,7 @@ Sub shogi
         Case Is = 1
             Exit Case
         Case Is = 2
-            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or w2 Mod 2 <> 0
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
                 Let dc1 = Int(Rnd * 3 + 4)
                 Let dc2 = Int(Rnd * 3 + 1)
                 Let w2 = shobo(dc2, dc1)
@@ -3323,7 +3323,31 @@ Sub shogi
                 Let w2 = shobo(dc2, dc1)
             Wend
         Case Is = 7
-            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc2 < 3 Or dc2 > 8
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc1 <> 1 And dc1 <> 8
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w2 = shobo(dc2, dc1)
+            Wend
+        Case Is = 8
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc2 < 3 Or dc2 > 7
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w2 = shobo(dc2, dc1)
+            Wend
+        Case Is = 9
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w2 = shobo(dc2, dc1)
+            Wend
+        Case Is = 10
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let dc1 = Int(Rnd * 8 + 1)
+                Let dc2 = Int(Rnd * 8 + 1)
+                Let w2 = shobo(dc2, dc1)
+            Wend
+        Case Is = 11
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w2 = shobo(dc2, dc1)
@@ -3333,7 +3357,7 @@ Sub shogi
         Case Is = 1
             Exit Case
         Case Is = 2
-            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or b2 Mod 2 = 0
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
                 Let dc4 = Int(Rnd * 3 + 4)
                 Let dc5 = Int(Rnd * 3 + 8)
                 Let b2 = shobo(dc5, dc4)
@@ -3464,7 +3488,7 @@ Sub shogi
     If dc5 = 7 Then Call letter7
     If dc5 = 8 Then Call letter8
     If dc5 = 9 Then Call letter9
-    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 40
+    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 60
     Let cf = 15
     If dc3 = 1 Then Call king
     If dc3 = 2 Then Call queen
@@ -3477,7 +3501,7 @@ Sub shogi
     If dc3 = 9 Then Call horse
     If dc3 = 10 Then Call dragon
     If dc3 = 11 Then Call tokin
-    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 40
+    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 60
     Let cf = 0
     If dc6 = 1 Then Call king
     If dc6 = 2 Then Call queen
@@ -4660,7 +4684,7 @@ Sub shogifen
     Loop Until InKey$ <> ""
     Locate 2, 1: Print "                                                                                       "
     Color 12
-    Locate 2, 23: Print fen$
+    Locate 2, 24: Print fen$
 
     Do
     Loop Until InKey$ <> ""
@@ -4672,6 +4696,273 @@ Sub shogifen
 End Sub
 
 Sub draughtsfen
+
+    Rem Forsyth-Edwards notation
+
+    If fw1 = 1 Then Let fig1w$ = "D"
+    If fw1 = 2 Then Let fig1w$ = "C"
+
+    If fb1 = 1 Then Let fig1b$ = "d"
+    If fb1 = 2 Then Let fig1b$ = "c"
+
+    If fw2 = 1 Then Let fig2w$ = "D"
+    If fw2 = 2 Then Let fig2w$ = "C"
+
+    If fb2 = 1 Then Let fig2b$ = "d"
+    If fb2 = 2 Then Let fig2b$ = "c"
+
+    If fw3 = 1 Then Let fig3w$ = "D"
+    If fw3 = 2 Then Let fig3w$ = "C"
+
+    If fb3 = 1 Then Let fig3b$ = "d"
+    If fb3 = 2 Then Let fig3b$ = "c"
+
+    If fw4 = 1 Then Let fig4w$ = "D"
+    If fw4 = 2 Then Let fig4w$ = "C"
+
+    If fb4 = 1 Then Let fig4b$ = "d"
+    If fb4 = 2 Then Let fig4b$ = "c"
+
+    Dim table(10, 10) As String
+    Let table(fw1y, fw1x) = fig1w$
+    Let table(fb1y, fb1x) = fig1b$
+    Let table(fw2y, fw2x) = fig2w$
+    Let table(fb2y, fb2x) = fig2b$
+    Let table(fw3y, fw3x) = fig3w$
+    Let table(fb3y, fb3x) = fig3b$
+    Let table(fw4y, fw4x) = fig4w$
+    Let table(fb4y, fb4x) = fig4b$
+    For row = 1 To 10: For col = 1 To 10
+        If table(row, col) = "" Then Let table(row, col) = "+"
+    Next col: Next row
+
+    Let mas1$ = table(1, 1) + table(1, 2) + table(1, 3) + table(1, 4) + table(1, 5) + table(1, 6) + table(1, 7) + table(1, 8) + table(1, 9) + table(1, 10)
+    Let lin1$ = ""
+    Let count = 0
+    For index = 1 To 10
+        If index = 10 And Mid$(mas1$, index, 1) = "+" Then
+            count = count + 1
+            lin1$ = lin1$ + LTrim$(Str$(count))
+        End If
+        If index < 10 And Mid$(mas1$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas1$, index, 1) <> "+" And count = 0 Then
+            lin1$ = lin1$ + Mid$(mas1$, index, 1)
+        End If
+        If Mid$(mas1$, index, 1) <> "+" And count > 0 Then
+            lin1$ = lin1$ + LTrim$(Str$(count))
+            lin1$ = lin1$ + Mid$(mas1$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas2$ = table(2, 1) + table(2, 2) + table(2, 3) + table(2, 4) + table(2, 5) + table(2, 6) + table(2, 7) + table(2, 8) + table(2, 9) + table(2, 10)
+    Let lin2$ = ""
+    Let count = 0
+    For index = 1 To 10
+        If index = 10 And Mid$(mas2$, index, 1) = "+" Then
+            count = count + 1
+            lin2$ = lin2$ + LTrim$(Str$(count))
+        End If
+        If index < 10 And Mid$(mas2$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas2$, index, 1) <> "+" And count = 0 Then
+            lin2$ = lin2$ + Mid$(mas2$, index, 1)
+        End If
+        If Mid$(mas2$, index, 1) <> "+" And count > 0 Then
+            lin2$ = lin2$ + LTrim$(Str$(count))
+            lin2$ = lin2$ + Mid$(mas2$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas3$ = table(3, 1) + table(3, 2) + table(3, 3) + table(3, 4) + table(3, 5) + table(3, 6) + table(3, 7) + table(3, 8) + table(3, 9) + table(3, 10)
+    Let lin3$ = ""
+    Let count = 0
+    For index = 1 To 10
+        If index = 10 And Mid$(mas3$, index, 1) = "+" Then
+            count = count + 1
+            lin3$ = lin3$ + LTrim$(Str$(count))
+        End If
+        If index < 10 And Mid$(mas3$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas3$, index, 1) <> "+" And count = 0 Then
+            lin3$ = lin3$ + Mid$(mas3$, index, 1)
+        End If
+        If Mid$(mas3$, index, 1) <> "+" And count > 0 Then
+            lin3$ = lin3$ + LTrim$(Str$(count))
+            lin3$ = lin3$ + Mid$(mas3$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas4$ = table(4, 1) + table(4, 2) + table(4, 3) + table(4, 4) + table(4, 5) + table(4, 6) + table(4, 7) + table(4, 8) + table(4, 9) + table(4, 10)
+    Let lin4$ = ""
+    Let count = 0
+    For index = 1 To 10
+        If index = 10 And Mid$(mas4$, index, 1) = "+" Then
+            count = count + 1
+            lin4$ = lin4$ + LTrim$(Str$(count))
+        End If
+        If index < 10 And Mid$(mas4$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas4$, index, 1) <> "+" And count = 0 Then
+            lin4$ = lin4$ + Mid$(mas4$, index, 1)
+        End If
+        If Mid$(mas4$, index, 1) <> "+" And count > 0 Then
+            lin4$ = lin4$ + LTrim$(Str$(count))
+            lin4$ = lin4$ + Mid$(mas4$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas5$ = table(5, 1) + table(5, 2) + table(5, 3) + table(5, 4) + table(5, 5) + table(5, 6) + table(5, 7) + table(5, 8) + table(5, 9) + table(5, 10)
+    Let lin5$ = ""
+    Let count = 0
+    For index = 1 To 10
+        If index = 10 And Mid$(mas5$, index, 1) = "+" Then
+            count = count + 1
+            lin5$ = lin5$ + LTrim$(Str$(count))
+        End If
+        If index < 10 And Mid$(mas5$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas5$, index, 1) <> "+" And count = 0 Then
+            lin5$ = lin5$ + Mid$(mas5$, index, 1)
+        End If
+        If Mid$(mas5$, index, 1) <> "+" And count > 0 Then
+            lin5$ = lin5$ + LTrim$(Str$(count))
+            lin5$ = lin5$ + Mid$(mas5$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas6$ = table(6, 1) + table(6, 2) + table(6, 3) + table(6, 4) + table(6, 5) + table(6, 6) + table(6, 7) + table(6, 8) + table(6, 9) + table(6, 10)
+    Let lin6$ = ""
+    Let count = 0
+    For index = 1 To 10
+        If index = 10 And Mid$(mas6$, index, 1) = "+" Then
+            count = count + 1
+            lin6$ = lin6$ + LTrim$(Str$(count))
+        End If
+        If index < 10 And Mid$(mas6$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas6$, index, 1) <> "+" And count = 0 Then
+            lin6$ = lin6$ + Mid$(mas6$, index, 1)
+        End If
+        If Mid$(mas6$, index, 1) <> "+" And count > 0 Then
+            lin6$ = lin6$ + LTrim$(Str$(count))
+            lin6$ = lin6$ + Mid$(mas6$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas7$ = table(7, 1) + table(7, 2) + table(7, 3) + table(7, 4) + table(7, 5) + table(7, 6) + table(7, 7) + table(7, 8) + table(7, 9) + table(7, 10)
+    Let lin7$ = ""
+    Let count = 0
+    For index = 1 To 10
+        If index = 10 And Mid$(mas7$, index, 1) = "+" Then
+            count = count + 1
+            lin7$ = lin7$ + LTrim$(Str$(count))
+        End If
+        If index < 10 And Mid$(mas7$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas7$, index, 1) <> "+" And count = 0 Then
+            lin7$ = lin7$ + Mid$(mas7$, index, 1)
+        End If
+        If Mid$(mas7$, index, 1) <> "+" And count > 0 Then
+            lin7$ = lin7$ + LTrim$(Str$(count))
+            lin7$ = lin7$ + Mid$(mas7$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas8$ = table(8, 1) + table(8, 2) + table(8, 3) + table(8, 4) + table(8, 5) + table(8, 6) + table(8, 7) + table(8, 8) + table(8, 9) + table(8, 10)
+    Let lin8$ = ""
+    Let count = 0
+    For index = 1 To 10
+        If index = 10 And Mid$(mas8$, index, 1) = "+" Then
+            count = count + 1
+            lin8$ = lin8$ + LTrim$(Str$(count))
+        End If
+        If index < 10 And Mid$(mas8$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas8$, index, 1) <> "+" And count = 0 Then
+            lin8$ = lin8$ + Mid$(mas8$, index, 1)
+        End If
+        If Mid$(mas8$, index, 1) <> "+" And count > 0 Then
+            lin8$ = lin8$ + LTrim$(Str$(count))
+            lin8$ = lin8$ + Mid$(mas8$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas9$ = table(9, 1) + table(9, 2) + table(9, 3) + table(9, 4) + table(9, 5) + table(9, 6) + table(9, 7) + table(9, 8) + table(9, 9) + table(9, 10)
+    Let lin9$ = ""
+    Let count = 0
+    For index = 1 To 10
+        If index = 10 And Mid$(mas9$, index, 1) = "+" Then
+            count = count + 1
+            lin9$ = lin9$ + LTrim$(Str$(count))
+        End If
+        If index < 10 And Mid$(mas9$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas9$, index, 1) <> "+" And count = 0 Then
+            lin9$ = lin9$ + Mid$(mas9$, index, 1)
+        End If
+        If Mid$(mas9$, index, 1) <> "+" And count > 0 Then
+            lin9$ = lin9$ + LTrim$(Str$(count))
+            lin9$ = lin9$ + Mid$(mas9$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let mas0$ = table(10, 1) + table(10, 2) + table(10, 3) + table(10, 4) + table(10, 5) + table(10, 6) + table(10, 7) + table(10, 8) + table(10, 9) + table(10, 10)
+    Let lin0$ = ""
+    Let count = 0
+    For index = 1 To 10
+        If index = 10 And Mid$(mas0$, index, 1) = "+" Then
+            count = count + 1
+            lin0$ = lin0$ + LTrim$(Str$(count))
+        End If
+        If index < 10 And Mid$(mas0$, index, 1) = "+" Then
+            count = count + 1
+        End If
+        If Mid$(mas0$, index, 1) <> "+" And count = 0 Then
+            lin0$ = lin0$ + Mid$(mas0$, index, 1)
+        End If
+        If Mid$(mas0$, index, 1) <> "+" And count > 0 Then
+            lin0$ = lin0$ + LTrim$(Str$(count))
+            lin0$ = lin0$ + Mid$(mas0$, index, 1)
+            Let count = 0
+        End If
+    Next index
+
+    Let fen$ = lin0$ + "/" + lin9$ + "/" + lin8$ + "/" + lin7$ + "/" + lin6$ + "/" + lin5$ + "/" + lin4$ + "/" + lin3$ + "/" + lin2$ + "/" + lin1$
+
+    Color 10
+    Locate 2, 1: Print "              Press any key to display the Forsyth-Edwards notation                    "
+    Do
+    Loop Until InKey$ <> ""
+    Locate 2, 1: Print "                                                                                       "
+    Color 12
+    Locate 2, 23: Print fen$
+
+    Do
+    Loop Until InKey$ <> ""
+
+    _Clipboard$ = fen$
+
+    End
+
 End Sub
 
 Sub message
