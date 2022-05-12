@@ -121,7 +121,7 @@ Let index = 100
 For row = 1 To 10: For col = 1 To 10
     Let drabo(row, col) = index + 1
     Let index = index + 1
-Next col: Next row
+Next col: Let index = index + 1: Next row
 
 Line (2, 2)-(122, 4), 14, BF: Line -(120, 338), 14, BF: Line -(2, 336), 14, BF: Line -(4, 2), 14, BF
 Line (4, 42)-(120, 44), 14, BF: Paint (20, 20), 8, 14
@@ -2607,34 +2607,34 @@ Sub xiangqi
             Wend
         Case Is = 3
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 5 + 1)
                 Let w2 = xiabo(dc2, dc1)
             Wend
         Case Is = 4
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 10 + 1)
                 Let w2 = xiabo(dc2, dc1)
             Wend
         Case Is = 5
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 10 + 1)
                 Let fw2x = dc1: Let fw2y = dc2
                 Let w2 = xiabo(dc2, dc1)
             Wend
         Case Is = 6
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 10 + 1)
                 Let fw2x = dc1: Let fw2y = dc2
                 Let w2 = xiabo(dc2, dc1)
             Wend
         Case Is = 7
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc2 < 3 Or dc2 > 8
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 10 + 1)
                 Let w2 = xiabo(dc2, dc1)
             Wend
     End Select
@@ -2653,34 +2653,34 @@ Sub xiangqi
             Wend
         Case Is = 3
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 5 + 6)
                 Let b2 = xiabo(dc5, dc4)
             Wend
         Case Is = 4
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 10 + 1)
                 Let b2 = xiabo(dc5, dc4)
             Wend
         Case Is = 5
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 10 + 1)
                 Let fb2x = dc4: Let fb2y = dc5
                 Let b2 = xiabo(dc5, dc4)
             Wend
         Case Is = 6
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 10 + 1)
                 Let fb2x = dc4: Let fb2y = dc5
                 Let b2 = xiabo(dc5, dc4)
             Wend
         Case Is = 7
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc5 < 3 Or dc5 > 8
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 10 + 1)
                 Let b2 = xiabo(dc5, dc4)
             Wend
     End Select
@@ -2803,34 +2803,34 @@ Sub xiangqi
             Wend
         Case Is = 3
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 5 + 1)
                 Let w3 = xiabo(dc2, dc1)
             Wend
         Case Is = 4
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 10 + 1)
                 Let w3 = xiabo(dc2, dc1)
             Wend
         Case Is = 5
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 10 + 1)
                 Let fw3x = dc1: Let fw3y = dc2
                 Let w3 = xiabo(dc2, dc1)
             Wend
         Case Is = 6
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 10 + 1)
                 Let fw3x = dc1: Let fw3y = dc2
                 Let w3 = xiabo(dc2, dc1)
             Wend
         Case Is = 7
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc2 < 3 Or dc2 > 8
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 10 + 1)
                 Let w3 = xiabo(dc2, dc1)
             Wend
     End Select
@@ -2849,34 +2849,34 @@ Sub xiangqi
             Wend
         Case Is = 3
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 5 + 6)
                 Let b3 = xiabo(dc5, dc4)
             Wend
         Case Is = 4
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 10 + 1)
                 Let b3 = xiabo(dc5, dc4)
             Wend
         Case Is = 5
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 10 + 1)
                 Let fb3x = dc4: Let fb3y = dc5
                 Let b3 = xiabo(dc5, dc4)
             Wend
         Case Is = 6
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 10 + 1)
                 Let fb3x = dc4: Let fb3y = dc5
                 Let b3 = xiabo(dc5, dc4)
             Wend
         Case Is = 7
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc5 < 3 Or dc5 > 8
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 10 + 1)
                 Let b3 = xiabo(dc5, dc4)
             Wend
     End Select
@@ -2999,34 +2999,34 @@ Sub xiangqi
             Wend
         Case Is = 3
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 5 + 1)
                 Let w4 = xiabo(dc2, dc1)
             Wend
         Case Is = 4
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 10 + 1)
                 Let w4 = xiabo(dc2, dc1)
             Wend
         Case Is = 5
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 10 + 1)
                 Let fw4x = dc1: Let fw4y = dc2
                 Let w4 = xiabo(dc2, dc1)
             Wend
         Case Is = 6
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 10 + 1)
                 Let fw4x = dc1: Let fw4y = dc2
                 Let w4 = xiabo(dc2, dc1)
             Wend
         Case Is = 7
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 < 3 Or dc2 > 8
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 10 + 1)
                 Let w4 = xiabo(dc2, dc1)
             Wend
     End Select
@@ -3045,34 +3045,34 @@ Sub xiangqi
             Wend
         Case Is = 3
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 5 + 6)
                 Let b4 = xiabo(dc5, dc4)
             Wend
         Case Is = 4
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 10 + 1)
                 Let b4 = xiabo(dc5, dc4)
             Wend
         Case Is = 5
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 10 + 1)
                 Let fb4x = dc4: Let fb4y = dc5
                 Let b4 = xiabo(dc5, dc4)
             Wend
         Case Is = 6
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 10 + 1)
                 Let fb4x = dc4: Let fb4y = dc5
                 Let b4 = xiabo(dc5, dc4)
             Wend
         Case Is = 7
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or dc5 < 3 Or dc5 > 8
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 10 + 1)
                 Let b4 = xiabo(dc5, dc4)
             Wend
     End Select
@@ -3182,7 +3182,7 @@ Sub shogi
     Let dc6 = 1
     Let w1 = shobo(dc2, dc1): Let b1 = shobo(dc5, dc4)
 
-    While w1 = w2
+    While Abs(w1 - b1) < 10
         Let dc1 = Int(Rnd * 9 + 1)
         Let dc2 = Int(Rnd * 9 + 1)
         Let dc4 = Int(Rnd * 9 + 1)
@@ -3298,58 +3298,58 @@ Sub shogi
             Wend
         Case Is = 3
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
                 Let w2 = shobo(dc2, dc1)
             Wend
         Case Is = 4
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
                 Let w2 = shobo(dc2, dc1)
             Wend
         Case Is = 5
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
                 Let fw2x = dc1: Let fw2y = dc2
                 Let w2 = shobo(dc2, dc1)
             Wend
         Case Is = 6
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
                 Let fw2x = dc1: Let fw2y = dc2
                 Let w2 = shobo(dc2, dc1)
             Wend
         Case Is = 7
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc1 <> 1 And dc1 <> 8
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
                 Let w2 = shobo(dc2, dc1)
             Wend
         Case Is = 8
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc2 < 3 Or dc2 > 7
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
                 Let w2 = shobo(dc2, dc1)
             Wend
         Case Is = 9
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
                 Let w2 = shobo(dc2, dc1)
             Wend
         Case Is = 10
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
                 Let w2 = shobo(dc2, dc1)
             Wend
         Case Is = 11
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
                 Let w2 = shobo(dc2, dc1)
             Wend
     End Select
@@ -3364,58 +3364,58 @@ Sub shogi
             Wend
         Case Is = 3
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
                 Let b2 = shobo(dc5, dc4)
             Wend
         Case Is = 4
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
                 Let b2 = shobo(dc5, dc4)
             Wend
         Case Is = 5
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
                 Let fb2x = dc4: Let fb2y = dc5
                 Let b2 = shobo(dc5, dc4)
             Wend
         Case Is = 6
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
                 Let fb2x = dc4: Let fb2y = dc5
                 Let b2 = shobo(dc5, dc4)
             Wend
         Case Is = 7
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc4 <> 1 And dc4 <> 8
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
                 Let b2 = shobo(dc5, dc4)
             Wend
         Case Is = 8
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc5 < 3 Or dc5 > 7
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
                 Let b2 = shobo(dc5, dc4)
             Wend
         Case Is = 9
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
                 Let b2 = shobo(dc5, dc4)
             Wend
         Case Is = 10
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
                 Let b2 = shobo(dc5, dc4)
             Wend
         Case Is = 11
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
                 Let b2 = shobo(dc5, dc4)
             Wend
     End Select
@@ -3531,6 +3531,213 @@ Sub shogi
 End Sub
 
 Sub draughts
+
+    Rem 1st roll
+    Let dc1 = Int(Rnd * 10 + 1)
+    Let dc2 = Int(Rnd * 10 + 1)
+    Let dc3 = Int(Rnd * 2 + 1)
+    Let dc4 = Int(Rnd * 10 + 1)
+    Let dc5 = Int(Rnd * 10 + 1)
+    Let dc6 = Int(Rnd * 2 + 1)
+    Let w1 = drabo(dc2, dc1): Let b1 = drabo(dc5, dc4)
+
+    While w1 Mod 2 = 0 And b1 Mod 2 = 0
+        Let dc1 = Int(Rnd * 8 + 1)
+        Let dc2 = Int(Rnd * 8 + 1)
+        Let dc4 = Int(Rnd * 8 + 1)
+        Let dc5 = Int(Rnd * 8 + 1)
+        Let w1 = drabo(dc2, dc1): Let b1 = drabo(dc5, dc4)
+    Wend
+
+    Let w1 = drabo(dc2, dc1): Let b1 = drabo(dc5, dc4)
+    Let fw1x = dc1: Let fw1y = dc2: Let fb1x = dc4: Let fb1y = dc5
+    Let fw1 = dc3: Let fb1 = dc6
+    Let x = 20: Let y = 160: Let cf = 15
+    If dc3 = 1 Then Call dame
+    If dc3 = 2 Then Call checker
+    Let x = 580: Let y = 160: Let cf = 0
+    If dc6 = 1 Then Call dame
+    If dc6 = 2 Then Call checker
+    Let x = 20: Let y = 220
+    If dc1 = 1 Then Call letterA
+    If dc1 = 2 Then Call letterB
+    If dc1 = 3 Then Call letterC
+    If dc1 = 4 Then Call letterD
+    If dc1 = 5 Then Call letterE
+    If dc1 = 6 Then Call letterF
+    If dc1 = 7 Then Call letterG
+    If dc1 = 8 Then Call letterH
+    If dc1 = 9 Then Call letterI
+    If dc1 = 10 Then Call letterJ
+    Let x = 20: Let y = 280
+    If dc2 = 1 Then Call letter1
+    If dc2 = 2 Then Call letter2
+    If dc2 = 3 Then Call letter3
+    If dc2 = 4 Then Call letter4
+    If dc2 = 5 Then Call letter5
+    If dc2 = 6 Then Call letter6
+    If dc2 = 7 Then Call letter7
+    If dc2 = 8 Then Call letter8
+    If dc2 = 9 Then Call letter9
+    If dc2 = 10 Then Call letter0
+    Let x = 580: Let y = 220
+    If dc4 = 1 Then Call letterA
+    If dc4 = 2 Then Call letterB
+    If dc4 = 3 Then Call letterC
+    If dc4 = 4 Then Call letterD
+    If dc4 = 5 Then Call letterE
+    If dc4 = 6 Then Call letterF
+    If dc4 = 7 Then Call letterG
+    If dc4 = 8 Then Call letterH
+    If dc4 = 9 Then Call letterI
+    If dc4 = 10 Then Call letterJ
+    Let x = 580: Let y = 280
+    If dc5 = 1 Then Call letter1
+    If dc5 = 2 Then Call letter2
+    If dc5 = 3 Then Call letter3
+    If dc5 = 4 Then Call letter4
+    If dc5 = 5 Then Call letter5
+    If dc5 = 6 Then Call letter6
+    If dc5 = 7 Then Call letter7
+    If dc5 = 8 Then Call letter8
+    If dc5 = 9 Then Call letter9
+    If dc5 = 10 Then Call letter0
+    Let x = (dc1 * 40) + 80: Let y = Abs((dc2 * 40) - 480) - 40
+    Let cf = 15
+    If dc3 = 1 Then Call dame
+    If dc3 = 2 Then Call checker
+    Let x = (dc4 * 40) + 80: Let y = Abs((dc5 * 40) - 480) - 40
+    Let cf = 0
+    If dc6 = 1 Then Call dame
+    If dc6 = 2 Then Call checker
+
+    Do
+        Select Case InKey$
+            Case Is = Chr$(32)
+                Exit Do
+            Case Is = Chr$(13)
+                Call draughtsfen
+            Case Is = Chr$(27)
+                End
+        End Select
+    Loop
+
+    Call dices
+
+    Rem 2nd roll
+    Let dc1 = Int(Rnd * 10 + 1)
+    Let dc2 = Int(Rnd * 10 + 1)
+    Let dc3 = Int(Rnd * 2 + 1)
+    Let dc4 = Int(Rnd * 10 + 1)
+    Let dc5 = Int(Rnd * 10 + 1)
+    Let dc6 = Int(Rnd * 2 + 1)
+    Let w2 = drabo(dc2, dc1): Let b2 = drabo(dc5, dc4)
+
+    Select Case dc3
+        Case Is = 1
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or w2 Mod 2 = 0
+                Let dc1 = Int(Rnd * 10 + 1)
+                Let dc2 = Int(Rnd * 10 + 1)
+                Let w2 = drabo(dc2, dc1)
+            Wend
+        Case Is = 2
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or w2 Mod 2 = 0
+                Let dc1 = Int(Rnd * 10 + 1)
+                Let dc2 = Int(Rnd * 10 + 1)
+                Let w2 = drabo(dc2, dc1)
+            Wend
+    End Select
+    Select Case dc6
+        Case Is = 1
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or b2 Mod 2 = 0
+                Let dc4 = Int(Rnd * 10 + 1)
+                Let dc5 = Int(Rnd * 10 + 1)
+                Let b2 = drabo(dc5, dc4)
+            Wend
+        Case Is = 2
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or b2 Mod 2 = 0
+                Let dc4 = Int(Rnd * 10 + 1)
+                Let dc5 = Int(Rnd * 10 + 1)
+                Let b2 = drabo(dc5, dc4)
+            Wend
+    End Select
+
+    Let w2 = drabo(dc2, dc1): Let b2 = drabo(dc5, dc4)
+    Let fw2x = dc1: Let fw2y = dc2: Let fb2x = dc4: Let fb2y = dc5
+    Let fw2 = dc3: Let fb2 = dc6
+
+    Let x = 20: Let y = 160: Let cf = 15
+    If dc3 = 1 Then Call dame
+    If dc3 = 2 Then Call checker
+    Let x = 580: Let y = 160: Let cf = 0
+    If dc6 = 1 Then Call dame
+    If dc6 = 2 Then Call checker
+    Let x = 20: Let y = 220
+    If dc1 = 1 Then Call letterA
+    If dc1 = 2 Then Call letterB
+    If dc1 = 3 Then Call letterC
+    If dc1 = 4 Then Call letterD
+    If dc1 = 5 Then Call letterE
+    If dc1 = 6 Then Call letterF
+    If dc1 = 7 Then Call letterG
+    If dc1 = 8 Then Call letterH
+    If dc1 = 9 Then Call letterI
+    If dc1 = 10 Then Call letterJ
+    Let x = 20: Let y = 280
+    If dc2 = 1 Then Call letter1
+    If dc2 = 2 Then Call letter2
+    If dc2 = 3 Then Call letter3
+    If dc2 = 4 Then Call letter4
+    If dc2 = 5 Then Call letter5
+    If dc2 = 6 Then Call letter6
+    If dc2 = 7 Then Call letter7
+    If dc2 = 8 Then Call letter8
+    If dc2 = 9 Then Call letter9
+    If dc2 = 10 Then Call letter0
+    Let x = 580: Let y = 220
+    If dc4 = 1 Then Call letterA
+    If dc4 = 2 Then Call letterB
+    If dc4 = 3 Then Call letterC
+    If dc4 = 4 Then Call letterD
+    If dc4 = 5 Then Call letterE
+    If dc4 = 6 Then Call letterF
+    If dc4 = 7 Then Call letterG
+    If dc4 = 8 Then Call letterH
+    If dc4 = 9 Then Call letterI
+    If dc4 = 10 Then Call letterJ
+    Let x = 580: Let y = 280
+    If dc5 = 1 Then Call letter1
+    If dc5 = 2 Then Call letter2
+    If dc5 = 3 Then Call letter3
+    If dc5 = 4 Then Call letter4
+    If dc5 = 5 Then Call letter5
+    If dc5 = 6 Then Call letter6
+    If dc5 = 7 Then Call letter7
+    If dc5 = 8 Then Call letter8
+    If dc5 = 9 Then Call letter9
+    If dc5 = 10 Then Call letter0
+    Let x = (dc1 * 40) + 80: Let y = Abs((dc2 * 40) - 480) - 40
+    Let cf = 15
+    If dc3 = 1 Then Call dame
+    If dc3 = 2 Then Call checker
+    Let x = (dc4 * 40) + 80: Let y = Abs((dc5 * 40) - 480) - 40
+    Let cf = 0
+    If dc6 = 1 Then Call dame
+    If dc6 = 2 Then Call checker
+
+    Do
+        Select Case InKey$
+            Case Is = Chr$(32)
+                Exit Do
+            Case Is = Chr$(13)
+                Call draughtsfen
+            Case Is = Chr$(27)
+                End
+        End Select
+    Loop
+
+    Call dices
+
 End Sub
 
 Sub chessfen
