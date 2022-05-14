@@ -1,5 +1,6 @@
 $ExeIcon:'dicend.ico'
 _Icon
+_Title "Dice endgames"
 Rem Let scr& = _NewImage(800, 600, 256)
 Rem Screen scr&
 Rem _FullScreen
@@ -240,7 +241,6 @@ Do
             Exit Do
     End Select
 Loop
-
 End
 
 Sub dice1
@@ -1305,6 +1305,7 @@ End Sub
 Sub chess
 
     Rem 1st roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 8 + 1)
     Let dc2 = Int(Rnd * 8 + 1)
     Let dc3 = 1
@@ -1314,11 +1315,13 @@ Sub chess
     Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
 
     While Abs(w1 - b1) < 10
+        Let count = count + 1
         Let dc1 = Int(Rnd * 8 + 1)
         Let dc2 = Int(Rnd * 8 + 1)
         Let dc4 = Int(Rnd * 8 + 1)
         Let dc5 = Int(Rnd * 8 + 1)
         Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
+        If count > 8000 Then Exit While
     Wend
 
     Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
@@ -1394,6 +1397,7 @@ Sub chess
     Call dices
 
     Rem 2nd roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 8 + 1)
     Let dc2 = Int(Rnd * 8 + 1)
     Let dc3 = Int(Rnd * 5 + 2)
@@ -1407,35 +1411,45 @@ Sub chess
             Exit Case
         Case Is = 2
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let fw2x = dc1: Let fw2y = dc2
                 Let w2 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 3
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w2 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 4
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w2 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let fw2x = dc1: Let fw2y = dc2
                 Let w2 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc2 = 1 Or dc2 = 8
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w2 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
     End Select
     Select Case dc6
@@ -1443,35 +1457,45 @@ Sub chess
             Exit Case
         Case Is = 2
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let fb2x = dc4: Let fb2y = dc5
                 Let b2 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 3
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b2 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 4
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b2 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let fb2x = dc4: Let fb2y = dc5
                 Let b2 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc5 = 1 Or dc5 = 8
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b2 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
     End Select
 
@@ -1560,6 +1584,7 @@ Sub chess
     Call dices
 
     Rem 3rd roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 8 + 1)
     Let dc2 = Int(Rnd * 8 + 1)
     Let dc3 = Int(Rnd * 5 + 2)
@@ -1573,35 +1598,45 @@ Sub chess
             Exit Case
         Case Is = 2
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let fw3x = dc1: Let fw3y = dc2
                 Let w3 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 3
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w3 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 4
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w3 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let fw3x = dc1: Let fw3y = dc2
                 Let w3 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc2 = 1 Or dc2 = 8
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w3 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
     End Select
     Select Case dc6
@@ -1609,35 +1644,45 @@ Sub chess
             Exit Case
         Case Is = 2
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let fb3x = dc4: Let fb3y = dc5
                 Let b3 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 3
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b3 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 4
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b3 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let fb3x = dc4: Let fb3y = dc5
                 Let b3 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc5 = 1 Or dc5 = 8
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b3 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
     End Select
 
@@ -1726,6 +1771,7 @@ Sub chess
     Call dices
 
     Rem 4th roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 8 + 1)
     Let dc2 = Int(Rnd * 8 + 1)
     Let dc3 = Int(Rnd * 5 + 2)
@@ -1739,35 +1785,45 @@ Sub chess
             Exit Case
         Case Is = 2
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let fw4x = dc1: Let fw4y = dc2
                 Let w4 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 3
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w4 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 4
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w4 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let fw4x = dc1: Let fw4y = dc2
                 Let w4 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or dc2 = 1 Or dc2 = 8
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w4 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
     End Select
     Select Case dc6
@@ -1775,35 +1831,45 @@ Sub chess
             Exit Case
         Case Is = 2
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let fb4x = dc4: Let fb4y = dc5
                 Let b4 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 3
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b4 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 4
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b4 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let fb4x = dc4: Let fb4y = dc5
                 Let b4 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or dc5 = 1 Or dc5 = 8
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b4 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
     End Select
 
@@ -1888,14 +1954,12 @@ Sub chess
                 End
         End Select
     Loop
-
-    End
-
 End Sub
 
 Sub makruk
 
     Rem 1st roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 8 + 1)
     Let dc2 = Int(Rnd * 8 + 1)
     Let dc3 = 1
@@ -1905,11 +1969,13 @@ Sub makruk
     Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
 
     While Abs(w1 - b1) < 10
+        Let count = count + 1
         Let dc1 = Int(Rnd * 8 + 1)
         Let dc2 = Int(Rnd * 8 + 1)
         Let dc4 = Int(Rnd * 8 + 1)
         Let dc5 = Int(Rnd * 8 + 1)
         Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
+        If count > 8000 Then Exit While
     Wend
 
     Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
@@ -1985,6 +2051,7 @@ Sub makruk
     Call dices
 
     Rem 2nd roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 8 + 1)
     Let dc2 = Int(Rnd * 8 + 1)
     Let dc3 = Int(Rnd * 5 + 2)
@@ -1998,35 +2065,44 @@ Sub makruk
             Exit Case
         Case Is = 2
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or w2 Mod 2 = 0
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
-                Let fw2x = dc1: Let fw2y = dc2
                 Let w2 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 3
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w2 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 4
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w2 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let fw2x = dc1: Let fw2y = dc2
                 Let w2 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc2 <= 3 Or dc2 >= 6
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w2 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
     End Select
     Select Case dc6
@@ -2034,35 +2110,44 @@ Sub makruk
             Exit Case
         Case Is = 2
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or b2 Mod 2 <> 0
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
-                Let fb2x = dc4: Let fb2y = dc5
                 Let b2 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 3
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b2 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 4
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b2 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let fb2x = dc4: Let fb2y = dc5
                 Let b2 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc5 <= 3 Or dc5 >= 6
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b2 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
     End Select
 
@@ -2151,6 +2236,7 @@ Sub makruk
     Call dices
 
     Rem 3rd roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 8 + 1)
     Let dc2 = Int(Rnd * 8 + 1)
     Let dc3 = Int(Rnd * 5 + 2)
@@ -2164,35 +2250,44 @@ Sub makruk
             Exit Case
         Case Is = 2
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or w3 Mod 2 = 0
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
-                Let fw3x = dc1: Let fw3y = dc2
                 Let w3 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 3
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w3 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 4
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w3 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let fw3x = dc1: Let fw3y = dc2
                 Let w3 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc2 <= 3 Or dc2 >= 6
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w3 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
     End Select
     Select Case dc6
@@ -2200,35 +2295,44 @@ Sub makruk
             Exit Case
         Case Is = 2
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or b3 Mod 2 <> 0
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
-                Let fb3x = dc4: Let fb3y = dc5
                 Let b3 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 3
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b3 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 4
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b3 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let fb3x = dc4: Let fb3y = dc5
                 Let b3 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc5 <= 3 Or dc5 >= 6
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b3 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
     End Select
 
@@ -2317,6 +2421,7 @@ Sub makruk
     Call dices
 
     Rem 4th roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 8 + 1)
     Let dc2 = Int(Rnd * 8 + 1)
     Let dc3 = Int(Rnd * 5 + 2)
@@ -2330,35 +2435,44 @@ Sub makruk
             Exit Case
         Case Is = 2
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or w2 Mod 2 = 0
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
-                Let fw4x = dc1: Let fw4y = dc2
                 Let w4 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 3
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w4 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 4
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w4 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let fw4x = dc1: Let fw4y = dc2
                 Let w4 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or dc2 <= 3 Or dc2 >= 6
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 8 + 1)
                 Let dc2 = Int(Rnd * 8 + 1)
                 Let w4 = board(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
     End Select
     Select Case dc6
@@ -2366,35 +2480,44 @@ Sub makruk
             Exit Case
         Case Is = 2
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 Mod 2 <> 0
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
-                Let fb4x = dc4: Let fb4y = dc5
                 Let b4 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 3
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b4 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 4
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b4 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let fb4x = dc4: Let fb4y = dc5
                 Let b4 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or dc5 <= 3 Or dc5 >= 6
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 8 + 1)
                 Let dc5 = Int(Rnd * 8 + 1)
                 Let b4 = board(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
     End Select
 
@@ -2480,13 +2603,12 @@ Sub makruk
         End Select
     Loop
 
-    End
-
 End Sub
 
 Sub xiangqi
 
     Rem 1st roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 3 + 4)
     Let dc2 = Int(Rnd * 3 + 1)
     Let dc3 = 1
@@ -2495,12 +2617,14 @@ Sub xiangqi
     Let dc6 = 1
     Let w1 = xiabo(dc2, dc1): Let b1 = xiabo(dc5, dc4)
 
-    While w1 = w2
+    While w1 = b1
+        Let count = count + 1
         Let dc1 = Int(Rnd * 3 + 4)
         Let dc2 = Int(Rnd * 3 + 1)
         Let dc4 = Int(Rnd * 3 + 4)
         Let dc5 = Int(Rnd * 3 + 8)
         Let w1 = xiabo(dc2, dc1): Let b1 = xiabo(dc5, dc4)
+        If count > 8000 Then Exit While
     Wend
 
     Let w1 = xiabo(dc2, dc1): Let b1 = xiabo(dc5, dc4)
@@ -2584,6 +2708,7 @@ Sub xiangqi
     Call dices
 
     Rem 2nd roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 9 + 1)
     Let dc2 = Int(Rnd * 10 + 1)
     Let dc3 = Int(Rnd * 6 + 2)
@@ -2596,92 +2721,208 @@ Sub xiangqi
         Case Is = 1
             Exit Case
         Case Is = 2
-            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or w2 Mod 2 <> 0
-                Let dc1 = Int(Rnd * 3 + 4)
-                Let dc2 = Int(Rnd * 3 + 1)
+            Let dc1 = Int(Rnd * 3 + 4)
+            Let dc2 = Int(Rnd * 3 + 1)
+            Do
                 Let count = count + 1
-                If count > 8000 Then
-                    Locate 1, 1: Print "w2 = "; w2; "dc1 = "; dc1; "dc2 = "; dc2
+                Let index = Int(Rnd * 5 + 1)
+                If index = 1 Then
+                    Let dc1 = 4
+                    Let dc2 = 1
+                End If
+                If index = 2 Then
+                    Let dc1 = 6
+                    Let dc2 = 1
+                End If
+                If index = 3 Then
+                    Let dc1 = 5
+                    Let dc2 = 2
+                End If
+                If index = 4 Then
+                    Let dc1 = 4
+                    Let dc2 = 3
+                End If
+                If index = 5 Then
+                    Let dc1 = 6
+                    Let dc2 = 3
                 End If
                 Let w2 = xiabo(dc2, dc1)
-            Wend
+                If count > 8000 Then Exit Do
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or w2 Mod 2 <> 0
         Case Is = 3
-            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 5 + 1)
+            Let dc1 = Int(Rnd * 9 + 1)
+            Let dc2 = Int(Rnd * 5 + 1)
+            Do
+                Let count = count + 1
+                Let index = Int(Rnd * 7 + 1)
+                If index = 1 Then
+                    Let dc1 = 3
+                    Let dc2 = 1
+                End If
+                If index = 2 Then
+                    Let dc1 = 7
+                    Let dc2 = 1
+                End If
+                If index = 3 Then
+                    Let dc1 = 1
+                    Let dc2 = 3
+                End If
+                If index = 4 Then
+                    Let dc1 = 5
+                    Let dc2 = 3
+                End If
+                If index = 5 Then
+                    Let dc1 = 9
+                    Let dc2 = 3
+                End If
+                If index = 6 Then
+                    Let dc1 = 3
+                    Let dc2 = 5
+                End If
+                If index = 7 Then
+                    Let dc1 = 7
+                    Let dc2 = 5
+                End If
                 Let w2 = xiabo(dc2, dc1)
-            Wend
+                If count > 8000 Then Exit Do
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
         Case Is = 4
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let w2 = xiabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let fw2x = dc1: Let fw2y = dc2
                 Let w2 = xiabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let fw2x = dc1: Let fw2y = dc2
                 Let w2 = xiabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 7
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc2 < 3 Or dc2 > 8
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let w2 = xiabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
     End Select
     Select Case dc6
         Case Is = 1
             Exit Case
         Case Is = 2
-            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or b2 Mod 2 = 0
-                Let dc4 = Int(Rnd * 3 + 4)
-                Let dc5 = Int(Rnd * 3 + 8)
+            Let dc4 = Int(Rnd * 3 + 4)
+            Let dc5 = Int(Rnd * 3 + 8)
+            Do
                 Let count = count + 1
-                If count > 8000 Then
-                    Locate 2, 1: Print "b2 = "; b2; "dc4 = "; dc4; "dc5 = "; dc5
+                Let index = Int(Rnd * 5 + 1)
+                If index = 1 Then
+                    Let dc4 = 4
+                    Let dc5 = 10
+                End If
+                If index = 2 Then
+                    Let dc4 = 6
+                    Let dc5 = 10
+                End If
+                If index = 3 Then
+                    Let dc4 = 5
+                    Let dc5 = 9
+                End If
+                If index = 4 Then
+                    Let dc4 = 4
+                    Let dc5 = 8
+                End If
+                If index = 5 Then
+                    Let dc4 = 6
+                    Let dc5 = 8
                 End If
                 Let b2 = xiabo(dc5, dc4)
-            Wend
+                If count > 8000 Then Exit Do
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or b2 Mod 2 = 0
         Case Is = 3
-            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 5 + 6)
+            Let dc4 = Int(Rnd * 9 + 1)
+            Let dc5 = Int(Rnd * 5 + 6)
+            Do
+                Let count = count + 1
+                Let index = Int(Rnd * 7 + 1)
+                If index = 1 Then
+                    Let dc4 = 3
+                    Let dc5 = 10
+                End If
+                If index = 2 Then
+                    Let dc4 = 7
+                    Let dc5 = 10
+                End If
+                If index = 3 Then
+                    Let dc4 = 1
+                    Let dc5 = 8
+                End If
+                If index = 4 Then
+                    Let dc4 = 5
+                    Let dc5 = 8
+                End If
+                If index = 5 Then
+                    Let dc4 = 9
+                    Let dc5 = 8
+                End If
+                If index = 6 Then
+                    Let dc4 = 3
+                    Let dc5 = 6
+                End If
+                If index = 7 Then
+                    Let dc4 = 7
+                    Let dc5 = 6
+                End If
                 Let b2 = xiabo(dc5, dc4)
-            Wend
+                If count > 8000 Then Exit Do
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or b2
         Case Is = 4
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let b2 = xiabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let fb2x = dc4: Let fb2y = dc5
                 Let b2 = xiabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let fb2x = dc4: Let fb2y = dc5
                 Let b2 = xiabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 7
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc5 < 3 Or dc5 > 8
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let b2 = xiabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
     End Select
 
@@ -2780,104 +3021,221 @@ Sub xiangqi
     Call dices
 
     Rem 3rd roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 9 + 1)
     Let dc2 = Int(Rnd * 10 + 1)
     Let dc3 = Int(Rnd * 6 + 2)
     Let dc4 = Int(Rnd * 9 + 1)
     Let dc5 = Int(Rnd * 10 + 1)
     Let dc6 = Int(Rnd * 6 + 2)
-    Let w2 = xiabo(dc2, dc1): Let b2 = xiabo(dc5, dc4)
+    Let w3 = xiabo(dc2, dc1): Let b3 = xiabo(dc5, dc4)
 
     Select Case dc3
         Case Is = 1
             Exit Case
         Case Is = 2
-            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or w3 Mod 2 <> 0
-                Let dc1 = Int(Rnd * 3 + 4)
-                Let dc2 = Int(Rnd * 3 + 1)
+            Let dc1 = Int(Rnd * 3 + 4)
+            Let dc2 = Int(Rnd * 3 + 1)
+            Do
                 Let count = count + 1
-                If count > 8000 Then
-                    Locate 1, 1: Print "w3 = "; w3; "dc1 = "; dc1; "dc2 = "; dc2
+                Let index = Int(Rnd * 5 + 1)
+                If index = 1 Then
+                    Let dc1 = 4
+                    Let dc2 = 1
+                End If
+                If index = 2 Then
+                    Let dc1 = 6
+                    Let dc2 = 1
+                End If
+                If index = 3 Then
+                    Let dc1 = 5
+                    Let dc2 = 2
+                End If
+                If index = 4 Then
+                    Let dc1 = 4
+                    Let dc2 = 3
+                End If
+                If index = 5 Then
+                    Let dc1 = 6
+                    Let dc2 = 3
                 End If
                 Let w3 = xiabo(dc2, dc1)
-            Wend
+                If count > 8000 Then Exit Do
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or w3 Mod 2 <> 0
         Case Is = 3
-            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 5 + 1)
+            Let dc1 = Int(Rnd * 9 + 1)
+            Let dc2 = Int(Rnd * 5 + 1)
+            Do
+                Let count = count + 1
+                Let index = Int(Rnd * 7 + 1)
+                If index = 1 Then
+                    Let dc1 = 3
+                    Let dc2 = 1
+                End If
+                If index = 2 Then
+                    Let dc1 = 7
+                    Let dc2 = 1
+                End If
+                If index = 3 Then
+                    Let dc1 = 1
+                    Let dc2 = 3
+                End If
+                If index = 4 Then
+                    Let dc1 = 5
+                    Let dc2 = 3
+                End If
+                If index = 5 Then
+                    Let dc1 = 9
+                    Let dc2 = 3
+                End If
+                If index = 6 Then
+                    Let dc1 = 3
+                    Let dc2 = 5
+                End If
+                If index = 7 Then
+                    Let dc1 = 7
+                    Let dc2 = 5
+                End If
                 Let w3 = xiabo(dc2, dc1)
-            Wend
+                If count > 8000 Then Exit Do
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
         Case Is = 4
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let w3 = xiabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let fw3x = dc1: Let fw3y = dc2
                 Let w3 = xiabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let fw3x = dc1: Let fw3y = dc2
                 Let w3 = xiabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 7
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc2 < 3 Or dc2 > 8
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let w3 = xiabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
     End Select
     Select Case dc6
         Case Is = 1
             Exit Case
         Case Is = 2
-            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or b3 Mod 2 = 0
-                Let dc4 = Int(Rnd * 3 + 4)
-                Let dc5 = Int(Rnd * 3 + 8)
+            Let dc4 = Int(Rnd * 3 + 4)
+            Let dc5 = Int(Rnd * 3 + 8)
+            Do
                 Let count = count + 1
-                If count > 8000 Then
-                    Locate 2, 1: Print "b3 = "; b3; "dc4 = "; dc4; "dc5 = "; dc5
+                Let index = Int(Rnd * 5 + 1)
+                If index = 1 Then
+                    Let dc4 = 4
+                    Let dc5 = 10
+                End If
+                If index = 2 Then
+                    Let dc4 = 6
+                    Let dc5 = 10
+                End If
+                If index = 3 Then
+                    Let dc4 = 5
+                    Let dc5 = 9
+                End If
+                If index = 4 Then
+                    Let dc4 = 4
+                    Let dc5 = 8
+                End If
+                If index = 5 Then
+                    Let dc4 = 6
+                    Let dc5 = 8
                 End If
                 Let b3 = xiabo(dc5, dc4)
-            Wend
+                If count > 8000 Then Exit Do
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or b3 Mod 2 = 0
         Case Is = 3
-            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 5 + 6)
+            Let dc4 = Int(Rnd * 9 + 1)
+            Let dc5 = Int(Rnd * 5 + 6)
+            Do
+                Let count = count + 1
+                Let index = Int(Rnd * 7 + 1)
+                If index = 1 Then
+                    Let dc4 = 3
+                    Let dc5 = 10
+                End If
+                If index = 2 Then
+                    Let dc4 = 7
+                    Let dc5 = 10
+                End If
+                If index = 3 Then
+                    Let dc4 = 1
+                    Let dc5 = 8
+                End If
+                If index = 4 Then
+                    Let dc4 = 5
+                    Let dc5 = 8
+                End If
+                If index = 5 Then
+                    Let dc4 = 9
+                    Let dc5 = 8
+                End If
+                If index = 6 Then
+                    Let dc4 = 3
+                    Let dc5 = 6
+                End If
+                If index = 7 Then
+                    Let dc4 = 7
+                    Let dc5 = 6
+                End If
                 Let b3 = xiabo(dc5, dc4)
-            Wend
+                If count > 8000 Then Exit Do
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
         Case Is = 4
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let b3 = xiabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let fb3x = dc4: Let fb3y = dc5
                 Let b3 = xiabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let fb3x = dc4: Let fb3y = dc5
                 Let b3 = xiabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 7
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc5 < 3 Or dc5 > 8
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let b3 = xiabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
     End Select
 
@@ -2976,6 +3334,7 @@ Sub xiangqi
     Call dices
 
     Rem 4th roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 9 + 1)
     Let dc2 = Int(Rnd * 10 + 1)
     Let dc3 = Int(Rnd * 6 + 2)
@@ -2988,92 +3347,208 @@ Sub xiangqi
         Case Is = 1
             Exit Case
         Case Is = 2
-            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or w4 Mod 2 <> 0
-                Let dc1 = Int(Rnd * 3 + 4)
-                Let dc2 = Int(Rnd * 3 + 1)
+            Let dc1 = Int(Rnd * 3 + 4)
+            Let dc2 = Int(Rnd * 3 + 1)
+            Do
                 Let count = count + 1
-                If count > 8000 Then
-                    Locate 1, 1: Print "w4 = "; w4; "dc1 = "; dc1; "dc2 = "; dc2
+                Let index = Int(Rnd * 5 + 1)
+                If index = 1 Then
+                    Let dc1 = 4
+                    Let dc2 = 1
+                End If
+                If index = 2 Then
+                    Let dc1 = 6
+                    Let dc2 = 1
+                End If
+                If index = 3 Then
+                    Let dc1 = 5
+                    Let dc2 = 2
+                End If
+                If index = 4 Then
+                    Let dc1 = 4
+                    Let dc2 = 3
+                End If
+                If index = 5 Then
+                    Let dc1 = 6
+                    Let dc2 = 3
                 End If
                 Let w4 = xiabo(dc2, dc1)
-            Wend
+                If count > 8000 Then Exit Do
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or w4 Mod 2 <> 0
         Case Is = 3
-            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 5 + 1)
+            Let dc1 = Int(Rnd * 9 + 1)
+            Let dc2 = Int(Rnd * 5 + 1)
+            Do
+                Let count = count + 1
+                Let index = Int(Rnd * 7 + 1)
+                If index = 1 Then
+                    Let dc1 = 3
+                    Let dc2 = 1
+                End If
+                If index = 2 Then
+                    Let dc1 = 7
+                    Let dc2 = 1
+                End If
+                If index = 3 Then
+                    Let dc1 = 1
+                    Let dc2 = 3
+                End If
+                If index = 4 Then
+                    Let dc1 = 5
+                    Let dc2 = 3
+                End If
+                If index = 5 Then
+                    Let dc1 = 9
+                    Let dc2 = 3
+                End If
+                If index = 6 Then
+                    Let dc1 = 3
+                    Let dc2 = 5
+                End If
+                If index = 7 Then
+                    Let dc1 = 7
+                    Let dc2 = 5
+                End If
                 Let w4 = xiabo(dc2, dc1)
-            Wend
+                If count > 8000 Then Exit Do
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
         Case Is = 4
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let w4 = xiabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let fw4x = dc1: Let fw4y = dc2
                 Let w4 = xiabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let fw4x = dc1: Let fw4y = dc2
                 Let w4 = xiabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 7
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 < 3 Or dc2 > 8
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let w4 = xiabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
     End Select
     Select Case dc6
         Case Is = 1
             Exit Case
         Case Is = 2
-            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 Mod 2 = 0
-                Let dc4 = Int(Rnd * 3 + 4)
-                Let dc5 = Int(Rnd * 3 + 8)
+            Let dc4 = Int(Rnd * 3 + 4)
+            Let dc5 = Int(Rnd * 3 + 8)
+            Do
                 Let count = count + 1
-                If count > 8000 Then
-                    Locate 2, 1: Print "b4 = "; b4; "dc4 = "; dc4; "dc5 = "; dc5
+                Let index = Int(Rnd * 5 + 1)
+                If index = 1 Then
+                    Let dc4 = 4
+                    Let dc5 = 10
+                End If
+                If index = 2 Then
+                    Let dc4 = 6
+                    Let dc5 = 10
+                End If
+                If index = 3 Then
+                    Let dc4 = 5
+                    Let dc5 = 9
+                End If
+                If index = 4 Then
+                    Let dc4 = 4
+                    Let dc5 = 8
+                End If
+                If index = 5 Then
+                    Let dc4 = 6
+                    Let dc5 = 8
                 End If
                 Let b4 = xiabo(dc5, dc4)
-            Wend
+                If count > 8000 Then Exit Do
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 Mod 2 = 0
         Case Is = 3
-            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 5 + 6)
+            Let dc4 = Int(Rnd * 9 + 1)
+            Let dc5 = Int(Rnd * 5 + 6)
+            Do
+                Let count = count + 1
+                Let index = Int(Rnd * 7 + 1)
+                If index = 1 Then
+                    Let dc4 = 3
+                    Let dc5 = 10
+                End If
+                If index = 2 Then
+                    Let dc4 = 7
+                    Let dc5 = 10
+                End If
+                If index = 3 Then
+                    Let dc4 = 1
+                    Let dc5 = 8
+                End If
+                If index = 4 Then
+                    Let dc4 = 5
+                    Let dc5 = 8
+                End If
+                If index = 5 Then
+                    Let dc4 = 9
+                    Let dc5 = 8
+                End If
+                If index = 6 Then
+                    Let dc4 = 3
+                    Let dc5 = 6
+                End If
+                If index = 7 Then
+                    Let dc4 = 7
+                    Let dc5 = 6
+                End If
                 Let b4 = xiabo(dc5, dc4)
-            Wend
+                If count > 8000 Then Exit Do
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
         Case Is = 4
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let b4 = xiabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let fb4x = dc4: Let fb4y = dc5
                 Let b4 = xiabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let fb4x = dc4: Let fb4y = dc5
                 Let b4 = xiabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 7
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or dc5 < 3 Or dc5 > 8
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let b4 = xiabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
     End Select
 
@@ -3174,6 +3649,7 @@ End Sub
 Sub shogi
 
     Rem 1st roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 9 + 1)
     Let dc2 = Int(Rnd * 9 + 1)
     Let dc3 = 1
@@ -3182,12 +3658,14 @@ Sub shogi
     Let dc6 = 1
     Let w1 = shobo(dc2, dc1): Let b1 = shobo(dc5, dc4)
 
-    While Abs(w1 - b1) < 10
+    While Abs(w1 - b1) < 11
+        Let count = count + 1
         Let dc1 = Int(Rnd * 9 + 1)
         Let dc2 = Int(Rnd * 9 + 1)
         Let dc4 = Int(Rnd * 9 + 1)
         Let dc5 = Int(Rnd * 9 + 1)
         Let w1 = shobo(dc2, dc1): Let b1 = shobo(dc5, dc4)
+        If count > 8000 Then Exit While
     Wend
 
     Let w1 = shobo(dc2, dc1): Let b1 = shobo(dc5, dc4)
@@ -3279,6 +3757,7 @@ Sub shogi
     Call dices
 
     Rem 2nd roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 9 + 1)
     Let dc2 = Int(Rnd * 9 + 1)
     Let dc3 = Int(Rnd * 10 + 2)
@@ -3292,65 +3771,88 @@ Sub shogi
             Exit Case
         Case Is = 2
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc1 = Int(Rnd * 3 + 4)
-                Let dc2 = Int(Rnd * 3 + 1)
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
                 Let w2 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 3
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 9 + 1)
                 Let w2 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 4
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 9 + 1)
                 Let w2 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 9 + 1)
                 Let fw2x = dc1: Let fw2y = dc2
                 Let w2 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 9 + 1)
                 Let fw2x = dc1: Let fw2y = dc2
                 Let w2 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 7
-            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc1 <> 1 And dc1 <> 8
-                Let dc1 = Int(Rnd * 9 + 1)
+            Let index = Int(Rnd * 2 + 1)
+            If index = 1 Then Let dc1 = 1 Else Let dc1 = 9
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
+                Let index = Int(Rnd * 2 + 1)
+                If index = 1 Then Let dc1 = 1 Else Let dc1 = 9
                 Let dc2 = Int(Rnd * 9 + 1)
                 Let w2 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 8
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc2 < 3 Or dc2 > 7
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 9 + 1)
                 Let w2 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 9
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 9 + 1)
                 Let w2 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 10
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 9 + 1)
                 Let w2 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 11
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 9 + 1)
                 Let dc2 = Int(Rnd * 9 + 1)
                 Let w2 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
     End Select
     Select Case dc6
@@ -3358,65 +3860,88 @@ Sub shogi
             Exit Case
         Case Is = 2
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
-                Let dc4 = Int(Rnd * 3 + 4)
-                Let dc5 = Int(Rnd * 3 + 8)
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
                 Let b2 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 3
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 9 + 1)
                 Let b2 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 4
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 9 + 1)
                 Let b2 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 5
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 9 + 1)
                 Let fb2x = dc4: Let fb2y = dc5
                 Let b2 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 6
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 9 + 1)
                 Let fb2x = dc4: Let fb2y = dc5
                 Let b2 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 7
-            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc4 <> 1 And dc4 <> 8
-                Let dc4 = Int(Rnd * 9 + 1)
+            Let index = Int(Rnd * 2 + 1)
+            If index = 1 Then Let dc4 = 1 Else Let dc4 = 9
+            While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
+                Let index = Int(Rnd * 2 + 1)
+                If index = 1 Then Let dc4 = 1 Else Let dc4 = 9
                 Let dc5 = Int(Rnd * 9 + 1)
                 Let b2 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 8
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc5 < 3 Or dc5 > 7
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 9 + 1)
                 Let b2 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 9
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 9 + 1)
                 Let b2 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 10
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 9 + 1)
                 Let b2 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 11
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 9 + 1)
                 Let dc5 = Int(Rnd * 9 + 1)
                 Let b2 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
     End Select
 
@@ -3528,11 +4053,604 @@ Sub shogi
 
     Call dices
 
+    Rem 3rd roll
+    Let count = 0: Let index = 0
+    Let dc1 = Int(Rnd * 9 + 1)
+    Let dc2 = Int(Rnd * 9 + 1)
+    Let dc3 = Int(Rnd * 10 + 2)
+    Let dc4 = Int(Rnd * 9 + 1)
+    Let dc5 = Int(Rnd * 9 + 1)
+    Let dc6 = Int(Rnd * 10 + 2)
+    Let w3 = shobo(dc2, dc1): Let b3 = shobo(dc5, dc4)
+
+    Select Case dc3
+        Case Is = 1
+            Exit Case
+        Case Is = 2
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let w3 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 3
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let w3 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 4
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let w3 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 5
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let fw2x = dc1: Let fw2y = dc2
+                Let w3 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 6
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let fw2x = dc1: Let fw2y = dc2
+                Let w3 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 7
+            Let index = Int(Rnd * 2 + 1)
+            If index = 1 Then Let dc1 = 1 Else Let dc1 = 9
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let index = Int(Rnd * 2 + 1)
+                If index = 1 Then Let dc1 = 1 Else Let dc1 = 9
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let w3 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 8
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let w3 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 9
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let w3 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 10
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let w3 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 11
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let w3 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+    End Select
+    Select Case dc6
+        Case Is = 1
+            Exit Case
+        Case Is = 2
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let b3 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 3
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let b3 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 4
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let b3 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 5
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let fb2x = dc4: Let fb2y = dc5
+                Let b3 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 6
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let fb2x = dc4: Let fb2y = dc5
+                Let b3 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 7
+            Let index = Int(Rnd * 2 + 1)
+            If index = 1 Then Let dc4 = 1 Else Let dc4 = 9
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let index = Int(Rnd * 2 + 1)
+                If index = 1 Then Let dc4 = 1 Else Let dc4 = 9
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let b3 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 8
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let b3 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 9
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let b3 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 10
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let b3 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 11
+            While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let b3 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+    End Select
+
+    Let w3 = shobo(dc2, dc1): Let b3 = shobo(dc5, dc4)
+    Let fw3x = dc1: Let fw3y = dc2: Let fb3x = dc4: Let fb3y = dc5
+    Let fw3 = dc3: Let fb3 = dc6
+
+    Let x = 20: Let y = 160: Let cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call general
+    If dc3 = 4 Then Call bishop
+    If dc3 = 5 Then Call knight
+    If dc3 = 6 Then Call rook
+    If dc3 = 7 Then Call lance
+    If dc3 = 8 Then Call pawn
+    If dc3 = 9 Then Call horse
+    If dc3 = 10 Then Call dragon
+    If dc3 = 11 Then Call tokin
+    Let x = 580: Let y = 160: Let cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call general
+    If dc6 = 4 Then Call bishop
+    If dc6 = 5 Then Call knight
+    If dc6 = 6 Then Call rook
+    If dc6 = 7 Then Call lance
+    If dc6 = 8 Then Call pawn
+    If dc6 = 9 Then Call horse
+    If dc6 = 10 Then Call dragon
+    If dc6 = 11 Then Call tokin
+    Let x = 20: Let y = 220
+    If dc1 = 1 Then Call letterA
+    If dc1 = 2 Then Call letterB
+    If dc1 = 3 Then Call letterC
+    If dc1 = 4 Then Call letterD
+    If dc1 = 5 Then Call letterE
+    If dc1 = 6 Then Call letterF
+    If dc1 = 7 Then Call letterG
+    If dc1 = 8 Then Call letterH
+    If dc1 = 9 Then Call letterI
+    Let x = 20: Let y = 280
+    If dc2 = 1 Then Call letter1
+    If dc2 = 2 Then Call letter2
+    If dc2 = 3 Then Call letter3
+    If dc2 = 4 Then Call letter4
+    If dc2 = 5 Then Call letter5
+    If dc2 = 6 Then Call letter6
+    If dc2 = 7 Then Call letter7
+    If dc2 = 8 Then Call letter8
+    If dc2 = 9 Then Call letter9
+    Let x = 580: Let y = 220
+    If dc4 = 1 Then Call letterA
+    If dc4 = 2 Then Call letterB
+    If dc4 = 3 Then Call letterC
+    If dc4 = 4 Then Call letterD
+    If dc4 = 5 Then Call letterE
+    If dc4 = 6 Then Call letterF
+    If dc4 = 7 Then Call letterG
+    If dc4 = 8 Then Call letterH
+    If dc4 = 9 Then Call letterI
+    Let x = 580: Let y = 280
+    If dc5 = 1 Then Call letter1
+    If dc5 = 2 Then Call letter2
+    If dc5 = 3 Then Call letter3
+    If dc5 = 4 Then Call letter4
+    If dc5 = 5 Then Call letter5
+    If dc5 = 6 Then Call letter6
+    If dc5 = 7 Then Call letter7
+    If dc5 = 8 Then Call letter8
+    If dc5 = 9 Then Call letter9
+    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 60
+    Let cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call general
+    If dc3 = 4 Then Call bishop
+    If dc3 = 5 Then Call knight
+    If dc3 = 6 Then Call rook
+    If dc3 = 7 Then Call lance
+    If dc3 = 8 Then Call pawn
+    If dc3 = 9 Then Call horse
+    If dc3 = 10 Then Call dragon
+    If dc3 = 11 Then Call tokin
+    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 60
+    Let cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call general
+    If dc6 = 4 Then Call bishop
+    If dc6 = 5 Then Call knight
+    If dc6 = 6 Then Call rook
+    If dc6 = 7 Then Call lance
+    If dc6 = 8 Then Call pawn
+    If dc6 = 9 Then Call horse
+    If dc6 = 10 Then Call dragon
+    If dc6 = 11 Then Call tokin
+
+    Do
+        Select Case InKey$
+            Case Is = Chr$(32)
+                Exit Do
+            Case Is = Chr$(13)
+                Call shogifen
+            Case Is = Chr$(27)
+                End
+        End Select
+    Loop
+
+    Call dices
+
+    Rem 4th roll
+    Let count = 0: Let index = 0
+    Let dc1 = Int(Rnd * 9 + 1)
+    Let dc2 = Int(Rnd * 9 + 1)
+    Let dc3 = Int(Rnd * 10 + 2)
+    Let dc4 = Int(Rnd * 9 + 1)
+    Let dc5 = Int(Rnd * 9 + 1)
+    Let dc6 = Int(Rnd * 10 + 2)
+    Let w4 = shobo(dc2, dc1): Let b4 = shobo(dc5, dc4)
+
+    Select Case dc3
+        Case Is = 1
+            Exit Case
+        Case Is = 2
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let w4 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 3
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let w4 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 4
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let w4 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 5
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let fw2x = dc1: Let fw2y = dc2
+                Let w4 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 6
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let fw2x = dc1: Let fw2y = dc2
+                Let w4 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 7
+            Let index = Int(Rnd * 2 + 1)
+            If index = 1 Then Let dc1 = 1 Else Let dc1 = 9
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let index = Int(Rnd * 2 + 1)
+                If index = 1 Then Let dc1 = 1 Else Let dc1 = 9
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let w4 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 8
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let w4 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 9
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let w4 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 10
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let w4 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 11
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc1 = Int(Rnd * 9 + 1)
+                Let dc2 = Int(Rnd * 9 + 1)
+                Let w4 = shobo(dc2, dc1)
+                If count > 8000 Then Exit While
+            Wend
+    End Select
+    Select Case dc6
+        Case Is = 1
+            Exit Case
+        Case Is = 2
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let b4 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 3
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let b4 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 4
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let b4 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 5
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let fb2x = dc4: Let fb2y = dc5
+                Let b4 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 6
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let fb2x = dc4: Let fb2y = dc5
+                Let b4 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 7
+            Let index = Int(Rnd * 2 + 1)
+            If index = 1 Then Let dc4 = 1 Else Let dc4 = 9
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let index = Int(Rnd * 2 + 1)
+                If index = 1 Then Let dc4 = 1 Else Let dc4 = 9
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let b4 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 8
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let b4 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 9
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let b4 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 10
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let b4 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+        Case Is = 11
+            While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+                Let count = count + 1
+                Let dc4 = Int(Rnd * 9 + 1)
+                Let dc5 = Int(Rnd * 9 + 1)
+                Let b4 = shobo(dc5, dc4)
+                If count > 8000 Then Exit While
+            Wend
+    End Select
+
+    Let w4 = shobo(dc2, dc1): Let b4 = shobo(dc5, dc4)
+    Let fw4x = dc1: Let fw4y = dc2: Let fb4x = dc4: Let fb4y = dc5
+    Let fw4 = dc3: Let fb4 = dc6
+
+    Let x = 20: Let y = 160: Let cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call general
+    If dc3 = 4 Then Call bishop
+    If dc3 = 5 Then Call knight
+    If dc3 = 6 Then Call rook
+    If dc3 = 7 Then Call lance
+    If dc3 = 8 Then Call pawn
+    If dc3 = 9 Then Call horse
+    If dc3 = 10 Then Call dragon
+    If dc3 = 11 Then Call tokin
+    Let x = 580: Let y = 160: Let cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call general
+    If dc6 = 4 Then Call bishop
+    If dc6 = 5 Then Call knight
+    If dc6 = 6 Then Call rook
+    If dc6 = 7 Then Call lance
+    If dc6 = 8 Then Call pawn
+    If dc6 = 9 Then Call horse
+    If dc6 = 10 Then Call dragon
+    If dc6 = 11 Then Call tokin
+    Let x = 20: Let y = 220
+    If dc1 = 1 Then Call letterA
+    If dc1 = 2 Then Call letterB
+    If dc1 = 3 Then Call letterC
+    If dc1 = 4 Then Call letterD
+    If dc1 = 5 Then Call letterE
+    If dc1 = 6 Then Call letterF
+    If dc1 = 7 Then Call letterG
+    If dc1 = 8 Then Call letterH
+    If dc1 = 9 Then Call letterI
+    Let x = 20: Let y = 280
+    If dc2 = 1 Then Call letter1
+    If dc2 = 2 Then Call letter2
+    If dc2 = 3 Then Call letter3
+    If dc2 = 4 Then Call letter4
+    If dc2 = 5 Then Call letter5
+    If dc2 = 6 Then Call letter6
+    If dc2 = 7 Then Call letter7
+    If dc2 = 8 Then Call letter8
+    If dc2 = 9 Then Call letter9
+    Let x = 580: Let y = 220
+    If dc4 = 1 Then Call letterA
+    If dc4 = 2 Then Call letterB
+    If dc4 = 3 Then Call letterC
+    If dc4 = 4 Then Call letterD
+    If dc4 = 5 Then Call letterE
+    If dc4 = 6 Then Call letterF
+    If dc4 = 7 Then Call letterG
+    If dc4 = 8 Then Call letterH
+    If dc4 = 9 Then Call letterI
+    Let x = 580: Let y = 280
+    If dc5 = 1 Then Call letter1
+    If dc5 = 2 Then Call letter2
+    If dc5 = 3 Then Call letter3
+    If dc5 = 4 Then Call letter4
+    If dc5 = 5 Then Call letter5
+    If dc5 = 6 Then Call letter6
+    If dc5 = 7 Then Call letter7
+    If dc5 = 8 Then Call letter8
+    If dc5 = 9 Then Call letter9
+    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 60
+    Let cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call general
+    If dc3 = 4 Then Call bishop
+    If dc3 = 5 Then Call knight
+    If dc3 = 6 Then Call rook
+    If dc3 = 7 Then Call lance
+    If dc3 = 8 Then Call pawn
+    If dc3 = 9 Then Call horse
+    If dc3 = 10 Then Call dragon
+    If dc3 = 11 Then Call tokin
+    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 60
+    Let cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call general
+    If dc6 = 4 Then Call bishop
+    If dc6 = 5 Then Call knight
+    If dc6 = 6 Then Call rook
+    If dc6 = 7 Then Call lance
+    If dc6 = 8 Then Call pawn
+    If dc6 = 9 Then Call horse
+    If dc6 = 10 Then Call dragon
+    If dc6 = 11 Then Call tokin
+
+    Do
+        Select Case InKey$
+            Case Is = Chr$(32)
+                Exit Case
+            Case Is = Chr$(13)
+                Call shogifen
+            Case Is = Chr$(27)
+                End
+        End Select
+    Loop
+
 End Sub
 
 Sub draughts
 
     Rem 1st roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 10 + 1)
     Let dc2 = Int(Rnd * 10 + 1)
     Let dc3 = Int(Rnd * 2 + 1)
@@ -3541,12 +4659,14 @@ Sub draughts
     Let dc6 = Int(Rnd * 2 + 1)
     Let w1 = drabo(dc2, dc1): Let b1 = drabo(dc5, dc4)
 
-    While w1 Mod 2 = 0 And b1 Mod 2 = 0
+    While w1 = b1 And w1 Mod 2 = 0 And b1 Mod 2 = 0
+        Let count = count + 1
         Let dc1 = Int(Rnd * 8 + 1)
         Let dc2 = Int(Rnd * 8 + 1)
         Let dc4 = Int(Rnd * 8 + 1)
         Let dc5 = Int(Rnd * 8 + 1)
         Let w1 = drabo(dc2, dc1): Let b1 = drabo(dc5, dc4)
+        If count > 8000 Then Exit While
     Wend
 
     Let w1 = drabo(dc2, dc1): Let b1 = drabo(dc5, dc4)
@@ -3625,6 +4745,7 @@ Sub draughts
     Call dices
 
     Rem 2nd roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 10 + 1)
     Let dc2 = Int(Rnd * 10 + 1)
     Let dc3 = Int(Rnd * 2 + 1)
@@ -3636,29 +4757,37 @@ Sub draughts
     Select Case dc3
         Case Is = 1
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or w2 Mod 2 = 0
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 10 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let w2 = drabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 2
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or w2 Mod 2 = 0
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 10 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let w2 = drabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
     End Select
     Select Case dc6
         Case Is = 1
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or b2 Mod 2 = 0
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 10 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let b2 = drabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 2
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or b2 Mod 2 = 0
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 10 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let b2 = drabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
     End Select
 
@@ -3739,6 +4868,7 @@ Sub draughts
     Call dices
 
     Rem 3rd roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 10 + 1)
     Let dc2 = Int(Rnd * 10 + 1)
     Let dc3 = Int(Rnd * 2 + 1)
@@ -3750,29 +4880,37 @@ Sub draughts
     Select Case dc3
         Case Is = 1
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or w3 Mod 2 = 0
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 10 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let w3 = drabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 2
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or w3 Mod 2 = 0
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 10 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let w3 = drabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
     End Select
     Select Case dc6
         Case Is = 1
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or b3 Mod 2 = 0
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 10 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let b3 = drabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 2
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or b3 Mod 2 = 0
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 10 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let b3 = drabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
     End Select
 
@@ -3853,6 +4991,7 @@ Sub draughts
     Call dices
 
     Rem 4th roll
+    Let count = 0: Let index = 0
     Let dc1 = Int(Rnd * 10 + 1)
     Let dc2 = Int(Rnd * 10 + 1)
     Let dc3 = Int(Rnd * 2 + 1)
@@ -3864,29 +5003,37 @@ Sub draughts
     Select Case dc3
         Case Is = 1
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or w4 Mod 2 = 0
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 10 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let w4 = drabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 2
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or w4 Mod 2 = 0
+                Let count = count + 1
                 Let dc1 = Int(Rnd * 10 + 1)
                 Let dc2 = Int(Rnd * 10 + 1)
                 Let w4 = drabo(dc2, dc1)
+                If count > 8000 Then Exit While
             Wend
     End Select
     Select Case dc6
         Case Is = 1
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 Mod 2 = 0
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 10 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let b4 = drabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
         Case Is = 2
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 Mod 2 = 0
+                Let count = count + 1
                 Let dc4 = Int(Rnd * 10 + 1)
                 Let dc5 = Int(Rnd * 10 + 1)
                 Let b4 = drabo(dc5, dc4)
+                If count > 8000 Then Exit While
             Wend
     End Select
 
@@ -3963,8 +5110,6 @@ Sub draughts
                 End
         End Select
     Loop
-
-    End
 
 End Sub
 
@@ -4217,7 +5362,7 @@ Sub chessfen
     Loop Until InKey$ <> ""
     Locate 2, 1: Print "                                                                                       "
     Color 12
-    Locate 2, 29: Print fen$
+    Locate 2, 28: Print fen$
 
     Do
     Loop Until InKey$ <> ""
@@ -4488,7 +5633,7 @@ Sub makrukfen
     Loop Until InKey$ <> ""
     Locate 2, 1: Print "                                                                                       "
     Color 12
-    Locate 2, 29: Print fen$
+    Locate 2, 28: Print fen$
 
     Do
     Loop Until InKey$ <> ""
@@ -4798,7 +5943,7 @@ Sub xiangqifen
     Loop Until InKey$ <> ""
     Locate 2, 1: Print "                                                                                       "
     Color 12
-    Locate 2, 23: Print fen$
+    Locate 2, 24: Print fen$
 
     Do
     Loop Until InKey$ <> ""
@@ -5119,7 +6264,7 @@ Sub shogifen
     Loop Until InKey$ <> ""
     Locate 2, 1: Print "                                                                                       "
     Color 12
-    Locate 2, 24: Print fen$
+    Locate 2, 25: Print fen$
 
     Do
     Loop Until InKey$ <> ""
