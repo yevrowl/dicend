@@ -1,94 +1,88 @@
-$ExeIcon:'dicend.ico'
-_Icon
-_Title "Dice endgames"
-Rem Let scr& = _NewImage(800, 600, 256)
-Rem Screen scr&
-Rem _FullScreen
 Screen 12
 DefInt A-Z
 Randomize Timer
 
-declare sub dice1 as type integer
-declare sub dice2 as type integer
-declare sub dice3 as type integer
-declare sub dice4 as type integer
-declare sub dice5 as type integer
-declare sub dice6 as type integer
-declare sub dice7 as type integer
-declare sub dice8 as type integer
-declare sub dice9 as type integer
-declare sub dice0 as type integer
-declare sub number1 as type integer
-declare sub number2 as type integer
-declare sub number3 as type integer
-declare sub number4 as type integer
-declare sub number5 as type integer
-declare sub number6 as type integer
-declare sub number7 as type integer
-declare sub number8 as type integer
-declare sub number9 as type integer
-declare sub number0 as type integer
-declare sub numberA as type integer
-declare sub numberB as type integer
-declare sub numberC as type integer
-declare sub numberD as type integer
-declare sub numberE as type integer
-declare sub numberF as type integer
-declare sub numberG as type integer
-declare sub numberH as type integer
-declare sub numberI as type integer
-declare sub numberJ as type integer
-declare sub letter1 as type integer
-declare sub letter2 as type integer
-declare sub letter3 as type integer
-declare sub letter4 as type integer
-declare sub letter5 as type integer
-declare sub letter6 as type integer
-declare sub letter7 as type integer
-declare sub letter8 as type integer
-declare sub letter9 as type integer
-declare sub letter0 as type integer
-declare sub letterA as type integer
-declare sub letterB as type integer
-declare sub letterC as type integer
-declare sub letterD as type integer
-declare sub letterE as type integer
-declare sub letterF as type integer
-declare sub letterG as type integer
-declare sub letterH as type integer
-declare sub letterI as type integer
-declare sub letterJ as type integer
-declare sub king as type integer
-declare sub queen as type integer
-declare sub bishop as type integer
-declare sub knight as type integer
-declare sub rook as type integer
-declare sub pawn as type integer
-declare sub cannon as type integer
-declare sub lance as type integer
-declare sub general as type integer
-declare sub tokin as type integer
-declare sub dragon as type integer
-declare sub horse as type integer
-declare sub dame as type integer
-declare sub checker as type integer
-declare sub cells as type integer
-declare sub dices as type integer
-declare sub chessboard as type integer
-declare sub makrukboard as type integer
-declare sub xiangqiboard as type integer
-declare sub shogiboard as type integer
-declare sub draughtsboard as type integer
-declare sub chess as type string
-declare sub makruk as type string
-declare sub xiangqi as type string
-declare sub shogi as type string
-declare sub draughts as type string
-declare sub chessfen as type string
-declare sub makrukfen as type string
-declare sub xiangqifen as type string
-declare sub shogifen as type string
-declare sub draughtsfen as type string
+declare sub dice1
+declare sub dice2
+declare sub dice3
+declare sub dice4
+declare sub dice5
+declare sub dice6
+declare sub dice7
+declare sub dice8
+declare sub dice9
+declare sub dice0
+declare sub number1
+declare sub number2
+declare sub number3
+declare sub number4
+declare sub number5
+declare sub number6
+declare sub number7
+declare sub number8
+declare sub number9
+declare sub number0
+declare sub numberA
+declare sub numberB
+declare sub numberC
+declare sub numberD
+declare sub numberE
+declare sub numberF
+declare sub numberG
+declare sub numberH
+declare sub numberI
+declare sub numberJ
+declare sub letter1
+declare sub letter2
+declare sub letter3
+declare sub letter4
+declare sub letter5
+declare sub letter6
+declare sub letter7
+declare sub letter8
+declare sub letter9
+declare sub letter0
+declare sub letterA
+declare sub letterB
+declare sub letterC
+declare sub letterD
+declare sub letterE
+declare sub letterF
+declare sub letterG
+declare sub letterH
+declare sub letterI
+declare sub letterJ
+declare sub king
+declare sub queen
+declare sub bishop
+declare sub knight
+declare sub rook
+declare sub pawn
+declare sub cannon
+declare sub lance
+declare sub general
+declare sub tokin
+declare sub dragon
+declare sub horse
+declare sub dame
+declare sub checker
+declare sub cells
+declare sub dices
+declare sub chessboard
+declare sub makrukboard
+declare sub xiangqiboard
+declare sub shogiboard
+declare sub draughtsboard
+declare sub chess
+declare sub makruk
+declare sub xiangqi
+declare sub shogi
+declare sub draughts
+declare sub chessfen
+declare sub makrukfen
+declare sub xiangqifen
+declare sub shogifen
+declare sub draughtsfen
 
 Common Shared x, y, cd1, cd2, cn, cl, cf, cb1, cb2, cb3, cb4, cb5 As Integer
 Common Shared dc1, dc2, dc3, dc4, dc5, dc6, w1, b1, w2, b2, w3, b3, w4, b4, fw1, fb1, fw2, fb2, fw3, fb3, fw4, fb4, row, col, index, count As Integer
@@ -1408,7 +1402,7 @@ Sub chess
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
                 Let count = count + 1
@@ -1454,7 +1448,7 @@ Sub chess
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
                 Let count = count + 1
@@ -1595,7 +1589,7 @@ Sub chess
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
                 Let count = count + 1
@@ -1641,7 +1635,7 @@ Sub chess
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
                 Let count = count + 1
@@ -1782,7 +1776,7 @@ Sub chess
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
                 Let count = count + 1
@@ -1828,7 +1822,7 @@ Sub chess
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
                 Let count = count + 1
@@ -1947,7 +1941,7 @@ Sub chess
     Do
         Select Case InKey$
             Case Is = Chr$(32)
-                Exit Case
+                Rem
             Case Is = Chr$(13)
                 Call chessfen
             Case Is = Chr$(27)
@@ -2062,7 +2056,7 @@ Sub makruk
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or w2 Mod 2 = 0
                 Let count = count + 1
@@ -2107,7 +2101,7 @@ Sub makruk
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or b2 Mod 2 <> 0
                 Let count = count + 1
@@ -2247,7 +2241,7 @@ Sub makruk
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or w3 Mod 2 = 0
                 Let count = count + 1
@@ -2292,7 +2286,7 @@ Sub makruk
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or b3 Mod 2 <> 0
                 Let count = count + 1
@@ -2432,7 +2426,7 @@ Sub makruk
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or w2 Mod 2 = 0
                 Let count = count + 1
@@ -2477,7 +2471,7 @@ Sub makruk
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 Mod 2 <> 0
                 Let count = count + 1
@@ -2595,7 +2589,7 @@ Sub makruk
     Do
         Select Case InKey$
             Case Is = Chr$(32)
-                Exit Case
+                Rem
             Case Is = Chr$(13)
                 Call makrukfen
             Case Is = Chr$(27)
@@ -2719,7 +2713,7 @@ Sub xiangqi
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Let dc1 = Int(Rnd * 3 + 4)
             Let dc2 = Int(Rnd * 3 + 1)
@@ -2823,7 +2817,7 @@ Sub xiangqi
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Let dc4 = Int(Rnd * 3 + 4)
             Let dc5 = Int(Rnd * 3 + 8)
@@ -3032,7 +3026,7 @@ Sub xiangqi
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Let dc1 = Int(Rnd * 3 + 4)
             Let dc2 = Int(Rnd * 3 + 1)
@@ -3136,7 +3130,7 @@ Sub xiangqi
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Let dc4 = Int(Rnd * 3 + 4)
             Let dc5 = Int(Rnd * 3 + 8)
@@ -3345,7 +3339,7 @@ Sub xiangqi
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Let dc1 = Int(Rnd * 3 + 4)
             Let dc2 = Int(Rnd * 3 + 1)
@@ -3449,7 +3443,7 @@ Sub xiangqi
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Let dc4 = Int(Rnd * 3 + 4)
             Let dc5 = Int(Rnd * 3 + 8)
@@ -3636,7 +3630,7 @@ Sub xiangqi
     Do
         Select Case InKey$
             Case Is = Chr$(32)
-                Exit Case
+                Rem
             Case Is = Chr$(13)
                 Call xiangqifen
             Case Is = Chr$(27)
@@ -3768,7 +3762,7 @@ Sub shogi
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
                 Let count = count + 1
@@ -3857,7 +3851,7 @@ Sub shogi
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
                 Let count = count + 1
@@ -4065,7 +4059,7 @@ Sub shogi
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
                 Let count = count + 1
@@ -4154,7 +4148,7 @@ Sub shogi
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
                 Let count = count + 1
@@ -4362,7 +4356,7 @@ Sub shogi
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
                 Let count = count + 1
@@ -4451,7 +4445,7 @@ Sub shogi
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
                 Let count = count + 1
@@ -4637,7 +4631,7 @@ Sub shogi
     Do
         Select Case InKey$
             Case Is = Chr$(32)
-                Exit Case
+                Rem
             Case Is = Chr$(13)
                 Call shogifen
             Case Is = Chr$(27)
@@ -5103,7 +5097,7 @@ Sub draughts
     Do
         Select Case InKey$
             Case Is = Chr$(32)
-                Exit Case
+                Rem
             Case Is = Chr$(13)
                 Call draughtsfen
             Case Is = Chr$(27)
@@ -5367,19 +5361,6 @@ Sub chessfen
     Do
     Loop Until InKey$ <> ""
 
-    _Clipboard$ = fen$
-
-    url$ = "https://syzygy-tables.info/?fen=" + fen$
-    If InStr(_OS$, "[WINDOWS]") Then
-        Shell url$
-    End If
-    If InStr(_OS$, "[LINUX]") Then
-        Shell "xdg-open " + url$
-    End If
-    If InStr(_OS$, "[MACOSX]") Then
-        Shell "open -a safari https://" + url$
-    End If
-
     System
 
 End Sub
@@ -5637,8 +5618,6 @@ Sub makrukfen
 
     Do
     Loop Until InKey$ <> ""
-
-    _Clipboard$ = fen$
 
     System
 
@@ -5947,8 +5926,6 @@ Sub xiangqifen
 
     Do
     Loop Until InKey$ <> ""
-
-    _Clipboard$ = fen$
 
     System
 
@@ -6269,8 +6246,6 @@ Sub shogifen
     Do
     Loop Until InKey$ <> ""
 
-    _Clipboard$ = fen$
-
     System
 
 End Sub
@@ -6538,8 +6513,6 @@ Sub draughtsfen
 
     Do
     Loop Until InKey$ <> ""
-
-    _Clipboard$ = fen$
 
     System
 
