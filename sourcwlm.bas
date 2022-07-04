@@ -89,6 +89,7 @@ declare sub makrukfen as type string
 declare sub xiangqifen as type string
 declare sub shogifen as type string
 declare sub draughtsfen as type string
+declare sub message as type string
 
 Common Shared x, y, cd1, cd2, cn, cl, cf, cb1, cb2, cb3, cb4, cb5 As Integer
 Common Shared dc1, dc2, dc3, dc4, dc5, dc6, w1, b1, w2, b2, w3, b3, w4, b4, fw1, fb1, fw2, fb2, fw3, fb3, fw4, fb4, row, col, index, count As Integer
