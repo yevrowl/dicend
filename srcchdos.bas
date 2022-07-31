@@ -16,12 +16,12 @@ DECLARE SUB bishop ()
 DECLARE SUB knight ()
 DECLARE SUB rook ()
 DECLARE SUB pawn ()
-DECLARE SUB notation ()
 DECLARE SUB generation ()
+DECLARE SUB notation ()
 
 COMMON SHARED vid, v, x, y, z, c, c1, c2, c3, c4, dc1, dc2, dc3, dc4, dc5, dc6, w1, b1, w2, b2, w3, b3, w4, b4, row, col, index, count AS INTEGER
 COMMON SHARED fw1, fb1, fw2, fb2, fw3, fb3, fw4, fb4, fw1x, fw1y, fb1x, fb1y, fw2x, fw2y, fb2x, fb2y, fw3x, fw3y, fb3x, fb3y, fw4x, fw4y, fb4x, fb4y AS INTEGER
-COMMON SHARED fig1w, fig1b, fig2w, fig2b, fig3w, fig3b, fig4w, fig4b, mas1, mas2, mas3, mas4, mas5, mas6, mas7, mas8, mas9, mas0, lin1, lin2, lin3, lin4, lin5, lin6, lin7, lin8, lin9, lin0, fen AS STRING
+COMMON SHARED fig1w, fig1b, fig2w, fig2b, fig3w, fig3b, fig4w, fig4b, mas, lin, fen AS STRING
 
 DIM SHARED board(8, 8) AS INTEGER
 LET index = 100
@@ -29,12 +29,14 @@ FOR row = 1 TO 8: FOR col = 1 TO 8
     LET board(row, col) = index + 1
     LET index = index + 1
 NEXT col: NEXT row
-LET z = 26
 
 begin:
+LET z = 26
 RANDOMIZE TIMER
-CLS
+IF vid = 4 THEN CALL ExitGraphics
 SCREEN 0
+WIDTH 80, 25
+CLS
 COLOR 15
 LOCATE 2, z: PRINT "ษอออออออออออออออออออออออออออออป"
 LOCATE 3, z: PRINT "บ        Dice endgames        บ"
@@ -85,9 +87,8 @@ DO
             LET vid = 7
             EXIT DO
         CASE IS = CHR$(27)
-            SYSTEM
             OUT &H64, &HFE
-            END
+            SYSTEM
     END SELECT
 LOOP
 
@@ -497,6 +498,7 @@ DO
     END SELECT
 LOOP
 
+IF vid = 4 THEN CALL ExitGraphics
 LOCATE 2, 8: PRINT "                                  "
 END
 
@@ -1256,15 +1258,28 @@ IF dc6 = 6 THEN CALL pawn
 END SUB
 
 SUB notation
-    FOR x = 0 TO 115 STEP 23
-        LINE (103 + x, 2)-(114 + x, 13), 0, BF
-    NEXT x
-    FOR y = 0 TO 52 STEP 26
-        LINE (12, 26 + y)-(25, 39 + y), 0, BF
-    NEXT y
-    FOR y = 0 TO 52 STEP 26
-        LINE (293, 26 + y)-(306, 39 + y), 0, BF
-    NEXT y
+   
+    IF vid <> 4 THEN
+        FOR x = 0 TO 115 STEP 23
+            LINE (103 + x, 2)-(114 + x, 13), 0, BF
+        NEXT x
+        FOR y = 0 TO 52 STEP 26
+            LINE (12, 26 + y)-(25, 39 + y), 0, BF
+        NEXT y
+        FOR y = 0 TO 52 STEP 26
+           LINE (293, 26 + y)-(306, 39 + y), 0, BF
+        NEXT y
+    ELSE
+        FOR x = 0 TO 115 STEP 23
+            CALL FillBox(103 + x, 2, 114 + x, 13, 0)
+        NEXT x
+        FOR y = 0 TO 52 STEP 26
+            CALL FillBox(12, 26 + y, 25, 39 + y, 0)
+        NEXT y
+        FOR y = 0 TO 52 STEP 26
+           CALL FillBox(293, 26 + y, 306, 39 + y, 0)
+        NEXT y
+    END IF
 
     REM Forsyth-Edwards notation
 
@@ -1337,7 +1352,7 @@ SUB notation
         IF table(row, col) = "" THEN LET table(row, col) = "+"
     NEXT col: NEXT row
 
-    FOR t = 8 To 1 STEP -1
+    FOR t = 8 TO 1 STEP -1
         LET mas$ = table(t, 1) + table(t, 2) + table(t, 3) + table(t, 4) + table(t, 5) + table(t, 6) + table(t, 7) + table(t, 8)
         LET lin$ = ""
         LET count = 0
@@ -1370,13 +1385,13 @@ IF vid <> 4 THEN
     LOCATE 2, 8: PRINT "                                "
     LOCATE 2, 8: PRINT fen$
 ELSE
-    CALL SetCursor(1, 10): CALL PrintString("Press any key to display")
-    CALL SetCursor(2, 8): CALL PrintString("the Forsyth-Edwards notation")
+    CALL SetCursor(1, 10): CALL PrintStringX("Press any key to display")
+    CALL SetCursor(2, 8): CALL PrintStringX("the Forsyth-Edwards notation")
     DO
     LOOP UNTIL INKEY$ <> ""
-    CALL SetCursor(1, 8): CALL PrintString("                                ")
-    CALL SetCursor(2, 8): CALL PrintString("                                ")
-    CALL SetCursor(2, 8): CALL PrintString(fen$)
+    CALL SetCursor(1, 8): CALL PrintStringX("                                ")
+    CALL SetCursor(2, 8): CALL PrintStringX("                                ")
+    CALL SetCursor(2, 8): CALL PrintStringX(fen$)
 END IF
 
 LET fen$ = ""
