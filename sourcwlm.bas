@@ -1,130 +1,137 @@
 $ExeIcon:'dicend.ico'
 _Icon
 _Title "Dice endgames"
-Rem Let scr& = _NewImage(800, 600, 256)
-Rem Screen scr&
-Rem _FullScreen
-Screen 12
+_FullScreen
 DefInt A-Z
-Randomize Timer
 
-declare sub dice1 as type integer
-declare sub dice2 as type integer
-declare sub dice3 as type integer
-declare sub dice4 as type integer
-declare sub dice5 as type integer
-declare sub dice6 as type integer
-declare sub dice7 as type integer
-declare sub dice8 as type integer
-declare sub dice9 as type integer
-declare sub dice0 as type integer
-declare sub number1 as type integer
-declare sub number2 as type integer
-declare sub number3 as type integer
-declare sub number4 as type integer
-declare sub number5 as type integer
-declare sub number6 as type integer
-declare sub number7 as type integer
-declare sub number8 as type integer
-declare sub number9 as type integer
-declare sub number0 as type integer
-declare sub numberA as type integer
-declare sub numberB as type integer
-declare sub numberC as type integer
-declare sub numberD as type integer
-declare sub numberE as type integer
-declare sub numberF as type integer
-declare sub numberG as type integer
-declare sub numberH as type integer
-declare sub numberI as type integer
-declare sub numberJ as type integer
-declare sub letter1 as type integer
-declare sub letter2 as type integer
-declare sub letter3 as type integer
-declare sub letter4 as type integer
-declare sub letter5 as type integer
-declare sub letter6 as type integer
-declare sub letter7 as type integer
-declare sub letter8 as type integer
-declare sub letter9 as type integer
-declare sub letter0 as type integer
-declare sub letterA as type integer
-declare sub letterB as type integer
-declare sub letterC as type integer
-declare sub letterD as type integer
-declare sub letterE as type integer
-declare sub letterF as type integer
-declare sub letterG as type integer
-declare sub letterH as type integer
-declare sub letterI as type integer
-declare sub letterJ as type integer
-declare sub king as type integer
-declare sub queen as type integer
-declare sub bishop as type integer
-declare sub knight as type integer
-declare sub rook as type integer
-declare sub pawn as type integer
-declare sub cannon as type integer
-declare sub lance as type integer
-declare sub general as type integer
-declare sub tokin as type integer
-declare sub dragon as type integer
-declare sub horse as type integer
-declare sub dame as type integer
-declare sub checker as type integer
-declare sub cells as type integer
-declare sub dices as type integer
-declare sub chessboard as type integer
-declare sub makrukboard as type integer
-declare sub xiangqiboard as type integer
-declare sub shogiboard as type integer
-declare sub draughtsboard as type integer
-declare sub chess as type string
-declare sub makruk as type string
-declare sub xiangqi as type string
-declare sub shogi as type string
-declare sub draughts as type string
-declare sub chessfen as type string
-declare sub makrukfen as type string
-declare sub xiangqifen as type string
-declare sub shogifen as type string
-declare sub draughtsfen as type string
-declare sub message as type string
+declare sub dice1 ()
+declare sub dice2 ()
+declare sub dice3 ()
+declare sub dice4 ()
+declare sub dice5 ()
+declare sub dice6 ()
+declare sub dice7 ()
+declare sub dice8 ()
+declare sub dice9 ()
+declare sub dice10 ()
+declare sub dice11 ()
+declare sub dice12 ()
+declare sub number1 ()
+declare sub number2 ()
+declare sub number3 ()
+declare sub number4 ()
+declare sub number5 ()
+declare sub number6 ()
+declare sub number7 ()
+declare sub number8 ()
+declare sub number9 ()
+declare sub number0 ()
+declare sub numberA ()
+declare sub numberB ()
+declare sub numberC ()
+declare sub numberD ()
+declare sub numberE ()
+declare sub numberF ()
+declare sub numberG ()
+declare sub numberH ()
+declare sub numberI ()
+declare sub numberJ ()
+declare sub letter1 ()
+declare sub letter2 ()
+declare sub letter3 ()
+declare sub letter4 ()
+declare sub letter5 ()
+declare sub letter6 ()
+declare sub letter7 ()
+declare sub letter8 ()
+declare sub letter9 ()
+declare sub letter0 ()
+declare sub letterA ()
+declare sub letterB ()
+declare sub letterC ()
+declare sub letterD ()
+declare sub letterE ()
+declare sub letterF ()
+declare sub letterG ()
+declare sub letterH ()
+declare sub letterI ()
+declare sub letterJ ()
+declare sub king ()
+declare sub queen ()
+declare sub bishop ()
+declare sub knight ()
+declare sub rook ()
+declare sub pawn ()
+declare sub cannon ()
+declare sub lance ()
+declare sub general ()
+declare sub tokin ()
+declare sub dragon ()
+declare sub horse ()
+declare sub dame ()
+declare sub checker ()
+declare sub cells ()
+declare sub dices ()
+declare sub chessboard ()
+declare sub makrukboard ()
+declare sub xiangqiboard ()
+declare sub shogiboard ()
+declare sub draughtsboard ()
+declare sub chess ()
+declare sub makruk ()
+declare sub xiangqi ()
+declare sub shogi ()
+declare sub draughts ()
+declare sub chesscount ()
+declare sub makrukcount ()
+declare sub xiangqicount ()
+declare sub shogicount ()
+declare sub draughtscount ()
+declare sub chessfen ()
+declare sub makrukfen ()
+declare sub xiangqifen ()
+declare sub shogifen ()
+declare sub draughtsfen ()
+declare sub message ()
 
 Common Shared x, y, cd1, cd2, cn, cl, cf, cb1, cb2, cb3, cb4, cb5 As Integer
 Common Shared dc1, dc2, dc3, dc4, dc5, dc6, w1, b1, w2, b2, w3, b3, w4, b4, fw1, fb1, fw2, fb2, fw3, fb3, fw4, fb4, row, col, index, count As Integer
 Common Shared fw1x, fw1y, fb1x, fb1y, fw2x, fw2y, fb2x, fb2y, fw3x, fw3y, fb3x, fb3y, fw4x, fw4y, fb4x, fb4y As Integer
-Common Shared fig1w, fig1b, fig2w, fig2b, fig3w, fig3b, fig4w, fig4b, mas1, mas2, mas3, mas4, mas5, mas6, mas7, mas8, mas9, mas0, lin1, lin2, lin3, lin4, lin5, lin6, lin7, lin8, lin9, lin0, fen As String
-Let cd1 = 2: Let cd2 = 15: Let cn = 7: Let cl = 14: Let cf = 1: Let cb1 = 7: Let cb2 = 6: Let cb3 = 3: Let cb4 = 13: Let cb5 = 9
+Common Shared fig1w, fig1b, fig2w, fig2b, fig3w, fig3b, fig4w, fig4b, mas, lin, fen As String
+cd1 = 2: cd2 = 1: cn = 7: cl = 1: cf = 1: cb1 = 7: cb2 = 6: cb3 = 3: cb4 = 13: cb5 = 9
 
-Dim Shared board(8, 8) As Integer
-Let index = 100
+Dim Shared chebo(8, 8) As Integer
+index = 100
 For row = 1 To 8: For col = 1 To 8
-    Let board(row, col) = index + 1
-    Let index = index + 1
+    chebo(row, col) = index + 1
+    index = index + 1
 Next col: Next row
 
 Dim Shared xiabo(10, 9) As Integer
-Let index = 100
+index = 100
 For row = 1 To 10: For col = 1 To 9
-    Let xiabo(row, col) = index + 1
-    Let index = index + 1
+    xiabo(row, col) = index + 1
+    index = index + 1
 Next col: Next row
 
 Dim Shared shobo(9, 9) As Integer
-Let index = 100
+index = 100
 For row = 1 To 9: For col = 1 To 9
-    Let shobo(row, col) = index + 1
-    Let index = index + 1
+    shobo(row, col) = index + 1
+    index = index + 1
 Next col: Next row
 
 Dim Shared drabo(10, 10) As Integer
-Let index = 100
+index = 100
 For row = 1 To 10: For col = 1 To 10
-    Let drabo(row, col) = index + 1
-    Let index = index + 1
-Next col: Let index = index + 1: Next row
+    drabo(row, col) = index + 1
+    index = index + 1
+Next col: index = index + 1: Next row
 
+begin:
+Cls
+Randomize Timer
+Screen 12
 Line (2, 2)-(122, 4), 14, BF: Line -(120, 338), 14, BF: Line -(2, 336), 14, BF: Line -(4, 2), 14, BF
 Line (4, 42)-(120, 44), 14, BF: Paint (20, 20), 8, 14
 Line (128, 2)-(248, 4), 14, BF: Line -(246, 338), 14, BF: Line -(128, 336), 14, BF: Line -(130, 2), 14, BF
@@ -139,70 +146,70 @@ Color 14, 8: Locate 2, 4: Print "1 - Chess": Locate 2, 19: Print "2 - Makruk": L
 Color 12, 0: Locate 23, 52: Print "Press number to select game": Locate 24, 59: Print "or Esc to exit"
 
 Color 11, 0
-Let x = 10: For y = 50 To 300 Step 48
+x = 10: For y = 50 To 300 Step 48
     Call cells
 Next y
-Let x = 10: Let y = 50: Call king
-Let x = 10: Let y = y + 48: Call queen
-Let x = 10: Let y = y + 48: Call bishop
-Let x = 10: Let y = y + 48: Call knight
-Let x = 10: Let y = y + 48: Call rook
-Let x = 10: Let y = y + 48: Call pawn
+x = 10: y = 50: Call king
+x = 10: y = y + 48: Call queen
+x = 10: y = y + 48: Call bishop
+x = 10: y = y + 48: Call knight
+x = 10: y = y + 48: Call rook
+x = 10: y = y + 48: Call pawn
 Locate 5, 9: Print "King": Locate 8, 9: Print "Queen"
 Locate 11, 9: Print "Bishop": Locate 14, 9: Print "Knight"
 Locate 17, 9: Print "Rook": Locate 20, 9: Print "Pawn"
-Let x = 136: For y = 50 To 300 Step 48
+x = 136: For y = 50 To 300 Step 48
     Call cells
 Next y
-Let x = 136: Let y = 50: Call king
-Let x = 136: Let y = y + 48: Call queen
-Let x = 136: Let y = y + 48: Call bishop
-Let x = 136: Let y = y + 48: Call knight
-Let x = 136: Let y = y + 48: Call rook
-Let x = 136: Let y = y + 48: Call checker
+x = 136: y = 50: Call king
+x = 136: y = y + 48: Call queen
+x = 136: y = y + 48: Call bishop
+x = 136: y = y + 48: Call knight
+x = 136: y = y + 48: Call rook
+x = 136: y = y + 48: Call checker
 Locate 5, 25: Print "Lord": Locate 8, 25: Print "Seed"
 Locate 11, 25: Print "Noble": Locate 14, 25: Print "Horse"
 Locate 17, 25: Print "Boat": Locate 20, 25: Print "Shell"
-Let x = 262: For y = 50 To 350 Step 48
+x = 262: For y = 50 To 350 Step 48
     Call cells
 Next y
-Let x = 262: Let y = 50: Call king
-Let x = 262: Let y = y + 48: Call queen
-Let x = 262: Let y = y + 48: Call bishop
-Let x = 262: Let y = y + 48: Call knight
-Let x = 262: Let y = y + 48: Call rook
-Let x = 262: Let y = y + 48: Call cannon
-Let x = 262: Let y = y + 48: Call pawn
+x = 262: y = 50: Call king
+x = 262: y = y + 48: Call queen
+x = 262: y = y + 48: Call bishop
+x = 262: y = y + 48: Call knight
+x = 262: y = y + 48: Call rook
+x = 262: y = y + 48: Call cannon
+x = 262: y = y + 48: Call pawn
 Locate 5, 41: Print "General": Locate 8, 41: Print "Advisor"
 Locate 11, 41: Print "Elephant": Locate 14, 41: Print "Horse"
 Locate 17, 41: Print "Chariot": Locate 20, 41: Print "Cannon"
 Locate 23, 41: Print "Soldier"
-Let x = 408: For y = 50 To 300 Step 48
+x = 408: For y = 50 To 300 Step 48
     Call cells
 Next y
-Let x = 528: For y = 50 To 250 Step 48
+x = 528: For y = 50 To 250 Step 48
     Call cells
 Next y
-Let x = 408: Let y = 50: Call king
-Let x = 408: Let y = y + 48: Call queen
-Let x = 408: Let y = y + 48: Call general
-Let x = 408: Let y = y + 48: Call bishop
-Let x = 408: Let y = y + 48: Call knight
-Let x = 408: Let y = y + 48: Call rook
-Let x = 528: Let y = 50: Call lance
-Let x = 528: Let y = y + 48: Call pawn
-Let x = 528: Let y = y + 48: Call horse
-Let x = 528: Let y = y + 48: Call dragon
-Let x = 528: Let y = y + 48: Call tokin
+x = 408: y = 50: Call king
+x = 408: y = y + 48: Call queen
+x = 408: y = y + 48: Call general
+x = 408: y = y + 48: Call bishop
+x = 408: y = y + 48: Call knight
+x = 408: y = y + 48: Call rook
+x = 528: y = 50: Call lance
+x = 528: y = y + 48: Call pawn
+x = 528: y = y + 48: Call horse
+x = 528: y = y + 48: Call dragon
+x = 528: y = y + 48: Call tokin
 Locate 5, 59: Print "King": Locate 8, 59: Print "Gold"
 Locate 11, 59: Print "Silver": Locate 14, 59: Print "Bishop"
 Locate 17, 59: Print "Knight": Locate 20, 59: Print "Rook"
 Locate 5, 74: Print "Lance": Locate 8, 74: Print "Pawn"
 Locate 11, 74: Print "Horse": Locate 14, 74: Print "Dragon"
 Locate 17, 74: Print "Tokin"
-Let x = 10: Let y = 384
+x = 10: y = 384
 Call cells: Call checker
-Let x = 136: Let y = 384
+x = 136: y = 384
 Call cells: Call dame
 Locate 26, 9: Print "Checker": Locate 26, 25: Print "Dame"
 
@@ -214,30 +221,35 @@ Do
             Call chessboard
             Call dices
             Call chess
+            GoTo begin
         Case Is = Chr$(50)
             Cls
             Call message
             Call makrukboard
             Call dices
             Call makruk
+            GoTo begin
         Case Is = Chr$(51)
             Cls
             Call message
             Call xiangqiboard
             Call dices
             Call xiangqi
+            GoTo begin
         Case Is = Chr$(52)
             Cls
             Call message
             Call shogiboard
             Call dices
             Call shogi
+            GoTo begin
         Case Is = Chr$(53)
             Cls
             Call message
             Call draughtsboard
             Call dices
             Call draughts
+            GoTo begin
         Case Is = Chr$(27)
             Exit Do
     End Select
@@ -325,7 +337,7 @@ Sub dice9
     Line (28 + x, 28 + y)-(36 + x, 36 + y), cd2, BF
 End Sub
 
-Sub dice0
+Sub dice10
     Line (x, y)-(40 + x, 40 + y), cd1, BF
     Line (4 + x, 4 + y)-(12 + x, 12 + y), cd2, BF
     Line (28 + x, 4 + y)-(36 + x, 12 + y), cd2, BF
@@ -337,6 +349,37 @@ Sub dice0
     Line (16 + x, 11 + y)-(24 + x, 19 + y), cd2, BF
     Line (16 + x, 21 + y)-(24 + x, 29 + y), cd2, BF
     Line (16 + x, 31 + y)-(24 + x, 39 + y), cd2, BF
+End Sub
+
+Sub dice11
+    Line (x, y)-(40 + x, 40 + y), cd1, BF
+    Line (4 + x, 1 + y)-(12 + x, 9 + y), cd2, BF
+    Line (4 + x, 11 + y)-(12 + x, 19 + y), cd2, BF
+    Line (4 + x, 21 + y)-(12 + x, 29 + y), cd2, BF
+    Line (4 + x, 31 + y)-(12 + x, 39 + y), cd2, BF
+    Line (16 + x, 4 + y)-(24 + x, 12 + y), cd2, BF
+    Line (16 + x, 16 + y)-(24 + x, 24 + y), cd2, BF
+    Line (16 + x, 28 + y)-(24 + x, 36 + y), cd2, BF
+    Line (28 + x, 1 + y)-(36 + x, 9 + y), cd2, BF
+    Line (28 + x, 11 + y)-(36 + x, 19 + y), cd2, BF
+    Line (28 + x, 21 + y)-(36 + x, 29 + y), cd2, BF
+    Line (28 + x, 31 + y)-(36 + x, 39 + y), cd2, BF
+End Sub
+
+Sub dice12
+    Line (x, y)-(40 + x, 40 + y), cd1, BF
+    Line (4 + x, 1 + y)-(12 + x, 9 + y), cd2, BF
+    Line (4 + x, 11 + y)-(12 + x, 19 + y), cd2, BF
+    Line (4 + x, 21 + y)-(12 + x, 29 + y), cd2, BF
+    Line (4 + x, 31 + y)-(12 + x, 39 + y), cd2, BF
+    Line (16 + x, 1 + y)-(24 + x, 9 + y), cd2, BF
+    Line (16 + x, 11 + y)-(24 + x, 19 + y), cd2, BF
+    Line (16 + x, 21 + y)-(24 + x, 29 + y), cd2, BF
+    Line (16 + x, 31 + y)-(24 + x, 39 + y), cd2, BF
+    Line (28 + x, 1 + y)-(36 + x, 9 + y), cd2, BF
+    Line (28 + x, 11 + y)-(36 + x, 19 + y), cd2, BF
+    Line (28 + x, 21 + y)-(36 + x, 29 + y), cd2, BF
+    Line (28 + x, 31 + y)-(36 + x, 39 + y), cd2, BF
 End Sub
 
 Sub number1
@@ -433,9 +476,9 @@ Sub numberB
 End Sub
 
 Sub numberC
-    Line (1 + x, 1 + y)-(2 + x, 10 + y), cn, BF
-    Line (1 + x, 1 + y)-(10 + x, 2 + y), cn, BF
-    Line (1 + x, 10 + y)-(10 + x, 9 + y), cn, BF
+    Line (1 + x, 2 + y)-(2 + x, 9 + y), cn, BF
+    Line (2 + x, 1 + y)-(10 + x, 2 + y), cn, BF
+    Line (2 + x, 10 + y)-(10 + x, 9 + y), cn, BF
 End Sub
 
 Sub numberD
@@ -448,13 +491,13 @@ End Sub
 Sub numberE
     Line (1 + x, 1 + y)-(2 + x, 10 + y), cn, BF
     Line (1 + x, 10 + y)-(10 + x, 9 + y), cn, BF
-    Line (1 + x, 6 + y)-(10 + x, 5 + y), cn, BF
+    Line (1 + x, 6 + y)-(6 + x, 5 + y), cn, BF
     Line (1 + x, 2 + y)-(10 + x, 1 + y), cn, BF
 End Sub
 
 Sub numberF
     Line (1 + x, 1 + y)-(2 + x, 10 + y), cn, BF
-    Line (1 + x, 6 + y)-(10 + x, 5 + y), cn, BF
+    Line (1 + x, 6 + y)-(6 + x, 5 + y), cn, BF
     Line (1 + x, 2 + y)-(10 + x, 1 + y), cn, BF
 End Sub
 
@@ -648,14 +691,14 @@ End Sub
 
 Sub letterE
     Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
-    Line (4 + x, 18 + y)-(36 + x, 22 + y), cl, BF
+    Line (4 + x, 18 + y)-(22 + x, 22 + y), cl, BF
     Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
     Line (4 + x, 4 + y)-(8 + x, 36 + y), cl, BF
 End Sub
 
 Sub letterF
     Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
-    Line (4 + x, 18 + y)-(36 + x, 22 + y), cl, BF
+    Line (4 + x, 18 + y)-(22 + x, 22 + y), cl, BF
     Line (4 + x, 4 + y)-(8 + x, 36 + y), cl, BF
 End Sub
 
@@ -1125,18 +1168,30 @@ Sub cells
 End Sub
 
 Sub dices
-    Line (20, 160)-(60, 200), cd1, BF
-    Line (20, 220)-(60, 260), cd1, BF
-    Line (20, 280)-(60, 320), cd1, BF
-    Line (580, 160)-(620, 200), cd1, BF
-    Line (580, 220)-(620, 260), cd1, BF
-    Line (580, 280)-(620, 320), cd1, BF
-    Line (19, 159)-(61, 201), cb1, B
-    Line (19, 219)-(61, 261), cb1, B
-    Line (19, 279)-(61, 321), cb1, B
-    Line (579, 159)-(621, 201), cb1, B
-    Line (579, 219)-(621, 261), cb1, B
-    Line (579, 279)-(621, 321), cb1, B
+    Line (20, 60)-(60, 100), cd1, BF
+    Line (20, 120)-(60, 160), cd1, BF
+    Line (20, 180)-(60, 220), cd1, BF
+    Line (20, 260)-(60, 300), cd1, BF
+    Line (20, 320)-(60, 360), cd1, BF
+    Line (20, 380)-(60, 420), cd1, BF
+    Line (580, 60)-(620, 100), cd1, BF
+    Line (580, 120)-(620, 160), cd1, BF
+    Line (580, 180)-(620, 220), cd1, BF
+    Line (580, 260)-(620, 300), cd1, BF
+    Line (580, 320)-(620, 360), cd1, BF
+    Line (580, 380)-(620, 420), cd1, BF
+    Line (19, 59)-(61, 101), cb1, B
+    Line (19, 119)-(61, 161), cb1, B
+    Line (19, 179)-(61, 221), cb1, B
+    Line (19, 259)-(61, 301), cb1, B
+    Line (19, 319)-(61, 361), cb1, B
+    Line (19, 379)-(61, 421), cb1, B
+    Line (579, 59)-(621, 101), cb1, B
+    Line (579, 119)-(621, 161), cb1, B
+    Line (579, 179)-(621, 221), cb1, B
+    Line (579, 259)-(621, 301), cb1, B
+    Line (579, 319)-(621, 361), cb1, B
+    Line (579, 379)-(621, 421), cb1, B
 End Sub
 
 Sub chessboard
@@ -1151,24 +1206,24 @@ Sub chessboard
         Line (x + 1, y + 1)-(x + 39, y + 39), cb3, BF
         Line (x + 41, y + 41)-(x + 79, y + 79), cb3, BF
     Next x: Next y
-    Let y = 405
-    Let x = 175: Call numberA
-    Let x = 215: Call numberB
-    Let x = 255: Call numberC
-    Let x = 295: Call numberD
-    Let x = 335: Call numberE
-    Let x = 375: Call numberF
-    Let x = 415: Call numberG
-    Let x = 455: Call numberH
-    Let x = 145
-    Let y = 95: Call number8
-    Let y = 135: Call number7
-    Let y = 175: Call number6
-    Let y = 215: Call number5
-    Let y = 255: Call number4
-    Let y = 295: Call number3
-    Let y = 335: Call number2
-    Let y = 375: Call number1
+    y = 405
+    x = 175: Call numberA
+    x = 215: Call numberB
+    x = 255: Call numberC
+    x = 295: Call numberD
+    x = 335: Call numberE
+    x = 375: Call numberF
+    x = 415: Call numberG
+    x = 455: Call numberH
+    x = 145
+    y = 95: Call number8
+    y = 135: Call number7
+    y = 175: Call number6
+    y = 215: Call number5
+    y = 255: Call number4
+    y = 295: Call number3
+    y = 335: Call number2
+    y = 375: Call number1
 End Sub
 
 Sub makrukboard
@@ -1179,24 +1234,24 @@ Sub makrukboard
     For y = 80 To 400 Step 40
         Line (160, y)-(480, y), cb1
     Next y
-    Let y = 405
-    Let x = 175: Call numberA
-    Let x = 215: Call numberB
-    Let x = 255: Call numberC
-    Let x = 295: Call numberD
-    Let x = 335: Call numberE
-    Let x = 375: Call numberF
-    Let x = 415: Call numberG
-    Let x = 455: Call numberH
-    Let x = 145
-    Let y = 95: Call number8
-    Let y = 135: Call number7
-    Let y = 175: Call number6
-    Let y = 215: Call number5
-    Let y = 255: Call number4
-    Let y = 295: Call number3
-    Let y = 335: Call number2
-    Let y = 375: Call number1
+    y = 405
+    x = 175: Call numberA
+    x = 215: Call numberB
+    x = 255: Call numberC
+    x = 295: Call numberD
+    x = 335: Call numberE
+    x = 375: Call numberF
+    x = 415: Call numberG
+    x = 455: Call numberH
+    x = 145
+    y = 95: Call number8
+    y = 135: Call number7
+    y = 175: Call number6
+    y = 215: Call number5
+    y = 255: Call number4
+    y = 295: Call number3
+    y = 335: Call number2
+    y = 375: Call number1
 End Sub
 
 Sub xiangqiboard
@@ -1214,27 +1269,27 @@ Sub xiangqiboard
     Line (259, 439)-(261, 319), cb4, BF
     Line (379, 439)-(381, 319), cb4, BF
     Line (141, 238)-(499, 242), cb5, BF
-    Let y = 445
-    Let x = 155: Call numberA
-    Let x = 195: Call numberB
-    Let x = 235: Call numberC
-    Let x = 275: Call numberD
-    Let x = 315: Call numberE
-    Let x = 355: Call numberF
-    Let x = 395: Call numberG
-    Let x = 435: Call numberH
-    Let x = 475: Call numberI
-    Let x = 125
-    Let y = 55: Call number0
-    Let y = 95: Call number9
-    Let y = 135: Call number8
-    Let y = 175: Call number7
-    Let y = 215: Call number6
-    Let y = 255: Call number5
-    Let y = 295: Call number4
-    Let y = 335: Call number3
-    Let y = 375: Call number2
-    Let y = 415: Call number1
+    y = 445
+    x = 155: Call numberA
+    x = 195: Call numberB
+    x = 235: Call numberC
+    x = 275: Call numberD
+    x = 315: Call numberE
+    x = 355: Call numberF
+    x = 395: Call numberG
+    x = 435: Call numberH
+    x = 475: Call numberI
+    x = 125
+    y = 55: Call number0
+    y = 95: Call number9
+    y = 135: Call number8
+    y = 175: Call number7
+    y = 215: Call number6
+    y = 255: Call number5
+    y = 295: Call number4
+    y = 335: Call number3
+    y = 375: Call number2
+    y = 415: Call number1
 End Sub
 
 Sub shogiboard
@@ -1242,29 +1297,29 @@ Sub shogiboard
     For x = 140 To 500 Step 40
         Line (x, 60)-(x, 420), cb1
     Next x
-    For y = 60 To 400 Step 40
+    For y = 60 To 420 Step 40
         Line (140, y)-(500, y), cb1
     Next y
-    Let y = 425
-    Let x = 155: Call numberA
-    Let x = 195: Call numberB
-    Let x = 235: Call numberC
-    Let x = 275: Call numberD
-    Let x = 315: Call numberE
-    Let x = 355: Call numberF
-    Let x = 395: Call numberG
-    Let x = 435: Call numberH
-    Let x = 475: Call numberI
-    Let x = 125
-    Let y = 75: Call number9
-    Let y = 115: Call number8
-    Let y = 155: Call number7
-    Let y = 195: Call number6
-    Let y = 235: Call number5
-    Let y = 275: Call number4
-    Let y = 315: Call number3
-    Let y = 355: Call number2
-    Let y = 395: Call number1
+    y = 425
+    x = 155: Call numberA
+    x = 195: Call numberB
+    x = 235: Call numberC
+    x = 275: Call numberD
+    x = 315: Call numberE
+    x = 355: Call numberF
+    x = 395: Call numberG
+    x = 435: Call numberH
+    x = 475: Call numberI
+    x = 125
+    y = 75: Call number9
+    y = 115: Call number8
+    y = 155: Call number7
+    y = 195: Call number6
+    y = 235: Call number5
+    y = 275: Call number4
+    y = 315: Call number3
+    y = 355: Call number2
+    y = 395: Call number1
 End Sub
 
 Sub draughtsboard
@@ -1279,110 +1334,83 @@ Sub draughtsboard
         Line (x + 1, y + 1)-(x + 39, y + 39), cb3, BF
         Line (x + 41, y + 41)-(x + 79, y + 79), cb3, BF
     Next x: Next y
-    Let y = 445
-    Let x = 135: Call numberA
-    Let x = 175: Call numberB
-    Let x = 215: Call numberC
-    Let x = 255: Call numberD
-    Let x = 295: Call numberE
-    Let x = 335: Call numberF
-    Let x = 375: Call numberG
-    Let x = 415: Call numberH
-    Let x = 455: Call numberI
-    Let x = 495: Call numberJ
-    Let x = 105
-    Let y = 55: Call number0
-    Let y = 95: Call number9
-    Let y = 135: Call number8
-    Let y = 175: Call number7
-    Let y = 215: Call number6
-    Let y = 255: Call number5
-    Let y = 295: Call number4
-    Let y = 335: Call number3
-    Let y = 375: Call number2
-    Let y = 415: Call number1
+    y = 445
+    x = 135: Call numberA
+    x = 175: Call numberB
+    x = 215: Call numberC
+    x = 255: Call numberD
+    x = 295: Call numberE
+    x = 335: Call numberF
+    x = 375: Call numberG
+    x = 415: Call numberH
+    x = 455: Call numberI
+    x = 495: Call numberJ
+    x = 105
+    y = 55: Call number0
+    y = 95: Call number9
+    y = 135: Call number8
+    y = 175: Call number7
+    y = 215: Call number6
+    y = 255: Call number5
+    y = 295: Call number4
+    y = 335: Call number3
+    y = 375: Call number2
+    y = 415: Call number1
 End Sub
 
 Sub chess
-
     Rem 1st roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 8 + 1)
-    Let dc2 = Int(Rnd * 8 + 1)
-    Let dc3 = 1
-    Let dc4 = Int(Rnd * 8 + 1)
-    Let dc5 = Int(Rnd * 8 + 1)
-    Let dc6 = 1
-    Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
+    count = 0: index = 0
+    dc1 = Int(Rnd * 8 + 1)
+    dc2 = Int(Rnd * 8 + 1)
+    dc3 = 1
+    dc4 = Int(Rnd * 8 + 1)
+    dc5 = Int(Rnd * 8 + 1)
+    dc6 = 1
+    w1 = chebo(dc2, dc1): b1 = chebo(dc5, dc4)
 
-    Do
-        Let count = count + 1
-        Let dc1 = Int(Rnd * 8 + 1)
-        Let dc2 = Int(Rnd * 8 + 1)
-        Let dc4 = Int(Rnd * 8 + 1)
-        Let dc5 = Int(Rnd * 8 + 1)
-        Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
-        If count > 8000 Then Exit Do
-    Loop While Abs(w1 - b1) < 10
+    Select Case dc3
+        Case Is = 1
+            Do
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                w1 = chebo(dc2, dc1): b1 = chebo(dc5, dc4)
+                If count > 8000 Then Exit Do
+            Loop While Abs(w1 - b1) < 10
+        Case Is = 2
+            Rem
+        Case Is = 3
+            Rem
+        Case Is = 4
+            Rem
+        Case Is = 5
+            Rem
+        Case Is = 6
+            Rem
+    End Select
+    Select Case dc6
+        Case Is = 1
+            Rem
+        Case Is = 2
+            Rem
+        Case Is = 3
+            Rem
+        Case Is = 4
+            Rem
+        Case Is = 5
+            Rem
+        Case Is = 6
+            Rem
+    End Select
 
-    Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
-    Let fw1x = dc1: Let fw1y = dc2: Let fb1x = dc4: Let fb1y = dc5
-    Let fw1 = dc3: Let fb1 = dc6
+    Call chesscount
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call pawn
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call pawn
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    Let x = (dc1 * 40) + 120: Let y = Abs((dc2 * 40) - 480) - 80
-    Let cf = 15: Call king
-    Let x = (dc4 * 40) + 120: Let y = Abs((dc5 * 40) - 480) - 80
-    Let cf = 0: Call king
+    w1 = chebo(dc2, dc1): b1 = chebo(dc5, dc4)
+    fw1x = dc1: fw1y = dc2: fb1x = dc4: fb1y = dc5
+    fw1 = dc3: fb1 = dc6
 
     Do
         Select Case InKey$
@@ -1398,178 +1426,113 @@ Sub chess
     Call dices
 
     Rem 2nd roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 8 + 1)
-    Let dc2 = Int(Rnd * 8 + 1)
-    Let dc3 = Int(Rnd * 5 + 2)
-    Let dc4 = Int(Rnd * 8 + 1)
-    Let dc5 = Int(Rnd * 8 + 1)
-    Let dc6 = Int(Rnd * 5 + 2)
-    Let w2 = board(dc2, dc1): Let b2 = board(dc5, dc4)
+    count = 0: index = 0
+    dc1 = Int(Rnd * 8 + 1)
+    dc2 = Int(Rnd * 8 + 1)
+    dc3 = Int(Rnd * 5 + 2)
+    dc4 = Int(Rnd * 8 + 1)
+    dc5 = Int(Rnd * 8 + 1)
+    dc6 = Int(Rnd * 5 + 2)
+    w2 = chebo(dc2, dc1): b2 = chebo(dc5, dc4)
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let fw2x = dc1: Let fw2y = dc2
-                Let w2 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                fw2x = dc4: fw2y = dc5
+                w2 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or Abs(w2 - b1) < 9 Or Abs(w2 - b1) = 18 Or Abs(w2 - b1) = 27 Or Abs(w2 - b1) = 36 Or Abs(w2 - b1) = 45 Or Abs(w2 - b1) = 54 Or Abs(w2 - b1) = 63 Or fw2x = fb1x Or fw2y = fb1y
         Case Is = 3
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w2 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w2 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or Abs(w2 - b1) < 9 Or Abs(w2 - b1) = 18 Or Abs(w2 - b1) = 27 Or Abs(w2 - b1) = 36 Or Abs(w2 - b1) = 45 Or Abs(w2 - b1) = 54 Or Abs(w2 - b1) = 63
         Case Is = 4
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w2 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w2 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or Abs(w2 - b1) = 6 Or Abs(w2 - b1) = 10 Or Abs(w2 - b1) = 15 Or Abs(w2 - b1) = 17
         Case Is = 5
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let fw2x = dc1: Let fw2y = dc2
-                Let w2 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                fw2x = dc1: fw2y = dc2
+                w2 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or fw2x = fw1x Or fw2y = fw1y
         Case Is = 6
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w2 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w2 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc2 = 1 Or dc2 = 8
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or dc2 = 1 Or dc2 = 8 Or Abs(w2 - b1) = 7 Or Abs(w2 - b1) = 9
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let fb2x = dc4: Let fb2y = dc5
-                Let b2 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                fb2x = dc4: fb2y = dc5
+                b2 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or Abs(b2 - w1) < 9 Or Abs(b2 - w1) = 18 Or Abs(b2 - w1) = 27 Or Abs(b2 - w1) = 36 Or Abs(b2 - w1) = 45 Or Abs(b2 - w1) = 54 Or Abs(b2 - w1) = 63 Or fb2x = fw1x Or fb2y = fw1y
         Case Is = 3
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b2 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b2 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or Abs(b2 - w1) < 9 Or Abs(b2 - w1) = 18 Or Abs(b2 - w1) = 27 Or Abs(b2 - w1) = 36 Or Abs(b2 - w1) = 45 Or Abs(b2 - w1) = 54 Or Abs(b2 - w1) = 63
         Case Is = 4
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b2 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b2 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or Abs(b2 - w1) = 6 Or Abs(b2 - w1) = 10 Or Abs(b2 - w1) = 15 Or Abs(b2 - w1) = 17
         Case Is = 5
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let fb2x = dc4: Let fb2y = dc5
-                Let b2 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                fb2x = dc4: fb2y = dc5
+                b2 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or fb1x = dc4: fb1y = dc5 Or fb2x = fw1x Or fb2y = fw1y
         Case Is = 6
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b2 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b2 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc5 = 1 Or dc5 = 8
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or dc5 = 1 Or dc5 = 8 Or Abs(b2 - w1) = 7 Or Abs(b2 - w1) = 9
     End Select
 
-    Let w2 = board(dc2, dc1): Let b2 = board(dc5, dc4)
-    Let fw2x = dc1: Let fw2y = dc2: Let fb2x = dc4: Let fb2y = dc5
-    Let fw2 = dc3: Let fb2 = dc6
+    Call chesscount
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call pawn
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call pawn
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    Let x = (dc1 * 40) + 120: Let y = Abs((dc2 * 40) - 480) - 80
-    Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call pawn
-    Let x = (dc4 * 40) + 120: Let y = Abs((dc5 * 40) - 480) - 80
-    Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call pawn
+    w2 = chebo(dc2, dc1): b2 = chebo(dc5, dc4)
+    fw2x = dc1: fw2y = dc2: fb2x = dc4: fb2y = dc5
+    fw2 = dc3: fb2 = dc6
 
     Do
         Select Case InKey$
@@ -1585,178 +1548,113 @@ Sub chess
     Call dices
 
     Rem 3rd roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 8 + 1)
-    Let dc2 = Int(Rnd * 8 + 1)
-    Let dc3 = Int(Rnd * 5 + 2)
-    Let dc4 = Int(Rnd * 8 + 1)
-    Let dc5 = Int(Rnd * 8 + 1)
-    Let dc6 = Int(Rnd * 5 + 2)
-    Let w3 = board(dc2, dc1): Let b3 = board(dc5, dc4)
+    count = 0: index = 0
+    dc1 = Int(Rnd * 8 + 1)
+    dc2 = Int(Rnd * 8 + 1)
+    dc3 = Int(Rnd * 5 + 2)
+    dc4 = Int(Rnd * 8 + 1)
+    dc5 = Int(Rnd * 8 + 1)
+    dc6 = Int(Rnd * 5 + 2)
+    w3 = chebo(dc2, dc1): b3 = chebo(dc5, dc4)
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let fw3x = dc1: Let fw3y = dc2
-                Let w3 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                fw3x = dc1: fw3y = dc2
+                w3 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or Abs(w3 - b1) < 9 Or Abs(w3 - b1) = 18 Or Abs(w3 - b1) = 27 Or Abs(w3 - b1) = 36 Or Abs(w3 - b1) = 45 Or Abs(w3 - b1) = 54 Or Abs(w3 - b1) = 63 Or fw3x = fb1x Or fw3y = fb1y
         Case Is = 3
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w3 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w3 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or Abs(w3 - b1) < 9 Or Abs(w3 - b1) = 18 Or Abs(w3 - b1) = 27 Or Abs(w3 - b1) = 36 Or Abs(w3 - b1) = 45 Or Abs(w3 - b1) = 54 Or Abs(w3 - b1) = 63
         Case Is = 4
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w3 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w3 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or Abs(w3 - b1) = 6 Or Abs(w3 - b1) = 10 Or Abs(w3 - b1) = 15 Or Abs(w3 - b1) = 17
         Case Is = 5
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let fw3x = dc1: Let fw3y = dc2
-                Let w3 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                fw3x = dc1: fw3y = dc2
+                w3 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or fw3x = fb1x Or fw3y = fb1y
         Case Is = 6
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w3 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w3 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc2 = 1 Or dc2 = 8
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or dc2 = 8 Or Abs(w3 - b1) = 7 Or Abs(w3 - b1) = 9
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let fb3x = dc4: Let fb3y = dc5
-                Let b3 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                fb3x = dc1: fb3y = dc2
+                b3 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or Abs(b3 - w1) < 9 Or Abs(b3 - w1) = 18 Or Abs(b3 - w1) = 27 Or Abs(b3 - w1) = 36 Or Abs(b3 - w1) = 45 Or Abs(b3 - w1) = 54 Or Abs(b3 - w1) = 63 Or fb3x = fw1x Or fb3y = fw1y
         Case Is = 3
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b3 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b3 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or Abs(b3 - w1) < 9 Or Abs(b3 - w1) = 18 Or Abs(b3 - w1) = 27 Or Abs(b3 - w1) = 36 Or Abs(b3 - w1) = 45 Or Abs(b3 - w1) = 54 Or Abs(b3 - w1) = 63
         Case Is = 4
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b3 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b3 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or Abs(b3 - w1) = 6 Or Abs(b3 - w1) = 10 Or Abs(b3 - w1) = 15 Or Abs(b3 - w1) = 17
         Case Is = 5
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let fb3x = dc4: Let fb3y = dc5
-                Let b3 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                fb3x = dc1: fb3y = dc2
+                b3 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or fb3x = fw1x Or fb3y = fw1y
         Case Is = 6
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b3 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b3 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc5 = 1 Or dc5 = 8
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or dc5 = 1 Or dc5 = 8 Or Abs(b3 - w1) = 7 Or Abs(b3 - w1) = 9
     End Select
 
-    Let w3 = board(dc2, dc1): Let b3 = board(dc5, dc4)
-    Let fw3x = dc1: Let fw3y = dc2: Let fb3x = dc4: Let fb3y = dc5
-    Let fw3 = dc3: Let fb3 = dc6
+    Call chesscount
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call pawn
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call pawn
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    Let x = (dc1 * 40) + 120: Let y = Abs((dc2 * 40) - 480) - 80
-    Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call pawn
-    Let x = (dc4 * 40) + 120: Let y = Abs((dc5 * 40) - 480) - 80
-    Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call pawn
+    w3 = chebo(dc2, dc1): b3 = chebo(dc5, dc4)
+    fw3x = dc1: fw3y = dc2: fb3x = dc4: fb3y = dc5
+    fw3 = dc3: fb3 = dc6
 
     Do
         Select Case InKey$
@@ -1772,183 +1670,118 @@ Sub chess
     Call dices
 
     Rem 4th roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 8 + 1)
-    Let dc2 = Int(Rnd * 8 + 1)
-    Let dc3 = Int(Rnd * 5 + 2)
-    Let dc4 = Int(Rnd * 8 + 1)
-    Let dc5 = Int(Rnd * 8 + 1)
-    Let dc6 = Int(Rnd * 5 + 2)
-    Let w4 = board(dc2, dc1): Let b4 = board(dc5, dc4)
+    count = 0: index = 0
+    dc1 = Int(Rnd * 8 + 1)
+    dc2 = Int(Rnd * 8 + 1)
+    dc3 = Int(Rnd * 5 + 2)
+    dc4 = Int(Rnd * 8 + 1)
+    dc5 = Int(Rnd * 8 + 1)
+    dc6 = Int(Rnd * 5 + 2)
+    w4 = chebo(dc2, dc1): b4 = chebo(dc5, dc4)
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let fw4x = dc1: Let fw4y = dc2
-                Let w4 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                fw4x = dc1: fw4y = dc2
+                w4 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or Abs(w4 - b1) < 9 Or Abs(w4 - b1) = 18 Or Abs(w4 - b1) = 27 Or Abs(w4 - b1) = 36 Or Abs(w4 - b1) = 45 Or Abs(w4 - b1) = 54 Or Abs(w4 - b1) = 63 Or fw4x = fb1x Or fw4y = fb1y
         Case Is = 3
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w4 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w4 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or Abs(w4 - b1) < 9 Or Abs(w4 - b1) = 18 Or Abs(w4 - b1) = 27 Or Abs(w4 - b1) = 36 Or Abs(w4 - b1) = 45 Or Abs(w4 - b1) = 54 Or Abs(w4 - b1) = 63
         Case Is = 4
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w4 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w4 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or Abs(w4 - b1) = 6 Or Abs(w4 - b1) = 10 Or Abs(w4 - b1) = 15 Or Abs(w4 - b1) = 17
         Case Is = 5
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let fw4x = dc1: Let fw4y = dc2
-                Let w4 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                fw4x = dc1: fw4y = dc2
+                w4 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or fw4x = fb1x Or fw4y = fb1y
         Case Is = 6
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w4 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w4 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or dc2 = 1 Or dc2 = 8
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or dc2 = 1 Or dc2 = 8 Or Abs(w4 - b1) = 7 Or Abs(w4 - b1) = 9
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let fb4x = dc4: Let fb4y = dc5
-                Let b4 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                fb4x = dc4: fb4y = dc5
+                b4 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or Abs(b4 - w1) < 9 Or Abs(b4 - w1) = 18 Or Abs(b4 - w1) = 27 Or Abs(b4 - w1) = 36 Or Abs(b4 - w1) = 45 Or Abs(b4 - w1) = 54 Or Abs(b4 - w1) = 63 Or fb4x = fw1x Or fb4y = fw1y
         Case Is = 3
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b4 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b4 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or Abs(b4 - w1) < 9 Or Abs(b4 - w1) = 18 Or Abs(b4 - w1) = 27 Or Abs(b4 - w1) = 36 Or Abs(b4 - w1) = 45 Or Abs(b4 - w1) = 54 Or Abs(b4 - w1) = 63
         Case Is = 4
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b4 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b4 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or Abs(b4 - w1) = 6 Or Abs(b4 - w1) = 10 Or Abs(b4 - w1) = 15 Or Abs(b4 - w1) = 17
         Case Is = 5
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let fb4x = dc4: Let fb4y = dc5
-                Let b4 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                fb4x = dc4: fb4y = dc5
+                b4 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or fb4x = fw1x Or fb4y = fw1y
         Case Is = 6
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b4 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b4 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or dc5 = 1 Or dc5 = 8
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or dc5 = 1 Or dc5 = 8 Or Abs(b4 - w1) = 7 Or Abs(b4 - w1) = 9
     End Select
 
-    Let w4 = board(dc2, dc1): Let b4 = board(dc5, dc4)
-    Let fw4x = dc1: Let fw4y = dc2: Let fb4x = dc4: Let fb4y = dc5
-    Let fw4 = dc3: Let fb4 = dc6
+    Call chesscount
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call pawn
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call pawn
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    Let x = (dc1 * 40) + 120: Let y = Abs((dc2 * 40) - 480) - 80
-    Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call pawn
-    Let x = (dc4 * 40) + 120: Let y = Abs((dc5 * 40) - 480) - 80
-    Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call pawn
+    w4 = chebo(dc2, dc1): b4 = chebo(dc5, dc4)
+    fw4x = dc1: fw4y = dc2: fb4x = dc4: fb4y = dc5
+    fw4 = dc3: fb4 = dc6
 
     Do
         Select Case InKey$
             Case Is = Chr$(32)
-                Exit Case
+                Rem
             Case Is = Chr$(13)
                 Call chessfen
             Case Is = Chr$(27)
@@ -1958,85 +1791,58 @@ Sub chess
 End Sub
 
 Sub makruk
-
     Rem 1st roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 8 + 1)
-    Let dc2 = Int(Rnd * 8 + 1)
-    Let dc3 = 1
-    Let dc4 = Int(Rnd * 8 + 1)
-    Let dc5 = Int(Rnd * 8 + 1)
-    Let dc6 = 1
-    Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
+    count = 0: index = 0
+    dc1 = Int(Rnd * 8 + 1)
+    dc2 = Int(Rnd * 8 + 1)
+    dc3 = 1
+    dc4 = Int(Rnd * 8 + 1)
+    dc5 = Int(Rnd * 8 + 1)
+    dc6 = 1
+    w1 = chebo(dc2, dc1): b1 = chebo(dc5, dc4)
 
-    Do
-        Let count = count + 1
-        Let dc1 = Int(Rnd * 8 + 1)
-        Let dc2 = Int(Rnd * 8 + 1)
-        Let dc4 = Int(Rnd * 8 + 1)
-        Let dc5 = Int(Rnd * 8 + 1)
-        Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
-        If count > 8000 Then Exit Do
-    Loop While Abs(w1 - b1) < 10
+    Select Case dc3
+        Case Is = 1
+            Do
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                w1 = chebo(dc2, dc1): b1 = chebo(dc5, dc4)
+                If count > 8000 Then Exit Do
+            Loop While Abs(w1 - b1) < 10
+        Case Is = 2
+            Rem
+        Case Is = 3
+            Rem
+        Case Is = 4
+            Rem
+        Case Is = 5
+            Rem
+        Case Is = 6
+            Rem
+    End Select
+    Select Case dc6
+        Case Is = 1
+            Rem
+        Case Is = 2
+            Rem
+        Case Is = 3
+            Rem
+        Case Is = 4
+            Rem
+        Case Is = 5
+            Rem
+        Case Is = 6
+            Rem
+    End Select
 
-    Let w1 = board(dc2, dc1): Let b1 = board(dc5, dc4)
-    Let fw1x = dc1: Let fw1y = dc2: Let fb1x = dc4: Let fb1y = dc5
-    Let fw1 = dc3: Let fb1 = dc6
+    Call makrukcount
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call checker
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call checker
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    Let x = (dc1 * 40) + 120: Let y = Abs((dc2 * 40) - 480) - 80
-    Let cf = 15: Call king
-    Let x = (dc4 * 40) + 120: Let y = Abs((dc5 * 40) - 480) - 80
-    Let cf = 0: Call king
+    w1 = chebo(dc2, dc1): b1 = chebo(dc5, dc4)
+    fw1x = dc1: fw1y = dc2: fb1x = dc4: fb1y = dc5
+    fw1 = dc3: fb1 = dc6
 
     Do
         Select Case InKey$
@@ -2052,182 +1858,111 @@ Sub makruk
     Call dices
 
     Rem 2nd roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 8 + 1)
-    Let dc2 = Int(Rnd * 8 + 1)
-    Let dc3 = Int(Rnd * 5 + 2)
-    Let dc4 = Int(Rnd * 8 + 1)
-    Let dc5 = Int(Rnd * 8 + 1)
-    Let dc6 = Int(Rnd * 5 + 2)
-    Let w2 = board(dc2, dc1): Let b2 = board(dc5, dc4)
+    count = 0: index = 0
+    dc1 = Int(Rnd * 8 + 1)
+    dc2 = Int(Rnd * 8 + 1)
+    dc3 = Int(Rnd * 5 + 2)
+    dc4 = Int(Rnd * 8 + 1)
+    dc5 = Int(Rnd * 8 + 1)
+    dc6 = Int(Rnd * 5 + 2)
+    w2 = chebo(dc2, dc1): b2 = chebo(dc5, dc4)
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w2 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w2 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or Abs(w2 - b1) < 10
         Case Is = 3
-            Let indexw3 = 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w2 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w2 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or Abs(w2 - b1) < 10
         Case Is = 4
-            Let indexw4 = 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w2 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w2 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or Abs(w2 - b1) = 6 Or Abs(w2 - b1) = 10 Or Abs(w2 - b1) = 15 Or Abs(w2 - b1) = 17
         Case Is = 5
-            Let indexw5 = 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let fw2x = dc1: Let fw2y = dc2
-                Let w2 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                fw2x = dc1: fw2y = dc2
+                w2 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or fw2x = fb1x Or fw2y = fb1y
         Case Is = 6
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w2 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w2 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc2 < 3 Or dc2 > 5
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or dc2 < 3 Or dc2 > 5 Or Abs(w2 - b1) = 7 Or Abs(w2 - b1) = 9
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b2 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b2 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or Abs(b2 - w1) < 10
         Case Is = 3
-            Let indexb3 = 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b2 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b2 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or Abs(b2 - w1) < 10
         Case Is = 4
-            Let indexb4 = 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b2 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b2 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or Abs(b2 - w1) = 6 Or Abs(b2 - w1) = 10 Or Abs(b2 - w1) = 15 Or Abs(b2 - w1) = 17
         Case Is = 5
-            Let indexb5 = 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let fb2x = dc4: Let fb2y = dc5
-                Let b2 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                fb2x = dc4: fb2y = dc5
+                b2 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or fb2x = fw1x Or fb2y = fw1y
         Case Is = 6
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b2 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b2 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc5 < 4 Or dc5 > 6
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or dc5 < 4 Or dc5 > 6 Or Abs(b2 - w1) = 7 Or Abs(b2 - w1) = 9
     End Select
 
-    Let w2 = board(dc2, dc1): Let b2 = board(dc5, dc4)
-    Let fw2x = dc1: Let fw2y = dc2: Let fb2x = dc4: Let fb2y = dc5
-    Let fw2 = dc3: Let fb2 = dc6
+    Call makrukcount
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call checker
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call checker
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    Let x = (dc1 * 40) + 120: Let y = Abs((dc2 * 40) - 480) - 80
-    Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call checker
-    Let x = (dc4 * 40) + 120: Let y = Abs((dc5 * 40) - 480) - 80
-    Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call checker
+    w2 = chebo(dc2, dc1): b2 = chebo(dc5, dc4)
+    fw2x = dc1: fw2y = dc2: fb2x = dc4: fb2y = dc5
+    fw2 = dc3: fb2 = dc6
 
     Do
         Select Case InKey$
@@ -2243,182 +1978,111 @@ Sub makruk
     Call dices
 
     Rem 3rd roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 8 + 1)
-    Let dc2 = Int(Rnd * 8 + 1)
-    Let dc3 = Int(Rnd * 5 + 2)
-    Let dc4 = Int(Rnd * 8 + 1)
-    Let dc5 = Int(Rnd * 8 + 1)
-    Let dc6 = Int(Rnd * 5 + 2)
-    Let w3 = board(dc2, dc1): Let b3 = board(dc5, dc4)
+    count = 0: index = 0
+    dc1 = Int(Rnd * 8 + 1)
+    dc2 = Int(Rnd * 8 + 1)
+    dc3 = Int(Rnd * 5 + 2)
+    dc4 = Int(Rnd * 8 + 1)
+    dc5 = Int(Rnd * 8 + 1)
+    dc6 = Int(Rnd * 5 + 2)
+    w3 = chebo(dc2, dc1): b3 = chebo(dc5, dc4)
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w3 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w3 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or Abs(w3 - b1) < 10
         Case Is = 3
-            Let indexw3 = indexw3 + 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w3 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w3 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or Abs(w3 - b1) < 10
         Case Is = 4
-            Let indexw4 = indexw4 + 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w3 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w3 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or Abs(w3 - b1) = 6 Or Abs(w3 - b1) = 10 Or Abs(w3 - b1) = 15 Or Abs(w3 - b1) = 17
         Case Is = 5
-            Let indexw5 = indexw5 + 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let fw3x = dc1: Let fw3y = dc2
-                Let w3 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                fw3x = dc1: fw3y = dc2
+                w3 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or fw3x = fb1x Or fw3y = fb1y
         Case Is = 6
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w3 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w3 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc2 < 3 Or dc2 > 5
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or dc2 < 3 Or dc2 > 5 Or Abs(w3 - b1) = 7 Or Abs(w3 - b1) = 9
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b3 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b3 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or Abs(b3 - w1) < 10
         Case Is = 3
-            Let indexb3 = indexb3 + 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b3 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b3 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or Abs(b3 - w1) < 10
         Case Is = 4
-            Let indexb4 = indexb4 + 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b3 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b3 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or Abs(b3 - w1) = 6 Or Abs(b3 - w1) = 10 Or Abs(b3 - w1) = 15 Or Abs(b3 - w1) = 17
         Case Is = 5
-            Let indexb5 = indexb5 + 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let fb3x = dc4: Let fb3y = dc5
-                Let b3 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                fb3x = dc4: fb3y = dc5
+                b3 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or fb3x = fw1x Or fb3y = fw1y
         Case Is = 6
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b3 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b3 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc5 < 4 Or dc5 > 6
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or dc5 < 4 Or dc5 > 6 Or Abs(b3 - w1) = 7 Or Abs(b3 - w1) = 9
     End Select
 
-    Let w3 = board(dc2, dc1): Let b3 = board(dc5, dc4)
-    Let fw3x = dc1: Let fw3y = dc2: Let fb3x = dc4: Let fb3y = dc5
-    Let fw3 = dc3: Let fb3 = dc6
+    Call makrukcount
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call checker
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call checker
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    Let x = (dc1 * 40) + 120: Let y = Abs((dc2 * 40) - 480) - 80
-    Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call checker
-    Let x = (dc4 * 40) + 120: Let y = Abs((dc5 * 40) - 480) - 80
-    Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call checker
+    w3 = chebo(dc2, dc1): b3 = chebo(dc5, dc4)
+    fw3x = dc1: fw3y = dc2: fb3x = dc4: fb3y = dc5
+    fw3 = dc3: fb3 = dc6
 
     Do
         Select Case InKey$
@@ -2434,280 +2098,183 @@ Sub makruk
     Call dices
 
     Rem 4th roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 8 + 1)
-    Let dc2 = Int(Rnd * 8 + 1)
-    Let dc3 = Int(Rnd * 5 + 2)
-    Let dc4 = Int(Rnd * 8 + 1)
-    Let dc5 = Int(Rnd * 8 + 1)
-    Let dc6 = Int(Rnd * 5 + 2)
-    Let w4 = board(dc2, dc1): Let b4 = board(dc5, dc4)
-    If indexw3 > 2 Or indexw4 > 2 Or indexw5 > 2 Then Let dc3 = 6
-    If indexb3 > 2 Or indexb4 > 2 Or indexb5 > 2 Then Let dc6 = 6
+    count = 0: index = 0
+    dc1 = Int(Rnd * 8 + 1)
+    dc2 = Int(Rnd * 8 + 1)
+    dc3 = Int(Rnd * 5 + 2)
+    dc4 = Int(Rnd * 8 + 1)
+    dc5 = Int(Rnd * 8 + 1)
+    dc6 = Int(Rnd * 5 + 2)
+    w4 = chebo(dc2, dc1): b4 = chebo(dc5, dc4)
+    If indexw3 > 2 Or indexw4 > 2 Or indexw5 > 2 Then dc3 = 6
+    If indexb3 > 2 Or indexb4 > 2 Or indexb5 > 2 Then dc6 = 6
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w4 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w4 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or Abs(w4 - b1) < 10
         Case Is = 3
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w4 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w4 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or Abs(w4 - b1) < 10
         Case Is = 4
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w4 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w4 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or Abs(w4 - b1) = 6 Or Abs(w4 - b1) = 10 Or Abs(w4 - b1) = 15 Or Abs(w4 - b1) = 17
         Case Is = 5
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let fw4x = dc1: Let fw4y = dc2
-                Let w4 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                fw4x = dc1: fw4y = dc2
+                w4 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or fw4x = fb1x Or fw4y = fb1y
         Case Is = 6
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 8 + 1)
-                Let dc2 = Int(Rnd * 8 + 1)
-                Let w4 = board(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 8 + 1)
+                dc2 = Int(Rnd * 8 + 1)
+                w4 = chebo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or dc2 < 3 Or dc2 > 5
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or dc2 < 3 Or dc2 > 5 Or Abs(w4 - b1) = 7 Or Abs(w4 - b1) = 9
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b4 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b4 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or Abs(b4 - w1) < 10
         Case Is = 3
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b4 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b4 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or Abs(b4 - w1) < 10
         Case Is = 4
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b4 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b4 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or Abs(b4 - w1) = 6 Or Abs(b4 - w1) = 10 Or Abs(b4 - w1) = 15 Or Abs(b4 - w1) = 17
         Case Is = 5
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let fb4x = dc4: Let fb4y = dc5
-                Let b4 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                fb4x = dc4: fb4y = dc5
+                b4 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or fb4x = fw1x Or fb4y = fw1y
         Case Is = 6
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 8 + 1)
-                Let dc5 = Int(Rnd * 8 + 1)
-                Let b4 = board(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 8 + 1)
+                dc5 = Int(Rnd * 8 + 1)
+                b4 = chebo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or dc5 <= 4 Or dc5 >= 6
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or dc5 < 4 Or dc5 > 6 Or Abs(b4 - w1) = 7 Or Abs(b4 - w1) = 9
     End Select
 
-    Let w4 = board(dc2, dc1): Let b4 = board(dc5, dc4)
-    Let fw4x = dc1: Let fw4y = dc2: Let fb4x = dc4: Let fb4y = dc5
-    Let fw4 = dc3: Let fb4 = dc6
+    Call makrukcount
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call checker
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call checker
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    Let x = (dc1 * 40) + 120: Let y = Abs((dc2 * 40) - 480) - 80
-    Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call checker
-    Let x = (dc4 * 40) + 120: Let y = Abs((dc5 * 40) - 480) - 80
-    Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call checker
+    w4 = chebo(dc2, dc1): b4 = chebo(dc5, dc4)
+    fw4x = dc1: fw4y = dc2: fb4x = dc4: fb4y = dc5
+    fw4 = dc3: fb4 = dc6
 
     Do
         Select Case InKey$
             Case Is = Chr$(32)
-                Exit Case
+                Rem
             Case Is = Chr$(13)
                 Call makrukfen
             Case Is = Chr$(27)
                 End
         End Select
     Loop
-
 End Sub
 
 Sub xiangqi
-
     Rem 1st roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 3 + 4)
-    Let dc2 = Int(Rnd * 3 + 1)
-    Let dc3 = 1
-    Let dc4 = Int(Rnd * 3 + 4)
-    Let dc5 = Int(Rnd * 3 + 8)
-    Let dc6 = 1
-    Let w1 = xiabo(dc2, dc1): Let b1 = xiabo(dc5, dc4)
+    count = 0: index = 0
+    dc1 = Int(Rnd * 3 + 4)
+    dc2 = Int(Rnd * 3 + 1)
+    dc3 = 1
+    dc4 = Int(Rnd * 3 + 4)
+    dc5 = Int(Rnd * 3 + 8)
+    dc6 = 1
+    w1 = xiabo(dc2, dc1): b1 = xiabo(dc5, dc4)
 
-    Do
-        Let count = count + 1
-        Let dc1 = Int(Rnd * 3 + 4)
-        Let dc2 = Int(Rnd * 3 + 1)
-        Let dc4 = Int(Rnd * 3 + 4)
-        Let dc5 = Int(Rnd * 3 + 8)
-        Let w1 = xiabo(dc2, dc1): Let b1 = xiabo(dc5, dc4)
-        If count > 8000 Then Exit Do
-    Loop While w1 = b1
+    Select Case dc3
+        Case Is = 1
+            Do
+                count = count + 1
+                dc1 = Int(Rnd * 3 + 4)
+                dc2 = Int(Rnd * 3 + 1)
+                dc4 = Int(Rnd * 3 + 4)
+                dc5 = Int(Rnd * 3 + 8)
+                w1 = xiabo(dc2, dc1): b1 = xiabo(dc5, dc4)
+                If count > 8000 Then Exit Do
+            Loop While w1 = b1
+        Case Is = 2
+            Rem
+        Case Is = 3
+            Rem
+        Case Is = 4
+            Rem
+        Case Is = 5
+            Rem
+        Case Is = 6
+            Rem
+        Case Is = 7
+            Rem
+    End Select
+    Select Case dc6
+        Case Is = 1
+            Rem
+        Case Is = 2
+            Rem
+        Case Is = 3
+            Rem
+        Case Is = 4
+            Rem
+        Case Is = 5
+            Rem
+        Case Is = 6
+            Rem
+        Case Is = 7
+            Rem
+    End Select
 
-    Let w1 = xiabo(dc2, dc1): Let b1 = xiabo(dc5, dc4)
-    Let fw1x = dc1: Let fw1y = dc2: Let fb1x = dc4: Let fb1y = dc5
-    Let fw1 = dc3: Let fb1 = dc6
+    Call xiangqicount
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call cannon
-    If dc3 = 7 Then Call pawn
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call cannon
-    If dc6 = 7 Then Call pawn
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    If dc1 = 9 Then Call letterI
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    If dc2 = 9 Then Call letter9
-    If dc2 = 10 Then Call letter0
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    If dc4 = 9 Then Call letterI
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    If dc5 = 9 Then Call letter9
-    If dc5 = 10 Then Call letter0
-    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 40
-    Let cf = 15: Call king
-    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 40
-    Let cf = 0: Call king
+    w1 = xiabo(dc2, dc1): b1 = xiabo(dc5, dc4)
+    fw1x = dc1: fw1y = dc2: fb1x = dc4: fb1y = dc5
+    fw1 = dc3: fb1 = dc6
 
     Do
         Select Case InKey$
@@ -2723,314 +2290,229 @@ Sub xiangqi
     Call dices
 
     Rem 2nd roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 9 + 1)
-    Let dc2 = Int(Rnd * 10 + 1)
-    Let dc3 = Int(Rnd * 6 + 2)
-    Let dc4 = Int(Rnd * 9 + 1)
-    Let dc5 = Int(Rnd * 10 + 1)
-    Let dc6 = Int(Rnd * 6 + 2)
-    Let w2 = xiabo(dc2, dc1): Let b2 = xiabo(dc5, dc4)
+    count = 0: index = 0
+    dc1 = Int(Rnd * 9 + 1)
+    dc2 = Int(Rnd * 10 + 1)
+    dc3 = Int(Rnd * 6 + 2)
+    dc4 = Int(Rnd * 9 + 1)
+    dc5 = Int(Rnd * 10 + 1)
+    dc6 = Int(Rnd * 6 + 2)
+    w2 = xiabo(dc2, dc1): b2 = xiabo(dc5, dc4)
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
-            Let indexw2 = 1
-            Let dc1 = Int(Rnd * 3 + 4)
-            Let dc2 = Int(Rnd * 3 + 1)
+            dc1 = Int(Rnd * 3 + 4)
+            dc2 = Int(Rnd * 3 + 1)
             Do
-                Let count = count + 1
-                Let index = Int(Rnd * 5 + 1)
+                count = count + 1
+                index = Int(Rnd * 5 + 1)
                 If index = 1 Then
-                    Let dc1 = 4
-                    Let dc2 = 1
+                    dc1 = 4
+                    dc2 = 1
                 End If
                 If index = 2 Then
-                    Let dc1 = 6
-                    Let dc2 = 1
+                    dc1 = 6
+                    dc2 = 1
                 End If
                 If index = 3 Then
-                    Let dc1 = 5
-                    Let dc2 = 2
+                    dc1 = 5
+                    dc2 = 2
                 End If
                 If index = 4 Then
-                    Let dc1 = 4
-                    Let dc2 = 3
+                    dc1 = 4
+                    dc2 = 3
                 End If
                 If index = 5 Then
-                    Let dc1 = 6
-                    Let dc2 = 3
+                    dc1 = 6
+                    dc2 = 3
                 End If
-                Let w2 = xiabo(dc2, dc1)
+                w2 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or w2 Mod 2 <> 0
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or w2 Mod 2 <> 0
         Case Is = 3
-            Let indexw3 = 1
-            Let dc1 = Int(Rnd * 9 + 1)
-            Let dc2 = Int(Rnd * 5 + 1)
+            dc1 = Int(Rnd * 9 + 1)
+            dc2 = Int(Rnd * 5 + 1)
             Do
-                Let count = count + 1
-                Let index = Int(Rnd * 7 + 1)
+                count = count + 1
+                index = Int(Rnd * 7 + 1)
                 If index = 1 Then
-                    Let dc1 = 3
-                    Let dc2 = 1
+                    dc1 = 3
+                    dc2 = 1
                 End If
                 If index = 2 Then
-                    Let dc1 = 7
-                    Let dc2 = 1
+                    dc1 = 7
+                    dc2 = 1
                 End If
                 If index = 3 Then
-                    Let dc1 = 1
-                    Let dc2 = 3
+                    dc1 = 1
+                    dc2 = 3
                 End If
                 If index = 4 Then
-                    Let dc1 = 5
-                    Let dc2 = 3
+                    dc1 = 5
+                    dc2 = 3
                 End If
                 If index = 5 Then
-                    Let dc1 = 9
-                    Let dc2 = 3
+                    dc1 = 9
+                    dc2 = 3
                 End If
                 If index = 6 Then
-                    Let dc1 = 3
-                    Let dc2 = 5
+                    dc1 = 3
+                    dc2 = 5
                 End If
                 If index = 7 Then
-                    Let dc1 = 7
-                    Let dc2 = 5
+                    dc1 = 7
+                    dc2 = 5
                 End If
-                Let w2 = xiabo(dc2, dc1)
+                w2 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2
         Case Is = 4
-            Let indexw4 = 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 10 + 1)
-                Let w2 = xiabo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 10 + 1)
+                w2 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or Abs(w2 - b1) = 7 Or Abs(w2 - b1) = 11 Or Abs(w2 - b1) = 17 Or Abs(w2 - b1) = 19
         Case Is = 5
-            Let indexw5 = 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 10 + 1)
-                Let fw2x = dc1: Let fw2y = dc2
-                Let w2 = xiabo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 10 + 1)
+                fw2x = dc1: fw2y = dc2
+                w2 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or fw2x = fb1x Or fw2y = fb1y
         Case Is = 6
-            Let indexw6 = 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 10 + 1)
-                Let fw2x = dc1: Let fw2y = dc2
-                Let w2 = xiabo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 10 + 1)
+                fw2x = dc1: fw2y = dc2
+                w2 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or fw2x = fb1x Or fw2y = fb1y
         Case Is = 7
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 10 + 1)
-                Let w2 = xiabo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 10 + 1)
+                w2 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc2 < 4 Or dc2 > 7
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or dc1 < 3 Or dc2 > 8 Or Abs(w2 - b1) < 11
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
-            Let indexb2 = 1
-            Let dc4 = Int(Rnd * 3 + 4)
-            Let dc5 = Int(Rnd * 3 + 8)
+            dc4 = Int(Rnd * 3 + 4)
+            dc5 = Int(Rnd * 3 + 8)
             Do
-                Let count = count + 1
-                Let index = Int(Rnd * 5 + 1)
+                count = count + 1
+                index = Int(Rnd * 5 + 1)
                 If index = 1 Then
-                    Let dc4 = 4
-                    Let dc5 = 10
+                    dc4 = 4
+                    dc5 = 10
                 End If
                 If index = 2 Then
-                    Let dc4 = 6
-                    Let dc5 = 10
+                    dc4 = 6
+                    dc5 = 10
                 End If
                 If index = 3 Then
-                    Let dc4 = 5
-                    Let dc5 = 9
+                    dc4 = 5
+                    dc5 = 9
                 End If
                 If index = 4 Then
-                    Let dc4 = 4
-                    Let dc5 = 8
+                    dc4 = 4
+                    dc5 = 8
                 End If
                 If index = 5 Then
-                    Let dc4 = 6
-                    Let dc5 = 8
+                    dc4 = 6
+                    dc5 = 8
                 End If
-                Let b2 = xiabo(dc5, dc4)
+                b2 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or b2 Mod 2 = 0
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or b2 Mod 2 = 0
         Case Is = 3
-            Let indexb3 = 1
-            Let dc4 = Int(Rnd * 9 + 1)
-            Let dc5 = Int(Rnd * 5 + 6)
+            dc4 = Int(Rnd * 9 + 1)
+            dc5 = Int(Rnd * 5 + 6)
             Do
-                Let count = count + 1
-                Let index = Int(Rnd * 7 + 1)
+                count = count + 1
+                index = Int(Rnd * 7 + 1)
                 If index = 1 Then
-                    Let dc4 = 3
-                    Let dc5 = 10
+                    dc4 = 3
+                    dc5 = 10
                 End If
                 If index = 2 Then
-                    Let dc4 = 7
-                    Let dc5 = 10
+                    dc4 = 7
+                    dc5 = 10
                 End If
                 If index = 3 Then
-                    Let dc4 = 1
-                    Let dc5 = 8
+                    dc4 = 1
+                    dc5 = 8
                 End If
                 If index = 4 Then
-                    Let dc4 = 5
-                    Let dc5 = 8
+                    dc4 = 5
+                    dc5 = 8
                 End If
                 If index = 5 Then
-                    Let dc4 = 9
-                    Let dc5 = 8
+                    dc4 = 9
+                    dc5 = 8
                 End If
                 If index = 6 Then
-                    Let dc4 = 3
-                    Let dc5 = 6
+                    dc4 = 3
+                    dc5 = 6
                 End If
                 If index = 7 Then
-                    Let dc4 = 7
-                    Let dc5 = 6
+                    dc4 = 7
+                    dc5 = 6
                 End If
-                Let b2 = xiabo(dc5, dc4)
+                b2 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or b2
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2
         Case Is = 4
-            Let indexb4 = 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 10 + 1)
-                Let b2 = xiabo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 10 + 1)
+                b2 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or Abs(b2 - w1) = 7 Or Abs(b2 - w1) = 11 Or Abs(b2 - w1) = 17 Or Abs(b2 - w1) = 19
         Case Is = 5
-            Let indexb5 = 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 10 + 1)
-                Let fb2x = dc4: Let fb2y = dc5
-                Let b2 = xiabo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 10 + 1)
+                fb2x = dc4: fb2y = dc5
+                b2 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or fb2x = fw1x Or fb2y = fw1y
         Case Is = 6
-            Let indexb6 = 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 10 + 1)
-                Let fb2x = dc4: Let fb2y = dc5
-                Let b2 = xiabo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 10 + 1)
+                fb4x = dc4: fb4y = dc5
+                b2 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or fb2x = fw1x Or fb2y = fw1y
         Case Is = 7
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 10 + 1)
-                Let b2 = xiabo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 10 + 1)
+                b2 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc5 < 3 Or dc5 > 8
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or dc5 < 3 Or dc5 > 8 Or Abs(b2 - w1) < 11
     End Select
 
-    Let w2 = xiabo(dc2, dc1): Let b2 = xiabo(dc5, dc4)
-    Let fw2x = dc1: Let fw2y = dc2: Let fb2x = dc4: Let fb2y = dc5
-    Let fw2 = dc3: Let fb2 = dc6
+    Call xiangqicount
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call cannon
-    If dc3 = 7 Then Call pawn
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call cannon
-    If dc6 = 7 Then Call pawn
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    If dc1 = 9 Then Call letterI
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    If dc2 = 9 Then Call letter9
-    If dc2 = 10 Then Call letter0
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    If dc4 = 9 Then Call letterI
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    If dc5 = 9 Then Call letter9
-    If dc5 = 10 Then Call letter0
-    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 40
-    Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call cannon
-    If dc3 = 7 Then Call pawn
-    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 40
-    Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call cannon
-    If dc6 = 7 Then Call pawn
+    w2 = xiabo(dc2, dc1): b2 = xiabo(dc5, dc4)
+    fw2x = dc1: fw2y = dc2: fb2x = dc4: fb2y = dc5
+    fw2 = dc3: fb2 = dc6
 
     Do
         Select Case InKey$
@@ -3046,314 +2528,229 @@ Sub xiangqi
     Call dices
 
     Rem 3rd roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 9 + 1)
-    Let dc2 = Int(Rnd * 10 + 1)
-    Let dc3 = Int(Rnd * 6 + 2)
-    Let dc4 = Int(Rnd * 9 + 1)
-    Let dc5 = Int(Rnd * 10 + 1)
-    Let dc6 = Int(Rnd * 6 + 2)
-    Let w3 = xiabo(dc2, dc1): Let b3 = xiabo(dc5, dc4)
+    count = 0: index = 0
+    dc1 = Int(Rnd * 9 + 1)
+    dc2 = Int(Rnd * 10 + 1)
+    dc3 = Int(Rnd * 6 + 2)
+    dc4 = Int(Rnd * 9 + 1)
+    dc5 = Int(Rnd * 10 + 1)
+    dc6 = Int(Rnd * 6 + 2)
+    w3 = xiabo(dc2, dc1): b3 = xiabo(dc5, dc4)
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
-            Let indexw2 = indexw2 + 1
-            Let dc1 = Int(Rnd * 3 + 4)
-            Let dc2 = Int(Rnd * 3 + 1)
+            dc1 = Int(Rnd * 3 + 4)
+            dc2 = Int(Rnd * 3 + 1)
             Do
-                Let count = count + 1
-                Let index = Int(Rnd * 5 + 1)
+                count = count + 1
+                index = Int(Rnd * 5 + 1)
                 If index = 1 Then
-                    Let dc1 = 4
-                    Let dc2 = 1
+                    dc1 = 4
+                    dc2 = 1
                 End If
                 If index = 2 Then
-                    Let dc1 = 6
-                    Let dc2 = 1
+                    dc1 = 6
+                    dc2 = 1
                 End If
                 If index = 3 Then
-                    Let dc1 = 5
-                    Let dc2 = 2
+                    dc1 = 5
+                    dc2 = 2
                 End If
                 If index = 4 Then
-                    Let dc1 = 4
-                    Let dc2 = 3
+                    dc1 = 4
+                    dc2 = 3
                 End If
                 If index = 5 Then
-                    Let dc1 = 6
-                    Let dc2 = 3
+                    dc1 = 6
+                    dc2 = 3
                 End If
-                Let w3 = xiabo(dc2, dc1)
+                w3 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or w3 Mod 2 <> 0
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or w3 Mod 2 <> 0
         Case Is = 3
-            Let indexw3 = indexw3 + 1
-            Let dc1 = Int(Rnd * 9 + 1)
-            Let dc2 = Int(Rnd * 5 + 1)
+            dc1 = Int(Rnd * 9 + 1)
+            dc2 = Int(Rnd * 5 + 1)
             Do
-                Let count = count + 1
-                Let index = Int(Rnd * 7 + 1)
+                count = count + 1
+                index = Int(Rnd * 7 + 1)
                 If index = 1 Then
-                    Let dc1 = 3
-                    Let dc2 = 1
+                    dc1 = 3
+                    dc2 = 1
                 End If
                 If index = 2 Then
-                    Let dc1 = 7
-                    Let dc2 = 1
+                    dc1 = 7
+                    dc2 = 1
                 End If
                 If index = 3 Then
-                    Let dc1 = 1
-                    Let dc2 = 3
+                    dc1 = 1
+                    dc2 = 3
                 End If
                 If index = 4 Then
-                    Let dc1 = 5
-                    Let dc2 = 3
+                    dc1 = 5
+                    dc2 = 3
                 End If
                 If index = 5 Then
-                    Let dc1 = 9
-                    Let dc2 = 3
+                    dc1 = 9
+                    dc2 = 3
                 End If
                 If index = 6 Then
-                    Let dc1 = 3
-                    Let dc2 = 5
+                    dc1 = 3
+                    dc2 = 5
                 End If
                 If index = 7 Then
-                    Let dc1 = 7
-                    Let dc2 = 5
+                    dc1 = 7
+                    dc2 = 5
                 End If
-                Let w3 = xiabo(dc2, dc1)
+                w3 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3
         Case Is = 4
-            Let indexw4 = indexw4 + 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 10 + 1)
-                Let w3 = xiabo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 10 + 1)
+                w3 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or Abs(w3 - b1) = 7 Or Abs(w3 - b1) = 11 Or Abs(w3 - b1) = 17 Or Abs(w3 - b1) = 19
         Case Is = 5
-            Let indexw5 = indexw5 + 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 10 + 1)
-                Let fw3x = dc1: Let fw3y = dc2
-                Let w3 = xiabo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 10 + 1)
+                fw3x = dc1: fw3y = dc2
+                w3 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or fw3x = fb1x Or fw3y = fb1y
         Case Is = 6
-            Let indexw6 = indexw6 + 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 10 + 1)
-                Let fw3x = dc1: Let fw3y = dc2
-                Let w3 = xiabo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 10 + 1)
+                fw3x = dc1: fw3y = dc2
+                w3 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or fw3x = fb1x Or fw3y = fb1y
         Case Is = 7
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 10 + 1)
-                Let w3 = xiabo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 10 + 1)
+                w3 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc2 < 4 Or dc2 > 7
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or dc1 < 3 Or dc2 > 8 Or Abs(w3 - b1) < 11
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
-            Let indexb2 = indexb2 + 1
-            Let dc4 = Int(Rnd * 3 + 4)
-            Let dc5 = Int(Rnd * 3 + 8)
+            dc4 = Int(Rnd * 3 + 4)
+            dc5 = Int(Rnd * 3 + 8)
             Do
-                Let count = count + 1
-                Let index = Int(Rnd * 5 + 1)
+                count = count + 1
+                index = Int(Rnd * 5 + 1)
                 If index = 1 Then
-                    Let dc4 = 4
-                    Let dc5 = 10
+                    dc4 = 4
+                    dc5 = 10
                 End If
                 If index = 2 Then
-                    Let dc4 = 6
-                    Let dc5 = 10
+                    dc4 = 6
+                    dc5 = 10
                 End If
                 If index = 3 Then
-                    Let dc4 = 5
-                    Let dc5 = 9
+                    dc4 = 5
+                    dc5 = 9
                 End If
                 If index = 4 Then
-                    Let dc4 = 4
-                    Let dc5 = 8
+                    dc4 = 4
+                    dc5 = 8
                 End If
                 If index = 5 Then
-                    Let dc4 = 6
-                    Let dc5 = 8
+                    dc4 = 6
+                    dc5 = 8
                 End If
-                Let b3 = xiabo(dc5, dc4)
+                b3 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or b3 Mod 2 = 0
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or b3 Mod 2 = 0
         Case Is = 3
-            Let indexb3 = indexb3 + 1
-            Let dc4 = Int(Rnd * 9 + 1)
-            Let dc5 = Int(Rnd * 5 + 6)
+            dc4 = Int(Rnd * 9 + 1)
+            dc5 = Int(Rnd * 5 + 6)
             Do
-                Let count = count + 1
-                Let index = Int(Rnd * 7 + 1)
+                count = count + 1
+                index = Int(Rnd * 7 + 1)
                 If index = 1 Then
-                    Let dc4 = 3
-                    Let dc5 = 10
+                    dc4 = 3
+                    dc5 = 10
                 End If
                 If index = 2 Then
-                    Let dc4 = 7
-                    Let dc5 = 10
+                    dc4 = 7
+                    dc5 = 10
                 End If
                 If index = 3 Then
-                    Let dc4 = 1
-                    Let dc5 = 8
+                    dc4 = 1
+                    dc5 = 8
                 End If
                 If index = 4 Then
-                    Let dc4 = 5
-                    Let dc5 = 8
+                    dc4 = 5
+                    dc5 = 8
                 End If
                 If index = 5 Then
-                    Let dc4 = 9
-                    Let dc5 = 8
+                    dc4 = 9
+                    dc5 = 8
                 End If
                 If index = 6 Then
-                    Let dc4 = 3
-                    Let dc5 = 6
+                    dc4 = 3
+                    dc5 = 6
                 End If
                 If index = 7 Then
-                    Let dc4 = 7
-                    Let dc5 = 6
+                    dc4 = 7
+                    dc5 = 6
                 End If
-                Let b3 = xiabo(dc5, dc4)
+                b3 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3
         Case Is = 4
-            Let indexb4 = indexb4 + 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 10 + 1)
-                Let b3 = xiabo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 10 + 1)
+                b3 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or Abs(b3 - w1) = 7 Or Abs(b3 - w1) = 11 Or Abs(b3 - w1) = 17 Or Abs(b3 - w1) = 19
         Case Is = 5
-            Let indexb5 = indexb5 + 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 10 + 1)
-                Let fb3x = dc4: Let fb3y = dc5
-                Let b3 = xiabo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 10 + 1)
+                fb3x = dc4: fb3y = dc5
+                b3 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or fb3x = fw1x Or fb3y = fw1y
         Case Is = 6
-            Let indexb6 = indexb6 + 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 10 + 1)
-                Let fb3x = dc4: Let fb3y = dc5
-                Let b3 = xiabo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 10 + 1)
+                fb4x = dc4: fb4y = dc5
+                b3 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or fb3x = fw1x Or fb3y = fw1y
         Case Is = 7
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 10 + 1)
-                Let b3 = xiabo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 10 + 1)
+                b3 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc5 < 3 Or dc5 > 8
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or dc5 < 3 Or dc5 > 8 Or Abs(b3 - w1) < 9
     End Select
 
-    Let w3 = xiabo(dc2, dc1): Let b3 = xiabo(dc5, dc4)
-    Let fw3x = dc1: Let fw3y = dc2: Let fb3x = dc4: Let fb3y = dc5
-    Let fw3 = dc3: Let fb3 = dc6
+    Call xiangqicount
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call cannon
-    If dc3 = 7 Then Call pawn
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call cannon
-    If dc6 = 7 Then Call pawn
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    If dc1 = 9 Then Call letterI
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    If dc2 = 9 Then Call letter9
-    If dc2 = 10 Then Call letter0
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    If dc4 = 9 Then Call letterI
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    If dc5 = 9 Then Call letter9
-    If dc5 = 10 Then Call letter0
-    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 40
-    Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call cannon
-    If dc3 = 7 Then Call pawn
-    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 40
-    Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call cannon
-    If dc6 = 7 Then Call pawn
+    w3 = xiabo(dc2, dc1): b3 = xiabo(dc5, dc4)
+    fw3x = dc1: fw3y = dc2: fb3x = dc4: fb3y = dc5
+    fw3 = dc3: fb3 = dc6
 
     Do
         Select Case InKey$
@@ -3369,416 +2766,317 @@ Sub xiangqi
     Call dices
 
     Rem 4th roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 9 + 1)
-    Let dc2 = Int(Rnd * 10 + 1)
-    Let dc3 = Int(Rnd * 6 + 2)
-    Let dc4 = Int(Rnd * 9 + 1)
-    Let dc5 = Int(Rnd * 10 + 1)
-    Let dc6 = Int(Rnd * 6 + 2)
-    Let w4 = xiabo(dc2, dc1): Let b2 = xiabo(dc5, dc4)
+    count = 0: index = 0
+    dc1 = Int(Rnd * 9 + 1)
+    dc2 = Int(Rnd * 10 + 1)
+    dc3 = Int(Rnd * 6 + 2)
+    dc4 = Int(Rnd * 9 + 1)
+    dc5 = Int(Rnd * 10 + 1)
+    dc6 = Int(Rnd * 6 + 2)
+    w4 = xiabo(dc2, dc1): b2 = xiabo(dc5, dc4)
     If indexw2 > 2 Or indexw3 > 2 Or indexw4 > 2 Or indexw5 > 2 Or indexw6 > 2 Then dc3 = 7
     If indexb2 > 2 Or indexb3 > 2 Or indexb4 > 2 Or indexb5 > 2 Or indexb6 > 2 Then dc6 = 7
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
-            Let dc1 = Int(Rnd * 3 + 4)
-            Let dc2 = Int(Rnd * 3 + 1)
+            dc1 = Int(Rnd * 3 + 4)
+            dc2 = Int(Rnd * 3 + 1)
             Do
-                Let count = count + 1
-                Let index = Int(Rnd * 5 + 1)
+                count = count + 1
+                index = Int(Rnd * 5 + 1)
                 If index = 1 Then
-                    Let dc1 = 4
-                    Let dc2 = 1
+                    dc1 = 4
+                    dc2 = 1
                 End If
                 If index = 2 Then
-                    Let dc1 = 6
-                    Let dc2 = 1
+                    dc1 = 6
+                    dc2 = 1
                 End If
                 If index = 3 Then
-                    Let dc1 = 5
-                    Let dc2 = 2
+                    dc1 = 5
+                    dc2 = 2
                 End If
                 If index = 4 Then
-                    Let dc1 = 4
-                    Let dc2 = 3
+                    dc1 = 4
+                    dc2 = 3
                 End If
                 If index = 5 Then
-                    Let dc1 = 6
-                    Let dc2 = 3
+                    dc1 = 6
+                    dc2 = 3
                 End If
-                Let w4 = xiabo(dc2, dc1)
+                w4 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or w4 Mod 2 <> 0
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or w4 Mod 2 <> 0
         Case Is = 3
-            Let dc1 = Int(Rnd * 9 + 1)
-            Let dc2 = Int(Rnd * 5 + 1)
+            dc1 = Int(Rnd * 9 + 1)
+            dc2 = Int(Rnd * 5 + 1)
             Do
-                Let count = count + 1
-                Let index = Int(Rnd * 7 + 1)
+                count = count + 1
+                index = Int(Rnd * 7 + 1)
                 If index = 1 Then
-                    Let dc1 = 3
-                    Let dc2 = 1
+                    dc1 = 3
+                    dc2 = 1
                 End If
                 If index = 2 Then
-                    Let dc1 = 7
-                    Let dc2 = 1
+                    dc1 = 7
+                    dc2 = 1
                 End If
                 If index = 3 Then
-                    Let dc1 = 1
-                    Let dc2 = 3
+                    dc1 = 1
+                    dc2 = 3
                 End If
                 If index = 4 Then
-                    Let dc1 = 5
-                    Let dc2 = 3
+                    dc1 = 5
+                    dc2 = 3
                 End If
                 If index = 5 Then
-                    Let dc1 = 9
-                    Let dc2 = 3
+                    dc1 = 9
+                    dc2 = 3
                 End If
                 If index = 6 Then
-                    Let dc1 = 3
-                    Let dc2 = 5
+                    dc1 = 3
+                    dc2 = 5
                 End If
                 If index = 7 Then
-                    Let dc1 = 7
-                    Let dc2 = 5
+                    dc1 = 7
+                    dc2 = 5
                 End If
-                Let w4 = xiabo(dc2, dc1)
+                w4 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4
         Case Is = 4
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 10 + 1)
-                Let w4 = xiabo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 10 + 1)
+                w4 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or Abs(w4 - b1) = 7 Or Abs(w4 - b1) = 11 Or Abs(w4 - b1) = 17 Or Abs(w4 - b1) = 19
         Case Is = 5
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 10 + 1)
-                Let fw4x = dc1: Let fw4y = dc2
-                Let w4 = xiabo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 10 + 1)
+                fw4x = dc1: fw4y = dc2
+                w4 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or fw4x = fb1x Or fw4y = fb1y
         Case Is = 6
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 10 + 1)
-                Let fw4x = dc1: Let fw4y = dc2
-                Let w4 = xiabo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 10 + 1)
+                fw4x = dc1: fw4y = dc2
+                w = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or fw4x = fb1x Or fw4y = fb1y
         Case Is = 7
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 10 + 1)
-                Let w4 = xiabo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 10 + 1)
+                w4 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 < 3 Or dc2 > 8
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or dc1 < 3 Or dc2 > 8 Or Abs(w4 - b1) < 9
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
-            Let dc4 = Int(Rnd * 3 + 4)
-            Let dc5 = Int(Rnd * 3 + 8)
+            dc4 = Int(Rnd * 3 + 4)
+            dc5 = Int(Rnd * 3 + 8)
             Do
-                Let count = count + 1
-                Let index = Int(Rnd * 5 + 1)
+                count = count + 1
+                index = Int(Rnd * 5 + 1)
                 If index = 1 Then
-                    Let dc4 = 4
-                    Let dc5 = 10
+                    dc4 = 4
+                    dc5 = 10
                 End If
                 If index = 2 Then
-                    Let dc4 = 6
-                    Let dc5 = 10
+                    dc4 = 6
+                    dc5 = 10
                 End If
                 If index = 3 Then
-                    Let dc4 = 5
-                    Let dc5 = 9
+                    dc4 = 5
+                    dc5 = 9
                 End If
                 If index = 4 Then
-                    Let dc4 = 4
-                    Let dc5 = 8
+                    dc4 = 4
+                    dc5 = 8
                 End If
                 If index = 5 Then
-                    Let dc4 = 6
-                    Let dc5 = 8
+                    dc4 = 6
+                    dc5 = 8
                 End If
-                Let b4 = xiabo(dc5, dc4)
+                b4 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 Mod 2 = 0
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or b4 Mod 2 = 0
         Case Is = 3
-            Let dc4 = Int(Rnd * 9 + 1)
-            Let dc5 = Int(Rnd * 5 + 6)
+            dc4 = Int(Rnd * 9 + 1)
+            dc5 = Int(Rnd * 5 + 6)
             Do
-                Let count = count + 1
-                Let index = Int(Rnd * 7 + 1)
+                count = count + 1
+                index = Int(Rnd * 7 + 1)
                 If index = 1 Then
-                    Let dc4 = 3
-                    Let dc5 = 10
+                    dc4 = 3
+                    dc5 = 10
                 End If
                 If index = 2 Then
-                    Let dc4 = 7
-                    Let dc5 = 10
+                    dc4 = 7
+                    dc5 = 10
                 End If
                 If index = 3 Then
-                    Let dc4 = 1
-                    Let dc5 = 8
+                    dc4 = 1
+                    dc5 = 8
                 End If
                 If index = 4 Then
-                    Let dc4 = 5
-                    Let dc5 = 8
+                    dc4 = 5
+                    dc5 = 8
                 End If
                 If index = 5 Then
-                    Let dc4 = 9
-                    Let dc5 = 8
+                    dc4 = 9
+                    dc5 = 8
                 End If
                 If index = 6 Then
-                    Let dc4 = 3
-                    Let dc5 = 6
+                    dc4 = 3
+                    dc5 = 6
                 End If
                 If index = 7 Then
-                    Let dc4 = 7
-                    Let dc5 = 6
+                    dc4 = 7
+                    dc5 = 6
                 End If
-                Let b4 = xiabo(dc5, dc4)
+                b4 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4
         Case Is = 4
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 10 + 1)
-                Let b4 = xiabo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 10 + 1)
+                b4 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or Abs(b4 - w1) = 7 Or Abs(b4 - w1) = 11 Or Abs(b4 - w1) = 17 Or Abs(b4 - w1) = 19
         Case Is = 5
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 10 + 1)
-                Let fb4x = dc4: Let fb4y = dc5
-                Let b4 = xiabo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 10 + 1)
+                fb4x = dc4: fb4y = dc5
+                b4 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or fb4x = fw1x Or fb4y = fw1y
         Case Is = 6
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 10 + 1)
-                Let fb4x = dc4: Let fb4y = dc5
-                Let b4 = xiabo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 10 + 1)
+                fb4x = dc4: fb4y = dc5
+                b4 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or fb4x = fw1x Or fb4y = fw1y
         Case Is = 7
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 10 + 1)
-                Let b4 = xiabo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 10 + 1)
+                b4 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or dc5 < 3 Or dc5 > 8
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or dc5 < 3 Or dc5 > 8 Or Abs(b4 - w1) < 9
     End Select
 
-    Let w4 = xiabo(dc2, dc1): Let b4 = xiabo(dc5, dc4)
-    Let fw4x = dc1: Let fw4y = dc2: Let fb4x = dc4: Let fb4y = dc5
-    Let fw4 = dc3: Let fb4 = dc6
+    Call xiangqicount
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call cannon
-    If dc3 = 7 Then Call pawn
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call cannon
-    If dc6 = 7 Then Call pawn
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    If dc1 = 9 Then Call letterI
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    If dc2 = 9 Then Call letter9
-    If dc2 = 10 Then Call letter0
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    If dc4 = 9 Then Call letterI
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    If dc5 = 9 Then Call letter9
-    If dc5 = 10 Then Call letter0
-    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 40
-    Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call bishop
-    If dc3 = 4 Then Call knight
-    If dc3 = 5 Then Call rook
-    If dc3 = 6 Then Call cannon
-    If dc3 = 7 Then Call pawn
-    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 40
-    Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call bishop
-    If dc6 = 4 Then Call knight
-    If dc6 = 5 Then Call rook
-    If dc6 = 6 Then Call cannon
-    If dc6 = 7 Then Call pawn
+    w4 = xiabo(dc2, dc1): b4 = xiabo(dc5, dc4)
+    fw4x = dc1: fw4y = dc2: fb4x = dc4: fb4y = dc5
+    fw4 = dc3: fb4 = dc6
 
     Do
         Select Case InKey$
             Case Is = Chr$(32)
-                Exit Case
+                Rem
             Case Is = Chr$(13)
                 Call xiangqifen
             Case Is = Chr$(27)
                 End
         End Select
     Loop
-
 End Sub
 
 Sub shogi
-
     Rem 1st roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 9 + 1)
-    Let dc2 = Int(Rnd * 9 + 1)
-    Let dc3 = 1
-    Let dc4 = Int(Rnd * 9 + 1)
-    Let dc5 = Int(Rnd * 9 + 1)
-    Let dc6 = 1
-    Let w1 = shobo(dc2, dc1): Let b1 = shobo(dc5, dc4)
+    count = 0: index = 0
+    dc1 = Int(Rnd * 9 + 1)
+    dc2 = Int(Rnd * 9 + 1)
+    dc3 = 1
+    dc4 = Int(Rnd * 9 + 1)
+    dc5 = Int(Rnd * 9 + 1)
+    dc6 = 1
+    w1 = shobo(dc2, dc1): b1 = shobo(dc5, dc4)
 
-    Do
-        Let count = count + 1
-        Let dc1 = Int(Rnd * 9 + 1)
-        Let dc2 = Int(Rnd * 9 + 1)
-        Let dc4 = Int(Rnd * 9 + 1)
-        Let dc5 = Int(Rnd * 9 + 1)
-        Let w1 = shobo(dc2, dc1): Let b1 = shobo(dc5, dc4)
-        If count > 8000 Then Exit Do
-    Loop While Abs(w1 - b1) < 11
+    Select Case dc3
+        Case Is = 1
+            Do
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                w1 = shobo(dc2, dc1): b1 = shobo(dc5, dc4)
+                If count > 8000 Then Exit Do
+            Loop While Abs(w1 - b1) < 11
+        Case Is = 2
+            Rem
+        Case Is = 3
+            Rem
+        Case Is = 4
+            Rem
+        Case Is = 5
+            Rem
+        Case Is = 6
+            Rem
+        Case Is = 7
+            Rem
+        Case Is = 8
+            Rem
+        Case Is = 9
+            Rem
+        Case Is = 10
+            Rem
+        Case Is = 11
+            Rem
+    End Select
+    Select Case dc6
+        Case Is = 1
+            Rem
+        Case Is = 2
+            Rem
+        Case Is = 3
+            Rem
+        Case Is = 4
+            Rem
+        Case Is = 5
+            Rem
+        Case Is = 6
+            Rem
+        Case Is = 7
+            Rem
+        Case Is = 8
+            Rem
+        Case Is = 9
+            Rem
+        Case Is = 10
+            Rem
+        Case Is = 11
+            Rem
+    End Select
 
-    Let w1 = shobo(dc2, dc1): Let b1 = shobo(dc5, dc4)
-    Let fw1x = dc1: Let fw1y = dc2: Let fb1x = dc4: Let fb1y = dc5
-    Let fw1 = dc3: Let fb1 = dc6
+    Call shogicount
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call general
-    If dc3 = 4 Then Call bishop
-    If dc3 = 5 Then Call knight
-    If dc3 = 6 Then Call rook
-    If dc3 = 7 Then Call lance
-    If dc3 = 8 Then Call pawn
-    If dc3 = 9 Then Call tokin
-    If dc3 = 10 Then Call dragon
-    If dc3 = 11 Then Call horse
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call general
-    If dc6 = 4 Then Call bishop
-    If dc6 = 5 Then Call knight
-    If dc6 = 6 Then Call rook
-    If dc6 = 7 Then Call lance
-    If dc6 = 8 Then Call pawn
-    If dc6 = 9 Then Call tokin
-    If dc6 = 10 Then Call dragon
-    If dc6 = 11 Then Call horse
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    If dc1 = 9 Then Call letterI
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    If dc2 = 9 Then Call letter9
-    If dc2 = 10 Then Call letter0
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    If dc4 = 9 Then Call letterI
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    If dc5 = 9 Then Call letter9
-    If dc5 = 10 Then Call letter0
-    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 60
-    Let cf = 15: Call king
-    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 60
-    Let cf = 0: Call king
+    w1 = shobo(dc2, dc1): b1 = shobo(dc5, dc4)
+    fw1x = dc1: fw1y = dc2: fb1x = dc4: fb1y = dc5
+    fw1 = dc3: fb1 = dc6
 
     Do
         Select Case InKey$
@@ -3794,300 +3092,203 @@ Sub shogi
     Call dices
 
     Rem 2nd roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 9 + 1)
-    Let dc2 = Int(Rnd * 9 + 1)
-    Let dc3 = Int(Rnd * 10 + 2)
-    Let dc4 = Int(Rnd * 9 + 1)
-    Let dc5 = Int(Rnd * 9 + 1)
-    Let dc6 = Int(Rnd * 10 + 2)
-    Let w2 = shobo(dc2, dc1): Let b2 = shobo(dc5, dc4)
+    count = 0: index = 0
+    dc1 = Int(Rnd * 9 + 1)
+    dc2 = Int(Rnd * 9 + 1)
+    dc3 = Int(Rnd * 10 + 2)
+    dc4 = Int(Rnd * 9 + 1)
+    dc5 = Int(Rnd * 9 + 1)
+    dc6 = Int(Rnd * 10 + 2)
+    w2 = shobo(dc2, dc1): b2 = shobo(dc5, dc4)
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w2 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w2 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or Abs(w2 - b1) < 11
         Case Is = 3
-            Let indexw3 = 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w2 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w2 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or Abs(w2 - b1) < 11
         Case Is = 4
-            Let indexw4 = 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w2 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w2 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or Abs(w2 - b1) = 10 Or Abs(w2 - b1) = 20 Or Abs(w2 - b1) = 30 Or Abs(w2 - b1) = 40 Or Abs(w2 - b1) = 50 Or Abs(w2 - b1) = 60 Or Abs(w2 - b1) = 70 Or Abs(w2 - b1) = 80
         Case Is = 5
-            Let indexw5 = 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let fw2x = dc1: Let fw2y = dc2
-                Let w2 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                fw2x = dc1: fw2y = dc2
+                w2 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or Abs(w2 - b1) = 7 Or Abs(w2 - b1) = 11 Or Abs(w2 - b1) = 17 Or Abs(w2 - b1) = 19
         Case Is = 6
             Do
-                Let indexw6 = 1
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let fw2x = dc1: Let fw2y = dc2
-                Let w2 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                fw2x = dc1: fw2y = dc2
+                w2 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or fw2x = fb1x Or fw2y = fb1y
         Case Is = 7
-            Let indexw7 = 1
-            Let index = Int(Rnd * 2 + 1)
-            If index = 1 Then Let dc1 = 1 Else Let dc1 = 9
-            If dc1 = 1 Then Let indexw71 = 1 Else Let indexw72 = 1
+            index = Int(Rnd * 2 + 1)
+            If index = 1 Then dc1 = 1 Else dc1 = 9
+            If indexw71 = 1 Then dc1 = 9
+            If indexw72 = 1 Then dc1 = 1
             Do
-                Let count = count + 1
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w2 = shobo(dc2, dc1)
+                count = count + 1
+                dc2 = Int(Rnd * 9 + 1)
+                fw2x = dc1
+                w2 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or fw2x = fb1x
         Case Is = 8
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w2 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w2 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc2 < 3 Or dc2 > 7
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or Abs(w2 - b1) < 11
         Case Is = 9
-            Let indexw9 = 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w2 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w2 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or Abs(w2 - b1) = 10 Or Abs(w2 - b1) = 20 Or Abs(w2 - b1) = 30 Or Abs(w2 - b1) = 40 Or Abs(w2 - b1) = 50 Or Abs(w2 - b1) = 60 Or Abs(w2 - b1) = 70 Or Abs(w2 - b1) = 80 Or Abs(w2 - b1) < 11
         Case Is = 10
-            Let indexw10 = 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w2 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                fw2x = dc1: fw2y = dc2
+                w2 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or fw2x = fb1x Or fw2y = fb1y Or Abs(w2 - b1) < 11
         Case Is = 11
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w2 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w2 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or Abs(w2 - b1) < 11
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b2 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b2 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or Abs(b2 - w1) < 11
         Case Is = 3
-            Let indexb3 = 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b2 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b2 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or Abs(b2 - w1) < 11
         Case Is = 4
-            Let indexb4 = 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b2 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b2 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or Abs(b2 - w1) = 10 Or Abs(b2 - w1) = 20 Or Abs(b2 - w1) = 30 Or Abs(b2 - w1) = 40 Or Abs(b2 - w1) = 50 Or Abs(b2 - w1) = 60 Or Abs(b2 - w1) = 70 Or Abs(b2 - w1) = 80
         Case Is = 5
-            Let indexb5 = 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let fb2x = dc4: Let fb2y = dc5
-                Let b2 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                fb2x = dc4: fb2y = dc5
+                b2 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or Abs(b2 - w1) = 7 Or Abs(b2 - w1) = 11 Or Abs(b2 - w1) = 17 Or Abs(b2 - w1) = 19
         Case Is = 6
             Do
-                Let indexb6 = 1
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let fb2x = dc4: Let fb2y = dc5
-                Let b2 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                fb2x = dc4: fb2y = dc5
+                b2 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or fb2x = fw1x Or fb2y = fw1y
         Case Is = 7
-            Let indexb7 = 1
-            Let index = Int(Rnd * 2 + 1)
-            If index = 1 Then Let dc4 = 1 Else Let dc4 = 9
-            If dc4 = 1 Then Let indexb71 = 1 Else Let indexb72 = 1
+            index = Int(Rnd * 2 + 1)
+            If index = 1 Then dc4 = 1 Else dc4 = 9
+            If indexb71 = 1 Then dc4 = 9
+            If indexb72 = 1 Then dc4 = 1
             Do
-                Let count = count + 1
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b2 = shobo(dc5, dc4)
+                count = count + 1
+                dc5 = Int(Rnd * 9 + 1)
+                fb2x = dc1
+                b2 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or fb2x = fw1x
         Case Is = 8
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b2 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b2 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1 Or dc5 < 3 Or dc5 > 7
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or Abs(b2 - w1) < 11
         Case Is = 9
-            Let indexb9 = 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b2 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b2 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or Abs(b2 - w1) = 10 Or Abs(b2 - w1) = 20 Or Abs(b2 - w1) = 30 Or Abs(b2 - w1) = 40 Or Abs(b2 - w1) = 50 Or Abs(b2 - w1) = 60 Or Abs(b2 - w1) = 70 Or Abs(b2 - w1) = 80 Or Abs(w2 - b1) < 11
         Case Is = 10
-            Let indexb10 = 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b2 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                fb2x = dc1: fb2y = dc2
+                b2 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or fb2x = fw1x Or fb2y = fw1y Or Abs(b2 - w1) < 11
         Case Is = 11
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b2 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b2 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or Abs(b2 - w1) < 11
     End Select
 
-    Let w2 = shobo(dc2, dc1): Let b2 = shobo(dc5, dc4)
-    Let fw2x = dc1: Let fw2y = dc2: Let fb2x = dc4: Let fb2y = dc5
-    Let fw2 = dc3: Let fb2 = dc6
+    Call shogicount
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call general
-    If dc3 = 4 Then Call bishop
-    If dc3 = 5 Then Call knight
-    If dc3 = 6 Then Call rook
-    If dc3 = 7 Then Call lance
-    If dc3 = 8 Then Call pawn
-    If dc3 = 9 Then Call horse
-    If dc3 = 10 Then Call dragon
-    If dc3 = 11 Then Call tokin
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call general
-    If dc6 = 4 Then Call bishop
-    If dc6 = 5 Then Call knight
-    If dc6 = 6 Then Call rook
-    If dc6 = 7 Then Call lance
-    If dc6 = 8 Then Call pawn
-    If dc6 = 9 Then Call horse
-    If dc6 = 10 Then Call dragon
-    If dc6 = 11 Then Call tokin
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    If dc1 = 9 Then Call letterI
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    If dc2 = 9 Then Call letter9
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    If dc4 = 9 Then Call letterI
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    If dc5 = 9 Then Call letter9
-    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 60
-    Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call general
-    If dc3 = 4 Then Call bishop
-    If dc3 = 5 Then Call knight
-    If dc3 = 6 Then Call rook
-    If dc3 = 7 Then Call lance
-    If dc3 = 8 Then Call pawn
-    If dc3 = 9 Then Call horse
-    If dc3 = 10 Then Call dragon
-    If dc3 = 11 Then Call tokin
-    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 60
-    Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call general
-    If dc6 = 4 Then Call bishop
-    If dc6 = 5 Then Call knight
-    If dc6 = 6 Then Call rook
-    If dc6 = 7 Then Call lance
-    If dc6 = 8 Then Call pawn
-    If dc6 = 9 Then Call horse
-    If dc6 = 10 Then Call dragon
-    If dc6 = 11 Then Call tokin
+    w2 = shobo(dc2, dc1): b2 = shobo(dc5, dc4)
+    fw2x = dc1: fw2y = dc2: fb2x = dc4: fb2y = dc5
+    fw2 = dc3: fb2 = dc6
 
     Do
         Select Case InKey$
@@ -4103,338 +3304,239 @@ Sub shogi
     Call dices
 
     Rem 3rd roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 9 + 1)
-    Let dc2 = Int(Rnd * 9 + 1)
-    Let dc3 = Int(Rnd * 10 + 2)
-    Let dc4 = Int(Rnd * 9 + 1)
-    Let dc5 = Int(Rnd * 9 + 1)
-    Let dc6 = Int(Rnd * 10 + 2)
-    Let w3 = shobo(dc2, dc1): Let b3 = shobo(dc5, dc4)
-    If dc3 = 4 Then Let indexw4 = indexw4 + 1
-    If dc3 = 6 Then Let indexw6 = indexw6 + 1
-    If dc3 = 9 Then Let indexw9 = indexw9 + 1
-    If dc3 = 10 Then Let indexw10 = indexw10 + 1
+    count = 0: index = 0
+    dc1 = Int(Rnd * 9 + 1)
+    dc2 = Int(Rnd * 9 + 1)
+    dc3 = Int(Rnd * 10 + 2)
+    dc4 = Int(Rnd * 9 + 1)
+    dc5 = Int(Rnd * 9 + 1)
+    dc6 = Int(Rnd * 10 + 2)
+    w3 = shobo(dc2, dc1): b3 = shobo(dc5, dc4)
+    If dc3 = 4 Then indexw4 = indexw4 + 1
+    If dc3 = 6 Then indexw6 = indexw6 + 1
+    If dc3 = 9 Then indexw9 = indexw9 + 1
+    If dc3 = 10 Then indexw10 = indexw10 + 1
     If indexw4 > 1 Then
-        Let dc3 = 8
-        Let indexw4 = indexw4 - 1
+        dc3 = 8
+        indexw4 = indexw4 - 1
     End If
     If indexw6 > 1 Then
-        Let dc3 = 8
-        Let indexw6 = indexw4 - 1
+        dc3 = 8
+        indexw6 = indexw4 - 1
     End If
     If indexw9 > 1 Then
-        Let dc3 = 8
-        Let indexw9 = indexw4 - 1
+        dc3 = 8
+        indexw9 = indexw4 - 1
     End If
     If indexw10 > 1 Then
-        Let dc3 = 8
-        Let indexw10 = indexw4 - 1
+        dc3 = 8
+        indexw10 = indexw4 - 1
     End If
     If indexb4 > 1 Then
-        Let dc6 = 8
-        Let indexb4 = indexb4 - 1
+        dc6 = 8
+        indexb4 = indexb4 - 1
     End If
     If indexb6 > 1 Then
-        Let dc6 = 8
-        Let indexb6 = indexb4 - 1
+        dc6 = 8
+        indexb6 = indexb4 - 1
     End If
     If indexb9 > 1 Then
-        Let dc6 = 8
-        Let indexb9 = indexb4 - 1
+        dc6 = 8
+        indexb9 = indexb4 - 1
     End If
     If indexb10 > 1 Then
-        Let dc6 = 8
-        Let indexb10 = indexb4 - 1
+        dc6 = 8
+        indexb10 = indexb4 - 1
     End If
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w3 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w3 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or Abs(w3 - b1) < 11
         Case Is = 3
-            Let indexw3 = indexw3 + 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w3 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w3 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or Abs(w3 - b1) < 11
         Case Is = 4
-            Let indexw4 = indexw4 + 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w3 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w3 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or Abs(w3 - b1) = 10 Or Abs(w3 - b1) = 20 Or Abs(w3 - b1) = 30 Or Abs(w3 - b1) = 40 Or Abs(w3 - b1) = 50 Or Abs(w3 - b1) = 60 Or Abs(w3 - b1) = 70 Or Abs(w3 - b1) = 80
         Case Is = 5
-            Let indexw5 = indexw5 + 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let fw2x = dc1: Let fw2y = dc2
-                Let w3 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                fw3x = dc1: fw3y = dc2
+                w3 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or Abs(w3 - b1) = 7 Or Abs(w3 - b1) = 11 Or Abs(w3 - b1) = 17 Or Abs(w3 - b1) = 19
         Case Is = 6
-            Let indexw6 = indexw6 + 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let fw2x = dc1: Let fw2y = dc2
-                Let w3 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                fw3x = dc1: fw3y = dc2
+                w3 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or fw3x = fb1x Or fw3y = fb1y
         Case Is = 7
-            Let indexw7 = indexw7 + 1
-            Let index = Int(Rnd * 2 + 1)
-            If index = 1 Then Let dc1 = 1 Else Let dc1 = 9
+            index = Int(Rnd * 2 + 1)
+            If index = 1 Then dc1 = 1 Else dc1 = 9
             If indexw71 = 1 Then dc1 = 9
             If indexw72 = 1 Then dc1 = 1
             Do
-                Let count = count + 1
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w3 = shobo(dc2, dc1)
+                count = count + 1
+                dc2 = Int(Rnd * 9 + 1)
+                fw3x = dc1
+                w3 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or fw3x = fb1x
         Case Is = 8
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w3 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w3 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc2 < 3 Or dc2 > 7
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or Abs(w3 - b1) < 11
         Case Is = 9
-            Let indexw9 = indexw9 + 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w3 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w3 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or Abs(w3 - b1) = 10 Or Abs(w3 - b1) = 20 Or Abs(w3 - b1) = 30 Or Abs(w3 - b1) = 40 Or Abs(w3 - b1) = 50 Or Abs(w3 - b1) = 60 Or Abs(w3 - b1) = 70 Or Abs(w3 - b1) = 80 Or Abs(w3 - b1) < 11
         Case Is = 10
-            Let indexw10 = indexw10 + 1
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w3 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                fw3x = dc1: fw3y = dc2
+                w3 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or fw3x = fb1x Or fw3y = fb1y Or Abs(w3 - b1) < 11
         Case Is = 11
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w3 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w3 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or Abs(w3 - b1) < 11
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b3 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b3 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or Abs(b3 - w1) < 11
         Case Is = 3
-            Let indexb3 = indexb3 + 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b3 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b3 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or Abs(b3 - w1) < 11
         Case Is = 4
-            Let indexb4 = indexb4 + 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b3 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b3 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or Abs(b3 - w1) = 10 Or Abs(b3 - w1) = 20 Or Abs(b3 - w1) = 30 Or Abs(b3 - w1) = 40 Or Abs(b3 - w1) = 50 Or Abs(b3 - w1) = 60 Or Abs(b3 - w1) = 70 Or Abs(b3 - w1) = 80
         Case Is = 5
-            Let indexb5 = indexb5 + 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let fb2x = dc4: Let fb2y = dc5
-                Let b3 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                fb3x = dc4: fb3y = dc5
+                b3 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or Abs(b3 - w1) = 7 Or Abs(b3 - w1) = 11 Or Abs(b3 - w1) = 17 Or Abs(b3 - w1) = 19
         Case Is = 6
-            Let indexb6 = indexb6 + 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let fb2x = dc4: Let fb2y = dc5
-                Let b3 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                fb3x = dc4: fb3y = dc5
+                b3 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or fb3x = fw1x Or fb3y = fw1y
         Case Is = 7
-            Let indexb7 = indexb7 + 1
-            Let index = Int(Rnd * 2 + 1)
-            If index = 1 Then Let dc4 = 1 Else Let dc4 = 9
+            index = Int(Rnd * 2 + 1)
+            If index = 1 Then dc4 = 1 Else dc4 = 9
             If indexb71 = 1 Then dc4 = 9
             If indexb72 = 1 Then dc4 = 1
             Do
-                Let count = count + 1
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b3 = shobo(dc5, dc4)
+                count = count + 1
+                dc5 = Int(Rnd * 9 + 1)
+                fb3x = dc1
+                b3 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or fb3x = fw1x
         Case Is = 8
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b3 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b3 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2 Or dc5 < 3 Or dc5 > 7
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or Abs(b3 - w1) < 11
         Case Is = 9
-            Let indexb9 = indexb9 + 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b3 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b3 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or Abs(b3 - w1) = 10 Or Abs(b3 - w1) = 20 Or Abs(b3 - w1) = 30 Or Abs(b3 - w1) = 40 Or Abs(b3 - w1) = 50 Or Abs(b3 - w1) = 60 Or Abs(b3 - w1) = 70 Or Abs(b3 - w1) = 80 Or Abs(w3 - b1) < 11
         Case Is = 10
-            Let indexb10 = indexb10 + 1
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b3 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                fb3x = dc1: fb3y = dc2
+                b3 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or fb3x = fw1x Or fb3y = fw1y Or Abs(b3 - w1) < 11
         Case Is = 11
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b3 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b3 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or Abs(b3 - w1) < 11
     End Select
 
-    Let w3 = shobo(dc2, dc1): Let b3 = shobo(dc5, dc4)
-    Let fw3x = dc1: Let fw3y = dc2: Let fb3x = dc4: Let fb3y = dc5
-    Let fw3 = dc3: Let fb3 = dc6
+    Call shogicount
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call general
-    If dc3 = 4 Then Call bishop
-    If dc3 = 5 Then Call knight
-    If dc3 = 6 Then Call rook
-    If dc3 = 7 Then Call lance
-    If dc3 = 8 Then Call pawn
-    If dc3 = 9 Then Call horse
-    If dc3 = 10 Then Call dragon
-    If dc3 = 11 Then Call tokin
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call general
-    If dc6 = 4 Then Call bishop
-    If dc6 = 5 Then Call knight
-    If dc6 = 6 Then Call rook
-    If dc6 = 7 Then Call lance
-    If dc6 = 8 Then Call pawn
-    If dc6 = 9 Then Call horse
-    If dc6 = 10 Then Call dragon
-    If dc6 = 11 Then Call tokin
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    If dc1 = 9 Then Call letterI
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    If dc2 = 9 Then Call letter9
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    If dc4 = 9 Then Call letterI
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    If dc5 = 9 Then Call letter9
-    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 60
-    Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call general
-    If dc3 = 4 Then Call bishop
-    If dc3 = 5 Then Call knight
-    If dc3 = 6 Then Call rook
-    If dc3 = 7 Then Call lance
-    If dc3 = 8 Then Call pawn
-    If dc3 = 9 Then Call horse
-    If dc3 = 10 Then Call dragon
-    If dc3 = 11 Then Call tokin
-    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 60
-    Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call general
-    If dc6 = 4 Then Call bishop
-    If dc6 = 5 Then Call knight
-    If dc6 = 6 Then Call rook
-    If dc6 = 7 Then Call lance
-    If dc6 = 8 Then Call pawn
-    If dc6 = 9 Then Call horse
-    If dc6 = 10 Then Call dragon
-    If dc6 = 11 Then Call tokin
+    w3 = shobo(dc2, dc1): b3 = shobo(dc5, dc4)
+    fw3x = dc1: fw3y = dc2: fb3x = dc4: fb3y = dc5
+    fw3 = dc3: fb3 = dc6
 
     Do
         Select Case InKey$
@@ -4450,427 +3552,323 @@ Sub shogi
     Call dices
 
     Rem 4th roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 9 + 1)
-    Let dc2 = Int(Rnd * 9 + 1)
-    Let dc3 = Int(Rnd * 10 + 2)
-    Let dc4 = Int(Rnd * 9 + 1)
-    Let dc5 = Int(Rnd * 9 + 1)
-    Let dc6 = Int(Rnd * 10 + 2)
-    Let w4 = shobo(dc2, dc1): Let b4 = shobo(dc5, dc4)
-    If dc3 = 4 Then Let indexw4 = indexw4 + 1
-    If dc3 = 6 Then Let indexw6 = indexw6 + 1
-    If dc3 = 9 Then Let indexw9 = indexw9 + 1
-    If dc3 = 10 Then Let indexw10 = indexw10 + 1
+    count = 0: index = 0
+    dc1 = Int(Rnd * 9 + 1)
+    dc2 = Int(Rnd * 9 + 1)
+    dc3 = Int(Rnd * 10 + 2)
+    dc4 = Int(Rnd * 9 + 1)
+    dc5 = Int(Rnd * 9 + 1)
+    dc6 = Int(Rnd * 10 + 2)
+    w4 = shobo(dc2, dc1): b4 = shobo(dc5, dc4)
+    If dc3 = 4 Then indexw4 = indexw4 + 1
+    If dc3 = 6 Then indexw6 = indexw6 + 1
+    If dc3 = 9 Then indexw9 = indexw9 + 1
+    If dc3 = 10 Then indexw10 = indexw10 + 1
     If indexw4 > 1 Then
-        Let dc3 = 8
-        Let indexw4 = indexw4 - 1
+        dc3 = 8
+        indexw4 = indexw4 - 1
     End If
     If indexw6 > 1 Then
-        Let dc3 = 8
-        Let indexw6 = indexw4 - 1
+        dc3 = 8
+        indexw6 = indexw4 - 1
     End If
     If indexw9 > 1 Then
-        Let dc3 = 8
-        Let indexw9 = indexw4 - 1
+        dc3 = 8
+        indexw9 = indexw4 - 1
     End If
     If indexw10 > 1 Then
-        Let dc3 = 8
-        Let indexw10 = indexw4 - 1
+        dc3 = 8
+        indexw10 = indexw4 - 1
     End If
     If indexb4 > 1 Then
-        Let dc6 = 8
-        Let indexb4 = indexb4 - 1
+        dc6 = 8
+        indexb4 = indexb4 - 1
     End If
     If indexb6 > 1 Then
-        Let dc6 = 8
-        Let indexb6 = indexb4 - 1
+        dc6 = 8
+        indexb6 = indexb4 - 1
     End If
     If indexb9 > 1 Then
-        Let dc6 = 8
-        Let indexb9 = indexb4 - 1
+        dc6 = 8
+        indexb9 = indexb4 - 1
     End If
     If indexb10 > 1 Then
-        Let dc6 = 8
-        Let indexb10 = indexb4 - 1
+        dc6 = 8
+        indexb10 = indexb4 - 1
     End If
-    If indexw3 > 2 Or indexw5 > 2 Or indexw7 > 2 Then Let dc3 = 8
-    If indexb3 > 2 Or indexb5 > 2 Or indexb7 > 2 Then Let dc6 = 8
+    If indexw3 > 2 Or indexw5 > 2 Or indexw7 > 2 Then dc3 = 8
+    If indexb3 > 2 Or indexb5 > 2 Or indexb7 > 2 Then dc6 = 8
 
     Select Case dc3
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w4 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w4 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or Abs(w4 - b1) < 11
         Case Is = 3
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w4 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w4 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or Abs(w4 - b1) < 11
         Case Is = 4
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w4 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w4 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or Abs(w4 - b1) = 10 Or Abs(w4 - b1) = 20 Or Abs(w4 - b1) = 30 Or Abs(w4 - b1) = 40 Or Abs(w4 - b1) = 50 Or Abs(w4 - b1) = 60 Or Abs(w4 - b1) = 70 Or Abs(w4 - b1) = 80
         Case Is = 5
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let fw2x = dc1: Let fw2y = dc2
-                Let w4 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                fw4x = dc1: fw4y = dc2
+                w4 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or Abs(w4 - b1) = 7 Or Abs(w4 - b1) = 11 Or Abs(w4 - b1) = 17 Or Abs(w4 - b1) = 19
         Case Is = 6
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let fw2x = dc1: Let fw2y = dc2
-                Let w4 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                fw4x = dc1: fw4y = dc2
+                w4 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or fw4x = fb1x Or fw4y = fb1y
         Case Is = 7
-            Let index = Int(Rnd * 2 + 1)
-            If index = 1 Then Let dc1 = 1 Else Let dc1 = 9
+            index = Int(Rnd * 2 + 1)
+            If index = 1 Then dc1 = 1 Else dc1 = 9
             If indexw71 = 1 Then dc1 = 9
             If indexw72 = 1 Then dc1 = 1
             Do
-                Let count = count + 1
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w4 = shobo(dc2, dc1)
+                count = count + 1
+                dc2 = Int(Rnd * 9 + 1)
+                fw4x = dc1
+                w4 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or fw4x = fb1x
         Case Is = 8
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w4 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w4 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or dc2 < 3 Or dc2 > 7
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or Abs(w4 - b1) < 11
         Case Is = 9
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w4 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w4 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or Abs(w4 - b1) = 10 Or Abs(w4 - b1) = 20 Or Abs(w4 - b1) = 30 Or Abs(w4 - b1) = 40 Or Abs(w4 - b1) = 50 Or Abs(w4 - b1) = 60 Or Abs(w4 - b1) = 70 Or Abs(w4 - b1) = 80 Or Abs(w4 - b1) < 11
         Case Is = 10
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w4 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                fw4x = dc1: fw4y = dc2
+                w4 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or fw4x = fb1x Or fw4y = fb1y Or Abs(w4 - b1) < 11
         Case Is = 11
             Do
-                Let count = count + 1
-                Let dc1 = Int(Rnd * 9 + 1)
-                Let dc2 = Int(Rnd * 9 + 1)
-                Let w4 = shobo(dc2, dc1)
+                count = count + 1
+                dc1 = Int(Rnd * 9 + 1)
+                dc2 = Int(Rnd * 9 + 1)
+                w4 = shobo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or Abs(w4 - b1) < 11
     End Select
     Select Case dc6
         Case Is = 1
-            Exit Case
+            Rem
         Case Is = 2
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b4 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b4 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or Abs(b4 - w1) < 11
         Case Is = 3
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b4 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b4 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or Abs(b4 - w1) < 11
         Case Is = 4
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b4 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b4 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or Abs(b4 - w1) = 10 Or Abs(b4 - w1) = 20 Or Abs(b4 - w1) = 30 Or Abs(b4 - w1) = 40 Or Abs(b4 - w1) = 50 Or Abs(b4 - w1) = 60 Or Abs(b4 - w1) = 70 Or Abs(b4 - w1) = 80
         Case Is = 5
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let fb2x = dc4: Let fb2y = dc5
-                Let b4 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                fb4x = dc4: fb4y = dc5
+                b4 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or Abs(b4 - w1) = 7 Or Abs(b4 - w1) = 11 Or Abs(b4 - w1) = 17 Or Abs(b4 - w1) = 19
         Case Is = 6
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let fb2x = dc4: Let fb2y = dc5
-                Let b4 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                fb4x = dc4: fb4y = dc5
+                b4 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or fb4x = fw1x Or fb4y = fw1y
         Case Is = 7
-            Let index = Int(Rnd * 2 + 1)
-            If index = 1 Then Let dc4 = 1 Else Let dc4 = 9
+            index = Int(Rnd * 2 + 1)
+            If index = 1 Then dc4 = 1 Else dc4 = 9
             If indexb71 = 1 Then dc4 = 9
             If indexb72 = 1 Then dc4 = 1
             Do
-                Let count = count + 1
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b4 = shobo(dc5, dc4)
+                count = count + 1
+                dc5 = Int(Rnd * 9 + 1)
+                fb4x = dc1
+                b4 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or fb4x = fw1x
         Case Is = 8
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b4 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b4 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3 Or dc5 < 3 Or dc5 > 7
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or Abs(b4 - w1) < 11
         Case Is = 9
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b4 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b4 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or Abs(b4 - w1) = 10 Or Abs(b4 - w1) = 20 Or Abs(b4 - w1) = 30 Or Abs(b4 - w1) = 40 Or Abs(b4 - w1) = 50 Or Abs(b4 - w1) = 60 Or Abs(b4 - w1) = 70 Or Abs(b4 - w1) = 80 Or Abs(w4 - b1) < 11
         Case Is = 10
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b4 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                fb4x = dc1: fb4y = dc2
+                b4 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or fb4x = fw1x Or fb4y = fw1y Or Abs(b4 - w1) < 11
         Case Is = 11
             Do
-                Let count = count + 1
-                Let dc4 = Int(Rnd * 9 + 1)
-                Let dc5 = Int(Rnd * 9 + 1)
-                Let b4 = shobo(dc5, dc4)
+                count = count + 1
+                dc4 = Int(Rnd * 9 + 1)
+                dc5 = Int(Rnd * 9 + 1)
+                b4 = shobo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or Abs(b4 - w1) < 11
     End Select
 
-    Let w4 = shobo(dc2, dc1): Let b4 = shobo(dc5, dc4)
-    Let fw4x = dc1: Let fw4y = dc2: Let fb4x = dc4: Let fb4y = dc5
-    Let fw4 = dc3: Let fb4 = dc6
+    Call shogicount
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call general
-    If dc3 = 4 Then Call bishop
-    If dc3 = 5 Then Call knight
-    If dc3 = 6 Then Call rook
-    If dc3 = 7 Then Call lance
-    If dc3 = 8 Then Call pawn
-    If dc3 = 9 Then Call horse
-    If dc3 = 10 Then Call dragon
-    If dc3 = 11 Then Call tokin
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call general
-    If dc6 = 4 Then Call bishop
-    If dc6 = 5 Then Call knight
-    If dc6 = 6 Then Call rook
-    If dc6 = 7 Then Call lance
-    If dc6 = 8 Then Call pawn
-    If dc6 = 9 Then Call horse
-    If dc6 = 10 Then Call dragon
-    If dc6 = 11 Then Call tokin
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    If dc1 = 9 Then Call letterI
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    If dc2 = 9 Then Call letter9
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    If dc4 = 9 Then Call letterI
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    If dc5 = 9 Then Call letter9
-    Let x = (dc1 * 40) + 100: Let y = Abs((dc2 * 40) - 480) - 60
-    Let cf = 15
-    If dc3 = 1 Then Call king
-    If dc3 = 2 Then Call queen
-    If dc3 = 3 Then Call general
-    If dc3 = 4 Then Call bishop
-    If dc3 = 5 Then Call knight
-    If dc3 = 6 Then Call rook
-    If dc3 = 7 Then Call lance
-    If dc3 = 8 Then Call pawn
-    If dc3 = 9 Then Call horse
-    If dc3 = 10 Then Call dragon
-    If dc3 = 11 Then Call tokin
-    Let x = (dc4 * 40) + 100: Let y = Abs((dc5 * 40) - 480) - 60
-    Let cf = 0
-    If dc6 = 1 Then Call king
-    If dc6 = 2 Then Call queen
-    If dc6 = 3 Then Call general
-    If dc6 = 4 Then Call bishop
-    If dc6 = 5 Then Call knight
-    If dc6 = 6 Then Call rook
-    If dc6 = 7 Then Call lance
-    If dc6 = 8 Then Call pawn
-    If dc6 = 9 Then Call horse
-    If dc6 = 10 Then Call dragon
-    If dc6 = 11 Then Call tokin
+    w4 = shobo(dc2, dc1): b4 = shobo(dc5, dc4)
+    fw4x = dc1: fw4y = dc2: fb4x = dc4: fb4y = dc5
+    fw4 = dc3: fb4 = dc6
 
     Do
         Select Case InKey$
             Case Is = Chr$(32)
-                Exit Case
+                Rem
             Case Is = Chr$(13)
                 Call shogifen
             Case Is = Chr$(27)
                 End
         End Select
     Loop
-
 End Sub
 
 Sub draughts
-
     Rem 1st roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 10 + 1)
-    Let dc2 = Int(Rnd * 10 + 1)
-    Let dc3 = Int(Rnd * 2 + 1)
-    Let dc4 = Int(Rnd * 10 + 1)
-    Let dc5 = Int(Rnd * 10 + 1)
-    Let dc6 = Int(Rnd * 2 + 1)
-    Let w1 = drabo(dc2, dc1): Let b1 = drabo(dc5, dc4)
+    count = 0: index = 0
+    dc1 = Int(Rnd * 10 + 1)
+    dc2 = Int(Rnd * 10 + 1)
+    dc3 = Int(Rnd * 2 + 1)
+    dc4 = Int(Rnd * 10 + 1)
+    dc5 = Int(Rnd * 10 + 1)
+    dc6 = Int(Rnd * 2 + 1)
+    w1 = drabo(dc2, dc1): b1 = drabo(dc5, dc4)
 
-    Do
-        Do
-            Let count = count + 1
-            Let dc1 = Int(Rnd * 8 + 1)
-            Let dc2 = Int(Rnd * 8 + 1)
-            Let dc4 = Int(Rnd * 8 + 1)
-            Let dc5 = Int(Rnd * 8 + 1)
-            Let w1 = drabo(dc2, dc1): Let b1 = drabo(dc5, dc4)
-            If count > 8000 Then Exit Do
-        Loop Until w1 Mod 2 <> 0 And b1 Mod 2 <> 0
-        Let count = count + 1
-        If count > 8000 Then Exit Do
-    Loop While w1 = b1
+    Select Case dc3
+        Case Is = 1
+            Do
+                Do
+                    count = count + 1
+                    dc1 = Int(Rnd * 10 + 1)
+                    dc2 = Int(Rnd * 10 + 1)
+                    w1 = drabo(dc2, dc1)
+                    If count > 8000 Then Exit Do
+                Loop Until w1 Mod 2 <> 0
+                count = count + 1
+                If count > 8000 Then Exit Do
+            Loop While w1 = b1
+        Case Is = 2
+            Do
+                Do
+                    count = count + 1
+                    dc1 = Int(Rnd * 10 + 1)
+                    dc2 = Int(Rnd * 10 + 1)
+                    w1 = drabo(dc2, dc1)
+                    If count > 8000 Then Exit Do
+                Loop Until w1 Mod 2 <> 0
+                count = count + 1
+                If count > 8000 Then Exit Do
+            Loop While w1 = b1
+    End Select
+    Select Case dc6
+        Case Is = 1
+            Do
+                Do
+                    count = count + 1
+                    dc4 = Int(Rnd * 10 + 1)
+                    dc5 = Int(Rnd * 10 + 1)
+                    b1 = drabo(dc5, dc4)
+                    If count > 8000 Then Exit Do
+                Loop Until b1 Mod 2 <> 0
+                count = count + 1
+                If count > 8000 Then Exit Do
+            Loop While b1 = w1
+        Case Is = 2
+            Do
+                Do
+                    count = count + 1
+                    dc4 = Int(Rnd * 10 + 1)
+                    dc5 = Int(Rnd * 10 + 1)
+                    b1 = drabo(dc5, dc4)
+                    If count > 8000 Then Exit Do
+                Loop Until b1 Mod 2 <> 0
+                count = count + 1
+                If count > 8000 Then Exit Do
+            Loop While b1 = w1
+    End Select
 
-    Let w1 = drabo(dc2, dc1): Let b1 = drabo(dc5, dc4)
-    Let fw1x = dc1: Let fw1y = dc2: Let fb1x = dc4: Let fb1y = dc5
-    Let fw1 = dc3: Let fb1 = dc6
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call dame
-    If dc3 = 2 Then Call checker
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call dame
-    If dc6 = 2 Then Call checker
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    If dc1 = 9 Then Call letterI
-    If dc1 = 10 Then Call letterJ
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    If dc2 = 9 Then Call letter9
-    If dc2 = 10 Then Call letter0
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    If dc4 = 9 Then Call letterI
-    If dc4 = 10 Then Call letterJ
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    If dc5 = 9 Then Call letter9
-    If dc5 = 10 Then Call letter0
-    Let x = (dc1 * 40) + 80: Let y = Abs((dc2 * 40) - 480) - 40
-    Let cf = 15
-    If dc3 = 1 Then Call dame
-    If dc3 = 2 Then Call checker
-    Let x = (dc4 * 40) + 80: Let y = Abs((dc5 * 40) - 480) - 40
-    Let cf = 0
-    If dc6 = 1 Then Call dame
-    If dc6 = 2 Then Call checker
+    w1 = drabo(dc2, dc1): b1 = drabo(dc5, dc4)
+    fw1x = dc1: fw1y = dc2: fb1x = dc4: fb1y = dc5
+    fw1 = dc3: fb1 = dc6
+
+    Call draughtscount
 
     Do
         Select Case InKey$
@@ -4886,130 +3884,73 @@ Sub draughts
     Call dices
 
     Rem 2nd roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 10 + 1)
-    Let dc2 = Int(Rnd * 10 + 1)
-    Let dc3 = Int(Rnd * 2 + 1)
-    Let dc4 = Int(Rnd * 10 + 1)
-    Let dc5 = Int(Rnd * 10 + 1)
-    Let dc6 = Int(Rnd * 2 + 1)
-    Let w2 = drabo(dc2, dc1): Let b2 = drabo(dc5, dc4)
+    count = 0: index = 0
+    dc1 = Int(Rnd * 10 + 1)
+    dc2 = Int(Rnd * 10 + 1)
+    dc3 = Int(Rnd * 2 + 1)
+    dc4 = Int(Rnd * 10 + 1)
+    dc5 = Int(Rnd * 10 + 1)
+    dc6 = Int(Rnd * 2 + 1)
+    w2 = drabo(dc2, dc1): b2 = drabo(dc5, dc4)
 
     Select Case dc3
         Case Is = 1
             Do
                 Do
-                    Let count = count + 1
-                    Let dc1 = Int(Rnd * 10 + 1)
-                    Let dc2 = Int(Rnd * 10 + 1)
-                    Let w2 = drabo(dc2, dc1)
+                    count = count + 1
+                    dc1 = Int(Rnd * 10 + 1)
+                    dc2 = Int(Rnd * 10 + 1)
+                    w2 = drabo(dc2, dc1)
                     If count > 8000 Then Exit Do
                 Loop Until w2 Mod 2 <> 0
-                Let count = count + 1
+                count = count + 1
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2
         Case Is = 2
             Do
                 Do
-                    Let count = count + 1
-                    Let dc1 = Int(Rnd * 10 + 1)
-                    Let dc2 = Int(Rnd * 10 + 1)
-                    Let w2 = drabo(dc2, dc1)
+                    count = count + 1
+                    dc1 = Int(Rnd * 10 + 1)
+                    dc2 = Int(Rnd * 10 + 1)
+                    w2 = drabo(dc2, dc1)
                     If count > 8000 Then Exit Do
                 Loop Until w2 Mod 2 <> 0
-                Let count = count + 1
+                count = count + 1
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2
     End Select
     Select Case dc6
         Case Is = 1
             Do
                 Do
-                    Let count = count + 1
-                    Let dc4 = Int(Rnd * 10 + 1)
-                    Let dc5 = Int(Rnd * 10 + 1)
-                    Let b2 = drabo(dc5, dc4)
+                    count = count + 1
+                    dc4 = Int(Rnd * 10 + 1)
+                    dc5 = Int(Rnd * 10 + 1)
+                    b2 = drabo(dc5, dc4)
                     If count > 8000 Then Exit Do
                 Loop Until b2 Mod 2 <> 0
-                Let count = count + 1
+                count = count + 1
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2
         Case Is = 2
             Do
                 Do
-                    Let count = count + 1
-                    Let dc4 = Int(Rnd * 10 + 1)
-                    Let dc5 = Int(Rnd * 10 + 1)
-                    Let b2 = drabo(dc5, dc4)
+                    count = count + 1
+                    dc4 = Int(Rnd * 10 + 1)
+                    dc5 = Int(Rnd * 10 + 1)
+                    b2 = drabo(dc5, dc4)
                     If count > 8000 Then Exit Do
                 Loop Until b2 Mod 2 <> 0
-                Let count = count + 1
+                count = count + 1
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or b2 = w1 Or b2 = b1
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2
     End Select
 
-    Let w2 = drabo(dc2, dc1): Let b2 = drabo(dc5, dc4)
-    Let fw2x = dc1: Let fw2y = dc2: Let fb2x = dc4: Let fb2y = dc5
-    Let fw2 = dc3: Let fb2 = dc6
+    w2 = drabo(dc2, dc1): b2 = drabo(dc5, dc4)
+    fw2x = dc1: fw2y = dc2: fb2x = dc4: fb2y = dc5
+    fw2 = dc3: fb2 = dc6
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call dame
-    If dc3 = 2 Then Call checker
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call dame
-    If dc6 = 2 Then Call checker
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    If dc1 = 9 Then Call letterI
-    If dc1 = 10 Then Call letterJ
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    If dc2 = 9 Then Call letter9
-    If dc2 = 10 Then Call letter0
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    If dc4 = 9 Then Call letterI
-    If dc4 = 10 Then Call letterJ
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    If dc5 = 9 Then Call letter9
-    If dc5 = 10 Then Call letter0
-    Let x = (dc1 * 40) + 80: Let y = Abs((dc2 * 40) - 480) - 40
-    Let cf = 15
-    If dc3 = 1 Then Call dame
-    If dc3 = 2 Then Call checker
-    Let x = (dc4 * 40) + 80: Let y = Abs((dc5 * 40) - 480) - 40
-    Let cf = 0
-    If dc6 = 1 Then Call dame
-    If dc6 = 2 Then Call checker
+    Call draughtscount
 
     Do
         Select Case InKey$
@@ -5025,130 +3966,73 @@ Sub draughts
     Call dices
 
     Rem 3rd roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 10 + 1)
-    Let dc2 = Int(Rnd * 10 + 1)
-    Let dc3 = Int(Rnd * 2 + 1)
-    Let dc4 = Int(Rnd * 10 + 1)
-    Let dc5 = Int(Rnd * 10 + 1)
-    Let dc6 = Int(Rnd * 2 + 1)
-    Let w3 = drabo(dc2, dc1): Let b3 = drabo(dc5, dc4)
+    count = 0: index = 0
+    dc1 = Int(Rnd * 10 + 1)
+    dc2 = Int(Rnd * 10 + 1)
+    dc3 = Int(Rnd * 2 + 1)
+    dc4 = Int(Rnd * 10 + 1)
+    dc5 = Int(Rnd * 10 + 1)
+    dc6 = Int(Rnd * 2 + 1)
+    w3 = drabo(dc2, dc1): b3 = drabo(dc5, dc4)
 
     Select Case dc3
         Case Is = 1
             Do
                 Do
-                    Let count = count + 1
-                    Let dc1 = Int(Rnd * 10 + 1)
-                    Let dc2 = Int(Rnd * 10 + 1)
-                    Let w3 = drabo(dc2, dc1)
+                    count = count + 1
+                    dc1 = Int(Rnd * 10 + 1)
+                    dc2 = Int(Rnd * 10 + 1)
+                    w3 = drabo(dc2, dc1)
                     If count > 8000 Then Exit Do
                 Loop Until w3 Mod 2 <> 0
-                Let count = count + 1
+                count = count + 1
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3
         Case Is = 2
             Do
                 Do
-                    Let count = count + 1
-                    Let dc1 = Int(Rnd * 10 + 1)
-                    Let dc2 = Int(Rnd * 10 + 1)
-                    Let w3 = drabo(dc2, dc1)
+                    count = count + 1
+                    dc1 = Int(Rnd * 10 + 1)
+                    dc2 = Int(Rnd * 10 + 1)
+                    w3 = drabo(dc2, dc1)
                     If count > 8000 Then Exit Do
                 Loop Until w3 Mod 2 <> 0
-                Let count = count + 1
+                count = count + 1
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3
     End Select
     Select Case dc6
         Case Is = 1
             Do
                 Do
-                    Let count = count + 1
-                    Let dc4 = Int(Rnd * 10 + 1)
-                    Let dc5 = Int(Rnd * 10 + 1)
-                    Let b3 = drabo(dc5, dc4)
+                    count = count + 1
+                    dc4 = Int(Rnd * 10 + 1)
+                    dc5 = Int(Rnd * 10 + 1)
+                    b2 = drabo(dc5, dc4)
                     If count > 8000 Then Exit Do
-                Loop Until b3 Mod 2 <> 0
-                Let count = count + 1
+                Loop Until b2 Mod 2 <> 0
+                count = count + 1
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2
         Case Is = 2
             Do
                 Do
-                    Let count = count + 1
-                    Let dc4 = Int(Rnd * 10 + 1)
-                    Let dc5 = Int(Rnd * 10 + 1)
-                    Let b3 = drabo(dc5, dc4)
+                    count = count + 1
+                    dc4 = Int(Rnd * 10 + 1)
+                    dc5 = Int(Rnd * 10 + 1)
+                    b2 = drabo(dc5, dc4)
                     If count > 8000 Then Exit Do
-                Loop Until b3 Mod 2 <> 0
-                Let count = count + 1
+                Loop Until b2 Mod 2 <> 0
+                count = count + 1
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or b3 = w1 Or b3 = w2 Or b3 = b1 Or b3 = b2
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2
     End Select
 
-    Let w3 = drabo(dc2, dc1): Let b3 = drabo(dc5, dc4)
-    Let fw3x = dc1: Let fw3y = dc2: Let fb3x = dc4: Let fb3y = dc5
-    Let fw3 = dc3: Let fb3 = dc6
+    w3 = drabo(dc2, dc1): b3 = drabo(dc5, dc4)
+    fw3x = dc1: fw3y = dc2: fb3x = dc4: fb3y = dc5
+    fw3 = dc3: fb3 = dc6
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call dame
-    If dc3 = 2 Then Call checker
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call dame
-    If dc6 = 2 Then Call checker
-    Let x = 20: Let y = 220
-    If dc1 = 1 Then Call letterA
-    If dc1 = 2 Then Call letterB
-    If dc1 = 3 Then Call letterC
-    If dc1 = 4 Then Call letterD
-    If dc1 = 5 Then Call letterE
-    If dc1 = 6 Then Call letterF
-    If dc1 = 7 Then Call letterG
-    If dc1 = 8 Then Call letterH
-    If dc1 = 9 Then Call letterI
-    If dc1 = 10 Then Call letterJ
-    Let x = 20: Let y = 280
-    If dc2 = 1 Then Call letter1
-    If dc2 = 2 Then Call letter2
-    If dc2 = 3 Then Call letter3
-    If dc2 = 4 Then Call letter4
-    If dc2 = 5 Then Call letter5
-    If dc2 = 6 Then Call letter6
-    If dc2 = 7 Then Call letter7
-    If dc2 = 8 Then Call letter8
-    If dc2 = 9 Then Call letter9
-    If dc2 = 10 Then Call letter0
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    If dc4 = 9 Then Call letterI
-    If dc4 = 10 Then Call letterJ
-    Let x = 580: Let y = 280
-    If dc5 = 1 Then Call letter1
-    If dc5 = 2 Then Call letter2
-    If dc5 = 3 Then Call letter3
-    If dc5 = 4 Then Call letter4
-    If dc5 = 5 Then Call letter5
-    If dc5 = 6 Then Call letter6
-    If dc5 = 7 Then Call letter7
-    If dc5 = 8 Then Call letter8
-    If dc5 = 9 Then Call letter9
-    If dc5 = 10 Then Call letter0
-    Let x = (dc1 * 40) + 80: Let y = Abs((dc2 * 40) - 480) - 40
-    Let cf = 15
-    If dc3 = 1 Then Call dame
-    If dc3 = 2 Then Call checker
-    Let x = (dc4 * 40) + 80: Let y = Abs((dc5 * 40) - 480) - 40
-    Let cf = 0
-    If dc6 = 1 Then Call dame
-    If dc6 = 2 Then Call checker
+    Call draughtscount
 
     Do
         Select Case InKey$
@@ -5164,79 +4048,400 @@ Sub draughts
     Call dices
 
     Rem 4th roll
-    Let count = 0: Let index = 0
-    Let dc1 = Int(Rnd * 10 + 1)
-    Let dc2 = Int(Rnd * 10 + 1)
-    Let dc3 = Int(Rnd * 2 + 1)
-    Let dc4 = Int(Rnd * 10 + 1)
-    Let dc5 = Int(Rnd * 10 + 1)
-    Let dc6 = Int(Rnd * 2 + 1)
-    Let w4 = drabo(dc2, dc1): Let b4 = drabo(dc5, dc4)
+    count = 0: index = 0
+    dc1 = Int(Rnd * 10 + 1)
+    dc2 = Int(Rnd * 10 + 1)
+    dc3 = Int(Rnd * 2 + 1)
+    dc4 = Int(Rnd * 10 + 1)
+    dc5 = Int(Rnd * 10 + 1)
+    dc6 = Int(Rnd * 2 + 1)
+    w4 = drabo(dc2, dc1): b4 = drabo(dc5, dc4)
 
     Select Case dc3
         Case Is = 1
             Do
                 Do
-                    Let count = count + 1
-                    Let dc1 = Int(Rnd * 10 + 1)
-                    Let dc2 = Int(Rnd * 10 + 1)
-                    Let w4 = drabo(dc2, dc1)
+                    count = count + 1
+                    dc1 = Int(Rnd * 10 + 1)
+                    dc2 = Int(Rnd * 10 + 1)
+                    w4 = drabo(dc2, dc1)
                     If count > 8000 Then Exit Do
                 Loop Until w4 Mod 2 <> 0
-                Let count = count + 1
+                count = count + 1
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4
         Case Is = 2
             Do
                 Do
-                    Let count = count + 1
-                    Let dc1 = Int(Rnd * 10 + 1)
-                    Let dc2 = Int(Rnd * 10 + 1)
-                    Let w4 = drabo(dc2, dc1)
+                    count = count + 1
+                    dc1 = Int(Rnd * 10 + 1)
+                    dc2 = Int(Rnd * 10 + 1)
+                    w4 = drabo(dc2, dc1)
                     If count > 8000 Then Exit Do
                 Loop Until w4 Mod 2 <> 0
-                Let count = count + 1
+                count = count + 1
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4
     End Select
     Select Case dc6
         Case Is = 1
             Do
                 Do
-                    Let count = count + 1
-                    Let dc4 = Int(Rnd * 10 + 1)
-                    Let dc5 = Int(Rnd * 10 + 1)
-                    Let b4 = drabo(dc5, dc4)
+                    count = count + 1
+                    dc4 = Int(Rnd * 10 + 1)
+                    dc5 = Int(Rnd * 10 + 1)
+                    b4 = drabo(dc5, dc4)
                     If count > 8000 Then Exit Do
                 Loop Until b4 Mod 2 <> 0
-                Let count = count + 1
+                count = count + 1
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4
         Case Is = 2
             Do
                 Do
-                    Let count = count + 1
-                    Let dc4 = Int(Rnd * 10 + 1)
-                    Let dc5 = Int(Rnd * 10 + 1)
-                    Let b4 = drabo(dc5, dc4)
+                    count = count + 1
+                    dc4 = Int(Rnd * 10 + 1)
+                    dc5 = Int(Rnd * 10 + 1)
+                    b4 = drabo(dc5, dc4)
                     If count > 8000 Then Exit Do
                 Loop Until b4 Mod 2 <> 0
-                Let count = count + 1
+                count = count + 1
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = b1 Or b4 = b2 Or b4 = b3
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4
     End Select
 
-    Let w4 = drabo(dc2, dc1): Let b4 = drabo(dc5, dc4)
-    Let fw4x = dc1: Let fw4y = dc2: Let fb4x = dc4: Let fb4y = dc5
-    Let fw4 = dc3: Let fb4 = dc6
+    w4 = drabo(dc2, dc1): b4 = drabo(dc5, dc4)
+    fw4x = dc1: fw4y = dc2: fb4x = dc4: fb4y = dc5
+    fw4 = dc3: fb4 = dc6
 
-    Let x = 20: Let y = 160: Let cf = 15
-    If dc3 = 1 Then Call dame
-    If dc3 = 2 Then Call checker
-    Let x = 580: Let y = 160: Let cf = 0
-    If dc6 = 1 Then Call dame
-    If dc6 = 2 Then Call checker
-    Let x = 20: Let y = 220
+    Call draughtscount
+
+    Do
+        Select Case InKey$
+            Case Is = Chr$(32)
+                Rem
+            Case Is = Chr$(13)
+                Call draughtsfen
+            Case Is = Chr$(27)
+                End
+        End Select
+    Loop
+End Sub
+
+Sub chesscount
+    x = 20: y = 60: cf = 15
+    If dc3 = 1 Then Call dice1
+    If dc3 = 2 Then Call dice2
+    If dc3 = 3 Then Call dice3
+    If dc3 = 4 Then Call dice4
+    If dc3 = 5 Then Call dice5
+    If dc3 = 6 Then Call dice6
+    x = 580: y = 60: cf = 0
+    If dc6 = 1 Then Call dice1
+    If dc6 = 2 Then Call dice2
+    If dc6 = 3 Then Call dice3
+    If dc6 = 4 Then Call dice4
+    If dc6 = 5 Then Call dice5
+    If dc6 = 6 Then Call dice6
+    x = 20: y = 120
+    If dc1 = 1 Then Call dice1
+    If dc1 = 2 Then Call dice2
+    If dc1 = 3 Then Call dice3
+    If dc1 = 4 Then Call dice4
+    If dc1 = 5 Then Call dice5
+    If dc1 = 6 Then Call dice6
+    If dc1 = 7 Then Call dice7
+    If dc1 = 8 Then Call dice8
+    x = 580: y = 120
+    If dc4 = 1 Then Call dice1
+    If dc4 = 2 Then Call dice2
+    If dc4 = 3 Then Call dice3
+    If dc4 = 4 Then Call dice4
+    If dc4 = 5 Then Call dice5
+    If dc4 = 6 Then Call dice6
+    If dc4 = 7 Then Call dice7
+    If dc4 = 8 Then Call dice8
+    x = 20: y = 180
+    If dc2 = 1 Then Call dice1
+    If dc2 = 2 Then Call dice2
+    If dc2 = 3 Then Call dice3
+    If dc2 = 4 Then Call dice4
+    If dc2 = 5 Then Call dice5
+    If dc2 = 6 Then Call dice6
+    If dc2 = 7 Then Call dice7
+    If dc2 = 8 Then Call dice8
+    x = 580: y = 180
+    If dc5 = 1 Then Call dice1
+    If dc5 = 2 Then Call dice2
+    If dc5 = 3 Then Call dice3
+    If dc5 = 4 Then Call dice4
+    If dc5 = 5 Then Call dice5
+    If dc5 = 6 Then Call dice6
+    If dc5 = 7 Then Call dice7
+    If dc5 = 8 Then Call dice8
+    x = 20: y = 260: cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call pawn
+    x = 580: y = 260: cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call pawn
+    x = 20: y = 320
+    If dc1 = 1 Then Call letterA
+    If dc1 = 2 Then Call letterB
+    If dc1 = 3 Then Call letterC
+    If dc1 = 4 Then Call letterD
+    If dc1 = 5 Then Call letterE
+    If dc1 = 6 Then Call letterF
+    If dc1 = 7 Then Call letterG
+    If dc1 = 8 Then Call letterH
+    x = 580: y = 320
+    If dc4 = 1 Then Call letterA
+    If dc4 = 2 Then Call letterB
+    If dc4 = 3 Then Call letterC
+    If dc4 = 4 Then Call letterD
+    If dc4 = 5 Then Call letterE
+    If dc4 = 6 Then Call letterF
+    If dc4 = 7 Then Call letterG
+    If dc4 = 8 Then Call letterH
+    x = 20: y = 380
+    If dc2 = 1 Then Call letter1
+    If dc2 = 2 Then Call letter2
+    If dc2 = 3 Then Call letter3
+    If dc2 = 4 Then Call letter4
+    If dc2 = 5 Then Call letter5
+    If dc2 = 6 Then Call letter6
+    If dc2 = 7 Then Call letter7
+    If dc2 = 8 Then Call letter8
+    x = 580: y = 380
+    If dc5 = 1 Then Call letter1
+    If dc5 = 2 Then Call letter2
+    If dc5 = 3 Then Call letter3
+    If dc5 = 4 Then Call letter4
+    If dc5 = 5 Then Call letter5
+    If dc5 = 6 Then Call letter6
+    If dc5 = 7 Then Call letter7
+    If dc5 = 8 Then Call letter8
+    x = (dc1 * 40) + 120: y = Abs((dc2 * 40) - 480) - 80
+    cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call pawn
+    x = (dc4 * 40) + 120: y = Abs((dc5 * 40) - 480) - 80
+    cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call pawn
+End Sub
+
+Sub makrukcount
+    x = 20: y = 60: cf = 15
+    If dc3 = 1 Then Call dice1
+    If dc3 = 2 Then Call dice2
+    If dc3 = 3 Then Call dice3
+    If dc3 = 4 Then Call dice4
+    If dc3 = 5 Then Call dice5
+    If dc3 = 6 Then Call dice6
+    x = 580: y = 60: cf = 0
+    If dc6 = 1 Then Call dice1
+    If dc6 = 2 Then Call dice2
+    If dc6 = 3 Then Call dice3
+    If dc6 = 4 Then Call dice4
+    If dc6 = 5 Then Call dice5
+    If dc6 = 6 Then Call dice6
+    x = 20: y = 120
+    If dc1 = 1 Then Call dice1
+    If dc1 = 2 Then Call dice2
+    If dc1 = 3 Then Call dice3
+    If dc1 = 4 Then Call dice4
+    If dc1 = 5 Then Call dice5
+    If dc1 = 6 Then Call dice6
+    If dc1 = 7 Then Call dice7
+    If dc1 = 8 Then Call dice8
+    x = 580: y = 120
+    If dc4 = 1 Then Call dice1
+    If dc4 = 2 Then Call dice2
+    If dc4 = 3 Then Call dice3
+    If dc4 = 4 Then Call dice4
+    If dc4 = 5 Then Call dice5
+    If dc4 = 6 Then Call dice6
+    If dc4 = 7 Then Call dice7
+    If dc4 = 8 Then Call dice8
+    x = 20: y = 180
+    If dc2 = 1 Then Call dice1
+    If dc2 = 2 Then Call dice2
+    If dc2 = 3 Then Call dice3
+    If dc2 = 4 Then Call dice4
+    If dc2 = 5 Then Call dice5
+    If dc2 = 6 Then Call dice6
+    If dc2 = 7 Then Call dice7
+    If dc2 = 8 Then Call dice8
+    x = 580: y = 180
+    If dc5 = 1 Then Call dice1
+    If dc5 = 2 Then Call dice2
+    If dc5 = 3 Then Call dice3
+    If dc5 = 4 Then Call dice4
+    If dc5 = 5 Then Call dice5
+    If dc5 = 6 Then Call dice6
+    If dc5 = 7 Then Call dice7
+    If dc5 = 8 Then Call dice8
+    x = 20: y = 260: cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call checker
+    x = 580: y = 260: cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call checker
+    x = 20: y = 320
+    If dc1 = 1 Then Call letterA
+    If dc1 = 2 Then Call letterB
+    If dc1 = 3 Then Call letterC
+    If dc1 = 4 Then Call letterD
+    If dc1 = 5 Then Call letterE
+    If dc1 = 6 Then Call letterF
+    If dc1 = 7 Then Call letterG
+    If dc1 = 8 Then Call letterH
+    x = 580: y = 320
+    If dc4 = 1 Then Call letterA
+    If dc4 = 2 Then Call letterB
+    If dc4 = 3 Then Call letterC
+    If dc4 = 4 Then Call letterD
+    If dc4 = 5 Then Call letterE
+    If dc4 = 6 Then Call letterF
+    If dc4 = 7 Then Call letterG
+    If dc4 = 8 Then Call letterH
+    x = 20: y = 380
+    If dc2 = 1 Then Call letter1
+    If dc2 = 2 Then Call letter2
+    If dc2 = 3 Then Call letter3
+    If dc2 = 4 Then Call letter4
+    If dc2 = 5 Then Call letter5
+    If dc2 = 6 Then Call letter6
+    If dc2 = 7 Then Call letter7
+    If dc2 = 8 Then Call letter8
+    x = 580: y = 380
+    If dc5 = 1 Then Call letter1
+    If dc5 = 2 Then Call letter2
+    If dc5 = 3 Then Call letter3
+    If dc5 = 4 Then Call letter4
+    If dc5 = 5 Then Call letter5
+    If dc5 = 6 Then Call letter6
+    If dc5 = 7 Then Call letter7
+    If dc5 = 8 Then Call letter8
+    x = (dc1 * 40) + 120: y = Abs((dc2 * 40) - 480) - 80
+    cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call checker
+    x = (dc4 * 40) + 120: y = Abs((dc5 * 40) - 480) - 80
+    cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call checker
+End Sub
+
+Sub xiangqicount
+    x = 20: y = 60: cf = 15
+    If dc3 = 1 Then Call dice1
+    If dc3 = 2 Then Call dice2
+    If dc3 = 3 Then Call dice3
+    If dc3 = 4 Then Call dice4
+    If dc3 = 5 Then Call dice5
+    If dc3 = 6 Then Call dice6
+    If dc3 = 7 Then Call dice7
+    x = 580: y = 60: cf = 0
+    If dc6 = 1 Then Call dice1
+    If dc6 = 2 Then Call dice2
+    If dc6 = 3 Then Call dice3
+    If dc6 = 4 Then Call dice4
+    If dc6 = 5 Then Call dice5
+    If dc6 = 6 Then Call dice6
+    If dc6 = 7 Then Call dice7
+    x = 20: y = 120
+    If dc1 = 1 Then Call dice1
+    If dc1 = 2 Then Call dice2
+    If dc1 = 3 Then Call dice3
+    If dc1 = 4 Then Call dice4
+    If dc1 = 5 Then Call dice5
+    If dc1 = 6 Then Call dice6
+    If dc1 = 7 Then Call dice7
+    If dc1 = 8 Then Call dice8
+    If dc1 = 9 Then Call dice9
+    x = 580: y = 120
+    If dc4 = 1 Then Call dice1
+    If dc4 = 2 Then Call dice2
+    If dc4 = 3 Then Call dice3
+    If dc4 = 4 Then Call dice4
+    If dc4 = 5 Then Call dice5
+    If dc4 = 6 Then Call dice6
+    If dc4 = 7 Then Call dice7
+    If dc4 = 8 Then Call dice8
+    If dc4 = 9 Then Call dice9
+    x = 20: y = 180
+    If dc2 = 1 Then Call dice1
+    If dc2 = 2 Then Call dice2
+    If dc2 = 3 Then Call dice3
+    If dc2 = 4 Then Call dice4
+    If dc2 = 5 Then Call dice5
+    If dc2 = 6 Then Call dice6
+    If dc2 = 7 Then Call dice7
+    If dc2 = 8 Then Call dice8
+    If dc2 = 9 Then Call dice9
+    If dc2 = 10 Then Call dice10
+    x = 580: y = 180
+    If dc5 = 1 Then Call dice1
+    If dc5 = 2 Then Call dice2
+    If dc5 = 3 Then Call dice3
+    If dc5 = 4 Then Call dice4
+    If dc5 = 5 Then Call dice5
+    If dc5 = 6 Then Call dice6
+    If dc5 = 7 Then Call dice7
+    If dc5 = 8 Then Call dice8
+    If dc5 = 9 Then Call dice9
+    If dc5 = 10 Then Call dice10
+    x = 20: y = 260: cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call cannon
+    If dc3 = 7 Then Call pawn
+    x = 580: y = 260: cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call cannon
+    If dc6 = 7 Then Call pawn
+    x = 20: y = 320
     If dc1 = 1 Then Call letterA
     If dc1 = 2 Then Call letterB
     If dc1 = 3 Then Call letterC
@@ -5246,8 +4451,17 @@ Sub draughts
     If dc1 = 7 Then Call letterG
     If dc1 = 8 Then Call letterH
     If dc1 = 9 Then Call letterI
-    If dc1 = 10 Then Call letterJ
-    Let x = 20: Let y = 280
+    x = 580: y = 320
+    If dc4 = 1 Then Call letterA
+    If dc4 = 2 Then Call letterB
+    If dc4 = 3 Then Call letterC
+    If dc4 = 4 Then Call letterD
+    If dc4 = 5 Then Call letterE
+    If dc4 = 6 Then Call letterF
+    If dc4 = 7 Then Call letterG
+    If dc4 = 8 Then Call letterH
+    If dc4 = 9 Then Call letterI
+    x = 20: y = 380
     If dc2 = 1 Then Call letter1
     If dc2 = 2 Then Call letter2
     If dc2 = 3 Then Call letter3
@@ -5258,18 +4472,7 @@ Sub draughts
     If dc2 = 8 Then Call letter8
     If dc2 = 9 Then Call letter9
     If dc2 = 10 Then Call letter0
-    Let x = 580: Let y = 220
-    If dc4 = 1 Then Call letterA
-    If dc4 = 2 Then Call letterB
-    If dc4 = 3 Then Call letterC
-    If dc4 = 4 Then Call letterD
-    If dc4 = 5 Then Call letterE
-    If dc4 = 6 Then Call letterF
-    If dc4 = 7 Then Call letterG
-    If dc4 = 8 Then Call letterH
-    If dc4 = 9 Then Call letterI
-    If dc4 = 10 Then Call letterJ
-    Let x = 580: Let y = 280
+    x = 580: y = 380
     If dc5 = 1 Then Call letter1
     If dc5 = 2 Then Call letter2
     If dc5 = 3 Then Call letter3
@@ -5280,270 +4483,389 @@ Sub draughts
     If dc5 = 8 Then Call letter8
     If dc5 = 9 Then Call letter9
     If dc5 = 10 Then Call letter0
-    Let x = (dc1 * 40) + 80: Let y = Abs((dc2 * 40) - 480) - 40
-    Let cf = 15
+    x = (dc1 * 40) + 100: y = Abs((dc2 * 40) - 480) - 40
+    cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call bishop
+    If dc3 = 4 Then Call knight
+    If dc3 = 5 Then Call rook
+    If dc3 = 6 Then Call cannon
+    If dc3 = 7 Then Call pawn
+    x = (dc4 * 40) + 100: y = Abs((dc5 * 40) - 480) - 40
+    cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call bishop
+    If dc6 = 4 Then Call knight
+    If dc6 = 5 Then Call rook
+    If dc6 = 6 Then Call cannon
+    If dc6 = 7 Then Call pawn
+End Sub
+
+Sub shogicount
+    x = 20: y = 60: cf = 15
+    If dc3 = 1 Then Call dice1
+    If dc3 = 2 Then Call dice2
+    If dc3 = 3 Then Call dice3
+    If dc3 = 4 Then Call dice4
+    If dc3 = 5 Then Call dice5
+    If dc3 = 6 Then Call dice6
+    If dc3 = 7 Then Call dice7
+    If dc3 = 8 Then Call dice8
+    If dc3 = 9 Then Call dice9
+    If dc3 = 10 Then Call dice10
+    If dc3 = 11 Then Call dice11
+    x = 580: y = 60: cf = 0
+    If dc6 = 1 Then Call dice1
+    If dc6 = 2 Then Call dice2
+    If dc6 = 3 Then Call dice3
+    If dc6 = 4 Then Call dice4
+    If dc6 = 5 Then Call dice5
+    If dc6 = 6 Then Call dice6
+    If dc6 = 7 Then Call dice7
+    If dc6 = 8 Then Call dice8
+    If dc6 = 9 Then Call dice9
+    If dc6 = 10 Then Call dice10
+    If dc6 = 11 Then Call dice11
+    x = 20: y = 120
+    If dc1 = 1 Then Call dice1
+    If dc1 = 2 Then Call dice2
+    If dc1 = 3 Then Call dice3
+    If dc1 = 4 Then Call dice4
+    If dc1 = 5 Then Call dice5
+    If dc1 = 6 Then Call dice6
+    If dc1 = 7 Then Call dice7
+    If dc1 = 8 Then Call dice8
+    If dc1 = 9 Then Call dice9
+    x = 580: y = 120
+    If dc4 = 1 Then Call dice1
+    If dc4 = 2 Then Call dice2
+    If dc4 = 3 Then Call dice3
+    If dc4 = 4 Then Call dice4
+    If dc4 = 5 Then Call dice5
+    If dc4 = 6 Then Call dice6
+    If dc4 = 7 Then Call dice7
+    If dc4 = 8 Then Call dice8
+    If dc4 = 9 Then Call dice9
+    x = 20: y = 180
+    If dc2 = 1 Then Call dice1
+    If dc2 = 2 Then Call dice2
+    If dc2 = 3 Then Call dice3
+    If dc2 = 4 Then Call dice4
+    If dc2 = 5 Then Call dice5
+    If dc2 = 6 Then Call dice6
+    If dc2 = 7 Then Call dice7
+    If dc2 = 8 Then Call dice8
+    If dc2 = 9 Then Call dice9
+    x = 580: y = 180
+    If dc5 = 1 Then Call dice1
+    If dc5 = 2 Then Call dice2
+    If dc5 = 3 Then Call dice3
+    If dc5 = 4 Then Call dice4
+    If dc5 = 5 Then Call dice5
+    If dc5 = 6 Then Call dice6
+    If dc5 = 7 Then Call dice7
+    If dc5 = 8 Then Call dice8
+    If dc5 = 9 Then Call dice9
+    x = 20: y = 260: cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call general
+    If dc3 = 4 Then Call bishop
+    If dc3 = 5 Then Call knight
+    If dc3 = 6 Then Call rook
+    If dc3 = 7 Then Call lance
+    If dc3 = 8 Then Call pawn
+    If dc3 = 9 Then Call horse
+    If dc3 = 10 Then Call dragon
+    If dc3 = 11 Then Call tokin
+    x = 580: y = 260: cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call general
+    If dc6 = 4 Then Call bishop
+    If dc6 = 5 Then Call knight
+    If dc6 = 6 Then Call rook
+    If dc6 = 7 Then Call lance
+    If dc6 = 8 Then Call pawn
+    If dc6 = 9 Then Call horse
+    If dc6 = 10 Then Call dragon
+    If dc6 = 11 Then Call tokin
+    x = 20: y = 320
+    If dc1 = 1 Then Call letterA
+    If dc1 = 2 Then Call letterB
+    If dc1 = 3 Then Call letterC
+    If dc1 = 4 Then Call letterD
+    If dc1 = 5 Then Call letterE
+    If dc1 = 6 Then Call letterF
+    If dc1 = 7 Then Call letterG
+    If dc1 = 8 Then Call letterH
+    If dc1 = 9 Then Call letterI
+    x = 580: y = 320
+    If dc4 = 1 Then Call letterA
+    If dc4 = 2 Then Call letterB
+    If dc4 = 3 Then Call letterC
+    If dc4 = 4 Then Call letterD
+    If dc4 = 5 Then Call letterE
+    If dc4 = 6 Then Call letterF
+    If dc4 = 7 Then Call letterG
+    If dc4 = 8 Then Call letterH
+    If dc4 = 9 Then Call letterI
+    x = 20: y = 380
+    If dc2 = 1 Then Call letter1
+    If dc2 = 2 Then Call letter2
+    If dc2 = 3 Then Call letter3
+    If dc2 = 4 Then Call letter4
+    If dc2 = 5 Then Call letter5
+    If dc2 = 6 Then Call letter6
+    If dc2 = 7 Then Call letter7
+    If dc2 = 8 Then Call letter8
+    If dc2 = 9 Then Call letter9
+    x = 580: y = 380
+    If dc5 = 1 Then Call letter1
+    If dc5 = 2 Then Call letter2
+    If dc5 = 3 Then Call letter3
+    If dc5 = 4 Then Call letter4
+    If dc5 = 5 Then Call letter5
+    If dc5 = 6 Then Call letter6
+    If dc5 = 7 Then Call letter7
+    If dc5 = 8 Then Call letter8
+    If dc5 = 9 Then Call letter9
+    x = (dc1 * 40) + 100: y = Abs((dc2 * 40) - 480) - 60
+    cf = 15
+    If dc3 = 1 Then Call king
+    If dc3 = 2 Then Call queen
+    If dc3 = 3 Then Call general
+    If dc3 = 4 Then Call bishop
+    If dc3 = 5 Then Call knight
+    If dc3 = 6 Then Call rook
+    If dc3 = 7 Then Call lance
+    If dc3 = 8 Then Call pawn
+    If dc3 = 9 Then Call horse
+    If dc3 = 10 Then Call dragon
+    If dc3 = 11 Then Call tokin
+    x = (dc4 * 40) + 100: y = Abs((dc5 * 40) - 480) - 60
+    cf = 0
+    If dc6 = 1 Then Call king
+    If dc6 = 2 Then Call queen
+    If dc6 = 3 Then Call general
+    If dc6 = 4 Then Call bishop
+    If dc6 = 5 Then Call knight
+    If dc6 = 6 Then Call rook
+    If dc6 = 7 Then Call lance
+    If dc6 = 8 Then Call pawn
+    If dc6 = 9 Then Call horse
+    If dc6 = 10 Then Call dragon
+    If dc6 = 11 Then Call tokin
+End Sub
+
+Sub draughtscount
+    x = 20: y = 60: cf = 15
+    If dc3 = 1 Then Call dice1
+    If dc3 = 2 Then Call dice2
+    x = 580: y = 60: cf = 0
+    If dc6 = 1 Then Call dice1
+    If dc6 = 2 Then Call dice2
+    x = 20: y = 120
+    If dc1 = 1 Then Call dice1
+    If dc1 = 2 Then Call dice2
+    If dc1 = 3 Then Call dice3
+    If dc1 = 4 Then Call dice4
+    If dc1 = 5 Then Call dice5
+    If dc1 = 6 Then Call dice6
+    If dc1 = 7 Then Call dice7
+    If dc1 = 8 Then Call dice8
+    If dc1 = 9 Then Call dice9
+    If dc1 = 10 Then Call dice10
+    x = 580: y = 120
+    If dc4 = 1 Then Call dice1
+    If dc4 = 2 Then Call dice2
+    If dc4 = 3 Then Call dice3
+    If dc4 = 4 Then Call dice4
+    If dc4 = 5 Then Call dice5
+    If dc4 = 6 Then Call dice6
+    If dc4 = 7 Then Call dice7
+    If dc4 = 8 Then Call dice8
+    If dc4 = 9 Then Call dice9
+    If dc4 = 10 Then Call dice10
+    x = 20: y = 180
+    If dc2 = 1 Then Call dice1
+    If dc2 = 2 Then Call dice2
+    If dc2 = 3 Then Call dice3
+    If dc2 = 4 Then Call dice4
+    If dc2 = 5 Then Call dice5
+    If dc2 = 6 Then Call dice6
+    If dc2 = 7 Then Call dice7
+    If dc2 = 8 Then Call dice8
+    If dc2 = 9 Then Call dice9
+    If dc2 = 10 Then Call dice10
+    x = 580: y = 180
+    If dc5 = 1 Then Call dice1
+    If dc5 = 2 Then Call dice2
+    If dc5 = 3 Then Call dice3
+    If dc5 = 4 Then Call dice4
+    If dc5 = 5 Then Call dice5
+    If dc5 = 6 Then Call dice6
+    If dc5 = 7 Then Call dice7
+    If dc5 = 8 Then Call dice8
+    If dc5 = 9 Then Call dice9
+    If dc5 = 10 Then Call dice10
+    x = 20: y = 260: cf = 15
     If dc3 = 1 Then Call dame
     If dc3 = 2 Then Call checker
-    Let x = (dc4 * 40) + 80: Let y = Abs((dc5 * 40) - 480) - 40
-    Let cf = 0
+    x = 580: y = 260: cf = 0
     If dc6 = 1 Then Call dame
     If dc6 = 2 Then Call checker
-
-    Do
-        Select Case InKey$
-            Case Is = Chr$(32)
-                Exit Case
-            Case Is = Chr$(13)
-                Call draughtsfen
-            Case Is = Chr$(27)
-                End
-        End Select
-    Loop
-
+    x = 20: y = 320
+    If dc1 = 1 Then Call letterA
+    If dc1 = 2 Then Call letterB
+    If dc1 = 3 Then Call letterC
+    If dc1 = 4 Then Call letterD
+    If dc1 = 5 Then Call letterE
+    If dc1 = 6 Then Call letterF
+    If dc1 = 7 Then Call letterG
+    If dc1 = 8 Then Call letterH
+    If dc1 = 9 Then Call letterI
+    If dc1 = 10 Then Call letterJ
+    x = 580: y = 320
+    If dc4 = 1 Then Call letterA
+    If dc4 = 2 Then Call letterB
+    If dc4 = 3 Then Call letterC
+    If dc4 = 4 Then Call letterD
+    If dc4 = 5 Then Call letterE
+    If dc4 = 6 Then Call letterF
+    If dc4 = 7 Then Call letterG
+    If dc4 = 8 Then Call letterH
+    If dc4 = 9 Then Call letterI
+    If dc4 = 10 Then Call letterJ
+    x = 20: y = 380
+    If dc2 = 1 Then Call letter1
+    If dc2 = 2 Then Call letter2
+    If dc2 = 3 Then Call letter3
+    If dc2 = 4 Then Call letter4
+    If dc2 = 5 Then Call letter5
+    If dc2 = 6 Then Call letter6
+    If dc2 = 7 Then Call letter7
+    If dc2 = 8 Then Call letter8
+    If dc2 = 9 Then Call letter9
+    If dc2 = 10 Then Call letter0
+    x = 580: y = 380
+    If dc5 = 1 Then Call letter1
+    If dc5 = 2 Then Call letter2
+    If dc5 = 3 Then Call letter3
+    If dc5 = 4 Then Call letter4
+    If dc5 = 5 Then Call letter5
+    If dc5 = 6 Then Call letter6
+    If dc5 = 7 Then Call letter7
+    If dc5 = 8 Then Call letter8
+    If dc5 = 9 Then Call letter9
+    If dc5 = 10 Then Call letter0
+    x = (dc1 * 40) + 80: y = Abs((dc2 * 40) - 480) - 40
+    cf = 15
+    If dc3 = 1 Then Call dame
+    If dc3 = 2 Then Call checker
+    x = (dc4 * 40) + 80: y = Abs((dc5 * 40) - 480) - 40
+    cf = 0
+    If dc6 = 1 Then Call dame
+    If dc6 = 2 Then Call checker
 End Sub
 
 Sub chessfen
-
     Rem Forsyth-Edwards notation
 
-    If fw1 = 1 Then Let fig1w$ = "K"
-    If fw1 = 2 Then Let fig1w$ = "Q"
-    If fw1 = 3 Then Let fig1w$ = "B"
-    If fw1 = 4 Then Let fig1w$ = "N"
-    If fw1 = 5 Then Let fig1w$ = "R"
-    If fw1 = 6 Then Let fig1w$ = "P"
+    If fw1 = 1 Then fig1w$ = "K"
+    If fw1 = 2 Then fig1w$ = "Q"
+    If fw1 = 3 Then fig1w$ = "B"
+    If fw1 = 4 Then fig1w$ = "N"
+    If fw1 = 5 Then fig1w$ = "R"
+    If fw1 = 6 Then fig1w$ = "P"
 
-    If fb1 = 1 Then Let fig1b$ = "k"
-    If fb1 = 2 Then Let fig1b$ = "q"
-    If fb1 = 3 Then Let fig1b$ = "b"
-    If fb1 = 4 Then Let fig1b$ = "n"
-    If fb1 = 5 Then Let fig1b$ = "r"
-    If fb1 = 6 Then Let fig1b$ = "p"
+    If fb1 = 1 Then fig1b$ = "k"
+    If fb1 = 2 Then fig1b$ = "q"
+    If fb1 = 3 Then fig1b$ = "b"
+    If fb1 = 4 Then fig1b$ = "n"
+    If fb1 = 5 Then fig1b$ = "r"
+    If fb1 = 6 Then fig1b$ = "p"
 
-    If fw2 = 1 Then Let fig2w$ = "K"
-    If fw2 = 2 Then Let fig2w$ = "Q"
-    If fw2 = 3 Then Let fig2w$ = "B"
-    If fw2 = 4 Then Let fig2w$ = "N"
-    If fw2 = 5 Then Let fig2w$ = "R"
-    If fw2 = 6 Then Let fig2w$ = "P"
+    If fw2 = 1 Then fig2w$ = "K"
+    If fw2 = 2 Then fig2w$ = "Q"
+    If fw2 = 3 Then fig2w$ = "B"
+    If fw2 = 4 Then fig2w$ = "N"
+    If fw2 = 5 Then fig2w$ = "R"
+    If fw2 = 6 Then fig2w$ = "P"
 
-    If fb2 = 1 Then Let fig2b$ = "k"
-    If fb2 = 2 Then Let fig2b$ = "q"
-    If fb2 = 3 Then Let fig2b$ = "b"
-    If fb2 = 4 Then Let fig2b$ = "n"
-    If fb2 = 5 Then Let fig2b$ = "r"
-    If fb2 = 6 Then Let fig2b$ = "p"
+    If fb2 = 1 Then fig2b$ = "k"
+    If fb2 = 2 Then fig2b$ = "q"
+    If fb2 = 3 Then fig2b$ = "b"
+    If fb2 = 4 Then fig2b$ = "n"
+    If fb2 = 5 Then fig2b$ = "r"
+    If fb2 = 6 Then fig2b$ = "p"
 
-    If fw3 = 1 Then Let fig3w$ = "K"
-    If fw3 = 2 Then Let fig3w$ = "Q"
-    If fw3 = 3 Then Let fig3w$ = "B"
-    If fw3 = 4 Then Let fig3w$ = "N"
-    If fw3 = 5 Then Let fig3w$ = "R"
-    If fw3 = 6 Then Let fig3w$ = "P"
+    If fw3 = 1 Then fig3w$ = "K"
+    If fw3 = 2 Then fig3w$ = "Q"
+    If fw3 = 3 Then fig3w$ = "B"
+    If fw3 = 4 Then fig3w$ = "N"
+    If fw3 = 5 Then fig3w$ = "R"
+    If fw3 = 6 Then fig3w$ = "P"
 
-    If fb3 = 1 Then Let fig3b$ = "k"
-    If fb3 = 2 Then Let fig3b$ = "q"
-    If fb3 = 3 Then Let fig3b$ = "b"
-    If fb3 = 4 Then Let fig3b$ = "n"
-    If fb3 = 5 Then Let fig3b$ = "r"
-    If fb3 = 6 Then Let fig3b$ = "p"
+    If fb3 = 1 Then fig3b$ = "k"
+    If fb3 = 2 Then fig3b$ = "q"
+    If fb3 = 3 Then fig3b$ = "b"
+    If fb3 = 4 Then fig3b$ = "n"
+    If fb3 = 5 Then fig3b$ = "r"
+    If fb3 = 6 Then fig3b$ = "p"
 
-    If fw4 = 1 Then Let fig4w$ = "K"
-    If fw4 = 2 Then Let fig4w$ = "Q"
-    If fw4 = 3 Then Let fig4w$ = "B"
-    If fw4 = 4 Then Let fig4w$ = "N"
-    If fw4 = 5 Then Let fig4w$ = "R"
-    If fw4 = 6 Then Let fig4w$ = "P"
+    If fw4 = 1 Then fig4w$ = "K"
+    If fw4 = 2 Then fig4w$ = "Q"
+    If fw4 = 3 Then fig4w$ = "B"
+    If fw4 = 4 Then fig4w$ = "N"
+    If fw4 = 5 Then fig4w$ = "R"
+    If fw4 = 6 Then fig4w$ = "P"
 
-    If fb4 = 1 Then Let fig4b$ = "k"
-    If fb4 = 2 Then Let fig4b$ = "q"
-    If fb4 = 3 Then Let fig4b$ = "b"
-    If fb4 = 4 Then Let fig4b$ = "n"
-    If fb4 = 5 Then Let fig4b$ = "r"
-    If fb4 = 6 Then Let fig4b$ = "p"
+    If fb4 = 1 Then fig4b$ = "k"
+    If fb4 = 2 Then fig4b$ = "q"
+    If fb4 = 3 Then fig4b$ = "b"
+    If fb4 = 4 Then fig4b$ = "n"
+    If fb4 = 5 Then fig4b$ = "r"
+    If fb4 = 6 Then fig4b$ = "p"
 
     Dim table(8, 8) As String
-    Let table(fw1y, fw1x) = fig1w$
-    Let table(fb1y, fb1x) = fig1b$
-    Let table(fw2y, fw2x) = fig2w$
-    Let table(fb2y, fb2x) = fig2b$
-    Let table(fw3y, fw3x) = fig3w$
-    Let table(fb3y, fb3x) = fig3b$
-    Let table(fw4y, fw4x) = fig4w$
-    Let table(fb4y, fb4x) = fig4b$
+    table(fw1y, fw1x) = fig1w$
+    table(fb1y, fb1x) = fig1b$
+    table(fw2y, fw2x) = fig2w$
+    table(fb2y, fb2x) = fig2b$
+    table(fw3y, fw3x) = fig3w$
+    table(fb3y, fb3x) = fig3b$
+    table(fw4y, fw4x) = fig4w$
+    table(fb4y, fb4x) = fig4b$
     For row = 1 To 8: For col = 1 To 8
-        If table(row, col) = "" Then Let table(row, col) = "+"
+        If table(row, col) = "" Then table(row, col) = "+"
     Next col: Next row
 
-    Let mas1$ = table(1, 1) + table(1, 2) + table(1, 3) + table(1, 4) + table(1, 5) + table(1, 6) + table(1, 7) + table(1, 8)
-    Let lin1$ = ""
-    Let count = 0
-    For index = 1 To 8
-        If index = 8 And Mid$(mas1$, index, 1) = "+" Then
-            count = count + 1
-            lin1$ = lin1$ + LTrim$(Str$(count))
-        End If
-        If index < 8 And Mid$(mas1$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas1$, index, 1) <> "+" And count = 0 Then
-            lin1$ = lin1$ + Mid$(mas1$, index, 1)
-        End If
-        If Mid$(mas1$, index, 1) <> "+" And count > 0 Then
-            lin1$ = lin1$ + LTrim$(Str$(count))
-            lin1$ = lin1$ + Mid$(mas1$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas2$ = table(2, 1) + table(2, 2) + table(2, 3) + table(2, 4) + table(2, 5) + table(2, 6) + table(2, 7) + table(2, 8)
-    Let lin2$ = ""
-    Let count = 0
-    For index = 1 To 8
-        If index = 8 And Mid$(mas2$, index, 1) = "+" Then
-            count = count + 1
-            lin2$ = lin2$ + LTrim$(Str$(count))
-        End If
-        If index < 8 And Mid$(mas2$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas2$, index, 1) <> "+" And count = 0 Then
-            lin2$ = lin2$ + Mid$(mas2$, index, 1)
-        End If
-        If Mid$(mas2$, index, 1) <> "+" And count > 0 Then
-            lin2$ = lin2$ + LTrim$(Str$(count))
-            lin2$ = lin2$ + Mid$(mas2$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas3$ = table(3, 1) + table(3, 2) + table(3, 3) + table(3, 4) + table(3, 5) + table(3, 6) + table(3, 7) + table(3, 8)
-    Let lin3$ = ""
-    Let count = 0
-    For index = 1 To 8
-        If index = 8 And Mid$(mas3$, index, 1) = "+" Then
-            count = count + 1
-            lin3$ = lin3$ + LTrim$(Str$(count))
-        End If
-        If index < 8 And Mid$(mas3$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas3$, index, 1) <> "+" And count = 0 Then
-            lin3$ = lin3$ + Mid$(mas3$, index, 1)
-        End If
-        If Mid$(mas3$, index, 1) <> "+" And count > 0 Then
-            lin3$ = lin3$ + LTrim$(Str$(count))
-            lin3$ = lin3$ + Mid$(mas3$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas4$ = table(4, 1) + table(4, 2) + table(4, 3) + table(4, 4) + table(4, 5) + table(4, 6) + table(4, 7) + table(4, 8)
-    Let lin4$ = ""
-    Let count = 0
-    For index = 1 To 8
-        If index = 8 And Mid$(mas4$, index, 1) = "+" Then
-            count = count + 1
-            lin4$ = lin4$ + LTrim$(Str$(count))
-        End If
-        If index < 8 And Mid$(mas4$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas4$, index, 1) <> "+" And count = 0 Then
-            lin4$ = lin4$ + Mid$(mas4$, index, 1)
-        End If
-        If Mid$(mas4$, index, 1) <> "+" And count > 0 Then
-            lin4$ = lin4$ + LTrim$(Str$(count))
-            lin4$ = lin4$ + Mid$(mas4$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas5$ = table(5, 1) + table(5, 2) + table(5, 3) + table(5, 4) + table(5, 5) + table(5, 6) + table(5, 7) + table(5, 8)
-    Let lin5$ = ""
-    Let count = 0
-    For index = 1 To 8
-        If index = 8 And Mid$(mas5$, index, 1) = "+" Then
-            count = count + 1
-            lin5$ = lin5$ + LTrim$(Str$(count))
-        End If
-        If index < 8 And Mid$(mas5$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas5$, index, 1) <> "+" And count = 0 Then
-            lin5$ = lin5$ + Mid$(mas5$, index, 1)
-        End If
-        If Mid$(mas5$, index, 1) <> "+" And count > 0 Then
-            lin5$ = lin5$ + LTrim$(Str$(count))
-            lin5$ = lin5$ + Mid$(mas5$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas6$ = table(6, 1) + table(6, 2) + table(6, 3) + table(6, 4) + table(6, 5) + table(6, 6) + table(6, 7) + table(6, 8)
-    Let lin6$ = ""
-    Let count = 0
-    For index = 1 To 8
-        If index = 8 And Mid$(mas6$, index, 1) = "+" Then
-            count = count + 1
-            lin6$ = lin6$ + LTrim$(Str$(count))
-        End If
-        If index < 8 And Mid$(mas6$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas6$, index, 1) <> "+" And count = 0 Then
-            lin6$ = lin6$ + Mid$(mas6$, index, 1)
-        End If
-        If Mid$(mas6$, index, 1) <> "+" And count > 0 Then
-            lin6$ = lin6$ + LTrim$(Str$(count))
-            lin6$ = lin6$ + Mid$(mas6$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas7$ = table(7, 1) + table(7, 2) + table(7, 3) + table(7, 4) + table(7, 5) + table(7, 6) + table(7, 7) + table(7, 8)
-    Let lin7$ = ""
-    Let count = 0
-    For index = 1 To 8
-        If index = 8 And Mid$(mas7$, index, 1) = "+" Then
-            count = count + 1
-            lin7$ = lin7$ + LTrim$(Str$(count))
-        End If
-        If index < 8 And Mid$(mas7$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas7$, index, 1) <> "+" And count = 0 Then
-            lin7$ = lin7$ + Mid$(mas7$, index, 1)
-        End If
-        If Mid$(mas7$, index, 1) <> "+" And count > 0 Then
-            lin7$ = lin7$ + LTrim$(Str$(count))
-            lin7$ = lin7$ + Mid$(mas7$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas8$ = table(8, 1) + table(8, 2) + table(8, 3) + table(8, 4) + table(8, 5) + table(8, 6) + table(8, 7) + table(8, 8)
-    Let lin8$ = ""
-    Let count = 0
-    For index = 1 To 8
-        If index = 8 And Mid$(mas8$, index, 1) = "+" Then
-            count = count + 1
-            lin8$ = lin8$ + LTrim$(Str$(count))
-        End If
-        If index < 8 And Mid$(mas8$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas8$, index, 1) <> "+" And count = 0 Then
-            lin8$ = lin8$ + Mid$(mas8$, index, 1)
-        End If
-        If Mid$(mas8$, index, 1) <> "+" And count > 0 Then
-            lin8$ = lin8$ + LTrim$(Str$(count))
-            lin8$ = lin8$ + Mid$(mas8$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let fen$ = lin8$ + "/" + lin7$ + "/" + lin6$ + "/" + lin5$ + "/" + lin4$ + "/" + lin3$ + "/" + lin2$ + "/" + lin1$
+    For z = 8 To 1 Step -1
+        mas$ = table(z, 1) + table(z, 2) + table(z, 3) + table(z, 4) + table(z, 5) + table(z, 6) + table(z, 7) + table(z, 8)
+        lin$ = ""
+        count = 0
+        For index = 1 To 8
+            If index = 8 And Mid$(mas$, index, 1) = "+" Then
+                count = count + 1
+                lin$ = lin$ + LTrim$(Str$(count))
+            End If
+            If index < 8 And Mid$(mas$, index, 1) = "+" Then
+                count = count + 1
+            End If
+            If Mid$(mas$, index, 1) <> "+" And count = 0 Then
+                lin$ = lin$ + Mid$(mas$, index, 1)
+            End If
+            If Mid$(mas$, index, 1) <> "+" And count > 0 Then
+                lin$ = lin$ + LTrim$(Str$(count))
+                lin$ = lin$ + Mid$(mas$, index, 1)
+                count = 0
+            End If
+        Next index
+        If z = 1 Then fen$ = fen$ + lin$ Else fen$ = fen$ + lin$ + "/"
+    Next z
 
     Color 10
     Locate 2, 1: Print "              Press any key to display the Forsyth-Edwards notation                    "
@@ -5552,268 +4874,106 @@ Sub chessfen
     Locate 2, 1: Print "                                                                                       "
     Color 12
     Locate 2, 28: Print fen$
-
+    fen$ = ""
     Do
     Loop Until InKey$ <> ""
-
-    _Clipboard$ = fen$
-
-    url$ = "https://syzygy-tables.info/?fen=" + fen$
-    If InStr(_OS$, "[WINDOWS]") Then
-        Shell url$
-    End If
-    If InStr(_OS$, "[LINUX]") Then
-        Shell "xdg-open " + url$
-    End If
-    If InStr(_OS$, "[MACOSX]") Then
-        Shell "open -a safari https://" + url$
-    End If
-
-    System
 End Sub
 
 Sub makrukfen
-
     Rem Forsyth-Edwards notation
 
-    If fw1 = 1 Then Let fig1w$ = "L"
-    If fw1 = 2 Then Let fig1w$ = "S"
-    If fw1 = 3 Then Let fig1w$ = "N"
-    If fw1 = 4 Then Let fig1w$ = "H"
-    If fw1 = 5 Then Let fig1w$ = "B"
-    If fw1 = 6 Then Let fig1w$ = "C"
+    If fw1 = 1 Then fig1w$ = "L"
+    If fw1 = 2 Then fig1w$ = "S"
+    If fw1 = 3 Then fig1w$ = "N"
+    If fw1 = 4 Then fig1w$ = "H"
+    If fw1 = 5 Then fig1w$ = "B"
+    If fw1 = 6 Then fig1w$ = "C"
 
-    If fb1 = 1 Then Let fig1b$ = "l"
-    If fb1 = 2 Then Let fig1b$ = "s"
-    If fb1 = 3 Then Let fig1b$ = "n"
-    If fb1 = 4 Then Let fig1b$ = "h"
-    If fb1 = 5 Then Let fig1b$ = "b"
-    If fb1 = 6 Then Let fig1b$ = "c"
+    If fb1 = 1 Then fig1b$ = "l"
+    If fb1 = 2 Then fig1b$ = "s"
+    If fb1 = 3 Then fig1b$ = "n"
+    If fb1 = 4 Then fig1b$ = "h"
+    If fb1 = 5 Then fig1b$ = "b"
+    If fb1 = 6 Then fig1b$ = "c"
 
-    If fw2 = 1 Then Let fig2w$ = "L"
-    If fw2 = 2 Then Let fig2w$ = "S"
-    If fw2 = 3 Then Let fig2w$ = "N"
-    If fw2 = 4 Then Let fig2w$ = "H"
-    If fw2 = 5 Then Let fig2w$ = "B"
-    If fw2 = 6 Then Let fig2w$ = "C"
+    If fw2 = 1 Then fig2w$ = "L"
+    If fw2 = 2 Then fig2w$ = "S"
+    If fw2 = 3 Then fig2w$ = "N"
+    If fw2 = 4 Then fig2w$ = "H"
+    If fw2 = 5 Then fig2w$ = "B"
+    If fw2 = 6 Then fig2w$ = "C"
 
-    If fb2 = 1 Then Let fig2b$ = "l"
-    If fb2 = 2 Then Let fig2b$ = "s"
-    If fb2 = 3 Then Let fig2b$ = "n"
-    If fb2 = 4 Then Let fig2b$ = "h"
-    If fb2 = 5 Then Let fig2b$ = "b"
-    If fb2 = 6 Then Let fig2b$ = "c"
+    If fb2 = 1 Then fig2b$ = "l"
+    If fb2 = 2 Then fig2b$ = "s"
+    If fb2 = 3 Then fig2b$ = "n"
+    If fb2 = 4 Then fig2b$ = "h"
+    If fb2 = 5 Then fig2b$ = "b"
+    If fb2 = 6 Then fig2b$ = "c"
 
-    If fw3 = 1 Then Let fig3w$ = "L"
-    If fw3 = 2 Then Let fig3w$ = "S"
-    If fw3 = 3 Then Let fig3w$ = "N"
-    If fw3 = 4 Then Let fig3w$ = "H"
-    If fw3 = 5 Then Let fig3w$ = "B"
-    If fw3 = 6 Then Let fig3w$ = "C"
+    If fw3 = 1 Then fig3w$ = "L"
+    If fw3 = 2 Then fig3w$ = "S"
+    If fw3 = 3 Then fig3w$ = "N"
+    If fw3 = 4 Then fig3w$ = "H"
+    If fw3 = 5 Then fig3w$ = "B"
+    If fw3 = 6 Then fig3w$ = "C"
 
-    If fb3 = 1 Then Let fig3b$ = "l"
-    If fb3 = 2 Then Let fig3b$ = "s"
-    If fb3 = 3 Then Let fig3b$ = "n"
-    If fb3 = 4 Then Let fig3b$ = "h"
-    If fb3 = 5 Then Let fig3b$ = "b"
-    If fb3 = 6 Then Let fig3b$ = "c"
+    If fb3 = 1 Then fig3b$ = "l"
+    If fb3 = 2 Then fig3b$ = "s"
+    If fb3 = 3 Then fig3b$ = "n"
+    If fb3 = 4 Then fig3b$ = "h"
+    If fb3 = 5 Then fig3b$ = "b"
+    If fb3 = 6 Then fig3b$ = "c"
 
-    If fw4 = 1 Then Let fig4w$ = "L"
-    If fw4 = 2 Then Let fig4w$ = "S"
-    If fw4 = 3 Then Let fig4w$ = "N"
-    If fw4 = 4 Then Let fig4w$ = "H"
-    If fw4 = 5 Then Let fig4w$ = "B"
-    If fw4 = 6 Then Let fig4w$ = "C"
+    If fw4 = 1 Then fig4w$ = "L"
+    If fw4 = 2 Then fig4w$ = "S"
+    If fw4 = 3 Then fig4w$ = "N"
+    If fw4 = 4 Then fig4w$ = "H"
+    If fw4 = 5 Then fig4w$ = "B"
+    If fw4 = 6 Then fig4w$ = "C"
 
-    If fb4 = 1 Then Let fig4b$ = "l"
-    If fb4 = 2 Then Let fig4b$ = "s"
-    If fb4 = 3 Then Let fig4b$ = "n"
-    If fb4 = 4 Then Let fig4b$ = "h"
-    If fb4 = 5 Then Let fig4b$ = "b"
-    If fb4 = 6 Then Let fig4b$ = "c"
+    If fb4 = 1 Then fig4b$ = "l"
+    If fb4 = 2 Then fig4b$ = "s"
+    If fb4 = 3 Then fig4b$ = "n"
+    If fb4 = 4 Then fig4b$ = "h"
+    If fb4 = 5 Then fig4b$ = "b"
+    If fb4 = 6 Then fig4b$ = "c"
 
     Dim table(8, 8) As String
-    Let table(fw1y, fw1x) = fig1w$
-    Let table(fb1y, fb1x) = fig1b$
-    Let table(fw2y, fw2x) = fig2w$
-    Let table(fb2y, fb2x) = fig2b$
-    Let table(fw3y, fw3x) = fig3w$
-    Let table(fb3y, fb3x) = fig3b$
-    Let table(fw4y, fw4x) = fig4w$
-    Let table(fb4y, fb4x) = fig4b$
+    table(fw1y, fw1x) = fig1w$
+    table(fb1y, fb1x) = fig1b$
+    table(fw2y, fw2x) = fig2w$
+    table(fb2y, fb2x) = fig2b$
+    table(fw3y, fw3x) = fig3w$
+    table(fb3y, fb3x) = fig3b$
+    table(fw4y, fw4x) = fig4w$
+    table(fb4y, fb4x) = fig4b$
     For row = 1 To 8: For col = 1 To 8
-        If table(row, col) = "" Then Let table(row, col) = "+"
+        If table(row, col) = "" Then table(row, col) = "+"
     Next col: Next row
 
-    Let mas1$ = table(1, 1) + table(1, 2) + table(1, 3) + table(1, 4) + table(1, 5) + table(1, 6) + table(1, 7) + table(1, 8)
-    Let lin1$ = ""
-    Let count = 0
-    For index = 1 To 8
-        If index = 8 And Mid$(mas1$, index, 1) = "+" Then
-            count = count + 1
-            lin1$ = lin1$ + LTrim$(Str$(count))
-        End If
-        If index < 8 And Mid$(mas1$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas1$, index, 1) <> "+" And count = 0 Then
-            lin1$ = lin1$ + Mid$(mas1$, index, 1)
-        End If
-        If Mid$(mas1$, index, 1) <> "+" And count > 0 Then
-            lin1$ = lin1$ + LTrim$(Str$(count))
-            lin1$ = lin1$ + Mid$(mas1$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas2$ = table(2, 1) + table(2, 2) + table(2, 3) + table(2, 4) + table(2, 5) + table(2, 6) + table(2, 7) + table(2, 8)
-    Let lin2$ = ""
-    Let count = 0
-    For index = 1 To 8
-        If index = 8 And Mid$(mas2$, index, 1) = "+" Then
-            count = count + 1
-            lin2$ = lin2$ + LTrim$(Str$(count))
-        End If
-        If index < 8 And Mid$(mas2$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas2$, index, 1) <> "+" And count = 0 Then
-            lin2$ = lin2$ + Mid$(mas2$, index, 1)
-        End If
-        If Mid$(mas2$, index, 1) <> "+" And count > 0 Then
-            lin2$ = lin2$ + LTrim$(Str$(count))
-            lin2$ = lin2$ + Mid$(mas2$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas3$ = table(3, 1) + table(3, 2) + table(3, 3) + table(3, 4) + table(3, 5) + table(3, 6) + table(3, 7) + table(3, 8)
-    Let lin3$ = ""
-    Let count = 0
-    For index = 1 To 8
-        If index = 8 And Mid$(mas3$, index, 1) = "+" Then
-            count = count + 1
-            lin3$ = lin3$ + LTrim$(Str$(count))
-        End If
-        If index < 8 And Mid$(mas3$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas3$, index, 1) <> "+" And count = 0 Then
-            lin3$ = lin3$ + Mid$(mas3$, index, 1)
-        End If
-        If Mid$(mas3$, index, 1) <> "+" And count > 0 Then
-            lin3$ = lin3$ + LTrim$(Str$(count))
-            lin3$ = lin3$ + Mid$(mas3$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas4$ = table(4, 1) + table(4, 2) + table(4, 3) + table(4, 4) + table(4, 5) + table(4, 6) + table(4, 7) + table(4, 8)
-    Let lin4$ = ""
-    Let count = 0
-    For index = 1 To 8
-        If index = 8 And Mid$(mas4$, index, 1) = "+" Then
-            count = count + 1
-            lin4$ = lin4$ + LTrim$(Str$(count))
-        End If
-        If index < 8 And Mid$(mas4$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas4$, index, 1) <> "+" And count = 0 Then
-            lin4$ = lin4$ + Mid$(mas4$, index, 1)
-        End If
-        If Mid$(mas4$, index, 1) <> "+" And count > 0 Then
-            lin4$ = lin4$ + LTrim$(Str$(count))
-            lin4$ = lin4$ + Mid$(mas4$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas5$ = table(5, 1) + table(5, 2) + table(5, 3) + table(5, 4) + table(5, 5) + table(5, 6) + table(5, 7) + table(5, 8)
-    Let lin5$ = ""
-    Let count = 0
-    For index = 1 To 8
-        If index = 8 And Mid$(mas5$, index, 1) = "+" Then
-            count = count + 1
-            lin5$ = lin5$ + LTrim$(Str$(count))
-        End If
-        If index < 8 And Mid$(mas5$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas5$, index, 1) <> "+" And count = 0 Then
-            lin5$ = lin5$ + Mid$(mas5$, index, 1)
-        End If
-        If Mid$(mas5$, index, 1) <> "+" And count > 0 Then
-            lin5$ = lin5$ + LTrim$(Str$(count))
-            lin5$ = lin5$ + Mid$(mas5$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas6$ = table(6, 1) + table(6, 2) + table(6, 3) + table(6, 4) + table(6, 5) + table(6, 6) + table(6, 7) + table(6, 8)
-    Let lin6$ = ""
-    Let count = 0
-    For index = 1 To 8
-        If index = 8 And Mid$(mas6$, index, 1) = "+" Then
-            count = count + 1
-            lin6$ = lin6$ + LTrim$(Str$(count))
-        End If
-        If index < 8 And Mid$(mas6$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas6$, index, 1) <> "+" And count = 0 Then
-            lin6$ = lin6$ + Mid$(mas6$, index, 1)
-        End If
-        If Mid$(mas6$, index, 1) <> "+" And count > 0 Then
-            lin6$ = lin6$ + LTrim$(Str$(count))
-            lin6$ = lin6$ + Mid$(mas6$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas7$ = table(7, 1) + table(7, 2) + table(7, 3) + table(7, 4) + table(7, 5) + table(7, 6) + table(7, 7) + table(7, 8)
-    Let lin7$ = ""
-    Let count = 0
-    For index = 1 To 8
-        If index = 8 And Mid$(mas7$, index, 1) = "+" Then
-            count = count + 1
-            lin7$ = lin7$ + LTrim$(Str$(count))
-        End If
-        If index < 8 And Mid$(mas7$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas7$, index, 1) <> "+" And count = 0 Then
-            lin7$ = lin7$ + Mid$(mas7$, index, 1)
-        End If
-        If Mid$(mas7$, index, 1) <> "+" And count > 0 Then
-            lin7$ = lin7$ + LTrim$(Str$(count))
-            lin7$ = lin7$ + Mid$(mas7$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas8$ = table(8, 1) + table(8, 2) + table(8, 3) + table(8, 4) + table(8, 5) + table(8, 6) + table(8, 7) + table(8, 8)
-    Let lin8$ = ""
-    Let count = 0
-    For index = 1 To 8
-        If index = 8 And Mid$(mas8$, index, 1) = "+" Then
-            count = count + 1
-            lin8$ = lin8$ + LTrim$(Str$(count))
-        End If
-        If index < 8 And Mid$(mas8$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas8$, index, 1) <> "+" And count = 0 Then
-            lin8$ = lin8$ + Mid$(mas8$, index, 1)
-        End If
-        If Mid$(mas8$, index, 1) <> "+" And count > 0 Then
-            lin8$ = lin8$ + LTrim$(Str$(count))
-            lin8$ = lin8$ + Mid$(mas8$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let fen$ = lin8$ + "/" + lin7$ + "/" + lin6$ + "/" + lin5$ + "/" + lin4$ + "/" + lin3$ + "/" + lin2$ + "/" + lin1$
+    For z = 8 To 1 Step -1
+        mas$ = table(z, 1) + table(z, 2) + table(z, 3) + table(z, 4) + table(z, 5) + table(z, 6) + table(z, 7) + table(z, 8)
+        lin$ = ""
+        count = 0
+        For index = 1 To 8
+            If index = 8 And Mid$(mas$, index, 1) = "+" Then
+                count = count + 1
+                lin$ = lin$ + LTrim$(Str$(count))
+            End If
+            If index < 8 And Mid$(mas$, index, 1) = "+" Then
+                count = count + 1
+            End If
+            If Mid$(mas$, index, 1) <> "+" And count = 0 Then
+                lin$ = lin$ + Mid$(mas$, index, 1)
+            End If
+            If Mid$(mas$, index, 1) <> "+" And count > 0 Then
+                lin$ = lin$ + LTrim$(Str$(count))
+                lin$ = lin$ + Mid$(mas$, index, 1)
+                count = 0
+            End If
+        Next index
+        If z = 1 Then fen$ = fen$ + lin$ Else fen$ = fen$ + lin$ + "/"
+    Next z
 
     Color 10
     Locate 2, 1: Print "              Press any key to display the Forsyth-Edwards notation                    "
@@ -5822,307 +4982,114 @@ Sub makrukfen
     Locate 2, 1: Print "                                                                                       "
     Color 12
     Locate 2, 28: Print fen$
-
+    fen$ = ""
     Do
     Loop Until InKey$ <> ""
-
-    _Clipboard$ = fen$
-
-    System
 End Sub
 
 Sub xiangqifen
-
     Rem Forsyth-Edwards notation
 
-    If fw1 = 1 Then Let fig1w$ = "K"
-    If fw1 = 2 Then Let fig1w$ = "A"
-    If fw1 = 3 Then Let fig1w$ = "E"
-    If fw1 = 4 Then Let fig1w$ = "H"
-    If fw1 = 5 Then Let fig1w$ = "R"
-    If fw1 = 6 Then Let fig1w$ = "C"
-    If fw1 = 7 Then Let fig1w$ = "P"
+    If fw1 = 1 Then fig1w$ = "K"
+    If fw1 = 2 Then fig1w$ = "A"
+    If fw1 = 3 Then fig1w$ = "E"
+    If fw1 = 4 Then fig1w$ = "H"
+    If fw1 = 5 Then fig1w$ = "R"
+    If fw1 = 6 Then fig1w$ = "C"
+    If fw1 = 7 Then fig1w$ = "P"
 
-    If fb1 = 1 Then Let fig1b$ = "k"
-    If fb1 = 2 Then Let fig1b$ = "a"
-    If fb1 = 3 Then Let fig1b$ = "e"
-    If fb1 = 4 Then Let fig1b$ = "h"
-    If fb1 = 5 Then Let fig1b$ = "r"
-    If fb1 = 6 Then Let fig1b$ = "c"
-    If fb1 = 7 Then Let fig1w$ = "p"
+    If fb1 = 1 Then fig1b$ = "k"
+    If fb1 = 2 Then fig1b$ = "a"
+    If fb1 = 3 Then fig1b$ = "e"
+    If fb1 = 4 Then fig1b$ = "h"
+    If fb1 = 5 Then fig1b$ = "r"
+    If fb1 = 6 Then fig1b$ = "c"
+    If fb1 = 7 Then fig1w$ = "p"
 
-    If fw2 = 1 Then Let fig2w$ = "K"
-    If fw2 = 2 Then Let fig2w$ = "A"
-    If fw2 = 3 Then Let fig2w$ = "E"
-    If fw2 = 4 Then Let fig2w$ = "H"
-    If fw2 = 5 Then Let fig2w$ = "R"
-    If fw2 = 6 Then Let fig2w$ = "C"
-    If fw2 = 7 Then Let fig2w$ = "P"
+    If fw2 = 1 Then fig2w$ = "K"
+    If fw2 = 2 Then fig2w$ = "A"
+    If fw2 = 3 Then fig2w$ = "E"
+    If fw2 = 4 Then fig2w$ = "H"
+    If fw2 = 5 Then fig2w$ = "R"
+    If fw2 = 6 Then fig2w$ = "C"
+    If fw2 = 7 Then fig2w$ = "P"
 
-    If fb2 = 1 Then Let fig2b$ = "k"
-    If fb2 = 2 Then Let fig2b$ = "a"
-    If fb2 = 3 Then Let fig2b$ = "e"
-    If fb2 = 4 Then Let fig2b$ = "h"
-    If fb2 = 5 Then Let fig2b$ = "r"
-    If fb2 = 6 Then Let fig2b$ = "c"
-    If fb2 = 7 Then Let fig2w$ = "p"
+    If fb2 = 1 Then fig2b$ = "k"
+    If fb2 = 2 Then fig2b$ = "a"
+    If fb2 = 3 Then fig2b$ = "e"
+    If fb2 = 4 Then fig2b$ = "h"
+    If fb2 = 5 Then fig2b$ = "r"
+    If fb2 = 6 Then fig2b$ = "c"
+    If fb2 = 7 Then fig2w$ = "p"
 
-    If fw3 = 1 Then Let fig3w$ = "K"
-    If fw3 = 2 Then Let fig3w$ = "A"
-    If fw3 = 3 Then Let fig3w$ = "E"
-    If fw3 = 4 Then Let fig3w$ = "H"
-    If fw3 = 5 Then Let fig3w$ = "R"
-    If fw3 = 6 Then Let fig3w$ = "C"
-    If fw3 = 7 Then Let fig3w$ = "P"
+    If fw3 = 1 Then fig3w$ = "K"
+    If fw3 = 2 Then fig3w$ = "A"
+    If fw3 = 3 Then fig3w$ = "E"
+    If fw3 = 4 Then fig3w$ = "H"
+    If fw3 = 5 Then fig3w$ = "R"
+    If fw3 = 6 Then fig3w$ = "C"
+    If fw3 = 7 Then fig3w$ = "P"
 
-    If fb3 = 1 Then Let fig3b$ = "k"
-    If fb3 = 2 Then Let fig3b$ = "a"
-    If fb3 = 3 Then Let fig3b$ = "e"
-    If fb3 = 4 Then Let fig3b$ = "h"
-    If fb3 = 5 Then Let fig3b$ = "r"
-    If fb3 = 6 Then Let fig3b$ = "c"
-    If fb3 = 7 Then Let fig3w$ = "p"
+    If fb3 = 1 Then fig3b$ = "k"
+    If fb3 = 2 Then fig3b$ = "a"
+    If fb3 = 3 Then fig3b$ = "e"
+    If fb3 = 4 Then fig3b$ = "h"
+    If fb3 = 5 Then fig3b$ = "r"
+    If fb3 = 6 Then fig3b$ = "c"
+    If fb3 = 7 Then fig3w$ = "p"
 
-    If fw4 = 1 Then Let fig4w$ = "K"
-    If fw4 = 2 Then Let fig4w$ = "A"
-    If fw4 = 3 Then Let fig4w$ = "E"
-    If fw4 = 4 Then Let fig4w$ = "H"
-    If fw4 = 5 Then Let fig4w$ = "R"
-    If fw4 = 6 Then Let fig4w$ = "C"
-    If fw4 = 7 Then Let fig4w$ = "P"
+    If fw4 = 1 Then fig4w$ = "K"
+    If fw4 = 2 Then fig4w$ = "A"
+    If fw4 = 3 Then fig4w$ = "E"
+    If fw4 = 4 Then fig4w$ = "H"
+    If fw4 = 5 Then fig4w$ = "R"
+    If fw4 = 6 Then fig4w$ = "C"
+    If fw4 = 7 Then fig4w$ = "P"
 
-    If fb4 = 1 Then Let fig4b$ = "k"
-    If fb4 = 2 Then Let fig4b$ = "a"
-    If fb4 = 3 Then Let fig4b$ = "e"
-    If fb4 = 4 Then Let fig4b$ = "h"
-    If fb4 = 5 Then Let fig4b$ = "r"
-    If fb4 = 6 Then Let fig4b$ = "c"
-    If fb4 = 7 Then Let fig4w$ = "p"
+    If fb4 = 1 Then fig4b$ = "k"
+    If fb4 = 2 Then fig4b$ = "a"
+    If fb4 = 3 Then fig4b$ = "e"
+    If fb4 = 4 Then fig4b$ = "h"
+    If fb4 = 5 Then fig4b$ = "r"
+    If fb4 = 6 Then fig4b$ = "c"
+    If fb4 = 7 Then fig4w$ = "p"
 
     Dim table(10, 9) As String
-    Let table(fw1y, fw1x) = fig1w$
-    Let table(fb1y, fb1x) = fig1b$
-    Let table(fw2y, fw2x) = fig2w$
-    Let table(fb2y, fb2x) = fig2b$
-    Let table(fw3y, fw3x) = fig3w$
-    Let table(fb3y, fb3x) = fig3b$
-    Let table(fw4y, fw4x) = fig4w$
-    Let table(fb4y, fb4x) = fig4b$
+    table(fw1y, fw1x) = fig1w$
+    table(fb1y, fb1x) = fig1b$
+    table(fw2y, fw2x) = fig2w$
+    table(fb2y, fb2x) = fig2b$
+    table(fw3y, fw3x) = fig3w$
+    table(fb3y, fb3x) = fig3b$
+    table(fw4y, fw4x) = fig4w$
+    table(fb4y, fb4x) = fig4b$
     For row = 1 To 10: For col = 1 To 9
-        If table(row, col) = "" Then Let table(row, col) = "+"
+        If table(row, col) = "" Then table(row, col) = "+"
     Next col: Next row
 
-    Let mas1$ = table(1, 1) + table(1, 2) + table(1, 3) + table(1, 4) + table(1, 5) + table(1, 6) + table(1, 7) + table(1, 8) + table(1, 9)
-    Let lin1$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas1$, index, 1) = "+" Then
-            count = count + 1
-            lin1$ = lin1$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas1$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas1$, index, 1) <> "+" And count = 0 Then
-            lin1$ = lin1$ + Mid$(mas1$, index, 1)
-        End If
-        If Mid$(mas1$, index, 1) <> "+" And count > 0 Then
-            lin1$ = lin1$ + LTrim$(Str$(count))
-            lin1$ = lin1$ + Mid$(mas1$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas2$ = table(2, 1) + table(2, 2) + table(2, 3) + table(2, 4) + table(2, 5) + table(2, 6) + table(2, 7) + table(2, 8) + table(2, 9)
-    Let lin2$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas2$, index, 1) = "+" Then
-            count = count + 1
-            lin2$ = lin2$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas2$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas2$, index, 1) <> "+" And count = 0 Then
-            lin2$ = lin2$ + Mid$(mas2$, index, 1)
-        End If
-        If Mid$(mas2$, index, 1) <> "+" And count > 0 Then
-            lin2$ = lin2$ + LTrim$(Str$(count))
-            lin2$ = lin2$ + Mid$(mas2$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas3$ = table(3, 1) + table(3, 2) + table(3, 3) + table(3, 4) + table(3, 5) + table(3, 6) + table(3, 7) + table(3, 8) + table(3, 9)
-    Let lin3$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas3$, index, 1) = "+" Then
-            count = count + 1
-            lin3$ = lin3$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas3$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas3$, index, 1) <> "+" And count = 0 Then
-            lin3$ = lin3$ + Mid$(mas3$, index, 1)
-        End If
-        If Mid$(mas3$, index, 1) <> "+" And count > 0 Then
-            lin3$ = lin3$ + LTrim$(Str$(count))
-            lin3$ = lin3$ + Mid$(mas3$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas4$ = table(4, 1) + table(4, 2) + table(4, 3) + table(4, 4) + table(4, 5) + table(4, 6) + table(4, 7) + table(4, 8) + table(4, 9)
-    Let lin4$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas4$, index, 1) = "+" Then
-            count = count + 1
-            lin4$ = lin4$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas4$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas4$, index, 1) <> "+" And count = 0 Then
-            lin4$ = lin4$ + Mid$(mas4$, index, 1)
-        End If
-        If Mid$(mas4$, index, 1) <> "+" And count > 0 Then
-            lin4$ = lin4$ + LTrim$(Str$(count))
-            lin4$ = lin4$ + Mid$(mas4$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas5$ = table(5, 1) + table(5, 2) + table(5, 3) + table(5, 4) + table(5, 5) + table(5, 6) + table(5, 7) + table(5, 8) + table(5, 9)
-    Let lin5$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas5$, index, 1) = "+" Then
-            count = count + 1
-            lin5$ = lin5$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas5$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas5$, index, 1) <> "+" And count = 0 Then
-            lin5$ = lin5$ + Mid$(mas5$, index, 1)
-        End If
-        If Mid$(mas5$, index, 1) <> "+" And count > 0 Then
-            lin5$ = lin5$ + LTrim$(Str$(count))
-            lin5$ = lin5$ + Mid$(mas5$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas6$ = table(6, 1) + table(6, 2) + table(6, 3) + table(6, 4) + table(6, 5) + table(6, 6) + table(6, 7) + table(6, 8) + table(6, 9)
-    Let lin6$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas6$, index, 1) = "+" Then
-            count = count + 1
-            lin6$ = lin6$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas6$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas6$, index, 1) <> "+" And count = 0 Then
-            lin6$ = lin6$ + Mid$(mas6$, index, 1)
-        End If
-        If Mid$(mas6$, index, 1) <> "+" And count > 0 Then
-            lin6$ = lin6$ + LTrim$(Str$(count))
-            lin6$ = lin6$ + Mid$(mas6$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas7$ = table(7, 1) + table(7, 2) + table(7, 3) + table(7, 4) + table(7, 5) + table(7, 6) + table(7, 7) + table(7, 8) + table(7, 9)
-    Let lin7$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas7$, index, 1) = "+" Then
-            count = count + 1
-            lin7$ = lin7$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas7$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas7$, index, 1) <> "+" And count = 0 Then
-            lin7$ = lin7$ + Mid$(mas7$, index, 1)
-        End If
-        If Mid$(mas7$, index, 1) <> "+" And count > 0 Then
-            lin7$ = lin7$ + LTrim$(Str$(count))
-            lin7$ = lin7$ + Mid$(mas7$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas8$ = table(8, 1) + table(8, 2) + table(8, 3) + table(8, 4) + table(8, 5) + table(8, 6) + table(8, 7) + table(8, 8) + table(8, 9)
-    Let lin8$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas8$, index, 1) = "+" Then
-            count = count + 1
-            lin8$ = lin8$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas8$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas8$, index, 1) <> "+" And count = 0 Then
-            lin8$ = lin8$ + Mid$(mas8$, index, 1)
-        End If
-        If Mid$(mas8$, index, 1) <> "+" And count > 0 Then
-            lin8$ = lin8$ + LTrim$(Str$(count))
-            lin8$ = lin8$ + Mid$(mas8$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas9$ = table(9, 1) + table(9, 2) + table(9, 3) + table(9, 4) + table(9, 5) + table(9, 6) + table(9, 7) + table(9, 8) + table(9, 9)
-    Let lin9$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas9$, index, 1) = "+" Then
-            count = count + 1
-            lin9$ = lin9$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas9$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas9$, index, 1) <> "+" And count = 0 Then
-            lin9$ = lin9$ + Mid$(mas9$, index, 1)
-        End If
-        If Mid$(mas9$, index, 1) <> "+" And count > 0 Then
-            lin9$ = lin9$ + LTrim$(Str$(count))
-            lin9$ = lin9$ + Mid$(mas9$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas0$ = table(10, 1) + table(10, 2) + table(10, 3) + table(10, 4) + table(10, 5) + table(10, 6) + table(10, 7) + table(10, 8) + table(10, 9)
-    Let lin0$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas0$, index, 1) = "+" Then
-            count = count + 1
-            lin0$ = lin0$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas0$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas0$, index, 1) <> "+" And count = 0 Then
-            lin0$ = lin0$ + Mid$(mas0$, index, 1)
-        End If
-        If Mid$(mas0$, index, 1) <> "+" And count > 0 Then
-            lin0$ = lin0$ + LTrim$(Str$(count))
-            lin0$ = lin0$ + Mid$(mas0$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let fen$ = lin0$ + "/" + lin9$ + "/" + lin8$ + "/" + lin7$ + "/" + lin6$ + "/" + lin5$ + "/" + lin4$ + "/" + lin3$ + "/" + lin2$ + "/" + lin1$
+    For z = 10 To 1 Step -1
+        mas$ = table(z, 1) + table(z, 2) + table(z, 3) + table(z, 4) + table(z, 5) + table(z, 6) + table(z, 7) + table(z, 8) + table(z, 9)
+        lin$ = ""
+        count = 0
+        For index = 1 To 9
+            If index = 9 And Mid$(mas$, index, 1) = "+" Then
+                count = count + 1
+                lin$ = lin$ + LTrim$(Str$(count))
+            End If
+            If index < 9 And Mid$(mas$, index, 1) = "+" Then
+                count = count + 1
+            End If
+            If Mid$(mas$, index, 1) <> "+" And count = 0 Then
+                lin$ = lin$ + Mid$(mas$, index, 1)
+            End If
+            If Mid$(mas$, index, 1) <> "+" And count > 0 Then
+                lin$ = lin$ + LTrim$(Str$(count))
+                lin$ = lin$ + Mid$(mas$, index, 1)
+                count = 0
+            End If
+        Next index
+        If z = 1 Then fen$ = fen$ + lin$ Else fen$ = fen$ + lin$ + "/"
+    Next z
 
     Color 10
     Locate 2, 1: Print "              Press any key to display the Forsyth-Edwards notation                    "
@@ -6131,318 +5098,146 @@ Sub xiangqifen
     Locate 2, 1: Print "                                                                                       "
     Color 12
     Locate 2, 24: Print fen$
-
+    fen$ = ""
     Do
     Loop Until InKey$ <> ""
-
-    _Clipboard$ = fen$
-
-    System
 End Sub
 
 Sub shogifen
-
     Rem Forsyth-Edwards notation
 
-    If fw1 = 1 Then Let fig1w$ = "K"
-    If fw1 = 2 Then Let fig1w$ = "G"
-    If fw1 = 3 Then Let fig1w$ = "S"
-    If fw1 = 4 Then Let fig1w$ = "B"
-    If fw1 = 5 Then Let fig1w$ = "N"
-    If fw1 = 6 Then Let fig1w$ = "R"
-    If fw1 = 7 Then Let fig1w$ = "L"
-    If fw1 = 8 Then Let fig1w$ = "P"
-    If fw1 = 9 Then Let fig1w$ = "H"
-    If fw1 = 10 Then Let fig1w$ = "D"
-    If fw1 = 11 Then Let fig1w$ = "T"
+    If fw1 = 1 Then fig1w$ = "K"
+    If fw1 = 2 Then fig1w$ = "G"
+    If fw1 = 3 Then fig1w$ = "S"
+    If fw1 = 4 Then fig1w$ = "B"
+    If fw1 = 5 Then fig1w$ = "N"
+    If fw1 = 6 Then fig1w$ = "R"
+    If fw1 = 7 Then fig1w$ = "L"
+    If fw1 = 8 Then fig1w$ = "P"
+    If fw1 = 9 Then fig1w$ = "H"
+    If fw1 = 10 Then fig1w$ = "D"
+    If fw1 = 11 Then fig1w$ = "T"
 
-    If fb1 = 1 Then Let fig1b$ = "k"
-    If fb1 = 2 Then Let fig1b$ = "g"
-    If fb1 = 3 Then Let fig1b$ = "a"
-    If fb1 = 4 Then Let fig1b$ = "b"
-    If fb1 = 5 Then Let fig1b$ = "n"
-    If fb1 = 6 Then Let fig1b$ = "r"
-    If fb1 = 7 Then Let fig1b$ = "l"
-    If fb1 = 8 Then Let fig1b$ = "p"
-    If fb1 = 9 Then Let fig1b$ = "h"
-    If fb1 = 10 Then Let fig1b$ = "d"
-    If fb1 = 11 Then Let fig1b$ = "t"
+    If fb1 = 1 Then fig1b$ = "k"
+    If fb1 = 2 Then fig1b$ = "g"
+    If fb1 = 3 Then fig1b$ = "a"
+    If fb1 = 4 Then fig1b$ = "b"
+    If fb1 = 5 Then fig1b$ = "n"
+    If fb1 = 6 Then fig1b$ = "r"
+    If fb1 = 7 Then fig1b$ = "l"
+    If fb1 = 8 Then fig1b$ = "p"
+    If fb1 = 9 Then fig1b$ = "h"
+    If fb1 = 10 Then fig1b$ = "d"
+    If fb1 = 11 Then fig1b$ = "t"
 
-    If fw2 = 1 Then Let fig2w$ = "K"
-    If fw2 = 2 Then Let fig2w$ = "G"
-    If fw2 = 3 Then Let fig2w$ = "S"
-    If fw2 = 4 Then Let fig2w$ = "B"
-    If fw2 = 5 Then Let fig2w$ = "N"
-    If fw2 = 6 Then Let fig2w$ = "R"
-    If fw2 = 7 Then Let fig2w$ = "L"
-    If fw2 = 8 Then Let fig2w$ = "P"
-    If fw2 = 9 Then Let fig2w$ = "H"
-    If fw2 = 20 Then Let fig2w$ = "D"
-    If fw2 = 22 Then Let fig2w$ = "T"
+    If fw2 = 1 Then fig2w$ = "K"
+    If fw2 = 2 Then fig2w$ = "G"
+    If fw2 = 3 Then fig2w$ = "S"
+    If fw2 = 4 Then fig2w$ = "B"
+    If fw2 = 5 Then fig2w$ = "N"
+    If fw2 = 6 Then fig2w$ = "R"
+    If fw2 = 7 Then fig2w$ = "L"
+    If fw2 = 8 Then fig2w$ = "P"
+    If fw2 = 9 Then fig2w$ = "H"
+    If fw2 = 10 Then fig2w$ = "D"
+    If fw2 = 11 Then fig2w$ = "T"
 
-    If fb2 = 1 Then Let fig2b$ = "k"
-    If fb2 = 2 Then Let fig2b$ = "g"
-    If fb2 = 3 Then Let fig2b$ = "a"
-    If fb2 = 4 Then Let fig2b$ = "b"
-    If fb2 = 5 Then Let fig2b$ = "n"
-    If fb2 = 6 Then Let fig2b$ = "r"
-    If fb2 = 7 Then Let fig2b$ = "l"
-    If fb2 = 8 Then Let fig2b$ = "p"
-    If fb2 = 9 Then Let fig2b$ = "h"
-    If fb2 = 20 Then Let fig2b$ = "d"
-    If fb2 = 22 Then Let fig2b$ = "t"
+    If fb2 = 1 Then fig2b$ = "k"
+    If fb2 = 2 Then fig2b$ = "g"
+    If fb2 = 3 Then fig2b$ = "a"
+    If fb2 = 4 Then fig2b$ = "b"
+    If fb2 = 5 Then fig2b$ = "n"
+    If fb2 = 6 Then fig2b$ = "r"
+    If fb2 = 7 Then fig2b$ = "l"
+    If fb2 = 8 Then fig2b$ = "p"
+    If fb2 = 9 Then fig2b$ = "h"
+    If fb2 = 10 Then fig2b$ = "d"
+    If fb2 = 11 Then fig2b$ = "t"
 
-    If fw3 = 1 Then Let fig3w$ = "K"
-    If fw3 = 2 Then Let fig3w$ = "G"
-    If fw3 = 3 Then Let fig3w$ = "S"
-    If fw3 = 4 Then Let fig3w$ = "B"
-    If fw3 = 5 Then Let fig3w$ = "N"
-    If fw3 = 6 Then Let fig3w$ = "R"
-    If fw3 = 7 Then Let fig3w$ = "L"
-    If fw3 = 8 Then Let fig3w$ = "P"
-    If fw3 = 9 Then Let fig3w$ = "H"
-    If fw3 = 30 Then Let fig3w$ = "D"
-    If fw3 = 33 Then Let fig3w$ = "T"
+    If fw3 = 1 Then fig3w$ = "K"
+    If fw3 = 2 Then fig3w$ = "G"
+    If fw3 = 3 Then fig3w$ = "S"
+    If fw3 = 4 Then fig3w$ = "B"
+    If fw3 = 5 Then fig3w$ = "N"
+    If fw3 = 6 Then fig3w$ = "R"
+    If fw3 = 7 Then fig3w$ = "L"
+    If fw3 = 8 Then fig3w$ = "P"
+    If fw3 = 9 Then fig3w$ = "H"
+    If fw3 = 10 Then fig3w$ = "D"
+    If fw3 = 11 Then fig3w$ = "T"
 
-    If fb3 = 1 Then Let fig3b$ = "k"
-    If fb3 = 2 Then Let fig3b$ = "g"
-    If fb3 = 3 Then Let fig3b$ = "a"
-    If fb3 = 4 Then Let fig3b$ = "b"
-    If fb3 = 5 Then Let fig3b$ = "n"
-    If fb3 = 6 Then Let fig3b$ = "r"
-    If fb3 = 7 Then Let fig3b$ = "l"
-    If fb3 = 8 Then Let fig3b$ = "p"
-    If fb3 = 9 Then Let fig3b$ = "h"
-    If fb3 = 30 Then Let fig3b$ = "d"
-    If fb3 = 33 Then Let fig3b$ = "t"
+    If fb3 = 1 Then fig3b$ = "k"
+    If fb3 = 2 Then fig3b$ = "g"
+    If fb3 = 3 Then fig3b$ = "a"
+    If fb3 = 4 Then fig3b$ = "b"
+    If fb3 = 5 Then fig3b$ = "n"
+    If fb3 = 6 Then fig3b$ = "r"
+    If fb3 = 7 Then fig3b$ = "l"
+    If fb3 = 8 Then fig3b$ = "p"
+    If fb3 = 9 Then fig3b$ = "h"
+    If fb3 = 10 Then fig3b$ = "d"
+    If fb3 = 11 Then fig3b$ = "t"
 
-    If fw4 = 1 Then Let fig4w$ = "K"
-    If fw4 = 2 Then Let fig4w$ = "G"
-    If fw4 = 3 Then Let fig4w$ = "S"
-    If fw4 = 4 Then Let fig4w$ = "B"
-    If fw4 = 5 Then Let fig4w$ = "N"
-    If fw4 = 6 Then Let fig4w$ = "R"
-    If fw4 = 7 Then Let fig4w$ = "L"
-    If fw4 = 8 Then Let fig4w$ = "P"
-    If fw4 = 9 Then Let fig4w$ = "H"
-    If fw4 = 40 Then Let fig4w$ = "D"
-    If fw4 = 44 Then Let fig4w$ = "T"
+    If fw4 = 1 Then fig4w$ = "K"
+    If fw4 = 2 Then fig4w$ = "G"
+    If fw4 = 3 Then fig4w$ = "S"
+    If fw4 = 4 Then fig4w$ = "B"
+    If fw4 = 5 Then fig4w$ = "N"
+    If fw4 = 6 Then fig4w$ = "R"
+    If fw4 = 7 Then fig4w$ = "L"
+    If fw4 = 8 Then fig4w$ = "P"
+    If fw4 = 9 Then fig4w$ = "H"
+    If fw4 = 10 Then fig4w$ = "D"
+    If fw4 = 11 Then fig4w$ = "T"
 
-    If fb4 = 1 Then Let fig4b$ = "k"
-    If fb4 = 2 Then Let fig4b$ = "g"
-    If fb4 = 3 Then Let fig4b$ = "a"
-    If fb4 = 4 Then Let fig4b$ = "b"
-    If fb4 = 5 Then Let fig4b$ = "n"
-    If fb4 = 6 Then Let fig4b$ = "r"
-    If fb4 = 7 Then Let fig4b$ = "l"
-    If fb4 = 8 Then Let fig4b$ = "p"
-    If fb4 = 9 Then Let fig4b$ = "h"
-    If fb4 = 40 Then Let fig4b$ = "d"
-    If fb4 = 44 Then Let fig4b$ = "t"
+    If fb4 = 1 Then fig4b$ = "k"
+    If fb4 = 2 Then fig4b$ = "g"
+    If fb4 = 3 Then fig4b$ = "a"
+    If fb4 = 4 Then fig4b$ = "b"
+    If fb4 = 5 Then fig4b$ = "n"
+    If fb4 = 6 Then fig4b$ = "r"
+    If fb4 = 7 Then fig4b$ = "l"
+    If fb4 = 8 Then fig4b$ = "p"
+    If fb4 = 9 Then fig4b$ = "h"
+    If fb4 = 10 Then fig4b$ = "d"
+    If fb4 = 11 Then fig4b$ = "t"
 
     Dim table(9, 9) As String
-    Let table(fw1y, fw1x) = fig1w$
-    Let table(fb1y, fb1x) = fig1b$
-    Let table(fw2y, fw2x) = fig2w$
-    Let table(fb2y, fb2x) = fig2b$
-    Let table(fw3y, fw3x) = fig3w$
-    Let table(fb3y, fb3x) = fig3b$
-    Let table(fw4y, fw4x) = fig4w$
-    Let table(fb4y, fb4x) = fig4b$
+    table(fw1y, fw1x) = fig1w$
+    table(fb1y, fb1x) = fig1b$
+    table(fw2y, fw2x) = fig2w$
+    table(fb2y, fb2x) = fig2b$
+    table(fw3y, fw3x) = fig3w$
+    table(fb3y, fb3x) = fig3b$
+    table(fw4y, fw4x) = fig4w$
+    table(fb4y, fb4x) = fig4b$
     For row = 1 To 9: For col = 1 To 9
-        If table(row, col) = "" Then Let table(row, col) = "+"
+        If table(row, col) = "" Then table(row, col) = "+"
     Next col: Next row
 
-    Let mas1$ = table(1, 1) + table(1, 2) + table(1, 3) + table(1, 4) + table(1, 5) + table(1, 6) + table(1, 7) + table(1, 8) + table(1, 9)
-    Let lin1$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas1$, index, 1) = "+" Then
-            count = count + 1
-            lin1$ = lin1$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas1$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas1$, index, 1) <> "+" And count = 0 Then
-            lin1$ = lin1$ + Mid$(mas1$, index, 1)
-        End If
-        If Mid$(mas1$, index, 1) <> "+" And count > 0 Then
-            lin1$ = lin1$ + LTrim$(Str$(count))
-            lin1$ = lin1$ + Mid$(mas1$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas2$ = table(2, 1) + table(2, 2) + table(2, 3) + table(2, 4) + table(2, 5) + table(2, 6) + table(2, 7) + table(2, 8) + table(2, 9)
-    Let lin2$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas2$, index, 1) = "+" Then
-            count = count + 1
-            lin2$ = lin2$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas2$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas2$, index, 1) <> "+" And count = 0 Then
-            lin2$ = lin2$ + Mid$(mas2$, index, 1)
-        End If
-        If Mid$(mas2$, index, 1) <> "+" And count > 0 Then
-            lin2$ = lin2$ + LTrim$(Str$(count))
-            lin2$ = lin2$ + Mid$(mas2$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas3$ = table(3, 1) + table(3, 2) + table(3, 3) + table(3, 4) + table(3, 5) + table(3, 6) + table(3, 7) + table(3, 8) + table(3, 9)
-    Let lin3$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas3$, index, 1) = "+" Then
-            count = count + 1
-            lin3$ = lin3$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas3$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas3$, index, 1) <> "+" And count = 0 Then
-            lin3$ = lin3$ + Mid$(mas3$, index, 1)
-        End If
-        If Mid$(mas3$, index, 1) <> "+" And count > 0 Then
-            lin3$ = lin3$ + LTrim$(Str$(count))
-            lin3$ = lin3$ + Mid$(mas3$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas4$ = table(4, 1) + table(4, 2) + table(4, 3) + table(4, 4) + table(4, 5) + table(4, 6) + table(4, 7) + table(4, 8) + table(4, 9)
-    Let lin4$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas4$, index, 1) = "+" Then
-            count = count + 1
-            lin4$ = lin4$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas4$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas4$, index, 1) <> "+" And count = 0 Then
-            lin4$ = lin4$ + Mid$(mas4$, index, 1)
-        End If
-        If Mid$(mas4$, index, 1) <> "+" And count > 0 Then
-            lin4$ = lin4$ + LTrim$(Str$(count))
-            lin4$ = lin4$ + Mid$(mas4$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas5$ = table(5, 1) + table(5, 2) + table(5, 3) + table(5, 4) + table(5, 5) + table(5, 6) + table(5, 7) + table(5, 8) + table(5, 9)
-    Let lin5$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas5$, index, 1) = "+" Then
-            count = count + 1
-            lin5$ = lin5$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas5$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas5$, index, 1) <> "+" And count = 0 Then
-            lin5$ = lin5$ + Mid$(mas5$, index, 1)
-        End If
-        If Mid$(mas5$, index, 1) <> "+" And count > 0 Then
-            lin5$ = lin5$ + LTrim$(Str$(count))
-            lin5$ = lin5$ + Mid$(mas5$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas6$ = table(6, 1) + table(6, 2) + table(6, 3) + table(6, 4) + table(6, 5) + table(6, 6) + table(6, 7) + table(6, 8) + table(6, 9)
-    Let lin6$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas6$, index, 1) = "+" Then
-            count = count + 1
-            lin6$ = lin6$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas6$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas6$, index, 1) <> "+" And count = 0 Then
-            lin6$ = lin6$ + Mid$(mas6$, index, 1)
-        End If
-        If Mid$(mas6$, index, 1) <> "+" And count > 0 Then
-            lin6$ = lin6$ + LTrim$(Str$(count))
-            lin6$ = lin6$ + Mid$(mas6$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas7$ = table(7, 1) + table(7, 2) + table(7, 3) + table(7, 4) + table(7, 5) + table(7, 6) + table(7, 7) + table(7, 8) + table(7, 9)
-    Let lin7$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas7$, index, 1) = "+" Then
-            count = count + 1
-            lin7$ = lin7$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas7$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas7$, index, 1) <> "+" And count = 0 Then
-            lin7$ = lin7$ + Mid$(mas7$, index, 1)
-        End If
-        If Mid$(mas7$, index, 1) <> "+" And count > 0 Then
-            lin7$ = lin7$ + LTrim$(Str$(count))
-            lin7$ = lin7$ + Mid$(mas7$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas8$ = table(8, 1) + table(8, 2) + table(8, 3) + table(8, 4) + table(8, 5) + table(8, 6) + table(8, 7) + table(8, 8) + table(8, 9)
-    Let lin8$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas8$, index, 1) = "+" Then
-            count = count + 1
-            lin8$ = lin8$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas8$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas8$, index, 1) <> "+" And count = 0 Then
-            lin8$ = lin8$ + Mid$(mas8$, index, 1)
-        End If
-        If Mid$(mas8$, index, 1) <> "+" And count > 0 Then
-            lin8$ = lin8$ + LTrim$(Str$(count))
-            lin8$ = lin8$ + Mid$(mas8$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas9$ = table(9, 1) + table(9, 2) + table(9, 3) + table(9, 4) + table(9, 5) + table(9, 6) + table(9, 7) + table(9, 8) + table(9, 9)
-    Let lin9$ = ""
-    Let count = 0
-    For index = 1 To 9
-        If index = 9 And Mid$(mas9$, index, 1) = "+" Then
-            count = count + 1
-            lin9$ = lin9$ + LTrim$(Str$(count))
-        End If
-        If index < 9 And Mid$(mas9$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas9$, index, 1) <> "+" And count = 0 Then
-            lin9$ = lin9$ + Mid$(mas9$, index, 1)
-        End If
-        If Mid$(mas9$, index, 1) <> "+" And count > 0 Then
-            lin9$ = lin9$ + LTrim$(Str$(count))
-            lin9$ = lin9$ + Mid$(mas9$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let fen$ = lin9$ + "/" + lin8$ + "/" + lin7$ + "/" + lin6$ + "/" + lin5$ + "/" + lin4$ + "/" + lin3$ + "/" + lin2$ + "/" + lin1$
+    For z = 9 To 1 Step -1
+        mas$ = table(z, 1) + table(z, 2) + table(z, 3) + table(z, 4) + table(z, 5) + table(z, 6) + table(z, 7) + table(z, 8) + table(z, 9)
+        lin$ = ""
+        count = 0
+        For index = 1 To 9
+            If index = 9 And Mid$(mas$, index, 1) = "+" Then
+                count = count + 1
+                lin$ = lin$ + LTrim$(Str$(count))
+            End If
+            If index < 9 And Mid$(mas$, index, 1) = "+" Then
+                count = count + 1
+            End If
+            If Mid$(mas$, index, 1) <> "+" And count = 0 Then
+                lin$ = lin$ + Mid$(mas$, index, 1)
+            End If
+            If Mid$(mas$, index, 1) <> "+" And count > 0 Then
+                lin$ = lin$ + LTrim$(Str$(count))
+                lin$ = lin$ + Mid$(mas$, index, 1)
+                count = 0
+            End If
+        Next index
+        If z = 1 Then fen$ = fen$ + lin$ Else fen$ = fen$ + lin$ + "/"
+    Next z
 
     Color 10
     Locate 2, 1: Print "              Press any key to display the Forsyth-Edwards notation                    "
@@ -6451,267 +5246,74 @@ Sub shogifen
     Locate 2, 1: Print "                                                                                       "
     Color 12
     Locate 2, 25: Print fen$
-
+    fen$ = ""
     Do
     Loop Until InKey$ <> ""
-
-    _Clipboard$ = fen$
-
-    System
 End Sub
 
 Sub draughtsfen
-
     Rem Forsyth-Edwards notation
 
-    If fw1 = 1 Then Let fig1w$ = "D"
-    If fw1 = 2 Then Let fig1w$ = "C"
+    If fw1 = 1 Then fig1w$ = "D"
+    If fw1 = 2 Then fig1w$ = "C"
 
-    If fb1 = 1 Then Let fig1b$ = "d"
-    If fb1 = 2 Then Let fig1b$ = "c"
+    If fb1 = 1 Then fig1b$ = "d"
+    If fb1 = 2 Then fig1b$ = "c"
 
-    If fw2 = 1 Then Let fig2w$ = "D"
-    If fw2 = 2 Then Let fig2w$ = "C"
+    If fw2 = 1 Then fig2w$ = "D"
+    If fw2 = 2 Then fig2w$ = "C"
 
-    If fb2 = 1 Then Let fig2b$ = "d"
-    If fb2 = 2 Then Let fig2b$ = "c"
+    If fb2 = 1 Then fig2b$ = "d"
+    If fb2 = 2 Then fig2b$ = "c"
 
-    If fw3 = 1 Then Let fig3w$ = "D"
-    If fw3 = 2 Then Let fig3w$ = "C"
+    If fw3 = 1 Then fig3w$ = "D"
+    If fw3 = 2 Then fig3w$ = "C"
 
-    If fb3 = 1 Then Let fig3b$ = "d"
-    If fb3 = 2 Then Let fig3b$ = "c"
+    If fb3 = 1 Then fig3b$ = "d"
+    If fb3 = 2 Then fig3b$ = "c"
 
-    If fw4 = 1 Then Let fig4w$ = "D"
-    If fw4 = 2 Then Let fig4w$ = "C"
+    If fw4 = 1 Then fig4w$ = "D"
+    If fw4 = 2 Then fig4w$ = "C"
 
-    If fb4 = 1 Then Let fig4b$ = "d"
-    If fb4 = 2 Then Let fig4b$ = "c"
+    If fb4 = 1 Then fig4b$ = "d"
+    If fb4 = 2 Then fig4b$ = "c"
 
     Dim table(10, 10) As String
-    Let table(fw1y, fw1x) = fig1w$
-    Let table(fb1y, fb1x) = fig1b$
-    Let table(fw2y, fw2x) = fig2w$
-    Let table(fb2y, fb2x) = fig2b$
-    Let table(fw3y, fw3x) = fig3w$
-    Let table(fb3y, fb3x) = fig3b$
-    Let table(fw4y, fw4x) = fig4w$
-    Let table(fb4y, fb4x) = fig4b$
+    table(fw1y, fw1x) = fig1w$
+    table(fb1y, fb1x) = fig1b$
+    table(fw2y, fw2x) = fig2w$
+    table(fb2y, fb2x) = fig2b$
+    table(fw3y, fw3x) = fig3w$
+    table(fb3y, fb3x) = fig3b$
+    table(fw4y, fw4x) = fig4w$
+    table(fb4y, fb4x) = fig4b$
     For row = 1 To 10: For col = 1 To 10
-        If table(row, col) = "" Then Let table(row, col) = "+"
+        If table(row, col) = "" Then table(row, col) = "+"
     Next col: Next row
 
-    Let mas1$ = table(1, 1) + table(1, 2) + table(1, 3) + table(1, 4) + table(1, 5) + table(1, 6) + table(1, 7) + table(1, 8) + table(1, 9) + table(1, 10)
-    Let lin1$ = ""
-    Let count = 0
-    For index = 1 To 10
-        If index = 10 And Mid$(mas1$, index, 1) = "+" Then
-            count = count + 1
-            lin1$ = lin1$ + LTrim$(Str$(count))
-        End If
-        If index < 10 And Mid$(mas1$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas1$, index, 1) <> "+" And count = 0 Then
-            lin1$ = lin1$ + Mid$(mas1$, index, 1)
-        End If
-        If Mid$(mas1$, index, 1) <> "+" And count > 0 Then
-            lin1$ = lin1$ + LTrim$(Str$(count))
-            lin1$ = lin1$ + Mid$(mas1$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas2$ = table(2, 1) + table(2, 2) + table(2, 3) + table(2, 4) + table(2, 5) + table(2, 6) + table(2, 7) + table(2, 8) + table(2, 9) + table(2, 10)
-    Let lin2$ = ""
-    Let count = 0
-    For index = 1 To 10
-        If index = 10 And Mid$(mas2$, index, 1) = "+" Then
-            count = count + 1
-            lin2$ = lin2$ + LTrim$(Str$(count))
-        End If
-        If index < 10 And Mid$(mas2$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas2$, index, 1) <> "+" And count = 0 Then
-            lin2$ = lin2$ + Mid$(mas2$, index, 1)
-        End If
-        If Mid$(mas2$, index, 1) <> "+" And count > 0 Then
-            lin2$ = lin2$ + LTrim$(Str$(count))
-            lin2$ = lin2$ + Mid$(mas2$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas3$ = table(3, 1) + table(3, 2) + table(3, 3) + table(3, 4) + table(3, 5) + table(3, 6) + table(3, 7) + table(3, 8) + table(3, 9) + table(3, 10)
-    Let lin3$ = ""
-    Let count = 0
-    For index = 1 To 10
-        If index = 10 And Mid$(mas3$, index, 1) = "+" Then
-            count = count + 1
-            lin3$ = lin3$ + LTrim$(Str$(count))
-        End If
-        If index < 10 And Mid$(mas3$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas3$, index, 1) <> "+" And count = 0 Then
-            lin3$ = lin3$ + Mid$(mas3$, index, 1)
-        End If
-        If Mid$(mas3$, index, 1) <> "+" And count > 0 Then
-            lin3$ = lin3$ + LTrim$(Str$(count))
-            lin3$ = lin3$ + Mid$(mas3$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas4$ = table(4, 1) + table(4, 2) + table(4, 3) + table(4, 4) + table(4, 5) + table(4, 6) + table(4, 7) + table(4, 8) + table(4, 9) + table(4, 10)
-    Let lin4$ = ""
-    Let count = 0
-    For index = 1 To 10
-        If index = 10 And Mid$(mas4$, index, 1) = "+" Then
-            count = count + 1
-            lin4$ = lin4$ + LTrim$(Str$(count))
-        End If
-        If index < 10 And Mid$(mas4$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas4$, index, 1) <> "+" And count = 0 Then
-            lin4$ = lin4$ + Mid$(mas4$, index, 1)
-        End If
-        If Mid$(mas4$, index, 1) <> "+" And count > 0 Then
-            lin4$ = lin4$ + LTrim$(Str$(count))
-            lin4$ = lin4$ + Mid$(mas4$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas5$ = table(5, 1) + table(5, 2) + table(5, 3) + table(5, 4) + table(5, 5) + table(5, 6) + table(5, 7) + table(5, 8) + table(5, 9) + table(5, 10)
-    Let lin5$ = ""
-    Let count = 0
-    For index = 1 To 10
-        If index = 10 And Mid$(mas5$, index, 1) = "+" Then
-            count = count + 1
-            lin5$ = lin5$ + LTrim$(Str$(count))
-        End If
-        If index < 10 And Mid$(mas5$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas5$, index, 1) <> "+" And count = 0 Then
-            lin5$ = lin5$ + Mid$(mas5$, index, 1)
-        End If
-        If Mid$(mas5$, index, 1) <> "+" And count > 0 Then
-            lin5$ = lin5$ + LTrim$(Str$(count))
-            lin5$ = lin5$ + Mid$(mas5$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas6$ = table(6, 1) + table(6, 2) + table(6, 3) + table(6, 4) + table(6, 5) + table(6, 6) + table(6, 7) + table(6, 8) + table(6, 9) + table(6, 10)
-    Let lin6$ = ""
-    Let count = 0
-    For index = 1 To 10
-        If index = 10 And Mid$(mas6$, index, 1) = "+" Then
-            count = count + 1
-            lin6$ = lin6$ + LTrim$(Str$(count))
-        End If
-        If index < 10 And Mid$(mas6$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas6$, index, 1) <> "+" And count = 0 Then
-            lin6$ = lin6$ + Mid$(mas6$, index, 1)
-        End If
-        If Mid$(mas6$, index, 1) <> "+" And count > 0 Then
-            lin6$ = lin6$ + LTrim$(Str$(count))
-            lin6$ = lin6$ + Mid$(mas6$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas7$ = table(7, 1) + table(7, 2) + table(7, 3) + table(7, 4) + table(7, 5) + table(7, 6) + table(7, 7) + table(7, 8) + table(7, 9) + table(7, 10)
-    Let lin7$ = ""
-    Let count = 0
-    For index = 1 To 10
-        If index = 10 And Mid$(mas7$, index, 1) = "+" Then
-            count = count + 1
-            lin7$ = lin7$ + LTrim$(Str$(count))
-        End If
-        If index < 10 And Mid$(mas7$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas7$, index, 1) <> "+" And count = 0 Then
-            lin7$ = lin7$ + Mid$(mas7$, index, 1)
-        End If
-        If Mid$(mas7$, index, 1) <> "+" And count > 0 Then
-            lin7$ = lin7$ + LTrim$(Str$(count))
-            lin7$ = lin7$ + Mid$(mas7$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas8$ = table(8, 1) + table(8, 2) + table(8, 3) + table(8, 4) + table(8, 5) + table(8, 6) + table(8, 7) + table(8, 8) + table(8, 9) + table(8, 10)
-    Let lin8$ = ""
-    Let count = 0
-    For index = 1 To 10
-        If index = 10 And Mid$(mas8$, index, 1) = "+" Then
-            count = count + 1
-            lin8$ = lin8$ + LTrim$(Str$(count))
-        End If
-        If index < 10 And Mid$(mas8$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas8$, index, 1) <> "+" And count = 0 Then
-            lin8$ = lin8$ + Mid$(mas8$, index, 1)
-        End If
-        If Mid$(mas8$, index, 1) <> "+" And count > 0 Then
-            lin8$ = lin8$ + LTrim$(Str$(count))
-            lin8$ = lin8$ + Mid$(mas8$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas9$ = table(9, 1) + table(9, 2) + table(9, 3) + table(9, 4) + table(9, 5) + table(9, 6) + table(9, 7) + table(9, 8) + table(9, 9) + table(9, 10)
-    Let lin9$ = ""
-    Let count = 0
-    For index = 1 To 10
-        If index = 10 And Mid$(mas9$, index, 1) = "+" Then
-            count = count + 1
-            lin9$ = lin9$ + LTrim$(Str$(count))
-        End If
-        If index < 10 And Mid$(mas9$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas9$, index, 1) <> "+" And count = 0 Then
-            lin9$ = lin9$ + Mid$(mas9$, index, 1)
-        End If
-        If Mid$(mas9$, index, 1) <> "+" And count > 0 Then
-            lin9$ = lin9$ + LTrim$(Str$(count))
-            lin9$ = lin9$ + Mid$(mas9$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let mas0$ = table(10, 1) + table(10, 2) + table(10, 3) + table(10, 4) + table(10, 5) + table(10, 6) + table(10, 7) + table(10, 8) + table(10, 9) + table(10, 10)
-    Let lin0$ = ""
-    Let count = 0
-    For index = 1 To 10
-        If index = 10 And Mid$(mas0$, index, 1) = "+" Then
-            count = count + 1
-            lin0$ = lin0$ + LTrim$(Str$(count))
-        End If
-        If index < 10 And Mid$(mas0$, index, 1) = "+" Then
-            count = count + 1
-        End If
-        If Mid$(mas0$, index, 1) <> "+" And count = 0 Then
-            lin0$ = lin0$ + Mid$(mas0$, index, 1)
-        End If
-        If Mid$(mas0$, index, 1) <> "+" And count > 0 Then
-            lin0$ = lin0$ + LTrim$(Str$(count))
-            lin0$ = lin0$ + Mid$(mas0$, index, 1)
-            Let count = 0
-        End If
-    Next index
-
-    Let fen$ = lin0$ + "/" + lin9$ + "/" + lin8$ + "/" + lin7$ + "/" + lin6$ + "/" + lin5$ + "/" + lin4$ + "/" + lin3$ + "/" + lin2$ + "/" + lin1$
+    For z = 10 To 1 Step -1
+        mas$ = table(z, 1) + table(z, 2) + table(z, 3) + table(z, 4) + table(z, 5) + table(z, 6) + table(z, 7) + table(z, 8) + table(z, 9) + table(z, 10)
+        lin$ = ""
+        count = 0
+        For index = 1 To 10
+            If index = 10 And Mid$(mas$, index, 1) = "+" Then
+                count = count + 1
+                lin$ = lin$ + LTrim$(Str$(count))
+            End If
+            If index < 10 And Mid$(mas$, index, 1) = "+" Then
+                count = count + 1
+            End If
+            If Mid$(mas$, index, 1) <> "+" And count = 0 Then
+                lin$ = lin$ + Mid$(mas$, index, 1)
+            End If
+            If Mid$(mas$, index, 1) <> "+" And count > 0 Then
+                lin$ = lin$ + LTrim$(Str$(count))
+                lin$ = lin$ + Mid$(mas$, index, 1)
+                count = 0
+            End If
+        Next index
+        If z = 1 Then fen$ = fen$ + lin$ Else fen$ = fen$ + lin$ + "/"
+    Next z
 
     Color 10
     Locate 2, 1: Print "              Press any key to display the Forsyth-Edwards notation                    "
@@ -6720,13 +5322,9 @@ Sub draughtsfen
     Locate 2, 1: Print "                                                                                       "
     Color 12
     Locate 2, 23: Print fen$
-
+    fen$ = ""
     Do
     Loop Until InKey$ <> ""
-
-    _Clipboard$ = fen$
-
-    System
 End Sub
 
 Sub message

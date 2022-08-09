@@ -1,3 +1,4 @@
+WindowTitle "Dice endgames"
 DefInt A-Z
 
 declare sub dice1 ()
