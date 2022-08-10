@@ -94,11 +94,11 @@ declare sub shogifen ()
 declare sub draughtsfen ()
 declare sub message ()
 
-Common Shared x, y, cd1, cd2, cn, cl, cf, cb1, cb2, cb3, cb4, cb5 As Integer
+Common Shared x, y, cd1, cd2, cn, ck, cf, cb1, cb2, cb3, cb4, cb5 As Integer
 Common Shared dc1, dc2, dc3, dc4, dc5, dc6, w1, b1, w2, b2, w3, b3, w4, b4, fw1, fb1, fw2, fb2, fw3, fb3, fw4, fb4, row, col, index, count As Integer
 Common Shared fw1x, fw1y, fb1x, fb1y, fw2x, fw2y, fb2x, fb2y, fw3x, fw3y, fb3x, fb3y, fw4x, fw4y, fb4x, fb4y As Integer
 Common Shared fig1w, fig1b, fig2w, fig2b, fig3w, fig3b, fig4w, fig4b, mas, lin, fen As String
-cd1 = 2: cd2 = 1: cn = 7: cl = 1: cf = 1: cb1 = 7: cb2 = 6: cb3 = 3: cb4 = 13: cb5 = 9
+cd1 = 2: cd2 = 1: cn = 7: ck = 1: cf = 1: cb1 = 7: cb2 = 6: cb3 = 3: cb4 = 13: cb5 = 9
 
 Dim Shared chebo(8, 8) As Integer
 index = 100
@@ -528,208 +528,208 @@ Sub numberJ
 End Sub
 
 Sub letter1
-    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
-    Line (18 + x, 31 + y)-(22 + x, 4 + y), cl, BF
-    Line (17 + x, 4 + y)-(4 + x, 17 + y), cl
-    Line (17 + x, 5 + y)-(5 + x, 17 + y), cl
-    Line (17 + x, 6 + y)-(6 + x, 17 + y), cl
-    Line (17 + x, 7 + y)-(7 + x, 17 + y), cl
+    Line (4 + x, 36 + y)-(36 + x, 32 + y), ck, BF
+    Line (18 + x, 31 + y)-(22 + x, 4 + y), ck, BF
+    Line (17 + x, 4 + y)-(4 + x, 17 + y), ck
+    Line (17 + x, 5 + y)-(5 + x, 17 + y), ck
+    Line (17 + x, 6 + y)-(6 + x, 17 + y), ck
+    Line (17 + x, 7 + y)-(7 + x, 17 + y), ck
 End Sub
 
 Sub letter2
-    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
-    Line (4 + x, 18 + y)-(36 + x, 22 + y), cl, BF
-    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
-    Line (32 + x, 9 + y)-(36 + x, 17 + y), cl, BF
-    Line (4 + x, 23 + y)-(8 + x, 31 + y), cl, BF
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), ck, BF
+    Line (4 + x, 18 + y)-(36 + x, 22 + y), ck, BF
+    Line (4 + x, 36 + y)-(36 + x, 32 + y), ck, BF
+    Line (32 + x, 9 + y)-(36 + x, 17 + y), ck, BF
+    Line (4 + x, 23 + y)-(8 + x, 31 + y), ck, BF
 End Sub
 
 Sub letter3
-    Line (4 + x, 4 + y)-(34 + x, 8 + y), cl, BF
-    Line (4 + x, 36 + y)-(34 + x, 32 + y), cl, BF
-    Line (36 + x, 23 + y)-(32 + x, 34 + y), cl, BF
-    Line (32 + x, 6 + y)-(36 + x, 17 + y), cl, BF
-    Line (18 + x, 18 + y)-(34 + x, 22 + y), cl, BF
-    Line (30 + x, 17 + y)-(31 + x, 17 + y), cl
-    Line (30 + x, 23 + y)-(31 + x, 23 + y), cl
-    Line (30 + x, 9 + y)-(31 + x, 9 + y), cl
-    Line (30 + x, 31 + y)-(31 + x, 31 + y), cl
-    PSet (31 + x, 10 + y), cl: PSet (31 + x, 30 + y), cl
-    PSet (31 + x, 16 + y), cl: PSet (31 + x, 24 + y), cl
-    PSet (35 + x, 18 + y), cl: PSet (35 + x, 22 + y), cl
-    PSet (35 + x, 5 + y), cl: PSet (35 + x, 35 + y), cl
+    Line (4 + x, 4 + y)-(34 + x, 8 + y), ck, BF
+    Line (4 + x, 36 + y)-(34 + x, 32 + y), ck, BF
+    Line (36 + x, 23 + y)-(32 + x, 34 + y), ck, BF
+    Line (32 + x, 6 + y)-(36 + x, 17 + y), ck, BF
+    Line (18 + x, 18 + y)-(34 + x, 22 + y), ck, BF
+    Line (30 + x, 17 + y)-(31 + x, 17 + y), ck
+    Line (30 + x, 23 + y)-(31 + x, 23 + y), ck
+    Line (30 + x, 9 + y)-(31 + x, 9 + y), ck
+    Line (30 + x, 31 + y)-(31 + x, 31 + y), ck
+    PSet (31 + x, 10 + y), ck: PSet (31 + x, 30 + y), ck
+    PSet (31 + x, 16 + y), ck: PSet (31 + x, 24 + y), ck
+    PSet (35 + x, 18 + y), ck: PSet (35 + x, 22 + y), ck
+    PSet (35 + x, 5 + y), ck: PSet (35 + x, 35 + y), ck
 End Sub
 
 Sub letter4
-    Line (4 + x, 4 + y)-(8 + x, 17 + y), cl, BF
-    Line (32 + x, 4 + y)-(36 + x, 36 + y), cl, BF
-    Line (4 + x, 18 + y)-(34 + x, 22 + y), cl, BF
+    Line (4 + x, 4 + y)-(8 + x, 17 + y), ck, BF
+    Line (32 + x, 4 + y)-(36 + x, 36 + y), ck, BF
+    Line (4 + x, 18 + y)-(34 + x, 22 + y), ck, BF
 End Sub
 
 Sub letter5
-    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
-    Line (4 + x, 18 + y)-(36 + x, 22 + y), cl, BF
-    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
-    Line (4 + x, 9 + y)-(8 + x, 17 + y), cl, BF
-    Line (32 + x, 23 + y)-(36 + x, 31 + y), cl, BF
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), ck, BF
+    Line (4 + x, 18 + y)-(36 + x, 22 + y), ck, BF
+    Line (4 + x, 36 + y)-(36 + x, 32 + y), ck, BF
+    Line (4 + x, 9 + y)-(8 + x, 17 + y), ck, BF
+    Line (32 + x, 23 + y)-(36 + x, 31 + y), ck, BF
 End Sub
 
 Sub letter6
-    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
-    Line (4 + x, 18 + y)-(36 + x, 22 + y), cl, BF
-    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
-    Line (4 + x, 9 + y)-(8 + x, 31 + y), cl, BF
-    Line (32 + x, 23 + y)-(36 + x, 31 + y), cl, BF
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), ck, BF
+    Line (4 + x, 18 + y)-(36 + x, 22 + y), ck, BF
+    Line (4 + x, 36 + y)-(36 + x, 32 + y), ck, BF
+    Line (4 + x, 9 + y)-(8 + x, 31 + y), ck, BF
+    Line (32 + x, 23 + y)-(36 + x, 31 + y), ck, BF
 End Sub
 
 Sub letter7
-    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
-    Line (8 + x, 36 + y)-(35 + x, 9 + y), cl
-    Line (7 + x, 36 + y)-(34 + x, 9 + y), cl
-    Line (6 + x, 36 + y)-(33 + x, 9 + y), cl
-    Line (5 + x, 36 + y)-(32 + x, 9 + y), cl
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), ck, BF
+    Line (8 + x, 36 + y)-(35 + x, 9 + y), ck
+    Line (7 + x, 36 + y)-(34 + x, 9 + y), ck
+    Line (6 + x, 36 + y)-(33 + x, 9 + y), ck
+    Line (5 + x, 36 + y)-(32 + x, 9 + y), ck
 End Sub
 
 Sub letter8
-    Line (8 + x, 23 + y)-(4 + x, 34 + y), cl, BF
-    Line (4 + x, 6 + y)-(8 + x, 17 + y), cl, BF
-    Line (6 + x, 4 + y)-(34 + x, 8 + y), cl, BF
-    Line (6 + x, 36 + y)-(34 + x, 32 + y), cl, BF
-    Line (36 + x, 23 + y)-(32 + x, 34 + y), cl, BF
-    Line (32 + x, 6 + y)-(36 + x, 17 + y), cl, BF
-    Line (6 + x, 18 + y)-(34 + x, 22 + y), cl, BF
-    Line (30 + x, 17 + y)-(31 + x, 17 + y), cl
-    Line (30 + x, 23 + y)-(31 + x, 23 + y), cl
-    Line (10 + x, 17 + y)-(9 + x, 17 + y), cl
-    Line (10 + x, 23 + y)-(9 + x, 23 + y), cl
-    Line (9 + x, 31 + y)-(10 + x, 31 + y), cl
-    Line (30 + x, 31 + y)-(31 + x, 31 + y), cl
-    Line (9 + x, 9 + y)-(10 + x, 9 + y), cl
-    Line (30 + x, 9 + y)-(31 + x, 9 + y), cl
-    PSet (35 + x, 5 + y), cl: PSet (35 + x, 35 + y), cl
-    PSet (5 + x, 5 + y), cl: PSet (5 + x, 35 + y), cl
-    PSet (9 + x, 30 + y), cl: PSet (31 + x, 30 + y), cl
-    PSet (9 + x, 10 + y), cl: PSet (31 + x, 10 + y), cl
-    PSet (5 + x, 18 + y), cl: PSet (5 + x, 22 + y), cl
-    PSet (9 + x, 16 + y), cl: PSet (9 + x, 24 + y), cl
-    PSet (31 + x, 16 + y), cl: PSet (31 + x, 24 + y), cl
-    PSet (35 + x, 18 + y), cl: PSet (35 + x, 22 + y), cl
+    Line (8 + x, 23 + y)-(4 + x, 34 + y), ck, BF
+    Line (4 + x, 6 + y)-(8 + x, 17 + y), ck, BF
+    Line (6 + x, 4 + y)-(34 + x, 8 + y), ck, BF
+    Line (6 + x, 36 + y)-(34 + x, 32 + y), ck, BF
+    Line (36 + x, 23 + y)-(32 + x, 34 + y), ck, BF
+    Line (32 + x, 6 + y)-(36 + x, 17 + y), ck, BF
+    Line (6 + x, 18 + y)-(34 + x, 22 + y), ck, BF
+    Line (30 + x, 17 + y)-(31 + x, 17 + y), ck
+    Line (30 + x, 23 + y)-(31 + x, 23 + y), ck
+    Line (10 + x, 17 + y)-(9 + x, 17 + y), ck
+    Line (10 + x, 23 + y)-(9 + x, 23 + y), ck
+    Line (9 + x, 31 + y)-(10 + x, 31 + y), ck
+    Line (30 + x, 31 + y)-(31 + x, 31 + y), ck
+    Line (9 + x, 9 + y)-(10 + x, 9 + y), ck
+    Line (30 + x, 9 + y)-(31 + x, 9 + y), ck
+    PSet (35 + x, 5 + y), ck: PSet (35 + x, 35 + y), ck
+    PSet (5 + x, 5 + y), ck: PSet (5 + x, 35 + y), ck
+    PSet (9 + x, 30 + y), ck: PSet (31 + x, 30 + y), ck
+    PSet (9 + x, 10 + y), ck: PSet (31 + x, 10 + y), ck
+    PSet (5 + x, 18 + y), ck: PSet (5 + x, 22 + y), ck
+    PSet (9 + x, 16 + y), ck: PSet (9 + x, 24 + y), ck
+    PSet (31 + x, 16 + y), ck: PSet (31 + x, 24 + y), ck
+    PSet (35 + x, 18 + y), ck: PSet (35 + x, 22 + y), ck
 End Sub
 
 Sub letter9
-    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
-    Line (4 + x, 18 + y)-(36 + x, 22 + y), cl, BF
-    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
-    Line (32 + x, 9 + y)-(36 + x, 31 + y), cl, BF
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), ck, BF
+    Line (4 + x, 18 + y)-(36 + x, 22 + y), ck, BF
+    Line (4 + x, 36 + y)-(36 + x, 32 + y), ck, BF
+    Line (32 + x, 9 + y)-(36 + x, 31 + y), ck, BF
 End Sub
 
 Sub letter0
-    Line (6 + x, 4 + y)-(34 + x, 8 + y), cl, BF
-    Line (6 + x, 36 + y)-(34 + x, 32 + y), cl, BF
-    Line (4 + x, 6 + y)-(8 + x, 34 + y), cl, BF
-    Line (36 + x, 6 + y)-(32 + x, 34 + y), cl, BF
-    Line (9 + x, 9 + y)-(10 + x, 9 + y), cl
-    Line (30 + x, 9 + y)-(31 + x, 9 + y), cl
-    Line (9 + x, 31 + y)-(10 + x, 31 + y), cl
-    Line (30 + x, 31 + y)-(31 + x, 31 + y), cl
-    Line (9 + x, 9 + y)-(10 + x, 9 + y), cl
-    Line (30 + x, 9 + y)-(31 + x, 9 + y), cl
-    PSet (35 + x, 5 + y), cl: PSet (35 + x, 35 + y), cl
-    PSet (5 + x, 5 + y), cl: PSet (5 + x, 35 + y), cl
-    PSet (9 + x, 30 + y), cl: PSet (31 + x, 30 + y), cl
-    PSet (9 + x, 10 + y), cl: PSet (31 + x, 10 + y), cl
+    Line (6 + x, 4 + y)-(34 + x, 8 + y), ck, BF
+    Line (6 + x, 36 + y)-(34 + x, 32 + y), ck, BF
+    Line (4 + x, 6 + y)-(8 + x, 34 + y), ck, BF
+    Line (36 + x, 6 + y)-(32 + x, 34 + y), ck, BF
+    Line (9 + x, 9 + y)-(10 + x, 9 + y), ck
+    Line (30 + x, 9 + y)-(31 + x, 9 + y), ck
+    Line (9 + x, 31 + y)-(10 + x, 31 + y), ck
+    Line (30 + x, 31 + y)-(31 + x, 31 + y), ck
+    Line (9 + x, 9 + y)-(10 + x, 9 + y), ck
+    Line (30 + x, 9 + y)-(31 + x, 9 + y), ck
+    PSet (35 + x, 5 + y), ck: PSet (35 + x, 35 + y), ck
+    PSet (5 + x, 5 + y), ck: PSet (5 + x, 35 + y), ck
+    PSet (9 + x, 30 + y), ck: PSet (31 + x, 30 + y), ck
+    PSet (9 + x, 10 + y), ck: PSet (31 + x, 10 + y), ck
 End Sub
 
 Sub letterA
-    Line (4 + x, 6 + y)-(8 + x, 36 + y), cl, BF
-    Line (32 + x, 6 + y)-(36 + x, 36 + y), cl, BF
-    Line (4 + x, 18 + y)-(34 + x, 22 + y), cl, BF
-    Line (6 + x, 4 + y)-(34 + x, 8 + y), cl, BF
-    Line (30 + x, 9 + y)-(31 + x, 9 + y), cl
-    Line (9 + x, 9 + y)-(10 + x, 9 + y), cl
-    PSet (9 + x, 10 + y), cl: PSet (31 + x, 10 + y), cl
-    PSet (5 + x, 5 + y), cl: PSet (35 + x, 5 + y), cl
+    Line (4 + x, 6 + y)-(8 + x, 36 + y), ck, BF
+    Line (32 + x, 6 + y)-(36 + x, 36 + y), ck, BF
+    Line (4 + x, 18 + y)-(34 + x, 22 + y), ck, BF
+    Line (6 + x, 4 + y)-(34 + x, 8 + y), ck, BF
+    Line (30 + x, 9 + y)-(31 + x, 9 + y), ck
+    Line (9 + x, 9 + y)-(10 + x, 9 + y), ck
+    PSet (9 + x, 10 + y), ck: PSet (31 + x, 10 + y), ck
+    PSet (5 + x, 5 + y), ck: PSet (35 + x, 5 + y), ck
 End Sub
 
 Sub letterB
-    Line (4 + x, 9 + y)-(8 + x, 31 + y), cl, BF
-    Line (4 + x, 4 + y)-(34 + x, 8 + y), cl, BF
-    Line (4 + x, 36 + y)-(34 + x, 32 + y), cl, BF
-    Line (36 + x, 23 + y)-(32 + x, 34 + y), cl, BF
-    Line (32 + x, 6 + y)-(36 + x, 17 + y), cl, BF
-    Line (9 + x, 18 + y)-(34 + x, 22 + y), cl, BF
-    Line (30 + x, 17 + y)-(31 + x, 17 + y), cl
-    Line (30 + x, 23 + y)-(31 + x, 23 + y), cl
-    Line (30 + x, 9 + y)-(31 + x, 9 + y), cl
-    Line (30 + x, 31 + y)-(31 + x, 31 + y), cl
-    PSet (31 + x, 10 + y), cl: PSet (31 + x, 30 + y), cl
-    PSet (31 + x, 16 + y), cl: PSet (31 + x, 24 + y), cl
-    PSet (35 + x, 18 + y), cl: PSet (35 + x, 22 + y), cl
-    PSet (35 + x, 5 + y), cl: PSet (35 + x, 35 + y), cl
+    Line (4 + x, 9 + y)-(8 + x, 31 + y), ck, BF
+    Line (4 + x, 4 + y)-(34 + x, 8 + y), ck, BF
+    Line (4 + x, 36 + y)-(34 + x, 32 + y), ck, BF
+    Line (36 + x, 23 + y)-(32 + x, 34 + y), ck, BF
+    Line (32 + x, 6 + y)-(36 + x, 17 + y), ck, BF
+    Line (9 + x, 18 + y)-(34 + x, 22 + y), ck, BF
+    Line (30 + x, 17 + y)-(31 + x, 17 + y), ck
+    Line (30 + x, 23 + y)-(31 + x, 23 + y), ck
+    Line (30 + x, 9 + y)-(31 + x, 9 + y), ck
+    Line (30 + x, 31 + y)-(31 + x, 31 + y), ck
+    PSet (31 + x, 10 + y), ck: PSet (31 + x, 30 + y), ck
+    PSet (31 + x, 16 + y), ck: PSet (31 + x, 24 + y), ck
+    PSet (35 + x, 18 + y), ck: PSet (35 + x, 22 + y), ck
+    PSet (35 + x, 5 + y), ck: PSet (35 + x, 35 + y), ck
 End Sub
 
 Sub letterC
-    Line (6 + x, 4 + y)-(36 + x, 8 + y), cl, BF
-    Line (6 + x, 36 + y)-(36 + x, 32 + y), cl, BF
-    Line (4 + x, 6 + y)-(8 + x, 34 + y), cl, BF
-    Line (9 + x, 9 + y)-(10 + x, 9 + y), cl
-    Line (9 + x, 31 + y)-(10 + x, 31 + y), cl
-    PSet (9 + x, 10 + y), cl: PSet (9 + x, 30 + y), cl
-    PSet (5 + x, 5 + y), cl: PSet (5 + x, 35 + y), cl
+    Line (6 + x, 4 + y)-(36 + x, 8 + y), ck, BF
+    Line (6 + x, 36 + y)-(36 + x, 32 + y), ck, BF
+    Line (4 + x, 6 + y)-(8 + x, 34 + y), ck, BF
+    Line (9 + x, 9 + y)-(10 + x, 9 + y), ck
+    Line (9 + x, 31 + y)-(10 + x, 31 + y), ck
+    PSet (9 + x, 10 + y), ck: PSet (9 + x, 30 + y), ck
+    PSet (5 + x, 5 + y), ck: PSet (5 + x, 35 + y), ck
 End Sub
 
 Sub letterD
-    Line (4 + x, 4 + y)-(34 + x, 8 + y), cl, BF
-    Line (4 + x, 36 + y)-(34 + x, 32 + y), cl, BF
-    Line (4 + x, 4 + y)-(8 + x, 36 + y), cl, BF
-    Line (32 + x, 6 + y)-(36 + x, 34 + y), cl, BF
-    Line (30 + x, 9 + y)-(31 + x, 9 + y), cl
-    Line (30 + x, 31 + y)-(31 + x, 31 + y), cl
-    PSet (31 + x, 10 + y), cl: PSet (31 + x, 30 + y), cl
-    PSet (35 + x, 5 + y), cl: PSet (35 + x, 35 + y), cl
+    Line (4 + x, 4 + y)-(34 + x, 8 + y), ck, BF
+    Line (4 + x, 36 + y)-(34 + x, 32 + y), ck, BF
+    Line (4 + x, 4 + y)-(8 + x, 36 + y), ck, BF
+    Line (32 + x, 6 + y)-(36 + x, 34 + y), ck, BF
+    Line (30 + x, 9 + y)-(31 + x, 9 + y), ck
+    Line (30 + x, 31 + y)-(31 + x, 31 + y), ck
+    PSet (31 + x, 10 + y), ck: PSet (31 + x, 30 + y), ck
+    PSet (35 + x, 5 + y), ck: PSet (35 + x, 35 + y), ck
 End Sub
 
 Sub letterE
-    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
-    Line (4 + x, 18 + y)-(22 + x, 22 + y), cl, BF
-    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
-    Line (4 + x, 4 + y)-(8 + x, 36 + y), cl, BF
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), ck, BF
+    Line (4 + x, 18 + y)-(22 + x, 22 + y), ck, BF
+    Line (4 + x, 36 + y)-(36 + x, 32 + y), ck, BF
+    Line (4 + x, 4 + y)-(8 + x, 36 + y), ck, BF
 End Sub
 
 Sub letterF
-    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
-    Line (4 + x, 18 + y)-(22 + x, 22 + y), cl, BF
-    Line (4 + x, 4 + y)-(8 + x, 36 + y), cl, BF
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), ck, BF
+    Line (4 + x, 18 + y)-(22 + x, 22 + y), ck, BF
+    Line (4 + x, 4 + y)-(8 + x, 36 + y), ck, BF
 End Sub
 
 Sub letterG
-    Line (4 + x, 4 + y)-(36 + x, 8 + y), cl, BF
-    Line (20 + x, 18 + y)-(36 + x, 22 + y), cl, BF
-    Line (4 + x, 36 + y)-(36 + x, 32 + y), cl, BF
-    Line (4 + x, 9 + y)-(8 + x, 31 + y), cl, BF
-    Line (32 + x, 23 + y)-(36 + x, 31 + y), cl, BF
+    Line (4 + x, 4 + y)-(36 + x, 8 + y), ck, BF
+    Line (20 + x, 18 + y)-(36 + x, 22 + y), ck, BF
+    Line (4 + x, 36 + y)-(36 + x, 32 + y), ck, BF
+    Line (4 + x, 9 + y)-(8 + x, 31 + y), ck, BF
+    Line (32 + x, 23 + y)-(36 + x, 31 + y), ck, BF
 End Sub
 
 Sub letterH
-    Line (4 + x, 4 + y)-(8 + x, 36 + y), cl, BF
-    Line (32 + x, 4 + y)-(36 + x, 36 + y), cl, BF
-    Line (4 + x, 18 + y)-(34 + x, 22 + y), cl, BF
+    Line (4 + x, 4 + y)-(8 + x, 36 + y), ck, BF
+    Line (32 + x, 4 + y)-(36 + x, 36 + y), ck, BF
+    Line (4 + x, 18 + y)-(34 + x, 22 + y), ck, BF
 End Sub
 
 Sub letterI
-    Line (8 + x, 36 + y)-(32 + x, 32 + y), cl, BF
-    Line (18 + x, 31 + y)-(22 + x, 9 + y), cl, BF
-    Line (8 + x, 8 + y)-(32 + x, 3 + y), cl, BF
+    Line (8 + x, 36 + y)-(32 + x, 32 + y), ck, BF
+    Line (18 + x, 31 + y)-(22 + x, 9 + y), ck, BF
+    Line (8 + x, 8 + y)-(32 + x, 3 + y), ck, BF
 End Sub
 
 Sub letterJ
-    Line (6 + x, 36 + y)-(34 + x, 32 + y), cl, BF
-    Line (32 + x, 4 + y)-(36 + x, 34 + y), cl, BF
-    Line (4 + x, 18 + y)-(8 + x, 34 + y), cl, BF
-    Line (9 + x, 31 + y)-(10 + x, 31 + y), cl
-    Line (30 + x, 31 + y)-(31 + x, 31 + y), cl
-    PSet (9 + x, 30 + y), cl: PSet (31 + x, 30 + y), cl
-    PSet (5 + x, 35 + y), cl: PSet (35 + x, 35 + y), cl
+    Line (6 + x, 36 + y)-(34 + x, 32 + y), ck, BF
+    Line (32 + x, 4 + y)-(36 + x, 34 + y), ck, BF
+    Line (4 + x, 18 + y)-(8 + x, 34 + y), ck, BF
+    Line (9 + x, 31 + y)-(10 + x, 31 + y), ck
+    Line (30 + x, 31 + y)-(31 + x, 31 + y), ck
+    PSet (9 + x, 30 + y), ck: PSet (31 + x, 30 + y), ck
+    PSet (5 + x, 35 + y), ck: PSet (35 + x, 35 + y), ck
 End Sub
 
 Sub king
@@ -2401,7 +2401,7 @@ Sub xiangqi
                 dc2 = Int(Rnd * 10 + 1)
                 w2 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or dc1 < 3 Or dc2 > 8 Or Abs(w2 - b1) < 11
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or dc1 < 4 Or dc2 > 7 Or Abs(w2 - b1) < 11
     End Select
     Select Case dc6
         Case Is = 1
@@ -2505,7 +2505,7 @@ Sub xiangqi
                 dc5 = Int(Rnd * 10 + 1)
                 b2 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or dc5 < 3 Or dc5 > 8 Or Abs(b2 - w1) < 11
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or dc5 < 4 Or dc5 > 7 Or Abs(b2 - w1) < 11
     End Select
 
     Call xiangqicount
@@ -2639,7 +2639,7 @@ Sub xiangqi
                 dc2 = Int(Rnd * 10 + 1)
                 w3 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or dc1 < 3 Or dc2 > 8 Or Abs(w3 - b1) < 11
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or dc1 < 4 Or dc2 > 7 Or Abs(w3 - b1) < 11
     End Select
     Select Case dc6
         Case Is = 1
@@ -2743,7 +2743,7 @@ Sub xiangqi
                 dc5 = Int(Rnd * 10 + 1)
                 b3 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or dc5 < 3 Or dc5 > 8 Or Abs(b3 - w1) < 9
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or dc5 < 4 Or dc5 > 7 Or Abs(b3 - w1) < 11
     End Select
 
     Call xiangqicount
@@ -2879,7 +2879,7 @@ Sub xiangqi
                 dc2 = Int(Rnd * 10 + 1)
                 w4 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or dc1 < 3 Or dc2 > 8 Or Abs(w4 - b1) < 9
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or dc1 < 4 Or dc2 > 7 Or Abs(w4 - b1) < 11
     End Select
     Select Case dc6
         Case Is = 1
@@ -2983,7 +2983,7 @@ Sub xiangqi
                 dc5 = Int(Rnd * 10 + 1)
                 b4 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or dc5 < 3 Or dc5 > 8 Or Abs(b4 - w1) < 9
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or dc5 < 4 Or dc5 > 7 Or Abs(b4 - w1) < 11
     End Select
 
     Call xiangqicount

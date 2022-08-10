@@ -2398,7 +2398,7 @@ Sub xiangqi
                 dc2 = Int(Rnd * 10 + 1)
                 w2 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or dc1 < 3 Or dc2 > 8 Or Abs(w2 - b1) < 11
+            Loop While w2 = w1 Or w2 = b1 Or w2 = b2 Or dc1 < 4 Or dc2 > 7 Or Abs(w2 - b1) < 11
     End Select
     Select Case dc6
         Case Is = 1
@@ -2502,7 +2502,7 @@ Sub xiangqi
                 dc5 = Int(Rnd * 10 + 1)
                 b2 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or dc5 < 3 Or dc5 > 8 Or Abs(b2 - w1) < 11
+            Loop While b2 = b1 Or b2 = w1 Or b2 = w2 Or dc5 < 4 Or dc5 > 7 Or Abs(b2 - w1) < 11
     End Select
 
     Call xiangqicount
@@ -2636,7 +2636,7 @@ Sub xiangqi
                 dc2 = Int(Rnd * 10 + 1)
                 w3 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or dc1 < 3 Or dc2 > 8 Or Abs(w3 - b1) < 11
+            Loop While w3 = w1 Or w3 = w2 Or w3 = b1 Or w3 = b2 Or w3 = b3 Or dc1 < 4 Or dc2 > 7 Or Abs(w3 - b1) < 11
     End Select
     Select Case dc6
         Case Is = 1
@@ -2740,7 +2740,7 @@ Sub xiangqi
                 dc5 = Int(Rnd * 10 + 1)
                 b3 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or dc5 < 3 Or dc5 > 8 Or Abs(b3 - w1) < 9
+            Loop While b3 = b1 Or b3 = b2 Or b3 = w1 Or b3 = w2 Or b3 = w3 Or dc5 < 4 Or dc5 > 7 Or Abs(b3 - w1) < 11
     End Select
 
     Call xiangqicount
@@ -2876,7 +2876,7 @@ Sub xiangqi
                 dc2 = Int(Rnd * 10 + 1)
                 w4 = xiabo(dc2, dc1)
                 If count > 8000 Then Exit Do
-            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or dc1 < 3 Or dc2 > 8 Or Abs(w4 - b1) < 9
+            Loop While w4 = w1 Or w4 = w2 Or w4 = w3 Or w4 = b1 Or w4 = b2 Or w4 = b3 Or w4 = b4 Or dc1 < 4 Or dc2 > 7 Or Abs(w4 - b1) < 11
     End Select
     Select Case dc6
         Case Is = 1
@@ -2980,7 +2980,7 @@ Sub xiangqi
                 dc5 = Int(Rnd * 10 + 1)
                 b4 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or dc5 < 3 Or dc5 > 8 Or Abs(b4 - w1) < 9
+            Loop While b4 = b1 Or b4 = b2 Or b4 = b3 Or b4 = w1 Or b4 = w2 Or b4 = w3 Or b4 = w4 Or dc5 < 4 Or dc5 > 7 Or Abs(b4 - w1) < 11
     End Select
 
     Call xiangqicount
