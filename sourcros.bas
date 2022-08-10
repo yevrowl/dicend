@@ -2236,7 +2236,7 @@ Sub xiangqi
                 dc5 = Int(Rnd * 3 + 8)
                 w1 = xiabo(dc2, dc1): b1 = xiabo(dc5, dc4)
                 If count > 8000 Then Exit Do
-            Loop While w1 = b1
+            Loop While dc1 = dc4
         Case Is = 2
             Rem
         Case Is = 3
